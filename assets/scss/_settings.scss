@@ -1,0 +1,24 @@
+.c-settings{
+	max-width: 600px;
+	margin: 0 auto;
+}
+
+
+.o-setting-section-separator{
+	background-color: palette(grey);
+	padding: spacing(medium) spacing(medium) spacing(xx-small); 
+	font-size: fontsize(50);
+	color: palette(grey,dark);
+	@include allcaps;
+}
+
+.o-setting-list-item{
+	overflow: hidden;
+	padding: spacing(small) spacing(medium);
+	border-bottom: $default-border;
+}
+	
+	.o-setting-list-item--value{
+		float: right;
+		font-size: fontsize(200);
+	}

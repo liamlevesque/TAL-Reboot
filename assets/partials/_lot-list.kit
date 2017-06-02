@@ -1,0 +1,10 @@
+<div rv-if="talObject.activeTab | compare 'auction'">
+	<div class="l-width--1200">
+		<ul class="c-lot-list js--optiscroll-content">
+			<li rv-each-lot="talObject.lots">
+				<!-- @include '/assets/partials/lot-list-item' -->
+			</li>
+		</ul>
+	</div>
+</div>
+

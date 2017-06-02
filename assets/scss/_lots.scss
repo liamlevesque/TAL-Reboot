@@ -1,0 +1,80 @@
+.c-lot-list{
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+
+.o-lot{
+	padding: spacing(medium) 0;
+	border-bottom: $default-border;	
+	overflow: hidden;
+
+	&.s-high-bidder{
+
+	}
+
+	&.s-group-select{
+		margin-left: 40px;
+	}
+
+}
+	.lot--photo{
+		width: 100%;
+		max-width: 100%;
+	}
+
+	.lot-photos{
+		background-color: palette(grey,dark);
+
+		.swiper-container{
+			width: 100%;
+			max-height: 250px;
+		}
+
+		.swiper-slide-next{
+			
+		}
+
+		img{
+			display: block;
+			//width: 100%;
+			max-height: 250px;
+			max-width: 100%;
+			margin: 0 auto;
+		}
+	}
+
+	.lot--meta{
+		
+	}
+
+	.lot--bid-details{
+		
+		border: 1px solid black;
+
+	}
+
+		.bid-details--section{
+			padding: spacing(small) spacing(medium);
+			border-top: 1px solid black;
+
+			&:first-child{
+				border-top: none;
+			}
+
+			&.s-winning{
+				background-color: palette(affirmative);
+				color: white;
+			}
+		}
+			.bid-details--bid{
+				color: palette(brand);
+			}
+
+			.bid-details--closes{
+				font-size: fontsize(50);
+				margin-top: spacing(xx-small);
+			}
+
+
+

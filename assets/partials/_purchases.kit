@@ -1,0 +1,13 @@
+<div rv-if="talObject.activeTab | compare 'purchases'">
+	
+	<ul class="c-lot-list" rv-if="talObject.purchasedLots | lengthToBool">
+		<li rv-each-lot="talObject.purchasedLots">
+			<!-- @include '/assets/partials/lot-list-item' -->
+		</li>
+	</ul>
+
+	<div class="t-empty" rv-unless="talObject.purchasedLots | lengthToBool">
+		You haven't placed any bids yet! Get to work!!
+	</div>
+
+</div>

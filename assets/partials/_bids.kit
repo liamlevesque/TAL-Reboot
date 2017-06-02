@@ -1,0 +1,20 @@
+<div rv-if="talObject.activeTab | compare 'bids'">
+	<div class="l-width--1200">
+		<ul class="c-lot-list js--optiscroll-content" rv-if="talObject.biddingLots | lengthToBool">
+			<li rv-each-lot="talObject.biddingLots">
+				<div rv-unless="lot.type | compare 'group'">
+					<!-- @include '/assets/partials/lot-list-item' -->
+				</div>
+				<div rv-if="lot.type | compare 'group'">
+					<!-- @include '/assets/partials/group-bid-item' -->
+				</div>
+
+			</li>
+		</ul>
+
+		<div class="t-empty" rv-unless="talObject.biddingLots | lengthToBool">
+			You haven't placed any bids yet! Get to work!!
+		</div>
+	</div>
+
+</div>

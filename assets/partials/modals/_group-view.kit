@@ -1,0 +1,34 @@
+<div class="c-modal" rv-class-s-visible="talObject.groupViewModalVisible" rv-on-click="talController.dismissGroupViewModal">
+	<div class="c-modal--content" rv-on-click="talController.stopProp">
+		<div class="c-modal--header">
+			<button class="o-text-button_black m-header-left-button h-hide-desktop" rv-on-click="talController.dismissGroupViewModal">Back</button>
+			<h3 class="h3 h-d-inline-block">Group Bid</h3>
+			<h5 class="h6 h-hide-desktop">Bidder: {talObject.bidder} | Credit Remaining: <span class="CCY" rv-html="talObject.userprofile.credit | price"></span></h5>
+			<button class="o-icon-button--medium h-hide-mobile c-modal--close" rv-on-click="talController.dismissGroupViewModal">X</button>
+		</div>
+		
+		<div class="c-modal--body">
+			<div class="h-p-100">
+				<h4 class="h4">You want to win: <strong>{talObject.tempGroup.quantity} of {talObject.tempGroup.lots | length} lots</strong></h4>
+				<h4 class="h4">Bid up to: <span class="CCY" rv-html="talObject.tempGroup.maxbid | price"></span> on each lot</h4>
+			</div>
+			<div class="group-lot-list">
+				<ul>
+					<li class="group-lot" rv-each-grplot="talObject.tempGroup.lots" rv-on-click="talController.switchGroupFocusedLot" rv-data-index="index" rv-class-s-highbidder="grplot.bidder | compare talObject.bidder" rv-class-s-focused="grplot.lotNumber | compare talObject.focusedLot.lotNumber">
+						{grplot.lotNumber}
+						<div rv-unless="grplot.bid | compare 0" class="CCY" rv-html="grplot.bid | price"></div>
+					</li>
+				</ul>
+			</div>
+			<div>
+				<h4 class="h4">Lot {talObject.focusedLot.lotNumber}</h4>
+				<!-- @include '/assets/partials/modals/lot-detail-content' -->
+			</div>
+		</div>
+
+
+		<div class="c-modal--footer">
+			<button class="o-text-button h-hide-mobile" rv-on-click="talController.dismissGroupViewModal">Done</button>
+		</div>
+	</div>
+</div>

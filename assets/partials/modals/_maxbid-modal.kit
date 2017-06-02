@@ -1,0 +1,26 @@
+<div class="c-modal" rv-class-s-visible="talObject.maximumBidVisible" rv-on-click="talController.toggleMaximumBidVisible">
+	<div class="c-modal--content" rv-on-click="talController.stopProp">
+		<div class="c-modal--header">
+			<button class="o-text-button_black m-header-left-button h-hide-desktop" rv-on-click="talController.toggleMaximumBidVisible">Back</button>
+			<h3 class="h3 h-d-inline-block">Maximum Bid | Lot {talObject.focusedLot.lotNumber}</h3>
+			<h5 class="h6 h-hide-desktop">Bidder: {talObject.bidder} | Credit Remaining: <span class="CCY" rv-html="talObject.userprofile.credit | price"></span></h5>
+			<button class="o-icon-button--medium h-hide-mobile c-modal--close" rv-on-click="talController.toggleMaximumBidVisible">X</button>
+		</div>
+		<div class="c-modal--body">
+			
+			<div class="h-mt-100 h-p-100">
+				<p>Each time you are outbid on this lot we bid for you up to and including your chosen maximum bid.</p>
+				<a href="#" class="h-float-right">Learn More</a>
+				<div class="">
+					<span>Bid Up To</span>
+					<input type="text" class="o-input--text" placeholder="maximum bid" rv-value="talObject.tempMaxBid">
+					<p class="h-mt-100 h-ta-center">Current High Bid is <span class="CCY" rv-html="talObject.focusedLot.bid | price"></span></p>
+				</div>
+			</div>
+		</div>
+		<div class="c-modal--footer">
+			<button class="o-button h-float-right" rv-on-click="talController.setMaximumBid">Place Bid</button>
+			<button class="o-text-button h-hide-mobile" rv-on-click="talController.toggleMaximumBidVisible">Cancel</button>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,21 @@
+<div class="c-modal" rv-class-s-visible="talObject.lotDetailsVisible" rv-on-click="talController.toggleLotDetails">
+	<div class="c-modal--content" rv-on-click="talController.stopProp">
+		<div class="c-modal--header">
+			<button class="o-text-button_black m-header-left-button h-hide-desktop" rv-on-click="talController.toggleLotDetails">Back</button>
+			<h3 class="h3 h-d-inline-block">Lot {talObject.focusedLot.lotNumber}</h3>
+			<h5 class="h6 h-hide-desktop">Bidder: {talObject.bidder} | Credit Remaining: <span class="CCY" rv-html="talObject.userprofile.credit | price"></span></h5>
+			<button class="o-icon-button--medium h-hide-mobile c-modal--close" rv-on-click="talController.toggleLotDetails">X</button>
+		</div>
+
+		<div class="c-modal--body">	
+			<!-- @include '/assets/partials/modals/lot-detail-content' -->
+		</div>
+		<div class="c-modal--footer">
+			<button class="o-button--outline l-grid-half h-mb-50" rv-on-click="talController.toggleMaximumBidVisible">
+				<span rv-unless="talObject.focusedLot.maxBid | greaterthan 0">Set Maximum Bid</span>
+				<span rv-if="talObject.focusedLot.maxBid | greaterthan 0">Change Maximum Bid of <span class="CCY" rv-html="talObject.focusedLot.maxBid | price">}</span></span>
+			</button>
+			<button class="o-button l-grid-half h-mb-50" rv-hide="talObject.focusedLot.maxBid" rv-disabled="talObject.focusedLot.bidder | compare talObject.bidder" rv-on-click="talController.quickBid">Bid <span class="CCY" rv-html="talObject.focusedLot.bid | nextIncrement"></span></button>
+		</div>
+	</div>
+</div>

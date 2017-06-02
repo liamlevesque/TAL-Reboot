@@ -1,0 +1,107 @@
+$scroll-width: 10px;
+
+
+
+.optiscroll-v{
+	width: $scroll-width;
+	background-color: palette(grey);
+	transition: width $transition;
+	z-index: 91;
+
+	&:hover{
+		width: 2 * $scroll-width;
+	}
+}
+
+.optiscroll-vtrack{
+	width: 100%;
+	right: 0;
+	background-color: palette(active);
+	opacity: 1 !important;
+}
+
+$progress-indicator-height: 50px;
+
+.progress-indicator{
+	transform: rotateX(90deg) translateY(-50%);
+	position: absolute;
+	right: 25px;
+	z-index: 100;
+	transition: transform $transition;
+	pointer-events: none;
+	border-radius: 4px;
+
+	background-color: rgba(black,0.8);
+	color: white;
+	font-weight: 700;
+	padding: spacing(x-small) spacing(small);
+
+	// &:after{
+	// 	content: '';
+	// 	display: block;
+	// 	width: $progress-indicator-height * 0.72;
+	// 	height: $progress-indicator-height * 0.72;
+	// 	transform: rotate(45deg);
+	// 	position: absolute;
+	// 	right: ($progress-indicator-height * 0.72)/-2;
+	// 	top: $progress-indicator-height * 0.14;
+	// 	background-color: black;
+	// 	z-index: -1;
+	// }
+
+	.s-scrolling &{
+		transform: rotateX(0) translateY(-50%);
+	}
+}
+
+
+.auction-progress-meter{
+	position: absolute;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	width: 100px;
+	opacity: 0;
+	z-index: 90;
+	transition: opacity $transition;
+
+	.s-scrolling &{
+		opacity: 1;
+	}
+}
+
+	.auction-lot-intervals{
+		list-style-type: none;
+		margin: 0;
+		position: relative;
+		height: 100%;
+	}
+
+		.auction-lot-interval{
+			font-size: fontsize(50);
+			font-weight: 700;
+			position: absolute;
+			top: 0;
+			right: 25px;
+			background-color: rgba(white,0.5);
+			padding: 3px 5px;
+			border-radius: 10px;
+
+			@for $i from 0 through 6{
+			  	&:nth-child(#{$i + 1}){
+			    	top: 16.6% * $i;
+				}
+			}
+
+			&:last-child{
+				bottom: 0;
+				top: auto;
+			}
+		}
+
+
+
+
+
+
+

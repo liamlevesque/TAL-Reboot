@@ -1,0 +1,48 @@
+<div rv-if="talObject.activeTab | compare 'profile'">
+	<div class="c-settings">
+		<h2 class="h4">{talObject.userprofile.name}</h2>
+		<h3 class="h4">Bidder: {talObject.bidder}</h3>
+		<div class="o-setting-section-separator">Credit Information</div>
+		<div class="o-setting-list-item">
+			<label for="" class="t-smalllabel">Credit Remaining</label>
+			<span class="o-setting-list-item--value">{talObject.userprofile.credit}</span>
+		</div>
+		<div class="o-setting-list-item">
+			<label for="" class="t-smalllabel">Credit Spent</label>
+			<span class="o-setting-list-item--value">{talObject.userprofile.spent}</span>
+			<div rv-if="talObject.purchasedLots | lengthToBool"><a class="h-float-right h-color-brand" rv-on-click="talController.loadTab" data-tab="purchases">View Purchases</a></div>
+		</div>
+		<div class="o-setting-section-separator">Bidding Activity</div>
+		<div class="o-setting-list-item">
+			<label for="" class="t-smalllabel">Total Bids</label>
+			<span class="o-setting-list-item--value">{talObject.userprofile.bids}</span>
+			<div rv-if="talObject.watchingLots | lengthToBool"><a class="h-float-right h-color-brand" rv-on-click="talController.loadTab" data-tab="bids">View Bids</a></div>
+		</div>
+
+		<div class="o-setting-section-separator">Language Selection</div>
+		<div class="o-setting-list-item">
+			<select>
+				<option selected>English</option>
+				<option>Francais</option>
+				<option>Espanol (ES)</option>
+				<option>Espanol (MX)</option>
+				<option>Italiano</option>
+				<option>Deutsch</option>
+				<option>Nederland</option>
+			</select>
+		</div>
+		<div class="o-setting-section-separator">Notifications</div>
+		<div class="o-setting-list-item">
+			<label for="" class="t-smalllabel">E-mail Notifications</label>
+			<label class="h-float-right o-input--setting-toggle">
+				<input type="checkbox" class="o-input--toggle" rv-checked="dataObject.acceptsNotifications">
+				<div class="toggle-control"></div>
+			</label>
+		</div>
+		<div class="o-setting-list-item">
+			<label for="" class="t-smalllabel  l-grid-third">E-mail</label>
+			<input type="text" class="o-input--text l-grid-two-thirds" rv-value="talObject.userprofile.emailAddress" placeholder="e-mail address">
+		</div>
+	</div>
+
+</div>

@@ -1,0 +1,140 @@
+.group-lot-list{
+	background-color: palette(grey);
+	
+	ul{
+		margin: 0;
+		padding: 0;
+		list-style-type: none;
+		display: flex;
+		flex-direction: row;
+		padding: spacing(x-small) spacing(medium) 0;
+		overflow-x: auto;
+
+	}
+}
+
+	.group-lot{
+		background-color: palette(grey,x-light);
+		padding: spacing(xx-small) spacing(small);
+		min-width: 150px;
+		display: inline-block;
+		margin-right: spacing(x-small);
+		margin-bottom: spacing(x-small);
+		text-align: center;
+		border-radius: $default-border-radius;
+		position: relative;
+		cursor: pointer;
+		border: 3px solid transparent;
+
+		&.s-highbidder{
+			background-color: palette(affirmative);
+			color: white;
+		}
+
+		&.s-focused{
+			border-color: palette(brand);
+		}
+	}
+
+
+.group-range-selector{
+	position: relative;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+	$range-selected-size: 30px;
+
+	.group-range--values{
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+
+		li{
+			//flex: 1;
+			text-align: center;
+			background-color: transparent;
+			padding: spacing(x-small) spacing(small);
+			border-radius: 4px;
+			position: relative;
+			// width: $range-selected-size;
+			// height: $range-selected-size;
+			// border-radius: $range-selected-size/2;
+			//line-height: $range-selected-size;
+
+			&.s-selected{
+				font-size: fontsize(200);
+				color: palette(active);
+				background-color: palette(affirmative);
+				color: white;
+
+				&:after{
+					content: "";
+					position: absolute;
+					width: 0;
+					height: 0;
+					border-bottom: 6px solid palette(affirmative);
+					border-left: 5px solid transparent;
+					border-right: 5px solid transparent;
+					top: -6px;
+					left: 50%;
+					transform: translateX(-50%);
+				}
+			}
+
+			// &:first-child{
+			// 	text-align: left;
+			// }
+
+			// &:last-child{
+			// 	text-align: right;
+			// }
+		}
+	}
+
+
+	.range-output{ 
+		position: absolute;
+		background-color: palette(grey);
+		width: 40px; 
+		height: 30px; 
+		text-align: center; 
+		color: white; 
+		border-radius: $default-border-radius; 
+		display: inline-block; 
+		font: bold 15px/30px;
+		bottom: -30px;
+		left: 0;
+		margin-left: -1%;
+		line-height: 30px;
+		transform: translateX(-50%);
+	}
+	.range-output:after { 
+		content: "";
+		position: absolute;
+		width: 0;
+		height: 0;
+		border-bottom: 6px solid palette(grey);
+		border-left: 5px solid transparent;
+		border-right: 5px solid transparent;
+		top: -6px;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+
+.group-bid-item{
+
+}
+
+	.group-photos{
+		max-width: 100%;width: 100%;
+	}
+
+
+
+
+
+

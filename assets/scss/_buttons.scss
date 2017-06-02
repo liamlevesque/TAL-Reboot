@@ -1,0 +1,350 @@
+@mixin button-base{
+	font-weight: 700;
+	outline: none;
+	cursor: pointer;
+	user-select: none;
+	
+	min-height: $button-height;
+	border: 2px solid transparent;
+	padding: 8px spacing(medium);
+	position: relative;
+
+	&:disabled{
+		opacity: 0.4;
+		cursor: normal;
+		pointer-events: none;
+	}
+
+	&:before{
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		top: 100%;
+		transition: $transition;
+		line-height: $button-height;
+	}
+
+	&.s-loading{
+		pointer-events: none;
+
+		&:before{
+			content: "fetching updates...";
+			background-color: white;
+			color: palette(brand);
+			top: 0;
+		}
+
+		&:after{
+			display: block;
+			position: absolute;
+			content: " ";
+			left: 0;
+			right: 100%;
+			height: 4px;
+			bottom: 0;
+			background-color: palette(brand,dark);
+
+			animation-name: waitingslide;
+			animation-iteration-count: infinite;
+			animation-duration: 1s;
+			animation-direction: alternate;
+			animation-timing-function: linear;
+		}
+	}
+
+	&.s-success{
+		&:before{
+			content: "Done!";
+			top: 0;
+			background-color: palette(affirmative);
+			color: white;
+		}
+	}
+}
+
+@keyframes waitingslide{
+	0%{
+	  left: 0;
+	  right: 100%;
+	}
+
+	50%{
+	  left: 0;
+	  right: 0;
+	}
+
+	100%{
+	  left: 100%;
+	  right: 0;
+	}
+}
+
+@mixin button($text-color: white, $bg-color: palette(brand), $bg-hover: palette(brand,dark), $text-hover: white){
+	@include button-base;
+
+	position: relative;
+	display: inline-block;
+	border-radius: $default-border-radius;
+	font-size: fontsize(100);
+
+	background-color: $bg-color;
+	color: $text-color;
+
+	@include breakpoint(smallmax){
+		width: 100%;
+	}
+
+	&:hover{
+		background-color: $bg-hover;
+		color: $text-hover;
+	}
+
+	&:focus{
+		outline: none;
+		border-color: palette(contrast,dark);
+	}
+	
+}
+
+@mixin text-button($text-color: white, $text-hover: white, $font-size:100){
+	@include button-base;
+	
+	font-size: fontsize($font-size);
+	background-color: transparent;
+	color: $text-color;
+
+	&:hover, &:focus{
+		color: $text-hover;
+	}
+}
+
+@mixin icon-button($text-color: white, $text-hover: white, $font-size:15px){
+  @include button-base;
+  
+  padding: 2px;
+  font-size: $font-size;
+  background-color: transparent;
+  color: $text-color;
+
+  &:hover, &:focus{
+    color: $text-hover;
+  }
+}
+  .o-icon-button--sort{
+    @include icon-button(palette(grey,dark),black,$icon-small);
+    height: auto;
+    
+    .s-sort-asc &{
+      transform: rotate(180deg);
+    }
+  }
+
+  .o-icon-button--small{
+    @include icon-button(palette(grey,dark),black,$icon-small);
+    height: auto;
+  }
+
+   .o-icon-button--medium{
+    @include icon-button(palette(grey,dark),black,$icon-medium);
+    height: auto;
+  }
+
+  .o-icon-label-button{
+	@include icon-button(palette(grey,dark),black,$icon-medium);
+	height: auto;
+	padding: spacing(x-small);
+	position: relative;
+
+	&.s-active{
+		background-color: palette(active);
+		color: white;
+	}
+
+	$badge-size: 20px;
+
+	.badge--count, .badge--count_cart{
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: $badge-size;
+		height: $badge-size;
+		background-color: palette(brand);
+		color: white;
+		text-align: center;
+		border-radius: 50%;
+		font-size: $badge-size - 5px;
+	}
+
+	.badge--count_cart{
+		border-radius: 0;
+	}
+
+	i{
+		margin-bottom: spacing(x-small);
+	}
+
+  	label{
+  		display: block;
+  		text-align: center;
+  		font-size: fontsize(30);
+  		
+  		@include breakpoint(small){
+  			font-size: fontsize(50);
+  		}
+  	}
+  }
+
+	.o-icon-button--toggle-round{
+		@include icon-button(white,white,14px);
+		text-align: center;
+		width: 35px;
+		height: 35px;
+		background-color: palette(affirmative);
+		border-radius: 50%;
+		position: relative;
+		
+		&:hover{
+			background-color: palette(affirmative,dark);
+		}
+
+		&.s-disabled{
+			background-color: palette(error);
+
+			&:after{
+				content: "";
+				display: block;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				width: 30px;
+				height: 2px;
+				background-color: white;
+				box-shadow: 2px 2px 0 1px palette(error);
+				transform: translate(-55%,-50%) rotate(-45deg);
+			}
+
+			&:hover{
+				background-color: palette(error,dark);				
+			}
+		}
+	}
+
+  .o-button--icon_large{
+    font-size: 20px;
+    color: palette(grey,dark);
+    cursor: pointer;
+    padding: spacing(small);
+
+    &:hover{
+      color: palette(brand);
+    }
+  }
+
+.o-button{
+	@include button();
+}
+
+.o-button--contrast{
+	@include button(white, palette(contrast), palette(contrast,dark));
+}
+
+.o-button--light{
+	@include button(palette(contrast), white, palette(contrast));
+}
+
+.o-button--light_on-orange{
+	@include button(palette(contrast), white, palette(contrast,dark));
+}
+
+.o-button_error{
+	@include button(white, palette(error), palette(error,dark));
+}
+
+.o-button_affirmative{
+	@include button(white, palette(affirmative), palette(affirmative,dark));
+}
+
+
+.o-button--outline{
+	@include button(palette(brand), transparent, palette(brand), white);
+	border-color: palette(brand);
+}
+
+.o-button--outline_error{
+	@include button(palette(error), transparent, palette(error), white);
+	border-color: palette(error);
+}
+
+.o-button--outline_grey{
+	@include button(palette(grey,dark), transparent, palette(brand), white);
+	border-color: palette(grey,dark);
+}
+
+.o-button--outline_white{
+	@include button(white, transparent, white, palette(brand));
+	border-color: white;
+}
+
+@mixin outline-button($height: 40px, $border-width: 1px, $font-size: 80, $color: palette(grey,dark), $border-color: palette(grey,dark)){
+	@include button($color, transparent, $color, white);
+	height: auto;
+	padding: 0 spacing(small);
+	line-height: $height;
+	font-size: fontsize($font-size);
+	border-width: $border-width;
+	border-color: $border-color;
+}
+
+.o-button--outline-small_grey{
+	@include outline-button();
+}
+
+.o-button--outline-small_error{
+	@include outline-button(40px,1px,80,palette(error),palette(error));
+}
+
+
+
+.o-text-button{
+	@include text-button(palette(brand),palette(brand,dark),50);
+}
+
+.o-text-button_white{
+	@include text-button(white,palette(brand),50);
+}
+
+.o-text-button_black{
+	@include text-button(black,palette(brand),50);
+}
+
+.o-text-button_error{
+	@include text-button(palette(error),palette(error,dark),50);
+}
+
+.o-text-button--large{
+	@include text-button(palette(brand),palette(brand,dark));
+}
+
+.o-text-button--large_white{
+	@include text-button(white,palette(brand));
+}
+
+.o-button--combo-item{
+	@include text-button(palette(grey,dark),palette(brand),50);
+	display: block;
+	width: 100%;
+	text-align: left;
+	border-bottom: $default-border;
+
+	&:last-child{
+		border-bottom: none;
+	}
+
+	&:hover{
+		background-color: rgba(palette(active),0.1);
+	}
+}
+
+

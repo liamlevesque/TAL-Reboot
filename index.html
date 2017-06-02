@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>RB TIMED AUCTION</title>
+    <link type="text/css" rel="stylesheet" href="assets/css/style.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body class="body js--tal CAD">
+	
+	<div class="l-header">
+		<header> 
+			<div class="logo" rv-on-click="talController.loadTab" data-tab="auction">
+				 <svg version="1.1" id="rba-header-logo-svg" class="s-active" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" height="46" enable-background="new 0 0 162 40.25" xml:space="preserve">
+		            <g>
+		                <g>
+		                    <path fill="#E87511" d="M21.9,10.9c4.9,0,8.9,4,8.9,8.9c0,4.9-4,8.9-8.9,8.9c-4.9,0-8.9-4-8.9-8.9c0-2.3,0-19.8,0-19.8l4.6,0 l0,19.7c0,2.5,2,4.5,4.5,4.5c2.5,0,4.5-2,4.5-4.5c0-2.5-2-4.5-4.5-4.5h-2.3l0-4.4L21.9,10.9z"></path>
+		                    <path fill="#E87511" d="M4.5,15.6c0-0.2,0.2-0.3,0.3-0.3l6.1,0l0-4.3c0,0-7.3,0-7.5,0c-1.9,0-3.4,1.5-3.4,3.4c0,0.1,0,14.1,0,14.1 h4.5L4.5,15.6z"></path>
+		                </g>
+		                <g class="logo-hide-small">
+		                    <path fill="#000000" d="M84.9,34.2c-0.7,0-1.2-0.5-1.2-1.2c0-0.7,0.6-1.2,1.2-1.2c0.7,0,1.2,0.5,1.2,1.2C86.1,33.7,85.6,34.2,84.9,34.2z M84.9,31.9c-0.6,0-1,0.5-1,1.1c0,0.6,0.4,1.1,1,1.1c0.6,0,1-0.5,1-1.1C85.9,32.4,85.5,31.9,84.9,31.9z M85.2,33.7 c0-0.1-0.1-0.1-0.1-0.2c-0.1-0.2-0.1-0.2-0.2-0.3c0,0-0.1-0.1-0.1-0.1v0.6h-0.2v-1.4h0.4c0.2,0,0.3,0,0.3,0.1 c0.1,0.1,0.1,0.1,0.1,0.3c0,0.2-0.1,0.4-0.4,0.4c0.1,0,0.1,0.1,0.1,0.1c0,0,0.1,0.1,0.1,0.2l0.2,0.3H85.2z M85,32.5 c0,0-0.1,0-0.2,0h-0.1v0.5h0.1c0.1,0,0.2,0,0.2-0.1c0,0,0.1-0.1,0.1-0.2C85.1,32.6,85.1,32.5,85,32.5z"></path>
+		                    <path fill="#000000" d="M80.3,37.8c0.2,0.1,0.7,0.3,1.3,0.3c0.5,0,0.8-0.1,0.8-0.5c0-0.2-0.1-0.4-0.6-0.7l-0.5-0.3c-0.5-0.3-1.1-0.6-1.1-1.5 c0-0.7,0.7-1.5,1.8-1.5c0.7,0,1.2,0.2,1.3,0.2l-0.1,1c-0.3-0.1-0.7-0.2-1.1-0.2c-0.5,0-0.7,0.2-0.7,0.5c0,0.3,0.2,0.4,0.6,0.7 l0.6,0.4c0.7,0.4,1,0.7,1,1.3c0,1-0.8,1.5-1.9,1.5c-0.6,0-1.2-0.2-1.5-0.3L80.3,37.8z M77.1,34.7c0-0.3,0-0.6,0-0.9h1.1 c0,0.3,0,0.6,0,1h0c0.2-0.4,0.6-1,1.3-1c0.1,0,0.1,0,0.2,0v1.2c-0.1,0-0.2,0-0.4,0c-0.5,0-1.1,0.3-1.1,1.3V39h-1.3V34.7z M75.1,36 c0-0.9-0.3-1.4-0.9-1.4c-0.7,0-0.9,0.7-0.9,1.4H75.1z M76,38.8c-0.3,0.1-0.8,0.3-1.6,0.3c-1.7,0-2.4-1.2-2.4-2.6 c0-1.6,0.8-2.8,2.1-2.8c1.1,0,2.1,0.7,2.1,2.8v0.2h-3c0,0.9,0.4,1.4,1.3,1.4c0.8,0,1.1-0.2,1.4-0.4L76,38.8z M70.1,36 c0-0.9-0.3-1.4-0.9-1.4c-0.7,0-0.9,0.7-0.9,1.4H70.1z M71.1,38.8c-0.3,0.1-0.8,0.3-1.6,0.3c-1.7,0-2.4-1.2-2.4-2.6 c0-1.6,0.8-2.8,2.2-2.8c1.1,0,2.1,0.7,2.1,2.8v0.2h-3c0,0.9,0.4,1.4,1.3,1.4c0.8,0,1.1-0.2,1.4-0.4L71.1,38.8z M62.2,34.7 c0-0.3,0-0.6,0-0.9h1.2c0,0.3,0,0.5,0,0.8h0h0c0.2-0.3,0.5-0.9,1.4-0.9c1.2,0,1.5,0.9,1.5,1.9V39H65v-3.1c0-0.8-0.2-1.1-0.7-1.1 c-0.7,0-0.9,0.6-0.9,1.2v3h-1.3V34.7z M59,38.2c0.8,0,1-0.9,1-1.8c0-0.9-0.2-1.8-1-1.8c-0.8,0-1,0.9-1,1.8 C58,37.3,58.2,38.2,59,38.2 M59,33.7c1.1,0,2.3,0.6,2.3,2.7c0,2.2-1.2,2.7-2.3,2.7c-1.1,0-2.3-0.5-2.3-2.7 C56.7,34.3,58,33.7,59,33.7 M54.5,33.8h1.3V39h-1.3V33.8z M54.5,31.6h1.3v1.2h-1.3V31.6z M51.4,32.7l1.3-0.4v1.5h1v0.9h-1v2.7 c0,0.6,0.2,0.7,0.6,0.7c0.2,0,0.4-0.1,0.5-0.1v0.9c-0.2,0.1-0.5,0.2-0.8,0.2c-0.9,0-1.5-0.4-1.5-1.5V32.7z M50.8,38.9 c-0.3,0.1-0.7,0.2-1.2,0.2c-1.7,0-2.5-1.2-2.5-2.7c0-1.5,0.8-2.7,2.5-2.7c0.4,0,0.9,0.1,1.1,0.2l-0.1,1c-0.2-0.1-0.5-0.2-0.9-0.2 c-1,0-1.4,0.6-1.4,1.7c0,1,0.5,1.7,1.4,1.7c0.3,0,0.7-0.1,0.9-0.3L50.8,38.9z M46.2,38.2c0,0.3,0,0.6,0,0.9h-1.2c0-0.3,0-0.5,0-0.8 l0,0l0,0c-0.2,0.4-0.6,0.9-1.4,0.9c-1.2,0-1.5-0.9-1.5-1.9v-3.4h1.3v3.1c0,0.8,0.2,1.1,0.7,1.1c0.7,0,0.9-0.6,0.9-1.3v-3h1.3V38.2z M39.5,36.3L38.6,33h0l-1,3.3H39.5z M39.8,37.3h-2.4L36.8,39h-1.3l2.4-7.1h1.4l2.3,7.1h-1.3L39.8,37.3z M158.4,25.1 c-0.4,0.4-0.6,0.9-0.6,1.5c0,0.6,0.2,1.1,0.6,1.5c0.4,0.4,0.9,0.6,1.5,0.6c0.6,0,1.1-0.2,1.5-0.6c0.4-0.4,0.6-0.9,0.6-1.4 c0-0.6-0.2-1.1-0.6-1.5c-0.4-0.4-0.9-0.6-1.5-0.6C159.3,24.5,158.8,24.7,158.4,25.1 M152.9,10.6c-1.1,0-2.1,0.2-2.8,0.5 c-0.8,0.3-1.4,0.9-2,1.6c-0.8,1-1.2,2.2-1.2,3.5c0,1,0.3,2,0.8,2.8c0.7,1.1,1.9,1.8,3.7,2.3c1,0.2,1.6,0.4,1.9,0.6 c0.6,0.3,0.9,0.8,0.9,1.5c0,0.6-0.2,1.1-0.7,1.5c-0.4,0.4-1,0.6-1.8,0.6c-1.2,0-2.7-0.4-4.5-1.2v3.7c1.7,0.6,3.2,0.9,4.5,0.9 c1.8,0,3.2-0.4,4.3-1.3c1.3-1.1,1.9-2.5,1.9-4.2c0-1.4-0.5-2.7-1.4-3.6c-0.4-0.4-0.8-0.7-1.3-0.9c-0.5-0.2-1.3-0.5-2.4-0.8 c-0.9-0.2-1.5-0.5-1.8-0.8c-0.3-0.3-0.5-0.7-0.5-1.2c0-0.5,0.2-1,0.6-1.4c0.4-0.4,1.1-0.6,1.9-0.6c1,0,2.1,0.3,3.4,0.9v-3.7 C155.1,10.7,154,10.6,152.9,10.6 M131.6,12.8c-2.1,1.8-3.1,4.1-3.1,6.8c0,1.6,0.4,3.1,1.2,4.5c0.8,1.4,2,2.6,3.5,3.4 c1.4,0.8,2.8,1.1,4.4,1.1c1.6,0,3-0.4,4.4-1.1c1.4-0.8,2.5-1.9,3.4-3.2c0.9-1.4,1.3-3,1.3-4.6c0-2.6-0.9-4.7-2.6-6.5 c-1.8-1.8-3.9-2.7-6.4-2.7C135.3,10.6,133.3,11.3,131.6,12.8 M141.3,15.5c1.2,1.1,1.8,2.5,1.8,4.2c0,1.3-0.4,2.5-1.3,3.6 c-1.1,1.3-2.5,2-4.1,2c-1.4,0-2.6-0.5-3.6-1.4c-1.3-1.1-1.9-2.5-1.9-4.2c0-1.4,0.4-2.6,1.4-3.7c1.1-1.3,2.5-1.9,4.2-1.9 C139.1,14.1,140.3,14.6,141.3,15.5 M120.4,28.4v-8.2c0.1,0.5,0.3,0.9,0.6,1.1c0.3,0.2,0.8,0.3,1.4,0.3l0.4,0c0.6,0,1,0.1,1.2,0.3 c0.2,0.2,0.3,0.6,0.3,1.2v5.3h3.6v-5.6c0-1.8-0.6-2.9-1.9-3.2c1.2-1.1,1.7-2.3,1.7-3.7c0-1.7-0.7-3.1-2.1-4.1 c-0.5-0.3-1-0.6-1.5-0.7c-0.5-0.1-1.1-0.2-1.9-0.2h-1.9c-0.8,0-1.4,0-1.7,0.1c-0.3,0.1-0.7,0.3-1,0.5c-0.4,0.3-0.6,0.7-0.7,1.1 c-0.1,0.4-0.2,1-0.2,1.9v13.9H120.4z M122,14.3c0.7,0,1.3,0.2,1.6,0.5c0.4,0.3,0.6,0.8,0.6,1.4c0,0.4-0.1,0.9-0.4,1.2 c-0.3,0.4-0.8,0.6-1.5,0.7c-0.7,0.1-1.2,0.2-1.4,0.4c-0.3,0.2-0.4,0.6-0.5,1.2v-5.4H122z M109.9,14.3c0.6,0,1.1,0.2,1.4,0.4 c0.4,0.3,0.5,0.7,0.5,1.2c0,0.5-0.2,0.9-0.6,1.3c-0.3,0.2-0.7,0.3-1.4,0.3h-1.2v-3.2H109.9z M115,17.2c0.3-0.5,0.4-1.2,0.4-1.8 c0-0.9-0.2-1.7-0.7-2.4c-0.5-0.7-1.1-1.3-1.9-1.6c-0.8-0.3-2-0.5-3.8-0.5c-0.8,0-1.4,0.1-1.8,0.2c-0.4,0.1-0.8,0.3-1.1,0.6 c-0.3,0.3-0.6,0.7-0.7,1.1c-0.1,0.4-0.2,1.1-0.2,1.9v9.6c0,0.9,0.1,1.6,0.2,2.1c0.1,0.5,0.4,0.9,0.7,1.2c0.4,0.3,0.8,0.5,1.2,0.7 c0.5,0.1,1.2,0.2,2.3,0.2c1.4,0,2.4-0.1,2.9-0.2c1.1-0.3,2-0.9,2.8-1.8c0.6-0.9,1-1.8,1-2.9c0-0.7-0.1-1.3-0.4-2 c-0.3-0.6-0.6-1.2-1.1-1.7c-0.3-0.3-0.7-0.6-1.2-0.9C114.3,18.4,114.7,17.8,115,17.2 M109.9,20.9c0.6,0,1,0,1.2,0 c0.2,0,0.4,0.1,0.6,0.2c0.3,0.2,0.6,0.4,0.8,0.7c0.2,0.3,0.3,0.7,0.3,1c0,0.8-0.3,1.4-1,1.7c-0.3,0.1-0.5,0.2-0.7,0.2 c-0.2,0-0.6,0-1.2,0h-1.2v-4H109.9z M95.4,10.9c-1.3,0-2.2,0.3-2.8,0.8c-0.6,0.6-0.8,1.5-0.8,2.9v10.1c0,0.7,0.1,1.2,0.2,1.6 c0.1,0.4,0.3,0.8,0.6,1.1c0.3,0.4,0.7,0.6,1.1,0.8c0.4,0.1,1,0.2,1.8,0.2h5.1V25h-5.2v-4h4.8v-3.3h-4.8v-3.3h5.2v-3.4H95.4z M86.8,28.4h3.6V10.9h-3.6V28.4z M81.9,10.9v6.8h-5.5v-6.8h-3.6v17.5h3.6V21h5.5v7.4h3.6V10.9H81.9z M71.8,10.9h-1.2 c-1,0-1.8,0.1-2.4,0.2c-1.8,0.4-3.4,1.3-4.6,2.6c-1.5,1.7-2.3,3.6-2.3,5.9c0,2,0.6,3.7,1.8,5.3c1.2,1.5,2.7,2.6,4.5,3.1 c0.8,0.2,1.8,0.3,3.2,0.3h1V25h-1c-1.1,0-2-0.2-2.7-0.5c-0.7-0.3-1.4-0.8-2-1.5c-0.8-1-1.2-2.1-1.2-3.4c0-0.9,0.2-1.8,0.7-2.6 c0.4-0.7,0.9-1.3,1.6-1.8c0.5-0.4,1-0.6,1.6-0.8c0.5-0.1,1.2-0.2,2-0.2h1.1V10.9z M52.2,10.9v3.4h3.3v14.1h3.6V14.3h3.3v-3.4H52.2z M47.7,28.4h3.6V10.9h-3.6V28.4z M39.2,28.4v-8.2c0.1,0.5,0.3,0.9,0.6,1.1c0.3,0.2,0.8,0.3,1.4,0.3l0.4,0c0.6,0,1,0.1,1.3,0.3 c0.2,0.2,0.3,0.6,0.3,1.2v5.3h3.6v-5.6c0.1-1.8-0.6-2.9-1.9-3.2c1.2-1.1,1.7-2.3,1.7-3.7c0-1.7-0.7-3.1-2.1-4.1 c-0.5-0.3-1-0.6-1.5-0.7c-0.5-0.1-1.1-0.2-1.9-0.2h-1.9c-0.8,0-1.4,0-1.7,0.1c-0.3,0.1-0.7,0.3-1,0.5c-0.4,0.3-0.6,0.7-0.7,1.1 c-0.1,0.4-0.2,1-0.2,1.9v13.9H39.2z M40.8,14.3c0.7,0,1.3,0.2,1.6,0.5c0.4,0.3,0.6,0.8,0.6,1.4c0,0.4-0.1,0.9-0.4,1.2 c-0.3,0.4-0.8,0.6-1.5,0.7c-0.7,0.1-1.2,0.2-1.4,0.4c-0.3,0.2-0.4,0.6-0.5,1.2v-5.4H40.8z"></path>
+		                </g>
+		            </g>
+		        </svg>
+			</div>
+			<div class="l-header--auction">
+				<h1 class="h3">Edmonton, AB, CAN</h1>
+				<h5 class="h6 h-hide-desktop">Lot {talObject.closingNext} closes next</h5>
+			</div>
+		
+			<div class="h-float-right h-hide-mobile">
+				<button class="o-icon-label-button m-grid-fifth" rv-on-click="talController.loadTab" data-tab="watching">
+					<i class="icon-eye"></i>
+					<label>Watching</label>
+					<div class="badge--count" rv-if="talObject.watchingLots | lengthToBool">{talObject.watchingLots | length}</div>
+				</button>
+				<button class="o-icon-label-button m-grid-fifth" rv-on-click="talController.loadTab" data-tab="bids">
+							<i class="icon-bids"></i>
+							<label>Bids</label>
+							<div class="badge--count" rv-if="talObject.biddingLots | lengthToBool">{talObject.biddingLots | length}</div>
+						</button>
+				<button class="o-icon-label-button m-grid-fifth" rv-on-click="talController.loadTab" data-tab="purchases">
+									<i class="icon-cart"></i>
+									<label>Purchases</label>
+									<div class="badge--count_cart" rv-if="talObject.purchasedLots | lengthToBool">{talObject.purchasedLots | length}</div>
+								</button>
+				<button class="o-icon-label-button m-grid-fifth" rv-on-click="talController.loadTab" data-tab="profile">
+											<i class="icon-user"></i>
+											<label>Profile</label>
+										</button>
+			</div>
+			
+		</header>
+		
+				
+		<div class="l-width--800">
+			<button class="o-button--outline m-grid-fifth l-grid-quarter"><span class="h-hide-mobile">Categories<i class="icon-arrow-down h-ml-100"></i></span><span class="h-hide-desktop">=</span>
+			</button>
+			<input type="text" class="o-input--text_inline m-grid-three-fifths l-grid-half" placeholder="find by lot # or keyword">
+			<button class="o-button h-hide-mobile">Search</button>
+		
+			<button class="o-text-button h-hide-desktop m-grid-fifth l-grid-quarter">Sort</button>
+		</div>	
+	</div>
+	
+	<div class="l-main-container optiscroll">
+		<div rv-if="talObject.activeTab | compare 'auction'">
+			<div class="l-width--1200">
+				<ul class="c-lot-list js--optiscroll-content">
+					<li rv-each-lot="talObject.lots">
+						<div class="o-lot" rv-class-s-high-bidder="lot.bidder | compare talObject.bidder" rv-on-click="talController.toggleLotDetails" rv-class-s-group-select="talObject.isGroupChoosing">
+							
+							<input type="checkbox" rv-show="talObject.isGroupChoosing" class="lot--group-selector" rv-on-click="talController.addToGroup" rv-ischecked="lot.group | indexof talObject.tempGroup.uid">
+						
+							<div class="l-grid-third m-grid-quarter">
+								<img rv-src="lot.photo" class="lot--photo">
+								<h3 class="h3 h-hide-desktop">Lot {lot.lotNumber}</h3>
+							</div>
+						
+							<div class="l-grid-two-thirds  m-grid-three-quarters">
+								
+								<div class="l-grid-half">
+									<div class="h-mb-100">
+										<h3 class="h3 h-hide-mobile">Lot {lot.lotNumber}</h3>
+										<h3 class="h3">{lot.description}</h3>
+									</div>
+									<div>
+										<div class="lot--meta">
+											<div class="meta--field h-mb-50" rv-if="lot.usage"><label class="t-smalllabel">Meter: </label><span>{lot.usage}</span></div>
+											<div class="meta--field h-mb-50" rv-if="lot.equipid"><label class="t-smalllabel">Serial: </label><span>{lot.equipid}</span></div>
+											<div class="meta--field h-mb-50 h-hide-mobile" rv-if="lot.comeswith"><label class="t-smalllabel">Comes With: </label><span>{lot.comeswith}</span></div>
+											<div class="meta--field h-mb-50 h-hide-mobile" rv-if="lot.notes"><label class="t-smalllabel">Notes: </label><span>{lot.notes}</span></div>
+										</div>
+									</div>
+								</div>
+								<div class="lot--bid-details l-grid-half h-hide-mobile" rv-on-click="talController.stopProp">
+									<div>
+										<button class="l-grid-half o-icon-label-button" rv-on-click="talController.watchLot" rv-class-s-active="lot.watching | indexof talObject.bidder">
+											<i class="icon-eye"></i><label for="">Watch<span rv-if="lot.watching | indexof talObject.bidder">ing</span></label>
+										</button>
+										
+										<button class="l-grid-half o-icon-label-button" rv-if="lot.group | lengthand talObject.isGroupChoosing" rv-on-click="talController.showGroupViewModalFromLot">View Group</button>
+						
+										<button class="l-grid-half o-icon-label-button" rv-unless="lot.group | lengthand talObject.isGroupChoosing" rv-on-click="talController.createGroupBid" rv-class-s-active="lot.group | indexof talObject.tempGroup.uid">
+											<i class="icon-group"></i>
+											<label rv-unless="talObject.isGroupChoosing">Group Bid</label>
+											<span rv-if="talObject.isGroupChoosing">
+												<label rv-unless="lot.group | indexof talObject.tempGroup.uid">Add To Group</label>
+												<label rv-if="lot.group | indexof talObject.tempGroup.uid">Remove from Group</label>
+											</span>
+										</button>
+									</div>
+									
+									<div class="bid-details--section h-ta-center">
+										{lot.closes | countdownTime} 
+										<div class="bid-details--closes h-hide-mobile">{lot.closes | calendarTime}</div>
+									</div>
+									
+									<div class="bid-details--section bid-details--bid" rv-class-s-winning="lot.bidder | compare talObject.bidder">
+										<div rv-unless="lot.bid | compare 0">
+											<label class="t-smalllabel">
+												<span rv-unless="lot.bidder | compare talObject.bidder">High Bid</span>
+												<span rv-if="lot.bidder | compare talObject.bidder">Top Bidder</span>
+											</label>
+											<span class="CCY h-float-right" rv-html="lot.bid | price"></span>
+										</div>
+										<div rv-if="lot.bid | compare 0" class="t-empty h-ta-center">
+											No Bids Placed Yet
+										</div>
+									</div>
+									
+									<div class="bid-details--section" rv-unless="lot.group | lengthand talObject.isGroupChoosing">
+										<button class="o-button--outline h-mb-50 h-width-100" rv-on-click="talController.toggleMaximumBidVisible">
+											<span rv-unless="lot.maxBid | greaterthan 0">Set Maximum Bid</span>
+											<span rv-if="lot.maxBid | greaterthan 0">Change Maximum Bid of <span class="CCY" rv-html="lot.maxBid | price">}</span></span>
+										</button>
+										<button class="o-button h-width-100" rv-hide="lot.maxBid" rv-disabled="lot.bidder | compare talObject.bidder" rv-on-click="talController.quickBid">Bid <span class="CCY" rv-html="lot.bid | nextIncrement"></span></button>
+									</div>
+									<div class="bid-details--section" rv-if="lot.group | lengthand talObject.isGroupChoosing">
+										<button class="o-button--outline h-mb-50 h-width-100" rv-on-click="talController.showGroupViewModalFromLot">
+											View or Edit This Group
+										</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		
+		<div rv-if="talObject.activeTab | compare 'watching'">
+					
+					<ul class="c-lot-list" rv-if="talObject.watchingLots | lengthToBool">
+						<li rv-each-lot="talObject.watchingLots">
+							<div class="o-lot" rv-class-s-high-bidder="lot.bidder | compare talObject.bidder" rv-on-click="talController.toggleLotDetails" rv-class-s-group-select="talObject.isGroupChoosing">
+								
+								<input type="checkbox" rv-show="talObject.isGroupChoosing" class="lot--group-selector" rv-on-click="talController.addToGroup" rv-ischecked="lot.group | indexof talObject.tempGroup.uid">
+							
+								<div class="l-grid-third m-grid-quarter">
+									<img rv-src="lot.photo" class="lot--photo">
+									<h3 class="h3 h-hide-desktop">Lot {lot.lotNumber}</h3>
+								</div>
+							
+								<div class="l-grid-two-thirds  m-grid-three-quarters">
+									
+									<div class="l-grid-half">
+										<div class="h-mb-100">
+											<h3 class="h3 h-hide-mobile">Lot {lot.lotNumber}</h3>
+											<h3 class="h3">{lot.description}</h3>
+										</div>
+										<div>
+											<div class="lot--meta">
+												<div class="meta--field h-mb-50" rv-if="lot.usage"><label class="t-smalllabel">Meter: </label><span>{lot.usage}</span></div>
+												<div class="meta--field h-mb-50" rv-if="lot.equipid"><label class="t-smalllabel">Serial: </label><span>{lot.equipid}</span></div>
+												<div class="meta--field h-mb-50 h-hide-mobile" rv-if="lot.comeswith"><label class="t-smalllabel">Comes With: </label><span>{lot.comeswith}</span></div>
+												<div class="meta--field h-mb-50 h-hide-mobile" rv-if="lot.notes"><label class="t-smalllabel">Notes: </label><span>{lot.notes}</span></div>
+											</div>
+										</div>
+									</div>
+									<div class="lot--bid-details l-grid-half h-hide-mobile" rv-on-click="talController.stopProp">
+										<div>
+											<button class="l-grid-half o-icon-label-button" rv-on-click="talController.watchLot" rv-class-s-active="lot.watching | indexof talObject.bidder">
+												<i class="icon-eye"></i><label for="">Watch<span rv-if="lot.watching | indexof talObject.bidder">ing</span></label>
+											</button>
+											
+											<button class="l-grid-half o-icon-label-button" rv-if="lot.group | lengthand talObject.isGroupChoosing" rv-on-click="talController.showGroupViewModalFromLot">View Group</button>
+							
+											<button class="l-grid-half o-icon-label-button" rv-unless="lot.group | lengthand talObject.isGroupChoosing" rv-on-click="talController.createGroupBid" rv-class-s-active="lot.group | indexof talObject.tempGroup.uid">
+												<i class="icon-group"></i>
+												<label rv-unless="talObject.isGroupChoosing">Group Bid</label>
+												<span rv-if="talObject.isGroupChoosing">
+													<label rv-unless="lot.group | indexof talObject.tempGroup.uid">Add To Group</label>
+													<label rv-if="lot.group | indexof talObject.tempGroup.uid">Remove from Group</label>
+												</span>
+											</button>
+										</div>
+										
+										<div class="bid-details--section h-ta-center">
+											{lot.closes | countdownTime} 
+											<div class="bid-details--closes h-hide-mobile">{lot.closes | calendarTime}</div>
+										</div>
+										
+										<div class="bid-details--section bid-details--bid" rv-class-s-winning="lot.bidder | compare talObject.bidder">
+											<div rv-unless="lot.bid | compare 0">
+												<label class="t-smalllabel">
+													<span rv-unless="lot.bidder | compare talObject.bidder">High Bid</span>
+													<span rv-if="lot.bidder | compare talObject.bidder">Top Bidder</span>
+												</label>
+												<span class="CCY h-float-right" rv-html="lot.bid | price"></span>
+											</div>
+											<div rv-if="lot.bid | compare 0" class="t-empty h-ta-center">
+												No Bids Placed Yet
+											</div>
+										</div>
+										
+										<div class="bid-details--section" rv-unless="lot.group | lengthand talObject.isGroupChoosing">
+											<button class="o-button--outline h-mb-50 h-width-100" rv-on-click="talController.toggleMaximumBidVisible">
+												<span rv-unless="lot.maxBid | greaterthan 0">Set Maximum Bid</span>
+												<span rv-if="lot.maxBid | greaterthan 0">Change Maximum Bid of <span class="CCY" rv-html="lot.maxBid | price">}</span></span>
+											</button>
+											<button class="o-button h-width-100" rv-hide="lot.maxBid" rv-disabled="lot.bidder | compare talObject.bidder" rv-on-click="talController.quickBid">Bid <span class="CCY" rv-html="lot.bid | nextIncrement"></span></button>
+										</div>
+										<div class="bid-details--section" rv-if="lot.group | lengthand talObject.isGroupChoosing">
+											<button class="o-button--outline h-mb-50 h-width-100" rv-on-click="talController.showGroupViewModalFromLot">
+												View or Edit This Group
+											</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+				
+					<div class="t-empty" rv-unless="talObject.watchingLots | lengthToBool">
+						You haven't placed any bids yet! Get to work!!
+					</div>
+				
+				</div>
+		<div rv-if="talObject.activeTab | compare 'bids'">
+							<div class="l-width--1200">
+								<ul class="c-lot-list js--optiscroll-content" rv-if="talObject.biddingLots | lengthToBool">
+									<li rv-each-lot="talObject.biddingLots">
+										<div rv-unless="lot.type | compare 'group'">
+											<div class="o-lot" rv-class-s-high-bidder="lot.bidder | compare talObject.bidder" rv-on-click="talController.toggleLotDetails" rv-class-s-group-select="talObject.isGroupChoosing">
+												
+												<input type="checkbox" rv-show="talObject.isGroupChoosing" class="lot--group-selector" rv-on-click="talController.addToGroup" rv-ischecked="lot.group | indexof talObject.tempGroup.uid">
+											
+												<div class="l-grid-third m-grid-quarter">
+													<img rv-src="lot.photo" class="lot--photo">
+													<h3 class="h3 h-hide-desktop">Lot {lot.lotNumber}</h3>
+												</div>
+											
+												<div class="l-grid-two-thirds  m-grid-three-quarters">
+													
+													<div class="l-grid-half">
+														<div class="h-mb-100">
+															<h3 class="h3 h-hide-mobile">Lot {lot.lotNumber}</h3>
+															<h3 class="h3">{lot.description}</h3>
+														</div>
+														<div>
+															<div class="lot--meta">
+																<div class="meta--field h-mb-50" rv-if="lot.usage"><label class="t-smalllabel">Meter: </label><span>{lot.usage}</span></div>
+																<div class="meta--field h-mb-50" rv-if="lot.equipid"><label class="t-smalllabel">Serial: </label><span>{lot.equipid}</span></div>
+																<div class="meta--field h-mb-50 h-hide-mobile" rv-if="lot.comeswith"><label class="t-smalllabel">Comes With: </label><span>{lot.comeswith}</span></div>
+																<div class="meta--field h-mb-50 h-hide-mobile" rv-if="lot.notes"><label class="t-smalllabel">Notes: </label><span>{lot.notes}</span></div>
+															</div>
+														</div>
+													</div>
+													<div class="lot--bid-details l-grid-half h-hide-mobile" rv-on-click="talController.stopProp">
+														<div>
+															<button class="l-grid-half o-icon-label-button" rv-on-click="talController.watchLot" rv-class-s-active="lot.watching | indexof talObject.bidder">
+																<i class="icon-eye"></i><label for="">Watch<span rv-if="lot.watching | indexof talObject.bidder">ing</span></label>
+															</button>
+															
+															<button class="l-grid-half o-icon-label-button" rv-if="lot.group | lengthand talObject.isGroupChoosing" rv-on-click="talController.showGroupViewModalFromLot">View Group</button>
+											
+															<button class="l-grid-half o-icon-label-button" rv-unless="lot.group | lengthand talObject.isGroupChoosing" rv-on-click="talController.createGroupBid" rv-class-s-active="lot.group | indexof talObject.tempGroup.uid">
+																<i class="icon-group"></i>
+																<label rv-unless="talObject.isGroupChoosing">Group Bid</label>
+																<span rv-if="talObject.isGroupChoosing">
+																	<label rv-unless="lot.group | indexof talObject.tempGroup.uid">Add To Group</label>
+																	<label rv-if="lot.group | indexof talObject.tempGroup.uid">Remove from Group</label>
+																</span>
+															</button>
+														</div>
+														
+														<div class="bid-details--section h-ta-center">
+															{lot.closes | countdownTime} 
+															<div class="bid-details--closes h-hide-mobile">{lot.closes | calendarTime}</div>
+														</div>
+														
+														<div class="bid-details--section bid-details--bid" rv-class-s-winning="lot.bidder | compare talObject.bidder">
+															<div rv-unless="lot.bid | compare 0">
+																<label class="t-smalllabel">
+																	<span rv-unless="lot.bidder | compare talObject.bidder">High Bid</span>
+																	<span rv-if="lot.bidder | compare talObject.bidder">Top Bidder</span>
+																</label>
+																<span class="CCY h-float-right" rv-html="lot.bid | price"></span>
+															</div>
+															<div rv-if="lot.bid | compare 0" class="t-empty h-ta-center">
+																No Bids Placed Yet
+															</div>
+														</div>
+														
+														<div class="bid-details--section" rv-unless="lot.group | lengthand talObject.isGroupChoosing">
+															<button class="o-button--outline h-mb-50 h-width-100" rv-on-click="talController.toggleMaximumBidVisible">
+																<span rv-unless="lot.maxBid | greaterthan 0">Set Maximum Bid</span>
+																<span rv-if="lot.maxBid | greaterthan 0">Change Maximum Bid of <span class="CCY" rv-html="lot.maxBid | price">}</span></span>
+															</button>
+															<button class="o-button h-width-100" rv-hide="lot.maxBid" rv-disabled="lot.bidder | compare talObject.bidder" rv-on-click="talController.quickBid">Bid <span class="CCY" rv-html="lot.bid | nextIncrement"></span></button>
+														</div>
+														<div class="bid-details--section" rv-if="lot.group | lengthand talObject.isGroupChoosing">
+															<button class="o-button--outline h-mb-50 h-width-100" rv-on-click="talController.showGroupViewModalFromLot">
+																View or Edit This Group
+															</button>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div rv-if="lot.type | compare 'group'">
+											<div class="group-bid-item">
+												<div class="l-grid-two-thirds">
+													<div class="l-grid-half">
+														<img src="assets/img/vramp1.jpg" alt="" class="group-photos">
+													</div>
+													<div class="l-grid-half">
+														<h3 class="h3">Lots <span rv-each-sublot="lot.lots">{sublot.lotNumber}, </span></h3>
+														<h4 class="h4">You want to win: <strong>{lot.quantity} of {lot.lots | length}</strong></h4>
+														<h4 class="h4">Bid up to: <span class="CCY" rv-html="lot.maxbid | price"></span> on each lot</h4>
+														<button class="o-text-button" rv-on-click="talController.showGroupViewModal">View Group</button>
+													</div>
+												</div>
+												<div class="l-grid-third lot--bid-details">
+													
+													<div class="bid-details--section bid-details--bid">
+														<div rv-each-sublot="lot.lots" rv-show="sublot.bidder | compare talObject.bidder">Bidding <span class="CCY" rv-html="sublot.bid | price"></span> on Lot {sublot.lotNumber}</div>
+														<!-- <label class="t-smalllabel">
+															<span rv-unless="lot.lots.0.bidder | compare talObject.bidder">High Bid</span>
+															<span rv-if="lot.lots.0.bidder | compare talObject.bidder">Top Bidder</span>
+														</label>
+														<span class="CCY h-float-right" rv-html="lot.lots.0.bid | price"></span> -->
+													</div>
+											
+													<div class="bid-details--section h-ta-center">
+														{lot.lots.0.closes | countdownTime} 
+														<div class="bid-details--closes h-hide-mobile">{lot.lots.0.closes | calendarTime}</div>
+													</div>
+											
+													<div class="bid-details--section">
+														<button class="o-button--outline h-mb-50 h-width-100" rv-on-click="talController.toggleMaximumBidVisible">
+															Change Maximum Bid of <span class="CCY" rv-html="lot.maxbid | price"></span>
+														</button>
+													</div>
+											
+												</div>
+											</div>
+										</div>
+						
+									</li>
+								</ul>
+						
+								<div class="t-empty" rv-unless="talObject.biddingLots | lengthToBool">
+									You haven't placed any bids yet! Get to work!!
+								</div>
+							</div>
+						
+						</div>
+		<div rv-if="talObject.activeTab | compare 'purchases'">
+									
+									<ul class="c-lot-list" rv-if="talObject.purchasedLots | lengthToBool">
+										<li rv-each-lot="talObject.purchasedLots">
+											<div class="o-lot" rv-class-s-high-bidder="lot.bidder | compare talObject.bidder" rv-on-click="talController.toggleLotDetails" rv-class-s-group-select="talObject.isGroupChoosing">
+												
+												<input type="checkbox" rv-show="talObject.isGroupChoosing" class="lot--group-selector" rv-on-click="talController.addToGroup" rv-ischecked="lot.group | indexof talObject.tempGroup.uid">
+											
+												<div class="l-grid-third m-grid-quarter">
+													<img rv-src="lot.photo" class="lot--photo">
+													<h3 class="h3 h-hide-desktop">Lot {lot.lotNumber}</h3>
+												</div>
+											
+												<div class="l-grid-two-thirds  m-grid-three-quarters">
+													
+													<div class="l-grid-half">
+														<div class="h-mb-100">
+															<h3 class="h3 h-hide-mobile">Lot {lot.lotNumber}</h3>
+															<h3 class="h3">{lot.description}</h3>
+														</div>
+														<div>
+															<div class="lot--meta">
+																<div class="meta--field h-mb-50" rv-if="lot.usage"><label class="t-smalllabel">Meter: </label><span>{lot.usage}</span></div>
+																<div class="meta--field h-mb-50" rv-if="lot.equipid"><label class="t-smalllabel">Serial: </label><span>{lot.equipid}</span></div>
+																<div class="meta--field h-mb-50 h-hide-mobile" rv-if="lot.comeswith"><label class="t-smalllabel">Comes With: </label><span>{lot.comeswith}</span></div>
+																<div class="meta--field h-mb-50 h-hide-mobile" rv-if="lot.notes"><label class="t-smalllabel">Notes: </label><span>{lot.notes}</span></div>
+															</div>
+														</div>
+													</div>
+													<div class="lot--bid-details l-grid-half h-hide-mobile" rv-on-click="talController.stopProp">
+														<div>
+															<button class="l-grid-half o-icon-label-button" rv-on-click="talController.watchLot" rv-class-s-active="lot.watching | indexof talObject.bidder">
+																<i class="icon-eye"></i><label for="">Watch<span rv-if="lot.watching | indexof talObject.bidder">ing</span></label>
+															</button>
+															
+															<button class="l-grid-half o-icon-label-button" rv-if="lot.group | lengthand talObject.isGroupChoosing" rv-on-click="talController.showGroupViewModalFromLot">View Group</button>
+											
+															<button class="l-grid-half o-icon-label-button" rv-unless="lot.group | lengthand talObject.isGroupChoosing" rv-on-click="talController.createGroupBid" rv-class-s-active="lot.group | indexof talObject.tempGroup.uid">
+																<i class="icon-group"></i>
+																<label rv-unless="talObject.isGroupChoosing">Group Bid</label>
+																<span rv-if="talObject.isGroupChoosing">
+																	<label rv-unless="lot.group | indexof talObject.tempGroup.uid">Add To Group</label>
+																	<label rv-if="lot.group | indexof talObject.tempGroup.uid">Remove from Group</label>
+																</span>
+															</button>
+														</div>
+														
+														<div class="bid-details--section h-ta-center">
+															{lot.closes | countdownTime} 
+															<div class="bid-details--closes h-hide-mobile">{lot.closes | calendarTime}</div>
+														</div>
+														
+														<div class="bid-details--section bid-details--bid" rv-class-s-winning="lot.bidder | compare talObject.bidder">
+															<div rv-unless="lot.bid | compare 0">
+																<label class="t-smalllabel">
+																	<span rv-unless="lot.bidder | compare talObject.bidder">High Bid</span>
+																	<span rv-if="lot.bidder | compare talObject.bidder">Top Bidder</span>
+																</label>
+																<span class="CCY h-float-right" rv-html="lot.bid | price"></span>
+															</div>
+															<div rv-if="lot.bid | compare 0" class="t-empty h-ta-center">
+																No Bids Placed Yet
+															</div>
+														</div>
+														
+														<div class="bid-details--section" rv-unless="lot.group | lengthand talObject.isGroupChoosing">
+															<button class="o-button--outline h-mb-50 h-width-100" rv-on-click="talController.toggleMaximumBidVisible">
+																<span rv-unless="lot.maxBid | greaterthan 0">Set Maximum Bid</span>
+																<span rv-if="lot.maxBid | greaterthan 0">Change Maximum Bid of <span class="CCY" rv-html="lot.maxBid | price">}</span></span>
+															</button>
+															<button class="o-button h-width-100" rv-hide="lot.maxBid" rv-disabled="lot.bidder | compare talObject.bidder" rv-on-click="talController.quickBid">Bid <span class="CCY" rv-html="lot.bid | nextIncrement"></span></button>
+														</div>
+														<div class="bid-details--section" rv-if="lot.group | lengthand talObject.isGroupChoosing">
+															<button class="o-button--outline h-mb-50 h-width-100" rv-on-click="talController.showGroupViewModalFromLot">
+																View or Edit This Group
+															</button>
+														</div>
+													</div>
+												</div>
+											</div>
+										</li>
+									</ul>
+								
+									<div class="t-empty" rv-unless="talObject.purchasedLots | lengthToBool">
+										You haven't placed any bids yet! Get to work!!
+									</div>
+								
+								</div>
+		<div rv-if="talObject.activeTab | compare 'profile'">
+											<div class="c-settings">
+												<h2 class="h4">{talObject.userprofile.name}</h2>
+												<h3 class="h4">Bidder: {talObject.bidder}</h3>
+												<div class="o-setting-section-separator">Credit Information</div>
+												<div class="o-setting-list-item">
+													<label for="" class="t-smalllabel">Credit Remaining</label>
+													<span class="o-setting-list-item--value">{talObject.userprofile.credit}</span>
+												</div>
+												<div class="o-setting-list-item">
+													<label for="" class="t-smalllabel">Credit Spent</label>
+													<span class="o-setting-list-item--value">{talObject.userprofile.spent}</span>
+													<div rv-if="talObject.purchasedLots | lengthToBool"><a class="h-float-right h-color-brand" rv-on-click="talController.loadTab" data-tab="purchases">View Purchases</a></div>
+												</div>
+												<div class="o-setting-section-separator">Bidding Activity</div>
+												<div class="o-setting-list-item">
+													<label for="" class="t-smalllabel">Total Bids</label>
+													<span class="o-setting-list-item--value">{talObject.userprofile.bids}</span>
+													<div rv-if="talObject.watchingLots | lengthToBool"><a class="h-float-right h-color-brand" rv-on-click="talController.loadTab" data-tab="bids">View Bids</a></div>
+												</div>
+										
+												<div class="o-setting-section-separator">Language Selection</div>
+												<div class="o-setting-list-item">
+													<select>
+														<option selected>English</option>
+														<option>Francais</option>
+														<option>Espanol (ES)</option>
+														<option>Espanol (MX)</option>
+														<option>Italiano</option>
+														<option>Deutsch</option>
+														<option>Nederland</option>
+													</select>
+												</div>
+												<div class="o-setting-section-separator">Notifications</div>
+												<div class="o-setting-list-item">
+													<label for="" class="t-smalllabel">E-mail Notifications</label>
+													<label class="h-float-right o-input--setting-toggle">
+														<input type="checkbox" class="o-input--toggle" rv-checked="dataObject.acceptsNotifications">
+														<div class="toggle-control"></div>
+													</label>
+												</div>
+												<div class="o-setting-list-item">
+													<label for="" class="t-smalllabel  l-grid-third">E-mail</label>
+													<input type="text" class="o-input--text l-grid-two-thirds" rv-value="talObject.userprofile.emailAddress" placeholder="e-mail address">
+												</div>
+											</div>
+										
+										</div>
+		<div class="progress-indicator js--lot-scroll-indicator"></div>
+		<div class="auction-progress-meter js--lot-scroll-hover-area">
+			<ul class="auction-lot-intervals">
+				<li class="auction-lot-interval" rv-each-interval="talObject.auction.totalLots | lotintervals talObject.auction.startLot talObject.auction.endLot">
+					{interval}
+				</li>
+			</ul>
+		</div>
+	</div>
+	
+	<div class="l-nav--mobile-footer">
+		<button class="o-icon-label-button m-grid-fifth" rv-on-click="talController.loadTab" data-tab="auction">
+			<i class="icon-list"></i>
+			<label>Auction</label>
+		</button>
+		<button class="o-icon-label-button m-grid-fifth" rv-on-click="talController.loadTab" data-tab="watching">
+			<i class="icon-eye"></i>
+			<label>Watching</label>
+			<div class="badge--count" rv-if="talObject.watchingLots | lengthToBool">{talObject.watchingLots | length}</div>
+		</button>
+		<button class="o-icon-label-button m-grid-fifth" rv-on-click="talController.loadTab" data-tab="bids">
+			<i class="icon-bids"></i>
+			<label>Bids</label>
+			<div class="badge--count" rv-if="talObject.biddingLots | lengthToBool">{talObject.biddingLots | length}</div>
+		</button>
+		<button class="o-icon-label-button m-grid-fifth" rv-on-click="talController.loadTab" data-tab="purchases">
+			<i class="icon-cart"></i>
+			<label>Purchases</label>
+			<div class="badge--count_cart" rv-if="talObject.purchasedLots | lengthToBool">{talObject.purchasedLots | length}</div>
+		</button>
+		<button class="o-icon-label-button m-grid-fifth" rv-on-click="talController.loadTab" data-tab="profile">
+			<i class="icon-user"></i>
+			<label>Profile</label>
+		</button>
+	</div>
+
+	<div class="c-modal" rv-class-s-visible="talObject.lotDetailsVisible" rv-on-click="talController.toggleLotDetails">
+		<div class="c-modal--content" rv-on-click="talController.stopProp">
+			<div class="c-modal--header">
+				<button class="o-text-button_black m-header-left-button h-hide-desktop" rv-on-click="talController.toggleLotDetails">Back</button>
+				<h3 class="h3 h-d-inline-block">Lot {talObject.focusedLot.lotNumber}</h3>
+				<h5 class="h6 h-hide-desktop">Bidder: {talObject.bidder} | Credit Remaining: <span class="CCY" rv-html="talObject.userprofile.credit | price"></span></h5>
+				<button class="o-icon-button--medium h-hide-mobile c-modal--close" rv-on-click="talController.toggleLotDetails">X</button>
+			</div>
+	
+			<div class="c-modal--body">	
+							<div class="lot-photos">
+								<div class="swiper-container">
+					                <div class="swiper-wrapper">
+					                    <!-- Slides -->
+					                    <div class="swiper-slide" rv-each-photo="talObject.focusedLot.photos">
+					                        <img rv-src="photo.src" />
+					                    </div>
+					                </div>
+					                
+					                <div class="swiper-pagination"></div>
+					                
+					                <!-- <div class="swiper-button-prev"></div>
+					                <div class="swiper-button-next"></div> -->
+					            </div>
+							</div>
+							<div class="h-p-100">
+								<h3 class="h3 h-mb-100">{talObject.focusedLot.description}</h3>
+								<div class="lot--bid-details h-mb-100">
+									<div>
+										<button class="l-grid-half m-grid-half o-icon-label-button" rv-on-click="talController.watchFocusedLot" rv-class-s-active="talObject.focusedLot.watching | indexof talObject.bidder">
+											<i class="icon-eye"></i><label for="">Watch<span rv-if="talObject.focusedLot.watching | indexof talObject.bidder">ing</span></label>
+										</button>
+										<button class="l-grid-half m-grid-half o-icon-label-button">
+											<i class="icon-group"></i><label for="">Group Bid</label>
+										</button>
+									</div>
+									
+									<div class="bid-details--section bid-details--bid" rv-class-s-winning="talObject.focusedLot.bidder | compare talObject.bidder">
+										<div rv-unless="talObject.focusedLot.bid | compare 0">
+											<label class="t-smalllabel">
+												<span rv-unless="talObject.focusedLot.bidder | compare talObject.bidder">High Bid</span>
+												<span rv-if="talObject.focusedLot.bidder | compare talObject.bidder">Top Bidder</span>
+											</label>
+											<span class="CCY h-float-right" rv-html="talObject.focusedLot.bid | price"></span>
+										</div>
+										<div rv-if="talObject.focusedLot.bid | compare 0" class="t-empty h-ta-center">
+											No Bids Placed Yet
+										</div>
+									</div>
+				
+									<div class="bid-details--section h-ta-center">
+										{talObject.focusedLot.closes | countdownTime} 
+										<div class="bid-details--closes">{talObject.focusedLot.closes | calendarTime}</div>
+									</div>
+								</div>
+								<div class="lot--meta h-mb-100">
+									<div class="meta--field h-mb-50" rv-if="talObject.focusedLot.usage"><label class="t-smalllabel">Meter: </label><span>{talObject.focusedLot.usage}</span></div>
+									<div class="meta--field h-mb-50" rv-if="talObject.focusedLot.equipid"><label class="t-smalllabel">Serial: </label><span>{talObject.focusedLot.equipid}</span></div>
+									<div class="meta--field h-mb-50" rv-if="talObject.focusedLot.comeswith"><label class="t-smalllabel">Comes With: </label><span>{talObject.focusedLot.comeswith}</span></div>
+									<div class="meta--field h-mb-50" rv-if="talObject.focusedLot.notes"><label class="t-smalllabel">Notes: </label><span>{talObject.focusedLot.notes}</span></div>
+								</div>
+							</div>
+			</div>
+			<div class="c-modal--footer">
+				<button class="o-button--outline l-grid-half h-mb-50" rv-on-click="talController.toggleMaximumBidVisible">
+					<span rv-unless="talObject.focusedLot.maxBid | greaterthan 0">Set Maximum Bid</span>
+					<span rv-if="talObject.focusedLot.maxBid | greaterthan 0">Change Maximum Bid of <span class="CCY" rv-html="talObject.focusedLot.maxBid | price">}</span></span>
+				</button>
+				<button class="o-button l-grid-half h-mb-50" rv-hide="talObject.focusedLot.maxBid" rv-disabled="talObject.focusedLot.bidder | compare talObject.bidder" rv-on-click="talController.quickBid">Bid <span class="CCY" rv-html="talObject.focusedLot.bid | nextIncrement"></span></button>
+			</div>
+		</div>
+	</div>
+	<div class="o-toast--prompt-save-changes" rv-class-s-visible="talObject.isGroupChoosing">
+			<div class="o-width-wrapper">
+				<button class="o-text-button" rv-on-click="talController.cancelGroupBid">Cancel</button>
+				<button class="o-button_affirmative h-float-right" rv-on-click="talController.toggleGroupBidModalVisible">Create group with {talObject.tempGroup.lots | length} lots</button>
+				<span class="h-float-right h-color-white h-mr-100"><strong>Creating a group bid</strong><br/>Choose all lots you'd like to include in this group</span>
+			</div>
+		</div>
+		
+		
+		<div class="c-modal" rv-class-s-visible="talObject.groupBidModalVisible" rv-on-click="talController.toggleGroupBidModalVisible">
+			<div class="c-modal--content" rv-on-click="talController.stopProp">
+				<div class="c-modal--header">
+					<button class="o-text-button_black m-header-left-button h-hide-desktop" rv-on-click="talController.toggleGroupBidModalVisible">Back</button>
+					<h3 class="h3 h-d-inline-block">Group Bid</h3>
+					<h5 class="h6 h-hide-desktop">Bidder: {talObject.bidder} | Credit Remaining: <span class="CCY" rv-html="talObject.userprofile.credit | price"></span></h5>
+					<button class="o-icon-button--medium h-hide-mobile c-modal--close" rv-on-click="talController.toggleGroupBidModalVisible">X</button>
+				</div>
+				<div class="c-modal--body">
+					
+					<h3 class="h-ta-center">Group of { talObject.tempGroup.lots | length } lots</h3>
+					<div class="group-lot-list">
+						<ul>
+							<li class="group-lot" rv-each-grplot="talObject.tempGroup.lots">{grplot.lotNumber}</li>
+						</ul>
+					</div>
+		
+					<div class="c-modal--step-content" rv-if="talObject.tempGroup.step | compare 1">
+						
+						<div class="h-mt-100 h-p-100">
+							
+							<p>Of the lots you have chosen, how many would you like to buy?</p>
+							<div class="group-range-selector">
+								<input type="range" min="1" rv-max="talObject.tempGroup.lots | length" class="o-input--range" rv-rangeinput="talObject.tempGroup.quantity">
+								<ul class="group-range--values">
+									<li rv-each-opt="talObject.tempGroup.lots" rv-on-click="talController.setGroupQuantity" rv-data-value="index | plusone" rv-class-s-selected="talObject.tempGroup.quantity | compareplusone index">{ index | plusone }</li>
+								</ul>
+								<!-- <output class="range-output" rv-rangeposition="talObject.tempGroup.quantity | percent talObject.tempGroup.lots">{talObject.tempGroup.quantity}</output> -->
+							</div>
+						</div> 
+					</div>
+		
+					<div class="c-modal--step-content" rv-if="talObject.tempGroup.step | compare 2">
+						<div class="h-mt-100 h-p-100">
+							<p>Each time you are outbid on lots in this group we will bid for you up to and including your chosen maximum bid.</p>
+							<a href="#" class="h-float-right">Learn More</a>
+							<div class="">
+								<span>Bid Up To</span>
+								<input type="text" class="o-input--text" placeholder="maximum bid" rv-value="talObject.tempGroup.maxbid">
+								<!-- <p class="h-mt-100 h-ta-center">Current High Bid is <span class="CCY" rv-html="talObject.focusedLot.bid | price"></span></p> -->
+							</div>
+						</div>
+					</div>
+		 
+				</div>
+				<div class="c-modal--footer">
+					<button class="o-button h-float-right" rv-if="talObject.tempGroup.step | compare 1" rv-on-click="talController.groupBiddingStep" data-targetstep="2">Next</button>
+					<button class="o-text-button h-hide-mobile" rv-if="talObject.tempGroup.step | compare 1" rv-on-click="talController.toggleGroupBidModalVisible">Cancel</button>
+		
+					<button class="o-button h-float-right" rv-if="talObject.tempGroup.step | compare 2" rv-on-click="talController.completeGroupBid">Place Bid</button>
+					<button class="o-text-button h-hide-mobile" rv-if="talObject.tempGroup.step | compare 2" rv-on-click="talController.groupBiddingStep" data-targetstep="1">Back</button>
+				</div>
+			</div>
+		</div>
+		
+		
+		
+		
+	<div class="c-modal" rv-class-s-visible="talObject.groupViewModalVisible" rv-on-click="talController.dismissGroupViewModal">
+				<div class="c-modal--content" rv-on-click="talController.stopProp">
+					<div class="c-modal--header">
+						<button class="o-text-button_black m-header-left-button h-hide-desktop" rv-on-click="talController.dismissGroupViewModal">Back</button>
+						<h3 class="h3 h-d-inline-block">Group Bid</h3>
+						<h5 class="h6 h-hide-desktop">Bidder: {talObject.bidder} | Credit Remaining: <span class="CCY" rv-html="talObject.userprofile.credit | price"></span></h5>
+						<button class="o-icon-button--medium h-hide-mobile c-modal--close" rv-on-click="talController.dismissGroupViewModal">X</button>
+					</div>
+					
+					<div class="c-modal--body">
+						<div class="h-p-100">
+							<h4 class="h4">You want to win: <strong>{talObject.tempGroup.quantity} of {talObject.tempGroup.lots | length} lots</strong></h4>
+							<h4 class="h4">Bid up to: <span class="CCY" rv-html="talObject.tempGroup.maxbid | price"></span> on each lot</h4>
+						</div>
+						<div class="group-lot-list">
+							<ul>
+								<li class="group-lot" rv-each-grplot="talObject.tempGroup.lots" rv-on-click="talController.switchGroupFocusedLot" rv-data-index="index" rv-class-s-highbidder="grplot.bidder | compare talObject.bidder" rv-class-s-focused="grplot.lotNumber | compare talObject.focusedLot.lotNumber">
+									{grplot.lotNumber}
+									<div rv-unless="grplot.bid | compare 0" class="CCY" rv-html="grplot.bid | price"></div>
+								</li>
+							</ul>
+						</div>
+						<div>
+							<h4 class="h4">Lot {talObject.focusedLot.lotNumber}</h4>
+										<div class="lot-photos">
+											<div class="swiper-container">
+								                <div class="swiper-wrapper">
+								                    <!-- Slides -->
+								                    <div class="swiper-slide" rv-each-photo="talObject.focusedLot.photos">
+								                        <img rv-src="photo.src" />
+								                    </div>
+								                </div>
+								                
+								                <div class="swiper-pagination"></div>
+								                
+								                <!-- <div class="swiper-button-prev"></div>
+								                <div class="swiper-button-next"></div> -->
+								            </div>
+										</div>
+										<div class="h-p-100">
+											<h3 class="h3 h-mb-100">{talObject.focusedLot.description}</h3>
+											<div class="lot--bid-details h-mb-100">
+												<div>
+													<button class="l-grid-half m-grid-half o-icon-label-button" rv-on-click="talController.watchFocusedLot" rv-class-s-active="talObject.focusedLot.watching | indexof talObject.bidder">
+														<i class="icon-eye"></i><label for="">Watch<span rv-if="talObject.focusedLot.watching | indexof talObject.bidder">ing</span></label>
+													</button>
+													<button class="l-grid-half m-grid-half o-icon-label-button">
+														<i class="icon-group"></i><label for="">Group Bid</label>
+													</button>
+												</div>
+												
+												<div class="bid-details--section bid-details--bid" rv-class-s-winning="talObject.focusedLot.bidder | compare talObject.bidder">
+													<div rv-unless="talObject.focusedLot.bid | compare 0">
+														<label class="t-smalllabel">
+															<span rv-unless="talObject.focusedLot.bidder | compare talObject.bidder">High Bid</span>
+															<span rv-if="talObject.focusedLot.bidder | compare talObject.bidder">Top Bidder</span>
+														</label>
+														<span class="CCY h-float-right" rv-html="talObject.focusedLot.bid | price"></span>
+													</div>
+													<div rv-if="talObject.focusedLot.bid | compare 0" class="t-empty h-ta-center">
+														No Bids Placed Yet
+													</div>
+												</div>
+							
+												<div class="bid-details--section h-ta-center">
+													{talObject.focusedLot.closes | countdownTime} 
+													<div class="bid-details--closes">{talObject.focusedLot.closes | calendarTime}</div>
+												</div>
+											</div>
+											<div class="lot--meta h-mb-100">
+												<div class="meta--field h-mb-50" rv-if="talObject.focusedLot.usage"><label class="t-smalllabel">Meter: </label><span>{talObject.focusedLot.usage}</span></div>
+												<div class="meta--field h-mb-50" rv-if="talObject.focusedLot.equipid"><label class="t-smalllabel">Serial: </label><span>{talObject.focusedLot.equipid}</span></div>
+												<div class="meta--field h-mb-50" rv-if="talObject.focusedLot.comeswith"><label class="t-smalllabel">Comes With: </label><span>{talObject.focusedLot.comeswith}</span></div>
+												<div class="meta--field h-mb-50" rv-if="talObject.focusedLot.notes"><label class="t-smalllabel">Notes: </label><span>{talObject.focusedLot.notes}</span></div>
+											</div>
+										</div>
+						</div>
+					</div>
+			
+			
+					<div class="c-modal--footer">
+						<button class="o-text-button h-hide-mobile" rv-on-click="talController.dismissGroupViewModal">Done</button>
+					</div>
+				</div>
+			</div>
+	<div class="c-modal" rv-class-s-visible="talObject.maximumBidVisible" rv-on-click="talController.toggleMaximumBidVisible">
+					<div class="c-modal--content" rv-on-click="talController.stopProp">
+						<div class="c-modal--header">
+							<button class="o-text-button_black m-header-left-button h-hide-desktop" rv-on-click="talController.toggleMaximumBidVisible">Back</button>
+							<h3 class="h3 h-d-inline-block">Maximum Bid | Lot {talObject.focusedLot.lotNumber}</h3>
+							<h5 class="h6 h-hide-desktop">Bidder: {talObject.bidder} | Credit Remaining: <span class="CCY" rv-html="talObject.userprofile.credit | price"></span></h5>
+							<button class="o-icon-button--medium h-hide-mobile c-modal--close" rv-on-click="talController.toggleMaximumBidVisible">X</button>
+						</div>
+						<div class="c-modal--body">
+							
+							<div class="h-mt-100 h-p-100">
+								<p>Each time you are outbid on this lot we bid for you up to and including your chosen maximum bid.</p>
+								<a href="#" class="h-float-right">Learn More</a>
+								<div class="">
+									<span>Bid Up To</span>
+									<input type="text" class="o-input--text" placeholder="maximum bid" rv-value="talObject.tempMaxBid">
+									<p class="h-mt-100 h-ta-center">Current High Bid is <span class="CCY" rv-html="talObject.focusedLot.bid | price"></span></p>
+								</div>
+							</div>
+						</div>
+						<div class="c-modal--footer">
+							<button class="o-button h-float-right" rv-on-click="talController.setMaximumBid">Place Bid</button>
+							<button class="o-text-button h-hide-mobile" rv-on-click="talController.toggleMaximumBidVisible">Cancel</button>
+						</div>
+					</div>
+				</div>
+	
+    <script type="text/javascript" src="assets/js/min/scripts-min.js"></script>
+
+</body>
+</html>
+

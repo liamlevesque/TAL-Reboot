@@ -1,0 +1,66 @@
+<div class="o-toast--prompt-save-changes" rv-class-s-visible="talObject.isGroupChoosing">
+	<div class="o-width-wrapper">
+		<button class="o-text-button" rv-on-click="talController.cancelGroupBid">Cancel</button>
+		<button class="o-button_affirmative h-float-right" rv-on-click="talController.toggleGroupBidModalVisible">Create group with {talObject.tempGroup.lots | length} lots</button>
+		<span class="h-float-right h-color-white h-mr-100"><strong>Creating a group bid</strong><br/>Choose all lots you'd like to include in this group</span>
+	</div>
+</div>
+
+
+<div class="c-modal" rv-class-s-visible="talObject.groupBidModalVisible" rv-on-click="talController.toggleGroupBidModalVisible">
+	<div class="c-modal--content" rv-on-click="talController.stopProp">
+		<div class="c-modal--header">
+			<button class="o-text-button_black m-header-left-button h-hide-desktop" rv-on-click="talController.toggleGroupBidModalVisible">Back</button>
+			<h3 class="h3 h-d-inline-block">Group Bid</h3>
+			<h5 class="h6 h-hide-desktop">Bidder: {talObject.bidder} | Credit Remaining: <span class="CCY" rv-html="talObject.userprofile.credit | price"></span></h5>
+			<button class="o-icon-button--medium h-hide-mobile c-modal--close" rv-on-click="talController.toggleGroupBidModalVisible">X</button>
+		</div>
+		<div class="c-modal--body">
+			
+			<h3 class="h-ta-center">Group of { talObject.tempGroup.lots | length } lots</h3>
+			<div class="group-lot-list">
+				<ul>
+					<li class="group-lot" rv-each-grplot="talObject.tempGroup.lots">{grplot.lotNumber}</li>
+				</ul>
+			</div>
+
+			<div class="c-modal--step-content" rv-if="talObject.tempGroup.step | compare 1">
+				
+				<div class="h-mt-100 h-p-100">
+					
+					<p>Of the lots you have chosen, how many would you like to buy?</p>
+					<div class="group-range-selector">
+						<input type="range" min="1" rv-max="talObject.tempGroup.lots | length" class="o-input--range" rv-rangeinput="talObject.tempGroup.quantity">
+						<ul class="group-range--values">
+							<li rv-each-opt="talObject.tempGroup.lots" rv-on-click="talController.setGroupQuantity" rv-data-value="index | plusone" rv-class-s-selected="talObject.tempGroup.quantity | compareplusone index">{ index | plusone }</li>
+						</ul>
+						<!-- <output class="range-output" rv-rangeposition="talObject.tempGroup.quantity | percent talObject.tempGroup.lots">{talObject.tempGroup.quantity}</output> -->
+					</div>
+				</div> 
+			</div>
+
+			<div class="c-modal--step-content" rv-if="talObject.tempGroup.step | compare 2">
+				<div class="h-mt-100 h-p-100">
+					<p>Each time you are outbid on lots in this group we will bid for you up to and including your chosen maximum bid.</p>
+					<a href="#" class="h-float-right">Learn More</a>
+					<div class="">
+						<span>Bid Up To</span>
+						<input type="text" class="o-input--text" placeholder="maximum bid" rv-value="talObject.tempGroup.maxbid">
+						<!-- <p class="h-mt-100 h-ta-center">Current High Bid is <span class="CCY" rv-html="talObject.focusedLot.bid | price"></span></p> -->
+					</div>
+				</div>
+			</div>
+ 
+		</div>
+		<div class="c-modal--footer">
+			<button class="o-button h-float-right" rv-if="talObject.tempGroup.step | compare 1" rv-on-click="talController.groupBiddingStep" data-targetstep="2">Next</button>
+			<button class="o-text-button h-hide-mobile" rv-if="talObject.tempGroup.step | compare 1" rv-on-click="talController.toggleGroupBidModalVisible">Cancel</button>
+
+			<button class="o-button h-float-right" rv-if="talObject.tempGroup.step | compare 2" rv-on-click="talController.completeGroupBid">Place Bid</button>
+			<button class="o-text-button h-hide-mobile" rv-if="talObject.tempGroup.step | compare 2" rv-on-click="talController.groupBiddingStep" data-targetstep="1">Back</button>
+		</div>
+	</div>
+</div>
+
+
+

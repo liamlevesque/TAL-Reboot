@@ -1,0 +1,59 @@
+//MEASUREMENTS
+
+$default-border-radius: 5px;
+$large-border-radius: 15px;
+//$default-margin: 15px;
+
+$input-height: 40px;
+
+$button-height: 45px;
+
+$combo-pop-up-width: 300px;
+
+$toggle-height: 20px;
+$toggle-padding: 40px; //THIS IS HOW MUCH THE MONEY
+
+$tooltip-icon-size: 24px;
+$lot-header-height: 53px;
+
+//HEADER AREA
+$header-height: 91px;
+
+//MOBILE
+$mobile-header-height: 120px;
+$mobile-footer-height: 75px;
+
+//MEASUREMENTS FOR THE UPPER SECTION
+$upper-header-height: 50px;
+$subheader-small-height: 80px;
+$subheader-large-height: 200px;
+
+
+//BORDERS
+$default-border: 1px solid palette(grey); 
+
+//GRADIENTS
+$button-gradient: linear-gradient(#FAB558, #F69731);
+$button-gradient_hover: linear-gradient(#F58D31, #EB6D30);
+$button-gradient_disabled: linear-gradient(#dddad8, #cfcdcb);
+
+//BOX SHADOW
+$ritchie-shadow: 0 1px 5px 0 rgba(0,0,0,0.5);
+$ritchie-shadow_inner: inset 1px 1px 5px 0 rgba(0, 0, 0, 0.15);
+
+//TEXT SIZES
+$default-text-size: 0.9rem;
+
+
+//SPACING
+$spacings: (
+    xx-small: 5px,
+    x-small: 10px,
+    small: 15px,
+    medium: 20px,
+    large: 30px,
+);
+
+@function spacing($spacing) {
+    @return map-get($spacings, $spacing);
+}

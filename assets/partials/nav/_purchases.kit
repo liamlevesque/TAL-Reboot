@@ -1,0 +1,5 @@
+<button class="o-icon-label-button m-grid-fifth" rv-on-click="talController.loadTab" data-tab="purchases">
+	<i class="icon-cart"></i>
+	<label>Purchases</label>
+	<div class="badge--count_cart" rv-if="talObject.purchasedLots | lengthToBool">{talObject.purchasedLots | length}</div>
+</button>

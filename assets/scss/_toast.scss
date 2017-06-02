@@ -1,0 +1,38 @@
+@mixin footer-toast{
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	padding: 5px spacing(medium);
+
+	transform: translateY(100%);
+	transition: $transition;
+
+	z-index: 1000;
+
+	&.s-visible{
+		transform: translateY(0);
+	}
+}
+
+	.o-toast--caveat{
+		float: right;
+		color: white;
+		margin-right: spacing(medium);
+		line-height: 40px;
+		font-style: italic;
+	}
+
+.o-toast--prompt-save-changes{
+	@include footer-toast;
+	background-color: palette(grey,dark);
+	
+}
+
+.o-toast--confirm-save-changes{
+	@include footer-toast;
+	line-height: $input-height;
+	background-color: palette(affirmative);
+	color: white;
+	text-align: center;
+}

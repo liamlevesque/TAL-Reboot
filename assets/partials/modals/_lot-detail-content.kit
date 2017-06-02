@@ -1,0 +1,52 @@
+			<div class="lot-photos">
+				<div class="swiper-container">
+	                <div class="swiper-wrapper">
+	                    <!-- Slides -->
+	                    <div class="swiper-slide" rv-each-photo="talObject.focusedLot.photos">
+	                        <img rv-src="photo.src" />
+	                    </div>
+	                </div>
+	                
+	                <div class="swiper-pagination"></div>
+	                
+	                <!-- <div class="swiper-button-prev"></div>
+	                <div class="swiper-button-next"></div> -->
+	            </div>
+			</div>
+			<div class="h-p-100">
+				<h3 class="h3 h-mb-100">{talObject.focusedLot.description}</h3>
+				<div class="lot--bid-details h-mb-100">
+					<div>
+						<button class="l-grid-half m-grid-half o-icon-label-button" rv-on-click="talController.watchFocusedLot" rv-class-s-active="talObject.focusedLot.watching | indexof talObject.bidder">
+							<i class="icon-eye"></i><label for="">Watch<span rv-if="talObject.focusedLot.watching | indexof talObject.bidder">ing</span></label>
+						</button>
+						<button class="l-grid-half m-grid-half o-icon-label-button">
+							<i class="icon-group"></i><label for="">Group Bid</label>
+						</button>
+					</div>
+					
+					<div class="bid-details--section bid-details--bid" rv-class-s-winning="talObject.focusedLot.bidder | compare talObject.bidder">
+						<div rv-unless="talObject.focusedLot.bid | compare 0">
+							<label class="t-smalllabel">
+								<span rv-unless="talObject.focusedLot.bidder | compare talObject.bidder">High Bid</span>
+								<span rv-if="talObject.focusedLot.bidder | compare talObject.bidder">Top Bidder</span>
+							</label>
+							<span class="CCY h-float-right" rv-html="talObject.focusedLot.bid | price"></span>
+						</div>
+						<div rv-if="talObject.focusedLot.bid | compare 0" class="t-empty h-ta-center">
+							No Bids Placed Yet
+						</div>
+					</div>
+
+					<div class="bid-details--section h-ta-center">
+						{talObject.focusedLot.closes | countdownTime} 
+						<div class="bid-details--closes">{talObject.focusedLot.closes | calendarTime}</div>
+					</div>
+				</div>
+				<div class="lot--meta h-mb-100">
+					<div class="meta--field h-mb-50" rv-if="talObject.focusedLot.usage"><label class="t-smalllabel">Meter: </label><span>{talObject.focusedLot.usage}</span></div>
+					<div class="meta--field h-mb-50" rv-if="talObject.focusedLot.equipid"><label class="t-smalllabel">Serial: </label><span>{talObject.focusedLot.equipid}</span></div>
+					<div class="meta--field h-mb-50" rv-if="talObject.focusedLot.comeswith"><label class="t-smalllabel">Comes With: </label><span>{talObject.focusedLot.comeswith}</span></div>
+					<div class="meta--field h-mb-50" rv-if="talObject.focusedLot.notes"><label class="t-smalllabel">Notes: </label><span>{talObject.focusedLot.notes}</span></div>
+				</div>
+			</div>

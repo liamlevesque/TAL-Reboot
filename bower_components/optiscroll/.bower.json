@@ -1,0 +1,43 @@
+{
+  "name": "optiscroll",
+  "version": "3.0.0",
+  "homepage": "https://github.com/albertogasparin/Optiscroll",
+  "authors": [
+    "Alberto Gasparin <albertogasparin@gmail.com>"
+  ],
+  "description": "Custom scrollbars for modern webapps",
+  "main": [
+    "dis/optiscroll.css",
+    "dist/optiscroll.js"
+  ],
+  "moduleType": [
+    "amd",
+    "globals"
+  ],
+  "keywords": [
+    "scrollbar",
+    "scroll",
+    "scrollTo",
+    "scrollIntoView"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "Gruntfile.js",
+    "demo"
+  ],
+  "_release": "3.0.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v3.0.0",
+    "commit": "1595799a8ce02d21ab3137ec21e11269901f42a2"
+  },
+  "_source": "https://github.com/wilsonfletcher/optiscroll.git",
+  "_target": "^3.0.0",
+  "_originalSource": "optiscroll",
+  "_direct": true
+}

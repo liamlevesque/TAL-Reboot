@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>RB TIMED AUCTION</title>
+    <link type="text/css" rel="stylesheet" href="assets/css/style.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body class="body js--tal CAD">
+	
+	<div class="l-header">
+		<!-- @include '/assets/partials/header' -->	
+		<!-- @include '/assets/partials/search' -->	
+	</div>
+	
+	<div class="l-main-container optiscroll">
+		<!-- @include '/assets/partials/lot-list' -->
+		<!-- @include '/assets/partials/watching' -->
+		<!-- @include '/assets/partials/bids' -->
+		<!-- @include '/assets/partials/purchases' -->
+		<!-- @include '/assets/partials/profile' -->
+		<div class="progress-indicator js--lot-scroll-indicator"></div>
+		<div class="auction-progress-meter js--lot-scroll-hover-area">
+			<ul class="auction-lot-intervals">
+				<li class="auction-lot-interval" rv-each-interval="talObject.auction.totalLots | lotintervals talObject.auction.startLot talObject.auction.endLot">
+					{interval}
+				</li>
+			</ul>
+		</div>
+	</div>
+	
+	<div class="l-nav--mobile-footer">
+		<!-- @include '/assets/partials/mobile-footer' -->
+	</div>
+
+	<!-- @include '/assets/partials/modals/lotdetail-modal' -->
+	<!-- @include '/assets/partials/modals/groupCreate-components' -->
+	<!-- @include '/assets/partials/modals/group-view' -->
+	<!-- @include '/assets/partials/modals/maxbid-modal' -->
+	
+    <script type="text/javascript" src="assets/js/min/scripts-min.js"></script>
+
+</body>
+</html>
+
