@@ -1,6 +1,11 @@
 <div class="o-lot" rv-class-s-high-bidder="lot.bidder | compare talObject.bidder" rv-on-click="talController.toggleLotDetails" rv-class-s-group-select="talObject.isGroupChoosing">
 	
-	<input type="checkbox" rv-show="talObject.isGroupChoosing" class="lot--group-selector" rv-on-click="talController.addToGroup" rv-ischecked="lot.group | indexof talObject.tempGroup.uid">
+	<!-- <input type="checkbox" rv-show="talObject.isGroupChoosing" class="lot--group-selector" rv-on-click="talController.addToGroup" rv-ischecked="lot.group | indexof talObject.tempGroup.uid"> -->
+
+	<label class="o-input--checkbox h-mb-100 lot--group-selector" rv-show="talObject.isGroupChoosing" rv-on-click="talController.stopProp">
+		<input type="checkbox" name="reportType" rv-on-click="talController.addToGroup" rv-ischecked="lot.group | indexof talObject.tempGroup.uid">
+		<span class="o-input--checksymbol"></span>
+	</label>
 
 	<div class="l-grid-third m-grid-quarter">
 		<img rv-src="lot.photo" class="lot--photo">
@@ -16,10 +21,25 @@
 			</div>
 			<div>
 				<div class="lot--meta">
-					<div class="meta--field h-mb-50" rv-if="lot.usage"><label class="t-smalllabel">Meter: </label><span>{lot.usage}</span></div>
-					<div class="meta--field h-mb-50" rv-if="lot.equipid"><label class="t-smalllabel">Serial: </label><span>{lot.equipid}</span></div>
-					<div class="meta--field h-mb-50 h-hide-mobile" rv-if="lot.comeswith"><label class="t-smalllabel">Comes With: </label><span>{lot.comeswith}</span></div>
-					<div class="meta--field h-mb-50 h-hide-mobile" rv-if="lot.notes"><label class="t-smalllabel">Notes: </label><span>{lot.notes}</span></div>
+					<div class="meta--field" rv-if="lot.usage"><label class="t-smalllabel">Meter: </label><span>{lot.usage}</span></div>
+					<div class="meta--field" rv-if="lot.equipid"><label class="t-smalllabel">Serial: </label><span>{lot.equipid}</span></div>
+					<div class="meta--field h-hide-mobile" rv-if="lot.comeswith"><label class="t-smalllabel">Comes With: </label><span>{lot.comeswith}</span></div>
+					<div class="meta--field h-hide-mobile" rv-if="lot.notes"><label class="t-smalllabel">Notes: </label><span>{lot.notes}</span></div>
+					
+					<div class="h-ta-right h-hide-desktop">
+						<div class="h-mb-50">{lot.closes | countdownTime}</div>
+
+						<div rv-if="lot.bid | compare 0" class="t-empty">
+							No Bids Placed Yet
+						</div>
+						<div rv-unless="lot.bid | compare 0">
+							<label class="t-smalllabel">
+								<span rv-unless="lot.bidder | compare talObject.bidder">High Bid</span>
+								<span rv-if="lot.bidder | compare talObject.bidder">Top Bidder</span>
+							</label>
+							<span class="CCY" rv-html="lot.bid | price"></span>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -32,7 +52,7 @@
 				<button class="l-grid-half o-icon-label-button" rv-if="lot.group | lengthand talObject.isGroupChoosing" rv-on-click="talController.showGroupViewModalFromLot">View Group</button>
 
 				<button class="l-grid-half o-icon-label-button" rv-unless="lot.group | lengthand talObject.isGroupChoosing" rv-on-click="talController.createGroupBid" rv-class-s-active="lot.group | indexof talObject.tempGroup.uid">
-					<i class="icon-group"></i>
+					<i class="icon-eye"></i>
 					<label rv-unless="talObject.isGroupChoosing">Group Bid</label>
 					<span rv-if="talObject.isGroupChoosing">
 						<label rv-unless="lot.group | indexof talObject.tempGroup.uid">Add To Group</label>
@@ -41,7 +61,8 @@
 				</button>
 			</div>
 			
-			<div class="bid-details--section h-ta-center">
+			<div class="bid-details--section h-ta-right">
+				<label class="t-smalllabel h-float-left">Closes</label>
 				{lot.closes | countdownTime} 
 				<div class="bid-details--closes h-hide-mobile">{lot.closes | calendarTime}</div>
 			</div>

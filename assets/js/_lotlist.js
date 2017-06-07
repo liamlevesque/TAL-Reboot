@@ -2,6 +2,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5001",
 			"bid": 10000,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -27,6 +28,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5002",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -53,6 +55,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5003",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -77,6 +80,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5004",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -100,6 +104,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5005",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -126,6 +131,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5006",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -152,6 +158,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5007",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -178,6 +185,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5008",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -204,6 +212,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5009",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -230,6 +239,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5010",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -256,6 +266,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5011",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -282,6 +293,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5012",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -308,6 +320,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5013",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -334,6 +347,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5014",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -357,6 +371,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5015",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -383,6 +398,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5016",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -409,6 +425,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5017",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -435,6 +452,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5018",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -461,6 +479,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5019",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -487,6 +506,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5020",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -513,6 +533,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5021",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -539,6 +560,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5022",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -565,6 +587,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5023",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -591,6 +614,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5024",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -617,6 +641,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5025",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -643,6 +668,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5026",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -669,6 +695,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5027",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -695,6 +722,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5028",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -721,6 +749,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5029",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -747,6 +776,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5030",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -773,6 +803,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5031",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -799,6 +830,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5032",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -825,6 +857,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5033",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -851,6 +884,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5034",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -877,6 +911,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5035",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -903,6 +938,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5036",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -929,6 +965,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5037",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -955,6 +992,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5038",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -981,6 +1019,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5039",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1007,6 +1046,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5040",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1033,6 +1073,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5041",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1059,6 +1100,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5042",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1085,6 +1127,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5043",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1111,6 +1154,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5044",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1137,6 +1181,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5045",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1163,6 +1208,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5046",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1189,6 +1235,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5047",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1215,6 +1262,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5048",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1241,6 +1289,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5049",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1267,6 +1316,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5050",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1293,6 +1343,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5051",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1319,6 +1370,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5052",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1345,6 +1397,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5053",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1371,6 +1424,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5054",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1397,6 +1451,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5055",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1423,6 +1478,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5056",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1449,6 +1505,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5057",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1475,6 +1532,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5058",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1501,6 +1559,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5059",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1527,6 +1586,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5060",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1553,6 +1613,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5061",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1579,6 +1640,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5062",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1605,6 +1667,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5063",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1631,6 +1694,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5064",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1657,6 +1721,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5065",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1683,6 +1748,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5066",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1709,6 +1775,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5067",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1735,6 +1802,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5068",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1761,6 +1829,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5069",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1787,6 +1856,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5070",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1813,6 +1883,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5071",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1839,6 +1910,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5072",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1865,6 +1937,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5073",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1891,6 +1964,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5074",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1917,6 +1991,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5075",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1943,6 +2018,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5076",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1969,6 +2045,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5077",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1995,6 +2072,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5078",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -2021,6 +2099,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5079",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -2047,6 +2126,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5080",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -2073,6 +2153,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5081",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -2099,6 +2180,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5082",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -2125,6 +2207,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5083",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -2151,6 +2234,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5084",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -2177,6 +2261,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5085",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -2203,6 +2288,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5086",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -2229,6 +2315,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5087",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -2255,6 +2342,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5088",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -2281,6 +2369,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5089",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -2307,6 +2396,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5090",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -2333,6 +2423,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5091",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -2359,6 +2450,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5092",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -2385,6 +2477,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5093",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -2411,6 +2504,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5094",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -2437,6 +2531,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5095",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -2463,6 +2558,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5096",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -2489,6 +2585,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5097",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -2515,6 +2612,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5098",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -2541,6 +2639,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5099",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -2567,6 +2666,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5100",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -2593,6 +2693,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5101",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -2619,6 +2720,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5102",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -2645,6 +2747,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5103",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -2671,6 +2774,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5104",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -2697,6 +2801,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5105",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -2723,6 +2828,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5106",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -2749,6 +2855,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5107",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -2775,6 +2882,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5108",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -2801,6 +2909,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5109",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -2827,6 +2936,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5110",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -2853,6 +2963,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5111",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -2879,6 +2990,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5112",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -2905,6 +3017,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5113",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -2931,6 +3044,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5114",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -2957,6 +3071,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5115",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -2983,6 +3098,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5116",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -3009,6 +3125,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5117",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -3035,6 +3152,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5118",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -3061,6 +3179,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5119",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -3087,6 +3206,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5120",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -3113,6 +3233,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5121",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -3139,6 +3260,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5122",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -3165,6 +3287,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5123",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -3191,6 +3314,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5124",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -3217,6 +3341,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5125",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -3243,6 +3368,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5126",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -3269,6 +3395,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5127",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -3295,6 +3422,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5128",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -3321,6 +3449,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5129",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -3347,6 +3476,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5130",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -3373,6 +3503,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5131",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -3399,6 +3530,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5132",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -3425,6 +3557,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5133",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -3451,6 +3584,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5134",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -3477,6 +3611,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5135",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -3503,6 +3638,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5136",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -3529,6 +3665,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5137",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -3555,6 +3692,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5138",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -3581,6 +3719,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5139",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -3607,6 +3746,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5140",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -3633,6 +3773,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5141",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -3659,6 +3800,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5142",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -3685,6 +3827,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5143",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -3711,6 +3854,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5144",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -3737,6 +3881,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5145",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -3763,6 +3908,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5146",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',

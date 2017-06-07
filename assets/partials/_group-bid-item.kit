@@ -1,36 +1,42 @@
-<div class="group-bid-item">
-	<div class="l-grid-two-thirds">
-		<div class="l-grid-half">
-			<img src="assets/img/vramp1.jpg" alt="" class="group-photos">
+<div class="group-bid-item" rv-on-click="talController.showGroupViewModal">
+	<div class="l-grid-third m-grid-third">
+		<div class="group-photos">
+			<img rv-src="lot.lots.0.photo" alt="">
+			<img rv-src="lot.lots.1.photo" alt="">
+			<img rv-src="lot.lots.2.photo" alt="">
 		</div>
+		<h3 class="h3 h-hide-desktop">Group of {lot.lots | length} Lots</h3>
+	</div>
+	<div class="l-grid-two-thirds m-grid-two-thirds">
 		<div class="l-grid-half">
 			<h3 class="h3">Lots <span rv-each-sublot="lot.lots">{sublot.lotNumber}, </span></h3>
 			<h4 class="h4">You want to win: <strong>{lot.quantity} of {lot.lots | length}</strong></h4>
 			<h4 class="h4">Bid up to: <span class="CCY" rv-html="lot.maxbid | price"></span> on each lot</h4>
-			<button class="o-text-button" rv-on-click="talController.showGroupViewModal">View Group</button>
+			<button class="o-text-button">View Group</button>
 		</div>
-	</div>
-	<div class="l-grid-third lot--bid-details">
+		<div class="l-grid-half lot--bid-details h-hide-mobile">
 		
-		<div class="bid-details--section bid-details--bid">
-			<div rv-each-sublot="lot.lots" rv-show="sublot.bidder | compare talObject.bidder">Bidding <span class="CCY" rv-html="sublot.bid | price"></span> on Lot {sublot.lotNumber}</div>
-			<!-- <label class="t-smalllabel">
-				<span rv-unless="lot.lots.0.bidder | compare talObject.bidder">High Bid</span>
-				<span rv-if="lot.lots.0.bidder | compare talObject.bidder">Top Bidder</span>
-			</label>
-			<span class="CCY h-float-right" rv-html="lot.lots.0.bid | price"></span> -->
-		</div>
+			<div class="bid-details--section bid-details--bid">
+				<div rv-each-sublot="lot.lots" rv-show="sublot.bidder | compare talObject.bidder">Bidding <span class="CCY" rv-html="sublot.bid | price"></span> on Lot {sublot.lotNumber}</div>
+				<!-- <label class="t-smalllabel">
+					<span rv-unless="lot.lots.0.bidder | compare talObject.bidder">High Bid</span>
+					<span rv-if="lot.lots.0.bidder | compare talObject.bidder">Top Bidder</span>
+				</label>
+				<span class="CCY h-float-right" rv-html="lot.lots.0.bid | price"></span> -->
+			</div>
 
-		<div class="bid-details--section h-ta-center">
-			{lot.lots.0.closes | countdownTime} 
-			<div class="bid-details--closes h-hide-mobile">{lot.lots.0.closes | calendarTime}</div>
-		</div>
+			<div class="bid-details--section h-ta-center">
+				{lot.lots.0.closes | countdownTime} 
+				<div class="bid-details--closes h-hide-mobile">{lot.lots.0.closes | calendarTime}</div>
+			</div>
 
-		<div class="bid-details--section">
-			<button class="o-button--outline h-mb-50 h-width-100" rv-on-click="talController.toggleMaximumBidVisible">
-				Change Maximum Bid of <span class="CCY" rv-html="lot.maxbid | price"></span>
-			</button>
-		</div>
+			<div class="bid-details--section">
+				<button class="o-button--outline h-mb-50 h-width-100" rv-on-click="talController.toggleMaximumBidVisible">
+					Change Maximum Bid of <span class="CCY" rv-html="lot.maxbid | price"></span>
+				</button>
+			</div>
 
+		</div>
 	</div>
+	
 </div>

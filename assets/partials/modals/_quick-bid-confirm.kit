@@ -1,0 +1,18 @@
+<div class="c-modal" rv-class-s-visible="talObject.quickBidConfirmVisible" rv-on-click="talController.cancelQuickBid">
+	<div class="c-modal--content_mini" rv-on-click="talController.stopProp">
+		<div class="c-modal--header">
+			<h3 class="h3 h-d-inline-block">Confirm Quick Bid</h3>
+		</div>
+
+		<div class="c-modal--body h-p-100">
+			
+			Are you sure you want to bid <strong class="CCY" rv-html="talObject.focusedLot.bid | nextIncrement"></strong> on <strong>Lot { talObject.focusedLot.lotNumber }</strong>?
+
+		</div>
+
+		<div class="c-modal--footer">
+			<button class="o-button--outline l-grid-half m-grid-half" rv-on-click="talController.cancelQuickBid">Cancel</button>
+			<button class="o-button l-grid-half m-grid-half" rv-on-click="talController.confirmQuickBid"> Bid </button>
+		</div>
+	</div>
+</div>

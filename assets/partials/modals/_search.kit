@@ -1,0 +1,46 @@
+<div class="c-modal" rv-class-s-visible="talObject.mobileSearchVisible">
+	<div class="c-modal--content" rv-on-click="talController.stopProp">
+		<div class="c-modal--header">
+			<div class="h-ta-left h-mr-100">
+				<button class="o-text-button_black m-grid-fifth" rv-on-click="talController.toggleSearchVisible">Cancel</button>
+				<div class="m-grid-four-fifths h-pos-relative">
+					<input type="text" class="o-input--text js--search-input" placeholder="find by lot # or keyword" rv-value="talObject.filteredResults.input" rv-on-keyup="talController.updateSearch">
+					<button class="o-icon-button--medium l-input--toggle" rv-if="talObject.filteredResults.input | lengthToBool" rv-on-click="talController.clearSearch"><i class="icon-check-inner"></i></button>
+				</div>
+			</div>
+		</div>
+		<div class="c-modal--body">
+			
+			<div rv-unless="talObject.filteredResults.searching">
+				<div class="o-setting-section-separator">Recent Searches</div>
+				<ul>
+					<li class="o-setting-list-item" rv-each-pastsearch="talObject.pastSearches" rv-on-click="talController.doSearch" rv-data-value="pastsearch">{ pastsearch }</li>
+				</ul>
+				
+				<div class="o-setting-section-separator">Categories</div>
+				<ul>
+					<li class="o-setting-list-item" rv-each-category="talObject.categories" rv-on-click="talController.goToCategory" rv-data-value="category.name">{ category.name }<span class="t-smalllabel">({ category.quantity })</span></li>
+				</ul>
+			</div>
+			<div rv-if="talObject.filteredResults.searching">
+				<div rv-if="talObject.filteredResults.lotMatch">
+					<div class="o-setting-section-separator">Search By Lot Number</div>
+					<div class="o-setting-list-item" rv-unless="talObject.filteredResults.noLotMatch" rv-on-click="talController.doSearch">Go to Lot {talObject.filteredResults.lotMatch}</div>
+					<div class="o-setting-list-item t-empty" rv-if="talObject.filteredResults.noLotMatch">No lots match that number</div>
+				</div>
+				<div class="o-setting-section-separator">Search Within Categories</div>
+				<ul>
+					<li class="o-setting-list-item" rv-on-click="talController.doSearch">{ talObject.filteredResults.topMatch }</li>
+					<li class="o-setting-list-item t-empty h-ta-right" rv-each-category="talObject.filteredResults.categories" rv-on-click="talController.doSearch" rv-data-value="category">{ category }</li>
+				</ul>
+				<div class="o-setting-section-separator">Suggested Searches</div>
+				<ul>
+					<li class="o-setting-list-item" rv-each-match="talObject.filteredResults.matches" rv-on-click="talController.doSearch" rv-data-value="match">{ match }</li>
+				</ul>
+
+			</div>
+
+		</div>
+	</div>
+</div>
+

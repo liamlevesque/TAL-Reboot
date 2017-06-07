@@ -1,6 +1,6 @@
 <div rv-if="talObject.activeTab | compare 'bids'">
 	<div class="l-width--1200">
-		<ul class="c-lot-list js--optiscroll-content" rv-if="talObject.biddingLots | lengthToBool">
+		<ul class="c-lot-list" rv-if="talObject.biddingLots | lengthToBool">
 			<li rv-each-lot="talObject.biddingLots">
 				<div rv-unless="lot.type | compare 'group'">
 					<!-- @include '/assets/partials/lot-list-item' -->
@@ -12,8 +12,8 @@
 			</li>
 		</ul>
 
-		<div class="t-empty" rv-unless="talObject.biddingLots | lengthToBool">
-			You haven't placed any bids yet! Get to work!!
+		<div rv-unless="talObject.biddingLots | lengthToBool">
+			<!-- @include '/assets/partials/empty-state' -->
 		</div>
 	</div>
 

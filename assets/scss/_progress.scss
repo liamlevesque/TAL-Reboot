@@ -1,6 +1,12 @@
 $scroll-width: 10px;
 
-
+.optiscroll{
+	position: absolute;
+	bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+}
 
 .optiscroll-v{
 	width: $scroll-width;
@@ -23,6 +29,8 @@ $scroll-width: 10px;
 $progress-indicator-height: 50px;
 
 .progress-indicator{
+	display: none;
+
 	transform: rotateX(90deg) translateY(-50%);
 	position: absolute;
 	right: 25px;
@@ -49,13 +57,19 @@ $progress-indicator-height: 50px;
 	// 	z-index: -1;
 	// }
 
-	.s-scrolling &{
+	
+	.optiscroll.is-enabled ~ &{
+		display: block;
+	}
+
+	.optiscroll.s-scrolling ~ &{
 		transform: rotateX(0) translateY(-50%);
 	}
 }
 
 
 .auction-progress-meter{
+	display: none;
 	position: absolute;
 	right: 0;
 	top: 0;
@@ -65,14 +79,17 @@ $progress-indicator-height: 50px;
 	z-index: 90;
 	transition: opacity $transition;
 
-	.s-scrolling &{
+	.optiscroll.is-enabled ~ &{
+		display: block;
+	}
+
+	.optiscroll.s-scrolling ~ &{
 		opacity: 1;
 	}
 }
 
+	
 	.auction-lot-intervals{
-		list-style-type: none;
-		margin: 0;
 		position: relative;
 		height: 100%;
 	}

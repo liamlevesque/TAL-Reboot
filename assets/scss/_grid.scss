@@ -66,6 +66,9 @@
 	.l-grid-third{
 		@include grid-third;
 	}
+	.m-grid-third{
+		@include g-cell_mobile(32%,0.5%);	
+	}
 	.l-grid-half{
 		@include grid-half;
 	}
@@ -75,6 +78,9 @@
 
 	.l-grid-two-thirds{
 		@include grid-two-thirds;
+	}
+	.m-grid-two-thirds{
+		@include g-cell_mobile(65%,0.5%);	
 	}
 	.l-grid-three-quarters{
 		@include grid-three-quarters;
@@ -87,6 +93,9 @@
 	}
 	.m-grid-three-fifths{
 		@include g-cell_mobile(59%,0);	
+	}
+	.m-grid-four-fifths{
+		@include g-cell_mobile(79%,0);	
 	}
 
 	.l-grid-sixth{

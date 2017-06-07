@@ -147,7 +147,7 @@ rivets.formatters.divide = function(value,divisor){
 };
 
 rivets.formatters.lengthToBool = function(value){
-	if(typeof value === 'undefined') return false;
+	if(typeof value === 'undefined' || value === null) return false;
 	if(value.length === 0) return false;
 	return true;
 };
@@ -195,6 +195,11 @@ rivets.formatters.propertyList = function(obj) {
 rivets.formatters.findShortcuts = function(arr,index){
 	if(typeof arr[index] === 'undefined') return false;
 	return arr[index].shortcuts;
+};
+
+rivets.formatters.plus = function(value,arg){
+	if(typeof value == "undefined" || typeof arg == "undefined") return 0;
+	return value + arg;
 };
 
 rivets.formatters.and = function(value,item){
@@ -309,72 +314,127 @@ rivets.binders.rangeinput = {
 
 $(function(){
 
-	let scroller = $('.optiscroll')[0];
-	scrollArea = new Optiscroll(scroller,{
-		forceScrollbars: true,
-		wrapContent: false,
-	});
+	createOptiscroll();
+	
+});
 
 
-	$('.optiscroll').on('scroll',function(e){
-		// let vposition = e.detail.scrollbarV.percent;
-		// $('.js--lot-scroll-indicator').css('top',vposition + "%").text('Lot '+vposition);
-		$('.optiscroll').addClass('s-scrolling');
-		updateProgressIndicator(e.detail.scrollTop/e.detail.scrollHeight);
-	}).on('scrollstop',function(e){
-		$('.optiscroll').removeClass('s-scrolling');
-		//CHECK IF MOUSEOVER FIRST
-	}); 
+var scrollArea;
+var scrollTarget = null;
 
-	$('.optiscroll-v').on('mouseenter',function(e){
-		$('.optiscroll').addClass('s-scrolling');
-	});
-
-	$('.js--lot-scroll-hover-area').on('mouseenter',function(e){
-		
-		$('.optiscroll').addClass('s-scrolling');
-		e.currentTarget.addEventListener('mousemove',function(e){
-			let progress = getProgress(e);
-			updateProgressIndicator(progress);
+function createOptiscroll() {
+	if($('.js--optiscroll-content').length > 0){
+		let scroller = $('.optiscroll')[0];
+		scrollArea = new Optiscroll(scroller,{
+			forceScrollbars: true,
+			//wrapContent: false,
 		});
 
-	}).on('mousedown',function(e){
-		
-		var targetBounds = $('.js--optiscroll-content')[0].getBoundingClientRect();
-		var totalHeight = targetBounds.bottom - targetBounds.top;
-		var yPixels = Math.floor(getProgress(e) * totalHeight);
-		scrollArea.scrollTo(false, yPixels, 100);
+		$('.js--lot-scroll-hover-area').on('mouseenter',function(e){
+			$('.optiscroll').addClass('s-scrolling');
+			e.currentTarget.addEventListener('mousemove',function(e){
+				let progress = getProgress(e);
+				updateProgressIndicator(progress);
+			});
 
-	}).on('mouseleave',function(e){
-		
-		$('.optiscroll').removeClass('s-scrolling');
-		e.currentTarget.removeEventListener('mousemove',function(e){
-			let progress = getProgress(e);
-			updateProgressIndicator(progress);
+		}).on('mouseleave',function(e){
+			$('.optiscroll').removeClass('s-scrolling');
+			e.currentTarget.removeEventListener('mousemove',function(e){
+				let progress = getProgress(e);
+				updateProgressIndicator(progress);
+			});
+		}).on('mousedown',function(e){
+			goToLot(scrollTarget);
 		});
-	});
 
-	function getProgress(e){
-		let thisBounds = e.currentTarget.getBoundingClientRect();
-		let yDiff = e.clientY - thisBounds.top;
-		let height = thisBounds.bottom - thisBounds.top;
-		return yDiff/height;
-	}
+		$('.optiscroll').on('scroll',function(e){
+			$('.optiscroll').addClass('s-scrolling');
+			updateProgressIndicator(e.detail.scrollTop/e.detail.scrollHeight);
+		}).on('scrollstop',function(e){
+			$('.optiscroll').removeClass('s-scrolling');
+			//CHECK IF MOUSEOVER FIRST
+		}); 
 
-	function updateProgressIndicator(percentProgress){
-		let hoveredLot = talObject.auction.startLot + Math.floor((talObject.auction.endLot - talObject.auction.startLot) * percentProgress);
-		
-		if(percentProgress > 0.95) percentProgress = 0.95;
-		else if(percentProgress < 0.05) percentProgress = 0.05;
-		
-		$('.js--lot-scroll-indicator').css('top', percentProgress * 100 + "%").text('Lot ' + hoveredLot);
+		$('.optiscroll-v').on('mouseenter',function(e){
+			$('.optiscroll').addClass('s-scrolling');
+		});
+
 	}
+}
+
+function goToLot(targetLot) {
+	var el = $('#'+targetLot)[0];
+	scrollArea.scrollIntoView(el,100,{top: 30});
+}
+
+function getProgress(e){
+	let thisBounds = e.currentTarget.getBoundingClientRect();
+	let yDiff = e.clientY - thisBounds.top;
+	let height = thisBounds.bottom - thisBounds.top;
+	return yDiff/height;
+}
+
+function updateProgressIndicator(percentProgress){
+	scrollTarget = talObject.auction.startLot + Math.floor((talObject.auction.endLot - talObject.auction.startLot) * percentProgress);
+	
+	if(percentProgress > 0.95) percentProgress = 0.95;
+	else if(percentProgress < 0.05) percentProgress = 0.05;
+	
+	$('.js--lot-scroll-indicator').css('top', percentProgress * 100 + "%").text('Lot ' + scrollTarget);
+}
+
+
+
+$(function(){
+	pushHistory('auction','page');
+})
+
+const baseTitle = "Ritchie Bros. Timed Auction | ";
+
+function navigateHistory(type,name) {
+	switch(type){
+		case 'page':
+			talController.goToTab(name);
+			hideModals();
+			break;
+		case 'lot':
+			talController.showLot(name);
+			break;
+		case 'search':
+			talObject.mobileSearchVisible = true;
+			break;
+		default:
+			talController.goToTab('auction');
+	}
+	
+	document.title = baseTitle + name;
+}
+
+function hideModals(){
+	talObject.maximumBidVisible = false;
+	talObject.groupBidModalVisible = false;
+	talObject.groupViewModalVisible = false;
+	talObject.lotDetailsVisible = false;
+	talObject.mobileSearchVisible = false;
+}
+
+function pushHistory(target,pagetype) {
+	let destination = {
+		type: pagetype,
+		name: target
+	}
+	history.pushState(destination,baseTitle + target,'#'+target);
+}
+
+window.addEventListener('popstate', function(e) {
+	navigateHistory(e.state.type,e.state.name);
 });
 
 const lotlist = [
 		{
 			"lotNumber" : "5001",
 			"bid": 10000,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -400,6 +460,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5002",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -426,6 +487,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5003",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -450,6 +512,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5004",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -473,6 +536,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5005",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -499,6 +563,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5006",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -525,6 +590,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5007",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -551,6 +617,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5008",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -577,6 +644,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5009",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -603,6 +671,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5010",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -629,6 +698,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5011",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -655,6 +725,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5012",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -681,6 +752,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5013",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -707,6 +779,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5014",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -730,6 +803,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5015",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -756,6 +830,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5016",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -782,6 +857,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5017",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -808,6 +884,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5018",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -834,6 +911,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5019",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -860,6 +938,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5020",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -886,6 +965,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5021",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -912,6 +992,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5022",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -938,6 +1019,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5023",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -964,6 +1046,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5024",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -990,6 +1073,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5025",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1016,6 +1100,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5026",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1042,6 +1127,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5027",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1068,6 +1154,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5028",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1094,6 +1181,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5029",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1120,6 +1208,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5030",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1146,6 +1235,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5031",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1172,6 +1262,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5032",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1198,6 +1289,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5033",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1224,6 +1316,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5034",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1250,6 +1343,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5035",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1276,6 +1370,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5036",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1302,6 +1397,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5037",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1328,6 +1424,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5038",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1354,6 +1451,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5039",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1380,6 +1478,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5040",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1406,6 +1505,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5041",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1432,6 +1532,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5042",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1458,6 +1559,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5043",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1484,6 +1586,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5044",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1510,6 +1613,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5045",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1536,6 +1640,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5046",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1562,6 +1667,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5047",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1588,6 +1694,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5048",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1614,6 +1721,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5049",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1640,6 +1748,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5050",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1666,6 +1775,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5051",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1692,6 +1802,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5052",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1718,6 +1829,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5053",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1744,6 +1856,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5054",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1770,6 +1883,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5055",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1796,6 +1910,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5056",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1822,6 +1937,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5057",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1848,6 +1964,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5058",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1874,6 +1991,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5059",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1900,6 +2018,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5060",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1926,6 +2045,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5061",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1952,6 +2072,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5062",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1978,6 +2099,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5063",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -2004,6 +2126,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5064",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -2030,6 +2153,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5065",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -2056,6 +2180,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5066",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -2082,6 +2207,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5067",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -2108,6 +2234,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5068",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -2134,6 +2261,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5069",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -2160,6 +2288,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5070",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -2186,6 +2315,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5071",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -2212,6 +2342,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5072",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -2238,6 +2369,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5073",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -2264,6 +2396,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5074",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -2290,6 +2423,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5075",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -2316,6 +2450,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5076",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -2342,6 +2477,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5077",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -2368,6 +2504,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5078",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -2394,6 +2531,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5079",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -2420,6 +2558,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5080",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -2446,6 +2585,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5081",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -2472,6 +2612,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5082",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -2498,6 +2639,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5083",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -2524,6 +2666,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5084",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -2550,6 +2693,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5085",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -2576,6 +2720,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5086",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -2602,6 +2747,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5087",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -2628,6 +2774,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5088",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -2654,6 +2801,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5089",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -2680,6 +2828,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5090",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -2706,6 +2855,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5091",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -2732,6 +2882,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5092",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -2758,6 +2909,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5093",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -2784,6 +2936,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5094",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -2810,6 +2963,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5095",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -2836,6 +2990,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5096",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -2862,6 +3017,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5097",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -2888,6 +3044,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5098",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -2914,6 +3071,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5099",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -2940,6 +3098,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5100",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -2966,6 +3125,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5101",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -2992,6 +3152,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5102",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -3018,6 +3179,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5103",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -3044,6 +3206,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5104",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -3070,6 +3233,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5105",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -3096,6 +3260,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5106",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -3122,6 +3287,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5107",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -3148,6 +3314,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5108",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -3174,6 +3341,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5109",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -3200,6 +3368,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5110",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -3226,6 +3395,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5111",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -3252,6 +3422,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5112",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -3278,6 +3449,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5113",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -3304,6 +3476,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5114",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -3330,6 +3503,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5115",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -3356,6 +3530,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5116",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -3382,6 +3557,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5117",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -3408,6 +3584,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5118",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -3434,6 +3611,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5119",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -3460,6 +3638,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5120",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -3486,6 +3665,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5121",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -3512,6 +3692,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5122",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -3538,6 +3719,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5123",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -3564,6 +3746,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5124",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -3590,6 +3773,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5125",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -3616,6 +3800,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5126",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -3642,6 +3827,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5127",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -3668,6 +3854,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5128",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -3694,6 +3881,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5129",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -3720,6 +3908,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5130",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -3746,6 +3935,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5131",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -3772,6 +3962,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5132",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -3798,6 +3989,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5133",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -3824,6 +4016,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5134",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -3850,6 +4043,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5135",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -3876,6 +4070,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5136",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -3902,6 +4097,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5137",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -3928,6 +4124,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5138",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -3954,6 +4151,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5139",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -3980,6 +4178,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5140",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -4006,6 +4205,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5141",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -4032,6 +4232,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5142",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -4058,6 +4259,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5143",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -4084,6 +4286,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5144",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -4110,6 +4313,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5145",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -4136,6 +4340,7 @@ const lotlist = [
 		{
 			"lotNumber" : "5146",
 			"bid": 0,
+			"maxBids":[],
 			"bidder": null,
 			"watching": [],
 			"equipid": '1234567890A',
@@ -4161,14 +4366,92 @@ const lotlist = [
 		}
 	]; 
 
+const categories = [
+	{
+		name: 'Aggregate - Feeders',
+		quantity: 12,
+	},{
+		name: 'Agriculture - Misc',
+		quantity: 12,
+	},{
+		name: 'Attachments - Equipment',
+		quantity: 12,
+	},{
+		name: 'Attachments - Excavator',
+		quantity: 12,
+	},{
+		name: 'Attachments - Motor Grader',
+		quantity: 12,
+	},{
+		name: 'Attachments - Skid Steer',
+		quantity: 12,
+	},{
+		name: 'Attachments - Truck',
+		quantity: 12,
+	},{
+		name: 'Cranes - Accessories',
+		quantity: 12,
+	},{
+		name: 'Cranes - Conventional Truck',
+		quantity: 12,
+	},{
+		name: 'Drilling - Miscellaneous',
+		quantity: 12,
+	},{
+		name: 'Emergency Vehicles',
+		quantity: 12,
+	},{
+		name: 'Engines',
+		quantity: 12,
+	},{
+		name: 'Environmental Equipment',
+		quantity: 12,
+	},{
+		name: 'Hydraulic Excavators - Crawler',
+		quantity: 12,
+	},{
+		name: 'Industrial Plant Equipment',
+		quantity: 12,
+	},{
+		name: 'Landscape Equipment',
+		quantity: 12,
+	},{
+		name: 'Livestock Equipment',
+		quantity: 12,
+	},{
+		name: 'Miscellaneous - Shop, Warehouse, Consumer',
+		quantity: 12,
+	},{
+		name: 'Mobile Structures',
+		quantity: 12,
+	},{
+		name: 'Parts or Stationary - Construction',
+		quantity: 12,
+	},{
+		name: 'Pumps',
+		quantity: 12,
+	},{
+		name: 'Sacales',
+		quantity: 12,
+	},{
+		name: 'Survey Equipment',
+		quantity: 12,
+	},{
+		name: 'Tanks',
+		quantity: 12,
+	},{
+		name: 'Welders',
+		quantity: 12,
+	},
 
+]
 
 const talObject = {
 		auction: {
 			startLot: 5000,
 			endLot: 5145,
 			totalLots: 850,
-			closingNext: 200,
+			closingNext: 7,
 		},
 		lots: lotlist,
 		watchingLots: [],
@@ -4185,6 +4468,7 @@ const talObject = {
 			emailAddress: null,
 			language: 'English',
 		},
+		lotDetailsVisible: false,
 		maximumBidVisible: false,
 		tempMaxBid: 0,
 		focusedLot: null,
@@ -4200,9 +4484,14 @@ const talObject = {
 			step: 1,
 		},
 		groupViewModalVisible: false,
+
+		mobileSearchVisible: false,
+		pastSearches: ['Cat 350','40 foot container','Gen Set'],
+		categories: categories,
+		filteredResults: {},
 	};
 
-var scrollArea;
+
 
 const talController = {
 		stopProp: function(e){
@@ -4210,38 +4499,98 @@ const talController = {
 		},
 
 		loadTab: function(e){
-			talController.goToTab($(e.currentTarget).data('tab'));
+			
+			let target = $(e.currentTarget).data('tab');
+			talController.goToTab(target);
+
+			pushHistory(target, 'page');//PUSH STATE
 		},
 
 		goToTab: function(target){
+			scrollArea.destroy();
 			talObject.activeTab = target;
-
-			if($('.optiscroll').length > 0){
-				let scroller = $('.optiscroll')[0];
-				scrollArea = new Optiscroll(scroller,{
-					forceScrollbars: true,
-					wrapContent: false,
-				});
-			}
+			createOptiscroll();
 		},
 
 		toggleLotDetails: function(e,context){
 			talObject.lotDetailsVisible = !talObject.lotDetailsVisible;
-			
 			if(talObject.lotDetailsVisible){
-				talObject.focusedLot = context.lot;
-
-				var mySwiper = new Swiper ('.swiper-container', {
-					direction: 'horizontal',
-					loop: true,
-					pagination: '.swiper-pagination',
-      				paginationClickable: 'true',
-					speed: 300,
-					effect: "coverflow",
-				})
+				talController.showLot(context.lot);
+				pushHistory(context.lot.lotNumber, 'lot');//PUSH STATE
 			}
-
+			else{
+				history.back();
+			}
 		},
+
+		showLot: function(lot) {
+			talObject.focusedLot = lot;
+
+			var mySwiper = new Swiper ('.swiper-container', {
+				direction: 'horizontal',
+				loop: true,
+				pagination: '.swiper-pagination',
+  				paginationClickable: 'true',
+				speed: 300,
+				effect: "coverflow",
+			})
+		},
+
+		/******************************************
+			SEARCH
+		******************************************/	
+			toggleSearchVisible: function(e){
+				talObject.mobileSearchVisible = !talObject.mobileSearchVisible;
+				pushHistory('search','modal');
+
+				$('.js--search-input').focus();
+			},
+
+			updateSearch: function(e) {
+				if(talObject.filteredResults.input.length === 0) talController.clearSearch();
+
+				let value = $(e.currentTarget).val();
+				if(value.length === 0){	//IF NO SEARCH STRING ENTERED
+					talObject.filteredResults.searching = false;
+					return;
+				} 
+				else talObject.filteredResults.searching = true;
+
+				// if(!isNaN(parseInt(value[0])) && (parseInt(value) >= talObject.lots[0].lotNumber && parseInt(value) <= talObject.lots[talObject.lots.length - 1].lotNumber)) {  //IF THIS IS A NUMBER
+				// 	talObject.filteredResults.lotMatch = value;
+				// } 
+				talObject.filteredResults.noLotMatch = false;
+
+				if(!isNaN(parseInt(value[0]))) {  //IF THIS IS A NUMBER
+					talObject.filteredResults.lotMatch = value;
+					if(!(parseInt(value) >= talObject.lots[0].lotNumber && parseInt(value) <= talObject.lots[talObject.lots.length - 1].lotNumber)){
+						talObject.filteredResults.noLotMatch = true;
+					}
+				} 
+				else{
+					talObject.filteredResults.lotMatch = null;
+				}
+				
+			},
+
+			doSearch: function(e) {
+				if(talObject.filteredResults.lotMatch != null){
+					goToLot(talObject.filteredResults.lotMatch);
+					talObject.mobileSearchVisible = false;
+				}
+			},
+
+			clearSearch: function() {
+				talObject.filteredResults = {
+					input: null,
+					searching: false,
+					lotMatch: null,
+					noLotMatch: true,
+					topMatch: null,
+					categories: [],
+					matches: [],
+				};
+			},
 
 		/******************************************
 			WATCH LOTS
@@ -4284,14 +4633,34 @@ const talController = {
 		******************************************/
 
 			quickBid: function(e,context){
-				talController.placeBid(context.lot);
+				talObject.focusedLot = context.lot;
+				talObject.quickBidConfirmVisible = true;
+			},
+			
+			focusedQuickBid: function(e,context) {
+				talObject.quickBidConfirmVisible = true;
+			},
+			
+			cancelQuickBid: function() {
+				talObject.quickBidConfirmVisible = false;	
+			},
+
+			confirmQuickBid: function(e,context) {
+				talController.placeBid(talObject.focusedLot);
+				talObject.quickBidConfirmVisible = false;
 			},
 
 			placeBid: function(lot){
 				lot.bidder = talObject.bidder;
-				lot.bid = increment(lot.bid);
+				lot.bid = talController.increment(lot.bid);
 				talController.watchThisLot(lot,false);
 				talObject.biddingLots.push(lot);
+			},
+
+			increment: function(amt){
+				for(let i = 0; i < incrementTable.length; i++){
+					if(amt < incrementTable[i].upto) return incrementTable[i].increment + amt;
+				}
 			},
 
 		/******************************************
@@ -4304,18 +4673,49 @@ const talController = {
 			},
 
 			setMaximumBid: function(){
-				talObject.focusedLot.maxBid = talObject.tempMaxBid;
-				talController.placeBid(talObject.focusedLot);
+				let bid = {
+					bidder: talObject.bidder,
+					bid: talObject.tempMaxBid,
+					time: new Date().toJSON()
+				}
+
+				talObject.focusedLot.maxBids.push(bid);
+				//talController.placeBid(talObject.focusedLot);
+				talController.manageMaxBids(talObject.focusedLot);
 				talObject.maximumBidVisible = false;
 			},
+
+			manageMaxBids: function(lot) {
+				
+				lot.maxBids.sort((a,b) => {return b.bid - a.bid});//SORT REVERSE BY BID VALUE (HIGHEST FIRST)
+				
+				if(lot.maxBids.length > 1) lot.bid = lot.maxBids[1].bid ; //IF THERE ARE OTHER MAX BIDS, THE HIGH BID IS NOW THE SECOND HIGHEST MAX BID
+				else lot.bid = talController.increment(lot.bid);//OTHERWISE JUST BID AS NORMAL
+
+				lot.bidder = lot.maxBids[0].bidder; 
+				talObject.biddingLots.push(lot);
+
+				//TODO: IF YOU'RE THE HIGH BIDDER SHOW HIGH, ELSE SHOW OUTBID MESSAGE
+			}
 
 		/******************************************
 			GROUP BIDS
 		******************************************/
 
 			createGroupBid: function(e,context) {
+				talController.activateGroupBid(context.lot);
+			},
+
+			dismissAndGroupBid: function(e,context){
+				talController.dismissGroupViewModal();
+				talObject.lotDetailsVisible = false;
+
+				talController.activateGroupBid(talObject.focusedLot);
+			},
+
+			activateGroupBid: function(lot) {
 				if(talObject.isGroupChoosing){
-					addOrRemoveIfExists(talObject.tempGroup,context.lot);
+					talController.addOrRemoveIfExists(talObject.tempGroup,lot);
 					return;
 				}
 				talObject.isGroupChoosing = true;
@@ -4327,8 +4727,26 @@ const talController = {
 					step: 1,
 				}
 
-				talObject.tempGroup.lots.push(context.lot);
-				context.lot.group.push(talObject.tempGroup.uid);
+				talObject.tempGroup.lots.push(lot);//ADD LOT REFERENCE TO THE GROUP OBJECT
+				lot.group.push(talObject.tempGroup.uid);//ADD REFERENCE TO GROUP BID TO THE LOT OBJECT
+			},
+
+			addOrRemoveIfExists: function(list,item) {
+				let i = 0;
+				let exists = false;
+
+				list.lots.forEach(function(obj){
+					if(obj === item){
+						list.lots.splice(i,1);
+						item.group.splice(item.group.indexOf(list.uid),1);
+						exists = true;
+					}
+					i++;
+				});
+				
+				if(exists) return;
+				list.lots.push(item);
+				item.group.push(list.uid);
 			},
 
 			cancelGroupBid: function(e) {
@@ -4338,7 +4756,7 @@ const talController = {
 
 			addToGroup: function(e,context){
 				e.stopPropagation();
-				addOrRemoveIfExists(talObject.tempGroup,context.lot);
+				talController.addOrRemoveIfExists(talObject.tempGroup,context.lot);
 			},
 
 			toggleGroupBidModalVisible: function() {
@@ -4380,12 +4798,10 @@ const talController = {
 
 					if(lot.bid< group.maxbid){
 						lot.bidder = talObject.bidder;
-						lot.bid = increment(lot.bid);
+						lot.bid = talController.increment(lot.bid);
 						i++;
 					}
 				});
-
-				console.log(group);
 
 			},
 
@@ -4417,30 +4833,6 @@ const talController = {
 
 	};
 
-
-function addOrRemoveIfExists(list,item) {
-	let i = 0;
-	let exists = false;
-
-	list.lots.forEach(function(obj){
-		if(obj === item){
-			list.lots.splice(i,1);
-			item.group.splice(item.group.indexOf(list.uid),1);
-			exists = true;
-		}
-		i++;
-	});
-	
-	if(exists) return;
-	list.lots.push(item);
-	item.group.push(list.uid);
-}
-
-function increment(amt){
-	for(let i = 0; i < incrementTable.length; i++){
-		if(amt < incrementTable[i].upto) return incrementTable[i].increment + amt;
-	}
-}
 
 const incrementTable = [
 	{
@@ -4493,47 +4885,5 @@ const incrementTable = [
 const talBinding = rivets.bind($('.js--tal'),{
 		talObject: talObject,
 		talController : talController
-	}); 
-
-var watchlistObject = {
-		
-	};
-
-var watchlistController = {
-		
-	};
-
-
-var binding = rivets.bind($('.js--watchlist'),{
-		watchlistObject: watchlistObject,
-		watchlistController : watchlistController
-	}); 
-
-var purchasesObject = {
-		
-	};
-
-var purchasesController = {
-		
-	};
-
-
-var binding = rivets.bind($('.js--purchases'),{
-		purchasesObject: purchasesObject,
-		purchasesController : purchasesController
-	}); 
-
-var profileObject = {
-		
-	};
-
-var profileController = {
-		
-	};
-
-
-var binding = rivets.bind($('.js--profile'),{
-		profileObject: profileObject,
-		profileController : profileController
 	}); 
 

@@ -95,7 +95,7 @@ rivets.formatters.divide = function(value,divisor){
 };
 
 rivets.formatters.lengthToBool = function(value){
-	if(typeof value === 'undefined') return false;
+	if(typeof value === 'undefined' || value === null) return false;
 	if(value.length === 0) return false;
 	return true;
 };
@@ -143,6 +143,11 @@ rivets.formatters.propertyList = function(obj) {
 rivets.formatters.findShortcuts = function(arr,index){
 	if(typeof arr[index] === 'undefined') return false;
 	return arr[index].shortcuts;
+};
+
+rivets.formatters.plus = function(value,arg){
+	if(typeof value == "undefined" || typeof arg == "undefined") return 0;
+	return value + arg;
 };
 
 rivets.formatters.and = function(value,item){

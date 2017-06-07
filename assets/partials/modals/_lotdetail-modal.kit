@@ -15,7 +15,7 @@
 				<span rv-unless="talObject.focusedLot.maxBid | greaterthan 0">Set Maximum Bid</span>
 				<span rv-if="talObject.focusedLot.maxBid | greaterthan 0">Change Maximum Bid of <span class="CCY" rv-html="talObject.focusedLot.maxBid | price">}</span></span>
 			</button>
-			<button class="o-button l-grid-half h-mb-50" rv-hide="talObject.focusedLot.maxBid" rv-disabled="talObject.focusedLot.bidder | compare talObject.bidder" rv-on-click="talController.quickBid">Bid <span class="CCY" rv-html="talObject.focusedLot.bid | nextIncrement"></span></button>
+			<button class="o-button l-grid-half" rv-hide="talObject.focusedLot.maxBid" rv-disabled="talObject.focusedLot.bidder | compare talObject.bidder" rv-on-click="talController.focusedQuickBid">Bid <span class="CCY" rv-html="talObject.focusedLot.bid | nextIncrement"></span></button>
 		</div>
 	</div>
 </div>

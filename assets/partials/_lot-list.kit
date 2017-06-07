@@ -1,10 +1,21 @@
 <div rv-if="talObject.activeTab | compare 'auction'">
-	<div class="l-width--1200">
-		<ul class="c-lot-list js--optiscroll-content">
-			<li rv-each-lot="talObject.lots">
-				<!-- @include '/assets/partials/lot-list-item' -->
+	<div class="optiscroll">
+
+		<div class="l-width--1200">
+			<ul class="c-lot-list js--optiscroll-content">
+				<li rv-each-lot="talObject.lots" rv-id="lot.lotNumber">
+					<!-- @include '/assets/partials/lot-list-item' -->
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	<div class="progress-indicator js--lot-scroll-indicator"></div>
+	<div class="auction-progress-meter js--lot-scroll-hover-area">
+		<ul class="auction-lot-intervals">
+			<li class="auction-lot-interval" rv-each-interval="talObject.auction.totalLots | lotintervals talObject.auction.startLot talObject.auction.endLot">
+				{interval}
 			</li>
 		</ul>
 	</div>
 </div>
-

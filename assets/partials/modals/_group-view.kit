@@ -29,6 +29,9 @@
 
 		<div class="c-modal--footer">
 			<button class="o-text-button h-hide-mobile" rv-on-click="talController.dismissGroupViewModal">Done</button>
+			<button class="o-button--outline l-grid-half h-mb-50" rv-on-click="talController.toggleMaximumBidVisible">
+				Change Maximum Bid of <span class="CCY" rv-html="talObject.tempGroup.maxbid | price">}</span>
+			</button>
 		</div>
 	</div>
 </div>

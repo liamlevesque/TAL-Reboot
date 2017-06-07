@@ -20,8 +20,8 @@
 						<button class="l-grid-half m-grid-half o-icon-label-button" rv-on-click="talController.watchFocusedLot" rv-class-s-active="talObject.focusedLot.watching | indexof talObject.bidder">
 							<i class="icon-eye"></i><label for="">Watch<span rv-if="talObject.focusedLot.watching | indexof talObject.bidder">ing</span></label>
 						</button>
-						<button class="l-grid-half m-grid-half o-icon-label-button">
-							<i class="icon-group"></i><label for="">Group Bid</label>
+						<button class="l-grid-half m-grid-half o-icon-label-button" rv-on-click="talController.dismissAndGroupBid">
+							<i class="icon-eye"></i><label for="">Group Bid</label>
 						</button>
 					</div>
 					
@@ -38,7 +38,8 @@
 						</div>
 					</div>
 
-					<div class="bid-details--section h-ta-center">
+					<div class="bid-details--section h-ta-right">
+						<label class="t-smalllabel h-float-left">Closes</label>
 						{talObject.focusedLot.closes | countdownTime} 
 						<div class="bid-details--closes">{talObject.focusedLot.closes | calendarTime}</div>
 					</div>

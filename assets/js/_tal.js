@@ -3,7 +3,7 @@ const talObject = {
 			startLot: 5000,
 			endLot: 5145,
 			totalLots: 850,
-			closingNext: 200,
+			closingNext: 7,
 		},
 		lots: lotlist,
 		watchingLots: [],
@@ -20,6 +20,7 @@ const talObject = {
 			emailAddress: null,
 			language: 'English',
 		},
+		lotDetailsVisible: false,
 		maximumBidVisible: false,
 		tempMaxBid: 0,
 		focusedLot: null,
@@ -35,9 +36,14 @@ const talObject = {
 			step: 1,
 		},
 		groupViewModalVisible: false,
+
+		mobileSearchVisible: false,
+		pastSearches: ['Cat 350','40 foot container','Gen Set'],
+		categories: categories,
+		filteredResults: {},
 	};
 
-var scrollArea;
+
 
 const talController = {
 		stopProp: function(e){
@@ -45,38 +51,98 @@ const talController = {
 		},
 
 		loadTab: function(e){
-			talController.goToTab($(e.currentTarget).data('tab'));
+			
+			let target = $(e.currentTarget).data('tab');
+			talController.goToTab(target);
+
+			pushHistory(target, 'page');//PUSH STATE
 		},
 
 		goToTab: function(target){
+			scrollArea.destroy();
 			talObject.activeTab = target;
-
-			if($('.optiscroll').length > 0){
-				let scroller = $('.optiscroll')[0];
-				scrollArea = new Optiscroll(scroller,{
-					forceScrollbars: true,
-					wrapContent: false,
-				});
-			}
+			createOptiscroll();
 		},
 
 		toggleLotDetails: function(e,context){
 			talObject.lotDetailsVisible = !talObject.lotDetailsVisible;
-			
 			if(talObject.lotDetailsVisible){
-				talObject.focusedLot = context.lot;
-
-				var mySwiper = new Swiper ('.swiper-container', {
-					direction: 'horizontal',
-					loop: true,
-					pagination: '.swiper-pagination',
-      				paginationClickable: 'true',
-					speed: 300,
-					effect: "coverflow",
-				})
+				talController.showLot(context.lot);
+				pushHistory(context.lot.lotNumber, 'lot');//PUSH STATE
 			}
-
+			else{
+				history.back();
+			}
 		},
+
+		showLot: function(lot) {
+			talObject.focusedLot = lot;
+
+			var mySwiper = new Swiper ('.swiper-container', {
+				direction: 'horizontal',
+				loop: true,
+				pagination: '.swiper-pagination',
+  				paginationClickable: 'true',
+				speed: 300,
+				effect: "coverflow",
+			})
+		},
+
+		/******************************************
+			SEARCH
+		******************************************/	
+			toggleSearchVisible: function(e){
+				talObject.mobileSearchVisible = !talObject.mobileSearchVisible;
+				pushHistory('search','modal');
+
+				$('.js--search-input').focus();
+			},
+
+			updateSearch: function(e) {
+				if(talObject.filteredResults.input.length === 0) talController.clearSearch();
+
+				let value = $(e.currentTarget).val();
+				if(value.length === 0){	//IF NO SEARCH STRING ENTERED
+					talObject.filteredResults.searching = false;
+					return;
+				} 
+				else talObject.filteredResults.searching = true;
+
+				// if(!isNaN(parseInt(value[0])) && (parseInt(value) >= talObject.lots[0].lotNumber && parseInt(value) <= talObject.lots[talObject.lots.length - 1].lotNumber)) {  //IF THIS IS A NUMBER
+				// 	talObject.filteredResults.lotMatch = value;
+				// } 
+				talObject.filteredResults.noLotMatch = false;
+
+				if(!isNaN(parseInt(value[0]))) {  //IF THIS IS A NUMBER
+					talObject.filteredResults.lotMatch = value;
+					if(!(parseInt(value) >= talObject.lots[0].lotNumber && parseInt(value) <= talObject.lots[talObject.lots.length - 1].lotNumber)){
+						talObject.filteredResults.noLotMatch = true;
+					}
+				} 
+				else{
+					talObject.filteredResults.lotMatch = null;
+				}
+				
+			},
+
+			doSearch: function(e) {
+				if(talObject.filteredResults.lotMatch != null){
+					goToLot(talObject.filteredResults.lotMatch);
+					talObject.mobileSearchVisible = false;
+				}
+			},
+
+			clearSearch: function() {
+				talObject.filteredResults = {
+					input: null,
+					searching: false,
+					lotMatch: null,
+					noLotMatch: true,
+					topMatch: null,
+					categories: [],
+					matches: [],
+				};
+			},
 
 		/******************************************
 			WATCH LOTS
@@ -119,14 +185,34 @@ const talController = {
 		******************************************/
 
 			quickBid: function(e,context){
-				talController.placeBid(context.lot);
+				talObject.focusedLot = context.lot;
+				talObject.quickBidConfirmVisible = true;
+			},
+			
+			focusedQuickBid: function(e,context) {
+				talObject.quickBidConfirmVisible = true;
+			},
+			
+			cancelQuickBid: function() {
+				talObject.quickBidConfirmVisible = false;	
+			},
+
+			confirmQuickBid: function(e,context) {
+				talController.placeBid(talObject.focusedLot);
+				talObject.quickBidConfirmVisible = false;
 			},
 
 			placeBid: function(lot){
 				lot.bidder = talObject.bidder;
-				lot.bid = increment(lot.bid);
+				lot.bid = talController.increment(lot.bid);
 				talController.watchThisLot(lot,false);
 				talObject.biddingLots.push(lot);
+			},
+
+			increment: function(amt){
+				for(let i = 0; i < incrementTable.length; i++){
+					if(amt < incrementTable[i].upto) return incrementTable[i].increment + amt;
+				}
 			},
 
 		/******************************************
@@ -139,18 +225,49 @@ const talController = {
 			},
 
 			setMaximumBid: function(){
-				talObject.focusedLot.maxBid = talObject.tempMaxBid;
-				talController.placeBid(talObject.focusedLot);
+				let bid = {
+					bidder: talObject.bidder,
+					bid: talObject.tempMaxBid,
+					time: new Date().toJSON()
+				}
+
+				talObject.focusedLot.maxBids.push(bid);
+				//talController.placeBid(talObject.focusedLot);
+				talController.manageMaxBids(talObject.focusedLot);
 				talObject.maximumBidVisible = false;
 			},
+
+			manageMaxBids: function(lot) {
+				
+				lot.maxBids.sort((a,b) => {return b.bid - a.bid});//SORT REVERSE BY BID VALUE (HIGHEST FIRST)
+				
+				if(lot.maxBids.length > 1) lot.bid = lot.maxBids[1].bid ; //IF THERE ARE OTHER MAX BIDS, THE HIGH BID IS NOW THE SECOND HIGHEST MAX BID
+				else lot.bid = talController.increment(lot.bid);//OTHERWISE JUST BID AS NORMAL
+
+				lot.bidder = lot.maxBids[0].bidder; 
+				talObject.biddingLots.push(lot);
+
+				//TODO: IF YOU'RE THE HIGH BIDDER SHOW HIGH, ELSE SHOW OUTBID MESSAGE
+			}
 
 		/******************************************
 			GROUP BIDS
 		******************************************/
 
 			createGroupBid: function(e,context) {
+				talController.activateGroupBid(context.lot);
+			},
+
+			dismissAndGroupBid: function(e,context){
+				talController.dismissGroupViewModal();
+				talObject.lotDetailsVisible = false;
+
+				talController.activateGroupBid(talObject.focusedLot);
+			},
+
+			activateGroupBid: function(lot) {
 				if(talObject.isGroupChoosing){
-					addOrRemoveIfExists(talObject.tempGroup,context.lot);
+					talController.addOrRemoveIfExists(talObject.tempGroup,lot);
 					return;
 				}
 				talObject.isGroupChoosing = true;
@@ -162,8 +279,26 @@ const talController = {
 					step: 1,
 				}
 
-				talObject.tempGroup.lots.push(context.lot);
-				context.lot.group.push(talObject.tempGroup.uid);
+				talObject.tempGroup.lots.push(lot);//ADD LOT REFERENCE TO THE GROUP OBJECT
+				lot.group.push(talObject.tempGroup.uid);//ADD REFERENCE TO GROUP BID TO THE LOT OBJECT
+			},
+
+			addOrRemoveIfExists: function(list,item) {
+				let i = 0;
+				let exists = false;
+
+				list.lots.forEach(function(obj){
+					if(obj === item){
+						list.lots.splice(i,1);
+						item.group.splice(item.group.indexOf(list.uid),1);
+						exists = true;
+					}
+					i++;
+				});
+				
+				if(exists) return;
+				list.lots.push(item);
+				item.group.push(list.uid);
 			},
 
 			cancelGroupBid: function(e) {
@@ -173,7 +308,7 @@ const talController = {
 
 			addToGroup: function(e,context){
 				e.stopPropagation();
-				addOrRemoveIfExists(talObject.tempGroup,context.lot);
+				talController.addOrRemoveIfExists(talObject.tempGroup,context.lot);
 			},
 
 			toggleGroupBidModalVisible: function() {
@@ -215,12 +350,10 @@ const talController = {
 
 					if(lot.bid< group.maxbid){
 						lot.bidder = talObject.bidder;
-						lot.bid = increment(lot.bid);
+						lot.bid = talController.increment(lot.bid);
 						i++;
 					}
 				});
-
-				console.log(group);
 
 			},
 
@@ -252,30 +385,6 @@ const talController = {
 
 	};
 
-
-function addOrRemoveIfExists(list,item) {
-	let i = 0;
-	let exists = false;
-
-	list.lots.forEach(function(obj){
-		if(obj === item){
-			list.lots.splice(i,1);
-			item.group.splice(item.group.indexOf(list.uid),1);
-			exists = true;
-		}
-		i++;
-	});
-	
-	if(exists) return;
-	list.lots.push(item);
-	item.group.push(list.uid);
-}
-
-function increment(amt){
-	for(let i = 0; i < incrementTable.length; i++){
-		if(amt < incrementTable[i].upto) return incrementTable[i].increment + amt;
-	}
-}
 
 const incrementTable = [
 	{

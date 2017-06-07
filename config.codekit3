@@ -76,11 +76,11 @@
 		"opt": 0,
 		"q": 100
 		},
-	"\/assets\/js\/_bids.js": {
+	"\/assets\/js\/_categories.js": {
 		"ft": 64,
 		"mi": 1,
 		"oA": 1,
-		"oAP": "\/assets\/js\/min\/_bids-min.js",
+		"oAP": "\/assets\/js\/min\/_categories-min.js",
 		"oF": 0,
 		"sC": 1,
 		"tS": 0
@@ -94,29 +94,20 @@
 		"sC": 1,
 		"tS": 0
 		},
+	"\/assets\/js\/_history.js": {
+		"ft": 64,
+		"mi": 1,
+		"oA": 1,
+		"oAP": "\/assets\/js\/min\/_history-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
 	"\/assets\/js\/_lotlist.js": {
 		"ft": 64,
 		"mi": 1,
 		"oA": 1,
 		"oAP": "\/assets\/js\/min\/_lotlist-min.js",
-		"oF": 0,
-		"sC": 1,
-		"tS": 0
-		},
-	"\/assets\/js\/_profile.js": {
-		"ft": 64,
-		"mi": 1,
-		"oA": 1,
-		"oAP": "\/assets\/js\/min\/_profile-min.js",
-		"oF": 0,
-		"sC": 1,
-		"tS": 0
-		},
-	"\/assets\/js\/_purchases.js": {
-		"ft": 64,
-		"mi": 1,
-		"oA": 1,
-		"oAP": "\/assets\/js\/min\/_purchases-min.js",
 		"oF": 0,
 		"sC": 1,
 		"tS": 0
@@ -135,15 +126,6 @@
 		"mi": 1,
 		"oA": 1,
 		"oAP": "\/assets\/js\/min\/_tal-min.js",
-		"oF": 0,
-		"sC": 1,
-		"tS": 0
-		},
-	"\/assets\/js\/_watchlist.js": {
-		"ft": 64,
-		"mi": 1,
-		"oA": 1,
-		"oAP": "\/assets\/js\/min\/_watchlist-min.js",
 		"oF": 0,
 		"sC": 1,
 		"tS": 0
@@ -170,6 +152,12 @@
 		"ft": 2048,
 		"oA": 1,
 		"oAP": "\/assets\/partials\/_bids.html",
+		"oF": 0
+		},
+	"\/assets\/partials\/_empty-state.kit": {
+		"ft": 2048,
+		"oA": 1,
+		"oAP": "\/assets\/partials\/_empty-state.html",
 		"oF": 0
 		},
 	"\/assets\/partials\/_group-bid-item.kit": {
@@ -260,6 +248,18 @@
 		"ft": 2048,
 		"oA": 1,
 		"oAP": "\/assets\/partials\/modals\/_maxbid-modal.html",
+		"oF": 0
+		},
+	"\/assets\/partials\/modals\/_quick-bid-confirm.kit": {
+		"ft": 2048,
+		"oA": 1,
+		"oAP": "\/assets\/partials\/modals\/_quick-bid-confirm.html",
+		"oF": 0
+		},
+	"\/assets\/partials\/modals\/_search.kit": {
+		"ft": 2048,
+		"oA": 1,
+		"oAP": "\/assets\/partials\/modals\/_search.html",
 		"oF": 0
 		},
 	"\/assets\/partials\/nav\/_auction.kit": {
@@ -366,6 +366,19 @@
 		"ma": 0,
 		"oA": 1,
 		"oAP": "\/assets\/css\/_defaults.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"\/assets\/scss\/_empty-state.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/assets\/css\/_empty-state.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
@@ -535,6 +548,32 @@
 		"ma": 0,
 		"oA": 1,
 		"oAP": "\/assets\/css\/_progress.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"\/assets\/scss\/_reset.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/assets\/css\/_reset.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"\/assets\/scss\/_search.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/assets\/css\/_search.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
@@ -7341,38 +7380,26 @@
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/_lotlist.js",
+			"linkedFileAbbreviatedPath": "\/assets\/js\/_history.js",
 			"position": 7,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/_bids.js",
+			"linkedFileAbbreviatedPath": "\/assets\/js\/_lotlist.js",
 			"position": 8,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/_tal.js",
+			"linkedFileAbbreviatedPath": "\/assets\/js\/_categories.js",
 			"position": 9,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/_watchlist.js",
+			"linkedFileAbbreviatedPath": "\/assets\/js\/_tal.js",
 			"position": 10,
-			"type": 1
-			},
-		{
-			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/_purchases.js",
-			"position": 11,
-			"type": 1
-			},
-		{
-			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/_profile.js",
-			"position": 12,
 			"type": 1
 			}
 		]
