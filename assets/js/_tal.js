@@ -235,7 +235,7 @@ const talController = {
 					}
 					//YOU'VE BEEN OUTBID
 					else{
-						talController.outBid(lot,bid,false);
+						talController.outBid(lot,null,false);
 					}
 				}
 				else talController.incrementBid(lot,'quick',talObject.bidder);
