@@ -291,7 +291,7 @@ const talController = {
 				else talController.incrementBid(lot,'quick',talObject.bidder);
 				//PLACE INCREMENT BID FOR OTHER BIDDER
 				talController.incrementBid(lot,'max',lot.maxBid.bidder);
-				spawnNotification('You were Outbid','Another Bidder has outbid you.');
+				//spawnNotification('You were Outbid','Another Bidder has outbid you.');
 			},
 
 		/******************************************
