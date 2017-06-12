@@ -27,7 +27,7 @@ const loginObject = {
 
 const loginController = {
 	enterAuction: function(){
-		window.location = '/index.html#' + loginObject.bidderNumber;
+		window.location = 'index.html#' + loginObject.bidderNumber;
 	},
 	
 	focusBidder: function(){
