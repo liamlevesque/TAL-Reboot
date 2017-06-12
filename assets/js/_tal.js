@@ -314,7 +314,7 @@ const talController = {
 					
 					lot.maxBid.bidder = talObject.bidder;
 					lot.maxBid.bid = bid;
-					if(lot.bids[0].bidder != talObject.bidder) talController.incrementBid(lot,'max',talObject.bidder);
+					if(typeof lot.bids[0] === 'undefined' || lot.bids[0].bidder != talObject.bidder) talController.incrementBid(lot,'max',talObject.bidder);
 
 					//ADD TO WATCH LIST AND BIDDING LIST (WHEN APPROPIRATE)
 					talController.watchAndPush(lot);

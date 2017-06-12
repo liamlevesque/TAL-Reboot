@@ -3615,7 +3615,7 @@ a {
 
 .c-progress--bid {
   position: absolute;
-  border-bottom: 2px solid black;
+  border-bottom: 3px solid black;
   width: 15px; }
   .c-progress--bid.s-winning {
     border-color: #36AE4F; }
