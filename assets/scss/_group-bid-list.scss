@@ -1,4 +1,4 @@
-.group-lot-list{
+.o-group-lot-list{
 	background-color: palette(grey);
 	
 	ul{
@@ -10,7 +10,7 @@
 	}
 }
 
-	.group-lot{
+	.group-lot-list--lot{
 		background-color: palette(grey,x-light);
 		padding: spacing(xx-small) spacing(small);
 		min-width: 150px;
@@ -22,6 +22,7 @@
 		position: relative;
 		cursor: pointer;
 		border: 3px solid transparent;
+		overflow: hidden;
 
 		&.s-highbidder{
 			background-color: palette(affirmative);
@@ -119,31 +120,7 @@
 		transform: translateX(-50%);
 	}
 
-.group-bid-item{
-	
-}
 
-	.group-photos{
-		position: relative;
-
-		img{
-			max-width: 80%;
-			width: 80%;
-			position: absolute;
-			left: 0;
-			top: 0;
-			box-shadow: $ritchie-shadow;
-
-			&:nth-child(2){
-				left: 10px;
-				top: 10px;
-			}
-			&:nth-child(3){
-				left: 20px;
-				top: 20px;
-			}
-		}
-	}
 
 
 

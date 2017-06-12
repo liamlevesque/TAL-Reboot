@@ -1,5 +1,11 @@
-<div class="c-empty-state">
-	<i class="icon-eye empty-state--icon"></i>
-	<div class="h-mb-100">You haven't placed any bids yet! Get to work!!</div>
+<div class="c-empty-state h-mt-100">
+	<i class="icon-search empty-state--icon"></i>
+	<div class="h-mb-100">
+		You haven't 
+		<span rv-if="talObject.activeTab | compare 'watching'">watched any lots yet!</span>
+		<span rv-if="talObject.activeTab | compare 'bids'">placed any bids yet!</span>
+		<span rv-if="talObject.activeTab | compare 'purchases'">won any lots yet!</span>
+		 Get to work!!
+	</div>
 	<button class="o-button" rv-on-click="talController.loadTab" data-tab="auction">Browse Auction Lots</button>
 </div>

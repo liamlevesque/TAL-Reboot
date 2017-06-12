@@ -65,23 +65,7 @@ $fontsizes: (
   border-bottom: $default-border;
 }
 
-.t-data-point{
-  font-size: fontsize(300);
-  font-weight: 700;
-}
 
-.t-empty{
-  font-style: italic;
-  color: palette(grey);
-}
-
-.t-italic{
-  font-style: italic;
-}
-
-.t-bold{
-  font-weight: 700;
-}
 
 body{
 	font-family: Helvetica, Verdana, sans-serif;
@@ -151,6 +135,23 @@ a{
 }
 
 
+.t-data-point{
+  font-size: fontsize(300);
+  font-weight: 700;
+}
+
+.t-empty{
+  font-style: italic;
+  color: palette(grey);
+}
+
+.t-italic{
+  font-style: italic;
+}
+
+.t-bold{
+  font-weight: 700;
+}
 
 
 @mixin ellipsize{

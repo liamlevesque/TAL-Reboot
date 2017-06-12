@@ -12,11 +12,11 @@
 				<h4 class="h4">You want to win: <strong>{talObject.tempGroup.quantity} of {talObject.tempGroup.lots | length} lots</strong></h4>
 				<h4 class="h4">Bid up to: <span class="CCY" rv-html="talObject.tempGroup.maxbid | price"></span> on each lot</h4>
 			</div>
-			<div class="group-lot-list">
+			<div class="o-group-lot-list">
 				<ul>
-					<li class="group-lot" rv-each-grplot="talObject.tempGroup.lots" rv-on-click="talController.switchGroupFocusedLot" rv-data-index="index" rv-class-s-highbidder="grplot.bidder | compare talObject.bidder" rv-class-s-focused="grplot.lotNumber | compare talObject.focusedLot.lotNumber">
+					<li class="group-lot-list--lot" rv-each-grplot="talObject.tempGroup.lots" rv-on-click="talController.switchGroupFocusedLot" rv-data-index="index" rv-class-s-highbidder="grplot.bids.0.bidder | compare talObject.bidder" rv-class-s-focused="grplot.lotNumber | compare talObject.focusedLot.lotNumber">
 						{grplot.lotNumber}
-						<div rv-unless="grplot.bid | compare 0" class="CCY" rv-html="grplot.bid | price"></div>
+						<div rv-if="grplot.bids.0.bid | greaterthan 0" class="CCY" rv-html="grplot.bids.0.bid | price"></div>
 					</li>
 				</ul>
 			</div>
@@ -27,9 +27,8 @@
 		</div>
 
 
-		<div class="c-modal--footer">
-			<button class="o-text-button h-hide-mobile" rv-on-click="talController.dismissGroupViewModal">Done</button>
-			<button class="o-button--outline l-grid-half h-mb-50" rv-on-click="talController.toggleMaximumBidVisible">
+		<div class="c-modal--footer h-ta-center">
+			<button class="o-button--outline" rv-on-click="talController.toggleMaximumBidVisible">
 				Change Maximum Bid of <span class="CCY" rv-html="talObject.tempGroup.maxbid | price">}</span>
 			</button>
 		</div>

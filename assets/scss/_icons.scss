@@ -1,10 +1,36 @@
+$icon-small: 8px;
+$icon-medium: 16px;
+$icon-large: 24px;
+$icon-xxlarge: 48px;
+
+.icon-size--small{
+    font-size: $icon-small;
+    vertical-align: middle;
+}
+
+.icon-size--medium{
+    font-size: $icon-medium;
+    vertical-align: middle;
+}
+
+.icon-size--large{
+    font-size: $icon-large;
+    vertical-align: middle;
+}
+
+.icon-size--xxlarge{
+    font-size: $icon-xxlarge;
+    vertical-align: middle;
+}
+
+
 @font-face {
     font-family: 'ritchie-icons';
-    src:    url('../fonts/ritchie-icons.eot?k6m3nd');
-    src:    url('../fonts/ritchie-icons.eot?k6m3nd#iefix') format('embedded-opentype'),
-        url('../fonts/ritchie-icons.ttf?k6m3nd') format('truetype'),
-        url('../fonts/ritchie-icons.woff?k6m3nd') format('woff'),
-        url('../fonts/ritchie-icons.svg?k6m3nd#ritchie-icons') format('svg');
+    src:    url('../fonts/ritchie-icons.eot?w2rx9a');
+    src:    url('../fonts/ritchie-icons.eot?w2rx9a#iefix') format('embedded-opentype'),
+        url('../fonts/ritchie-icons.ttf?w2rx9a') format('truetype'),
+        url('../fonts/ritchie-icons.woff?w2rx9a') format('woff'),
+        url('../fonts/ritchie-icons.svg?w2rx9a#ritchie-icons') format('svg');
     font-weight: normal;
     font-style: normal;
 } 
@@ -36,60 +62,25 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
-$icon-small: 8px;
-$icon-medium: 16px;
-$icon-large: 24px;
-$icon-xxlarge: 48px;
-
-.icon-size--small{
-    font-size: $icon-small;
+.i-size-med{
+    font-size: 20px;
     vertical-align: middle;
 }
 
-.icon-size--medium{
-    font-size: $icon-medium;
-    vertical-align: middle;
+.icon-error:before {
+  content: "\e924";
 }
-
-.icon-size--large{
-    font-size: $icon-large;
-    vertical-align: middle;
+.icon-more_horiz:before {
+  content: "\e923";
 }
-
-.icon-size--xxlarge{
-    font-size: $icon-xxlarge;
-    vertical-align: middle;
+.icon-globe:before {
+  content: "\e91e";
 }
-
-.icon-Configure:before {
-  content: "\e92a";
+.icon-printer:before {
+  content: "\e91d";
 }
-.icon-Media:before {
-  content: "\e92b";
-}
-.icon-Presentation:before {
-  content: "\e92c";
-}
-.icon-Reports:before {
-  content: "\e92d";
-}
-.icon-server:before {
+.icon-gavel:before {
   content: "\e910";
-}
-.icon-database:before {
-  content: "\e910";
-}
-.icon-flag:before {
-  content: "\e928";
-}
-.icon-repeat:before {
-  content: "\e903";
-}
-.icon-play:before {
-  content: "\e929";
-}
-.icon-player:before {
-  content: "\e929";
 }
 .icon-mic:before {
   content: "\e900";

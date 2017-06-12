@@ -4,76 +4,76 @@ const categories = [
 		quantity: 12,
 	},{
 		name: 'Agriculture - Misc',
-		quantity: 12,
+		quantity: 8,
 	},{
 		name: 'Attachments - Equipment',
-		quantity: 12,
+		quantity: 121,
 	},{
 		name: 'Attachments - Excavator',
-		quantity: 12,
+		quantity: 56,
 	},{
 		name: 'Attachments - Motor Grader',
-		quantity: 12,
+		quantity: 88,
 	},{
 		name: 'Attachments - Skid Steer',
-		quantity: 12,
+		quantity: 31,
 	},{
 		name: 'Attachments - Truck',
-		quantity: 12,
+		quantity: 66,
 	},{
 		name: 'Cranes - Accessories',
-		quantity: 12,
+		quantity: 77,
 	},{
 		name: 'Cranes - Conventional Truck',
-		quantity: 12,
+		quantity: 88,
 	},{
 		name: 'Drilling - Miscellaneous',
 		quantity: 12,
 	},{
 		name: 'Emergency Vehicles',
-		quantity: 12,
+		quantity: 1,
 	},{
 		name: 'Engines',
-		quantity: 12,
+		quantity: 5,
 	},{
 		name: 'Environmental Equipment',
-		quantity: 12,
+		quantity: 17,
 	},{
 		name: 'Hydraulic Excavators - Crawler',
-		quantity: 12,
+		quantity: 18,
 	},{
 		name: 'Industrial Plant Equipment',
-		quantity: 12,
+		quantity: 7,
 	},{
 		name: 'Landscape Equipment',
-		quantity: 12,
+		quantity: 44,
 	},{
 		name: 'Livestock Equipment',
-		quantity: 12,
+		quantity: 7,
 	},{
 		name: 'Miscellaneous - Shop, Warehouse, Consumer',
 		quantity: 12,
 	},{
 		name: 'Mobile Structures',
-		quantity: 12,
+		quantity: 9,
 	},{
 		name: 'Parts or Stationary - Construction',
-		quantity: 12,
+		quantity: 14,
 	},{
 		name: 'Pumps',
-		quantity: 12,
+		quantity: 3,
 	},{
-		name: 'Sacales',
-		quantity: 12,
+		name: 'Scales',
+		quantity: 2,
 	},{
 		name: 'Survey Equipment',
 		quantity: 12,
 	},{
 		name: 'Tanks',
-		quantity: 12,
+		quantity: 8,
 	},{
 		name: 'Welders',
-		quantity: 12,
+		quantity: 22,
 	},
 
 ]

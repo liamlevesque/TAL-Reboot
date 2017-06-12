@@ -17,10 +17,7 @@
 					<li class="o-setting-list-item" rv-each-pastsearch="talObject.pastSearches" rv-on-click="talController.doSearch" rv-data-value="pastsearch">{ pastsearch }</li>
 				</ul>
 				
-				<div class="o-setting-section-separator">Categories</div>
-				<ul>
-					<li class="o-setting-list-item" rv-each-category="talObject.categories" rv-on-click="talController.goToCategory" rv-data-value="category.name">{ category.name }<span class="t-smalllabel">({ category.quantity })</span></li>
-				</ul>
+				<!-- @include '/assets/partials/category-list' -->
 			</div>
 			<div rv-if="talObject.filteredResults.searching">
 				<div rv-if="talObject.filteredResults.lotMatch">

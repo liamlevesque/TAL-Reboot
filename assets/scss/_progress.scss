@@ -17,6 +17,12 @@ $scroll-width: 10px;
 	&:hover{
 		width: 2 * $scroll-width;
 	}
+
+	@include breakpoint(smallmax){
+		.s-scrolling &{
+			width: 2 * $scroll-width;
+		}
+	}
 }
 
 .optiscroll-vtrack{
@@ -116,6 +122,28 @@ $progress-indicator-height: 50px;
 			}
 		}
 
+	.c-progress--bids{
+	    position: absolute;
+	    height: 100%;
+	    top: 0;
+	    bottom: 0;
+	    right: 15px;
+	    width: 15px;
+	}
+
+		.c-progress--bid{
+			position: absolute;
+			border-bottom: 2px solid black;
+			width: 15px;  
+
+			&.s-winning{
+				border-color: palette(affirmative);
+			}
+
+			&.s-outbid{
+				border-color: palette(warning);
+			}
+		}
 
 
 

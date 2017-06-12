@@ -1,7 +1,7 @@
 <div rv-if="talObject.activeTab | compare 'bids'">
 	<div class="l-width--1200">
 		<ul class="c-lot-list" rv-if="talObject.biddingLots | lengthToBool">
-			<li rv-each-lot="talObject.biddingLots">
+			<li class="h-overflow-hidden" rv-each-lot="talObject.biddingLots">
 				<div rv-unless="lot.type | compare 'group'">
 					<!-- @include '/assets/partials/lot-list-item' -->
 				</div>

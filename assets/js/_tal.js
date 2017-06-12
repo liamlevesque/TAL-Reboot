@@ -2,7 +2,7 @@ const talObject = {
 		auction: {
 			startLot: 5000,
 			endLot: 5145,
-			totalLots: 850,
+			totalLots: 146,
 			closingNext: 7,
 		},
 		lots: lotlist,
@@ -40,6 +40,9 @@ const talObject = {
 		mobileSearchVisible: false,
 		pastSearches: ['Cat 350','40 foot container','Gen Set'],
 		categories: categories,
+		categoriesVisible: false,
+		activeCategory: null,
+		categoryLots: [],
 		filteredResults: {},
 	};
 
@@ -93,6 +96,7 @@ const talController = {
 		******************************************/	
 			toggleSearchVisible: function(e){
 				talObject.mobileSearchVisible = !talObject.mobileSearchVisible;
+				talObject.categoriesVisible = false;
 				pushHistory('search','modal');
 
 				$('.js--search-input').focus();
@@ -142,6 +146,29 @@ const talController = {
 					categories: [],
 					matches: [],
 				};
+			},
+
+		/******************************************
+			CATEGORIES
+		******************************************/	
+
+			toggleCategoriesVisible: function(){
+				talObject.categoriesVisible = !talObject.categoriesVisible;
+			},
+
+			goToCategory: function(e){
+				talObject.activeCategory = $(e.currentTarget).data('value');
+				talObject.categoryLots = talObject.lots.filter((lot) => {return lot.category === talObject.activeCategory});
+				console.log(talObject.categoryLots);
+
+				talObject.categoriesVisible = false;
+			},
+
+			clearCategory: function(e){
+				talObject.activeCategory = null;
+				talObject.categoryLots = [];
+				scrollArea.destroy();
+				createOptiscroll();
 			},
 
 		/******************************************
@@ -198,15 +225,58 @@ const talController = {
 			},
 
 			confirmQuickBid: function(e,context) {
-				talController.placeBid(talObject.focusedLot);
+				let lot = talObject.focusedLot;
+				//IF THERE'S A MAX BID ON THIS LOT
+				if(lot.maxBid.bid > 0){
+					//IF THE QUICK BID WOULD BE MORE THAN THE MAX BID
+					if(talController.increment(lot.bids[0].bid) > lot.maxBid.bid){
+						talController.incrementBid(lot,'quick',talObject.bidder);
+						talController.clearMaxBid(lot);
+					}
+					//YOU'VE BEEN OUTBID
+					else{
+						talController.outBid(lot,bid,false);
+					}
+				}
+				else talController.incrementBid(lot,'quick',talObject.bidder);
+				
+				//ADD TO WATCH LIST AND BIDDING LIST (WHEN APPROPRIATE)
+				talController.watchAndPush(lot);
+
 				talObject.quickBidConfirmVisible = false;
 			},
 
-			placeBid: function(lot){
-				lot.bidder = talObject.bidder;
-				lot.bid = talController.increment(lot.bid);
-				talController.watchThisLot(lot,false);
-				talObject.biddingLots.push(lot);
+			watchAndPush: function(lot){
+				let isBidding = lot.bids.filter((bid) => { 
+					if(typeof bid != 'undefined' && bid.bidder === talObject.bidder)return 1; 
+				})
+
+				if(isBidding.length === 1){	
+					talController.watchThisLot(lot,false);
+					talObject.biddingLots.push(lot);
+				}
+			},
+
+			incrementBid: function(lot,type,bidder){
+				let currentBid = (lot.bids.length === 0 || typeof lot.bids[0] == 'undefined')? 0 : lot.bids[0].bid;
+
+				lot.bids.unshift(talController.buildBid(bidder,talController.increment(currentBid),type));
+			},
+
+			pricedBid: function(lot,type,bidder,amt){
+				lot.bids.unshift(talController.buildBid(bidder,amt,type));
+				console.log(lot.bids);
+			},
+
+			buildBid: function(bidder,amt,type) {
+				let bid = {
+					bidder: bidder,
+					bid: amt,
+					time: new Date().toJSON(),
+					type: type,
+				};
+				
+				return bid;
 			},
 
 			increment: function(amt){
@@ -215,40 +285,58 @@ const talController = {
 				}
 			},
 
+			outBid: function(lot,bid,max){
+				
+				if(max) talController.pricedBid(lot,'max',talObject.bidder,bid); //PLACE A BID AT YOUR MAX BEFORE PLACING AN INCREMENT BID BY THE OTHER BIDDER
+				else talController.incrementBid(lot,'quick',talObject.bidder);
+				//PLACE INCREMENT BID FOR OTHER BIDDER
+				talController.incrementBid(lot,'max',lot.maxBid.bidder);
+				spawnNotification('You were Outbid','Another Bidder has outbid you.');
+			},
+
 		/******************************************
 			MAX BIDS
 		******************************************/
 
 			toggleMaximumBidVisible: function(e,context){
 				talObject.maximumBidVisible = !talObject.maximumBidVisible;
-				if(talObject.maximumBidVisible) talObject.focusedLot = context.lot;
+				if(typeof context.lot != 'undefined' && talObject.maximumBidVisible) talObject.focusedLot = context.lot;
+				
 			},
 
 			setMaximumBid: function(){
-				let bid = {
-					bidder: talObject.bidder,
-					bid: talObject.tempMaxBid,
-					time: new Date().toJSON()
+				let lot = talObject.focusedLot;
+				let bid = parseInt(talObject.tempMaxBid);
+				
+				if(bid > lot.maxBid.bid) {
+					//IF THERE IS CURRENTLY A MAX BID, PLACE A BID BY THE OTHER BIDDER AT THEIR MAX BEFORE PLACING YOUR OWN
+					if(lot.maxBid.bid > 0) talController.pricedBid(lot,lot.maxBid.bidder,'max',lot.maxBid.bid);
+					
+					lot.maxBid.bidder = talObject.bidder;
+					lot.maxBid.bid = bid;
+					if(lot.bids[0].bidder != talObject.bidder) talController.incrementBid(lot,'max',talObject.bidder);
+
+					//ADD TO WATCH LIST AND BIDDING LIST (WHEN APPROPIRATE)
+					talController.watchAndPush(lot);
+				}
+				else if(bid === lot.maxBid.bid){//IT'S A TIE!
+					//QUICKLY (FOR THE PURPOSE OF THE PROTOTYE) THROW IN A BID AT THE NEXT INCREMENT (NOT SAFE,BUT SHOULD WORK)
+					talController.incrementBid(lot,'max',talObject.bidder);
+					//AND THEN PUT THE ORIGINAL BIDDER ON AT THEIR MAX
+					talController.pricedBid(lot,lot.maxBid.bidder,'max',lot.maxBid.bid);
+					spawnNotification('You were Outbid','Another Bidder had already placed a maximum bid at the same price. The first bidder in wins.');
+				}
+				else{//YOU WERE OUTBID
+					talController.outBid(lot,bid,true);
 				}
 
-				talObject.focusedLot.maxBids.push(bid);
-				//talController.placeBid(talObject.focusedLot);
-				talController.manageMaxBids(talObject.focusedLot);
 				talObject.maximumBidVisible = false;
 			},
 
-			manageMaxBids: function(lot) {
-				
-				lot.maxBids.sort((a,b) => {return b.bid - a.bid});//SORT REVERSE BY BID VALUE (HIGHEST FIRST)
-				
-				if(lot.maxBids.length > 1) lot.bid = lot.maxBids[1].bid ; //IF THERE ARE OTHER MAX BIDS, THE HIGH BID IS NOW THE SECOND HIGHEST MAX BID
-				else lot.bid = talController.increment(lot.bid);//OTHERWISE JUST BID AS NORMAL
-
-				lot.bidder = lot.maxBids[0].bidder; 
-				talObject.biddingLots.push(lot);
-
-				//TODO: IF YOU'RE THE HIGH BIDDER SHOW HIGH, ELSE SHOW OUTBID MESSAGE
-			}
+			clearMaxBid: function(lot){
+				lot.maxBid.bid = 0;
+				lot.maxBid.bidder = null;
+			},
 
 		/******************************************
 			GROUP BIDS
@@ -340,6 +428,7 @@ const talController = {
 				talObject.biddingLots.push(newGroup);
 
 				talController.goToTab('bids');
+				pushHistory('bids', 'page');//PUSH STATE
 			},
 
 			bidOnGroupLots: function(group){
@@ -348,12 +437,11 @@ const talController = {
 				group.lots.forEach(function(lot){
 					if(i > group.quantity) return;
 
-					if(lot.bid< group.maxbid){
-						lot.bidder = talObject.bidder;
-						lot.bid = talController.increment(lot.bid);
+					if(typeof lot.bids[0] == 'undefined' || lot.bids[0].bid < group.maxbid){
+						talController.incrementBid(lot,'max',talObject.bidder);
 						i++;
 					}
-				});
+				}); 
 
 			},
 

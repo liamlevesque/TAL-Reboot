@@ -16,7 +16,13 @@
 	overflow: hidden;
 	padding: spacing(small) spacing(medium);
 	border-bottom: $default-border;
+	cursor: pointer;
 }
+
+	.o-setting--selectable:hover{
+		background-color: palette(brand);
+		color: white;
+	}
 	
 	.o-setting-list-item--value{
 		float: right;

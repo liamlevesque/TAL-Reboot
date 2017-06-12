@@ -1,4 +1,4 @@
-<div class="o-lot" rv-class-s-high-bidder="lot.bidder | compare talObject.bidder" rv-on-click="talController.toggleLotDetails" rv-class-s-group-select="talObject.isGroupChoosing">
+<div class="o-lot" rv-bidstatusclass="lot.bids | highbidder talObject.bidder" rv-on-click="talController.toggleLotDetails" rv-class-s-group-select="talObject.isGroupChoosing">
 	
 	<!-- <input type="checkbox" rv-show="talObject.isGroupChoosing" class="lot--group-selector" rv-on-click="talController.addToGroup" rv-ischecked="lot.group | indexof talObject.tempGroup.uid"> -->
 
@@ -6,6 +6,15 @@
 		<input type="checkbox" name="reportType" rv-on-click="talController.addToGroup" rv-ischecked="lot.group | indexof talObject.tempGroup.uid">
 		<span class="o-input--checksymbol"></span>
 	</label>
+
+	<div class="lot--status lot--status_high-bidder">
+		You are the high bidder
+	</div>
+	
+	<div class="lot--status lot--status_outbid">
+		You were outbid
+	</div>
+	
 
 	<div class="l-grid-third m-grid-quarter">
 		<img rv-src="lot.photo" class="lot--photo">
@@ -29,15 +38,15 @@
 					<div class="h-ta-right h-hide-desktop">
 						<div class="h-mb-50">{lot.closes | countdownTime}</div>
 
-						<div rv-if="lot.bid | compare 0" class="t-empty">
+						<div rv-unless="lot.bids.0.bid | greaterthan 0" class="t-empty">
 							No Bids Placed Yet
 						</div>
-						<div rv-unless="lot.bid | compare 0">
+						<div rv-if="lot.bids.0.bid | greaterthan 0">
 							<label class="t-smalllabel">
-								<span rv-unless="lot.bidder | compare talObject.bidder">High Bid</span>
-								<span rv-if="lot.bidder | compare talObject.bidder">Top Bidder</span>
+								<span rv-unless="lot.bids.0.bidder | compare talObject.bidder">High Bid</span>
+								<span rv-if="lot.bids.0.bidder | compare talObject.bidder">Top Bidder</span>
 							</label>
-							<span class="CCY" rv-html="lot.bid | price"></span>
+							<span class="CCY" rv-html="lot.bids.0.bid | price"></span>
 						</div>
 					</div>
 				</div>
@@ -61,31 +70,34 @@
 				</button>
 			</div>
 			
+			<div class="bid-details--section bid-details--bid"> 
+				<div rv-if="lot.bids.0.bid | greaterthan 0">
+					<label class="t-smalllabel">
+						<span rv-unless="lot.bids.0.bidder | compare talObject.bidder">High Bid</span>
+						<span rv-if="lot.bids.0.bidder | compare talObject.bidder">High Bid</span>
+					</label>
+					<span class="CCY h-float-right" rv-html="lot.bids.0.bid | price"></span>
+					<div rv-if="lot.maxBid.bidder | compare talObject.bidder" class="bid-details--caveat h-ta-right">
+						(Bidding for you up to <span class="CCY" rv-html="lot.maxBid.bid"></span>)
+					</div>
+				</div>
+				<div rv-unless="lot.bids.0.bid | greaterthan 0" class="t-empty h-ta-center">
+					No Bids Placed Yet
+				</div>
+			</div>
+
 			<div class="bid-details--section h-ta-right">
 				<label class="t-smalllabel h-float-left">Closes</label>
 				{lot.closes | countdownTime} 
-				<div class="bid-details--closes h-hide-mobile">{lot.closes | calendarTime}</div>
-			</div>
-			
-			<div class="bid-details--section bid-details--bid" rv-class-s-winning="lot.bidder | compare talObject.bidder">
-				<div rv-unless="lot.bid | compare 0">
-					<label class="t-smalllabel">
-						<span rv-unless="lot.bidder | compare talObject.bidder">High Bid</span>
-						<span rv-if="lot.bidder | compare talObject.bidder">Top Bidder</span>
-					</label>
-					<span class="CCY h-float-right" rv-html="lot.bid | price"></span>
-				</div>
-				<div rv-if="lot.bid | compare 0" class="t-empty h-ta-center">
-					No Bids Placed Yet
-				</div>
+				<div class="bid-details--caveat h-hide-mobile">{lot.closes | calendarTime}</div>
 			</div>
 			
 			<div class="bid-details--section" rv-unless="lot.group | lengthand talObject.isGroupChoosing">
 				<button class="o-button--outline h-mb-50 h-width-100" rv-on-click="talController.toggleMaximumBidVisible">
-					<span rv-unless="lot.maxBid | greaterthan 0">Set Maximum Bid</span>
-					<span rv-if="lot.maxBid | greaterthan 0">Change Maximum Bid of <span class="CCY" rv-html="lot.maxBid | price">}</span></span>
+					<span rv-unless="lot.maxBid.bidder | compare talObject.bidder">Set Maximum Bid</span>
+					<span rv-if="lot.maxBid.bidder | compare talObject.bidder">Change Maximum Bid of <span class="CCY" rv-html="lot.maxBid.bid | price">}</span></span>
 				</button>
-				<button class="o-button h-width-100" rv-hide="lot.maxBid" rv-disabled="lot.bidder | compare talObject.bidder" rv-on-click="talController.quickBid">Bid <span class="CCY" rv-html="lot.bid | nextIncrement"></span></button>
+				<button class="o-button h-width-100" rv-hide="lot.maxBid.bidder | compare talObject.bidder" rv-disabled="lot.bids.0.bidder | compare talObject.bidder" rv-on-click="talController.quickBid">Bid <span class="CCY" rv-html="lot.bids.0.bid| nextIncrement"></span></button>
 			</div>
 			<div class="bid-details--section" rv-if="lot.group | lengthand talObject.isGroupChoosing">
 				<button class="o-button--outline h-mb-50 h-width-100" rv-on-click="talController.showGroupViewModalFromLot">

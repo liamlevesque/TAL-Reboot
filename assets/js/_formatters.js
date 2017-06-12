@@ -17,8 +17,8 @@ rivets.formatters.price = function(value){
 };
 
 rivets.formatters.nextIncrement = function(value){
-
-	return formatprice(increment(value));
+	if(typeof value == "undefined") value = 0;
+	return formatprice(talController.increment(value));
 };
 
 rivets.formatters.compare = function(value, comparisons){
@@ -31,6 +31,18 @@ rivets.formatters.compare = function(value, comparisons){
 	else if(comparisons === value) return true;
 	
 	return false;
+};
+
+rivets.formatters.inversecompare = function(value, comparisons){
+	if(typeof value == "undefined" || typeof comparisons == "undefined") return true;
+	
+	if(typeof comparisons == "string"){
+		var args = comparisons.split(',');
+		if(args.includes(value)) return false;
+	}
+	else if(comparisons === value) return false;
+	
+	return true;
 };
 
 
@@ -236,6 +248,19 @@ rivets.formatters.lotintervals = function(lots, first, last){
 }
 
 
+rivets.formatters.lotposition = function(lot, first, last){
+	let lotNumber = 0;
+	if(lot.type === 'group') lotNumber = lot.lots[0].lotNumber;
+	else lotNumber = lot.lotNumber;
+	
+	return Math.floor(100 * ((lotNumber - first) / (last - first)));
+}
+
+rivets.binders.vlocation = function(el,value){
+	$(el).css('top',value + "%");
+}
+
+
 
 rivets.binders.rangeinput = {
     publishes: true,
@@ -255,6 +280,30 @@ rivets.binders.rangeinput = {
 };
 
 
+rivets.formatters.highbidder = function(bids,bidder){
+	if(typeof bids === 'undefined' || typeof bids[0] == 'undefined' || typeof bidder == 'undefined' ) return 'notbid';
+	if(bids[0].bidder === bidder) return 'highbidder';
+	for(let i = 1; i < bids.length; i++){
+		if(bids[i].bidder === bidder) return 'outbid';
+	};
+	return 'notbid';
+};
+
+rivets.binders.bidstatusclass = function(el,value){
+	//console.log(value);
+
+	switch(value){
+		case 'highbidder':
+			$(el).addClass('s-winning').removeClass('s-outbid');
+			break;
+		case 'outbid':
+			$(el).addClass('s-outbid').removeClass('s-winning');
+			break;
+
+		default: 
+			$(el).removeClass('s-winning s-outbid')
+	}
+};
 
 
 

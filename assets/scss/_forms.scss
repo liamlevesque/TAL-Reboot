@@ -101,7 +101,7 @@
 }
 
 
-.o-input--select{
+.o-input--select, [class^="o-input--select"]{
 	appearance: none;
 	@include textinput;
 	padding-right: 40px;
@@ -129,6 +129,14 @@
 		opacity: 1;
 	}
 }
+
+	.o-input--select_bare{
+		border: none;
+
+		&:hover, &:focus{
+			border: none;
+		}
+	}
 
 
 	.ui-menu{

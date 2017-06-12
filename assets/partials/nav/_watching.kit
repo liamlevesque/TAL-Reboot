@@ -1,4 +1,4 @@
-<button class="o-icon-label-button m-grid-fifth" rv-on-click="talController.loadTab" data-tab="watching">
+<button class="o-icon-label-button m-grid-fifth" rv-on-click="talController.loadTab" data-tab="watching"  rv-class-s-active="talObject.activeTab | compare 'watching'">
 	<i class="icon-eye"></i>
 	<label>Watching</label>
 	<div class="badge--count" rv-if="talObject.watchingLots | lengthToBool">{talObject.watchingLots | length}</div>

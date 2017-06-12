@@ -1,4 +1,7 @@
 $(function(){
+	//ON FIRST LOAD IF COMING FROM LOGIN PAGE ASSIGN THE BIDDER NUMBER TO THIS SESSION
+	let hash = parseInt(window.location.hash.split('#')[1]);
+	if(hash > 0) talObject.bidder = 'v' + hash;
 	pushHistory('auction','page');
 })
 

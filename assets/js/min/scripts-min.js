@@ -69,8 +69,8 @@ rivets.formatters.price = function(value){
 };
 
 rivets.formatters.nextIncrement = function(value){
-
-	return formatprice(increment(value));
+	if(typeof value == "undefined") value = 0;
+	return formatprice(talController.increment(value));
 };
 
 rivets.formatters.compare = function(value, comparisons){
@@ -83,6 +83,18 @@ rivets.formatters.compare = function(value, comparisons){
 	else if(comparisons === value) return true;
 	
 	return false;
+};
+
+rivets.formatters.inversecompare = function(value, comparisons){
+	if(typeof value == "undefined" || typeof comparisons == "undefined") return true;
+	
+	if(typeof comparisons == "string"){
+		var args = comparisons.split(',');
+		if(args.includes(value)) return false;
+	}
+	else if(comparisons === value) return false;
+	
+	return true;
 };
 
 
@@ -288,6 +300,19 @@ rivets.formatters.lotintervals = function(lots, first, last){
 }
 
 
+rivets.formatters.lotposition = function(lot, first, last){
+	let lotNumber = 0;
+	if(lot.type === 'group') lotNumber = lot.lots[0].lotNumber;
+	else lotNumber = lot.lotNumber;
+	
+	return Math.floor(100 * ((lotNumber - first) / (last - first)));
+}
+
+rivets.binders.vlocation = function(el,value){
+	$(el).css('top',value + "%");
+}
+
+
 
 rivets.binders.rangeinput = {
     publishes: true,
@@ -307,6 +332,30 @@ rivets.binders.rangeinput = {
 };
 
 
+rivets.formatters.highbidder = function(bids,bidder){
+	if(typeof bids === 'undefined' || typeof bids[0] == 'undefined' || typeof bidder == 'undefined' ) return 'notbid';
+	if(bids[0].bidder === bidder) return 'highbidder';
+	for(let i = 1; i < bids.length; i++){
+		if(bids[i].bidder === bidder) return 'outbid';
+	};
+	return 'notbid';
+};
+
+rivets.binders.bidstatusclass = function(el,value){
+	//console.log(value);
+
+	switch(value){
+		case 'highbidder':
+			$(el).addClass('s-winning').removeClass('s-outbid');
+			break;
+		case 'outbid':
+			$(el).addClass('s-outbid').removeClass('s-winning');
+			break;
+
+		default: 
+			$(el).removeClass('s-winning s-outbid')
+	}
+};
 
 
 
@@ -386,6 +435,9 @@ function updateProgressIndicator(percentProgress){
 
 
 $(function(){
+	//ON FIRST LOAD IF COMING FROM LOGIN PAGE ASSIGN THE BIDDER NUMBER TO THIS SESSION
+	let hash = parseInt(window.location.hash.split('#')[1]);
+	if(hash > 0) talObject.bidder = 'v' + hash;
 	pushHistory('auction','page');
 })
 
@@ -430,12 +482,26 @@ window.addEventListener('popstate', function(e) {
 	navigateHistory(e.state.type,e.state.name);
 });
 
+$(function(){
+  Notification.requestPermission().then(function(result) {
+    console.log(result);
+  }); 
+});
+
+function spawnNotification(theTitle,theBody) {
+  var options = {
+      body: theBody,
+      icon: '/assets/img/logo-square.png'
+  }
+  var n = new Notification(theTitle,options);
+}
+
 const lotlist = [
 		{
 			"lotNumber" : "5001",
-			"bid": 10000,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [{bid: 100, bidder: "12345", time: "2017-06-07T22:20:58.162Z", type: 'max'}],
+			"maxBid":{bid: 500,bidder: "12345"},
+			"category": 'Aggregate - Feeders',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -459,9 +525,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5002",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Aggregate - Feeders',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -486,9 +552,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5003",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Aggregate - Feeders',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -511,9 +577,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5004",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Aggregate - Feeders',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -525,7 +591,10 @@ const lotlist = [
 			"description" : "2012 Manitou 4x4 Bucket Lift #2",
 			"photo" : "assets/img/vramp1.jpg",
 			"photos": [
-				
+				{"src": "assets/img/vramp1.jpg","disabled":false},
+				{"src": "assets/img/vramp2.jpg","disabled":false},
+				{"src": "assets/img/vramp3.jpg","disabled":false},
+				{"src": "assets/img/vramp4.jpg","disabled":false}
 			],
 			"usage" : "90000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -535,9 +604,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5005",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Aggregate - Feeders',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -562,9 +631,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5006",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Aggregate - Feeders',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -589,9 +658,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5007",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Aggregate - Feeders',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -616,9 +685,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5008",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Aggregate - Feeders',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -643,9 +712,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5009",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Aggregate - Feeders',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -670,9 +739,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5010",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Aggregate - Feeders',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -697,9 +766,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5011",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Aggregate - Feeders',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -724,9 +793,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5012",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Aggregate - Feeders',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -751,9 +820,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5013",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Agriculture - Misc',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -778,9 +847,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5014",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Agriculture - Misc',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -802,9 +871,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5015",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Agriculture - Misc',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -829,9 +898,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5016",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Agriculture - Misc',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -856,9 +925,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5017",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Agriculture - Misc',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -883,9 +952,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5018",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Attachments - Equipment',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -910,9 +979,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5019",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Attachments - Equipment',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -937,9 +1006,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5020",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Attachments - Equipment',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -964,9 +1033,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5021",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Attachments - Equipment',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -991,9 +1060,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5022",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Attachments - Equipment',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -1018,9 +1087,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5023",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Attachments - Equipment',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -1045,9 +1114,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5024",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Attachments - Equipment',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -1072,9 +1141,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5025",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Attachments - Equipment',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -1099,9 +1168,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5026",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Attachments - Equipment',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -1126,9 +1195,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5027",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Attachments - Equipment',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -1153,9 +1222,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5028",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Attachments - Equipment',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -1180,9 +1249,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5029",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Attachments - Excavator',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -1207,9 +1276,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5030",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Attachments - Excavator',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -1234,9 +1303,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5031",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Attachments - Excavator',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -1261,9 +1330,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5032",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Attachments - Excavator',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -1288,9 +1357,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5033",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Attachments - Excavator',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -1315,9 +1384,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5034",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Attachments - Excavator',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -1342,9 +1411,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5035",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Attachments - Excavator',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -1369,9 +1438,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5036",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Attachments - Motor Grader',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -1396,9 +1465,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5037",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Attachments - Motor Grader',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -1423,9 +1492,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5038",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Attachments - Motor Grader',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -1450,9 +1519,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5039",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Attachments - Motor Grader',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -1477,9 +1546,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5040",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Attachments - Motor Grader',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -1504,9 +1573,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5041",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Attachments - Motor Grader',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -1531,9 +1600,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5042",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Attachments - Motor Grader',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -1558,9 +1627,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5043",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Attachments - Motor Grader',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -1585,9 +1654,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5044",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Attachments - Motor Grader',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -1612,9 +1681,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5045",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Attachments - Motor Grader',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -1639,9 +1708,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5046",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Attachments - Motor Grader',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -1666,9 +1735,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5047",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Attachments - Skid Steer',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -1693,9 +1762,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5048",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Attachments - Skid Steer',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -1720,9 +1789,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5049",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Attachments - Skid Steer',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -1747,9 +1816,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5050",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Attachments - Skid Steer',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -1774,9 +1843,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5051",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Attachments - Skid Steer',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -1801,9 +1870,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5052",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Attachments - Skid Steer',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -1828,9 +1897,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5053",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Attachments - Skid Steer',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -1855,9 +1924,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5054",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Attachments - Skid Steer',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -1882,9 +1951,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5055",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Attachments - Skid Steer',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -1909,9 +1978,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5056",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Attachments - Skid Steer',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -1936,9 +2005,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5057",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Attachments - Truck',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -1963,9 +2032,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5058",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Cranes - Accessories',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -1990,9 +2059,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5059",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Cranes - Conventional Truck',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -2017,9 +2086,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5060",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Cranes - Conventional Truck',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -2044,9 +2113,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5061",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Cranes - Conventional Truck',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -2071,9 +2140,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5062",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Cranes - Conventional Truck',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -2098,9 +2167,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5063",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Cranes - Conventional Truck',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -2125,9 +2194,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5064",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Cranes - Conventional Truck',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -2152,9 +2221,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5065",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Cranes - Conventional Truck',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -2179,9 +2248,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5066",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Drilling - Miscellaneous',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -2206,9 +2275,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5067",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Drilling - Miscellaneous',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -2233,9 +2302,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5068",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Drilling - Miscellaneous',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -2260,9 +2329,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5069",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Drilling - Miscellaneous',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -2287,9 +2356,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5070",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Drilling - Miscellaneous',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -2314,9 +2383,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5071",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Drilling - Miscellaneous',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -2341,9 +2410,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5072",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Drilling - Miscellaneous',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -2368,9 +2437,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5073",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Drilling - Miscellaneous',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -2395,9 +2464,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5074",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Drilling - Miscellaneous',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -2422,9 +2491,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5075",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Emergency Vehicles',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -2449,9 +2518,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5076",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Emergency Vehicles',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -2476,9 +2545,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5077",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Emergency Vehicles',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -2503,9 +2572,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5078",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Emergency Vehicles',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -2530,9 +2599,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5079",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Engines',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -2557,9 +2626,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5080",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Engines',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -2584,9 +2653,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5081",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Engines',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -2611,9 +2680,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5082",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Engines',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -2638,9 +2707,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5083",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Engines',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -2665,9 +2734,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5084",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Engines',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -2692,9 +2761,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5085",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Engines',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -2719,9 +2788,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5086",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Engines',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -2746,9 +2815,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5087",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Engines',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -2773,9 +2842,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5088",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Engines',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -2800,9 +2869,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5089",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Engines',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -2827,9 +2896,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5090",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Engines',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -2854,9 +2923,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5091",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Engines',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -2881,9 +2950,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5092",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Environmental Equipment',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -2908,9 +2977,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5093",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Environmental Equipment',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -2935,9 +3004,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5094",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Hydraulic Excavators - Crawler',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -2962,9 +3031,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5095",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Hydraulic Excavators - Crawler',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -2989,9 +3058,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5096",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Hydraulic Excavators - Crawler',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -3016,9 +3085,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5097",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Hydraulic Excavators - Crawler',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -3043,9 +3112,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5098",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Hydraulic Excavators - Crawler',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -3070,9 +3139,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5099",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Industrial Plant Equipment',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -3097,9 +3166,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5100",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Industrial Plant Equipment',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -3124,9 +3193,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5101",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Industrial Plant Equipment',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -3151,9 +3220,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5102",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Industrial Plant Equipment',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -3178,9 +3247,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5103",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Industrial Plant Equipment',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -3205,9 +3274,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5104",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Landscape Equipment',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -3232,9 +3301,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5105",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Landscape Equipment',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -3259,9 +3328,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5106",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Landscape Equipment',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -3286,9 +3355,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5107",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Landscape Equipment',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -3313,9 +3382,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5108",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Landscape Equipment',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -3340,9 +3409,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5109",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Landscape Equipment',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -3367,9 +3436,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5110",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Landscape Equipment',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -3394,9 +3463,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5111",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Livestock Equipment',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -3421,9 +3490,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5112",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Livestock Equipment',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -3448,9 +3517,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5113",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Livestock Equipment',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -3475,9 +3544,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5114",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Miscellaneous - Shop, Warehouse, Consumer',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -3502,9 +3571,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5115",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Miscellaneous - Shop, Warehouse, Consumer',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -3529,9 +3598,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5116",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Miscellaneous - Shop, Warehouse, Consumer',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -3556,9 +3625,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5117",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Miscellaneous - Shop, Warehouse, Consumer',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -3583,9 +3652,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5118",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Miscellaneous - Shop, Warehouse, Consumer',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -3610,9 +3679,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5119",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Miscellaneous - Shop, Warehouse, Consumer',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -3637,9 +3706,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5120",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Mobile Structures',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -3664,9 +3733,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5121",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Mobile Structures',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -3691,9 +3760,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5122",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Mobile Structures',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -3718,9 +3787,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5123",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Mobile Structures',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -3745,9 +3814,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5124",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Mobile Structures',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -3772,9 +3841,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5125",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Parts or Stationary - Construction',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -3799,9 +3868,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5126",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Pumps',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -3826,9 +3895,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5127",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Pumps',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -3853,9 +3922,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5128",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Pumps',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -3880,9 +3949,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5129",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Pumps',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -3907,9 +3976,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5130",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Pumps',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -3934,9 +4003,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5131",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Pumps',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -3961,9 +4030,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5132",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Pumps',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -3988,9 +4057,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5133",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Pumps',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -4015,9 +4084,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5134",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Scales',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -4042,9 +4111,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5135",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Scales',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -4069,9 +4138,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5136",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Scales',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -4096,9 +4165,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5137",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Scales',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -4123,9 +4192,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5138",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Survey Equipment',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -4150,9 +4219,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5139",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Survey Equipment',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -4177,9 +4246,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5140",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Tanks',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -4204,9 +4273,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5141",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Tanks',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -4231,9 +4300,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5142",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Tanks',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -4258,9 +4327,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5143",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Tanks',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -4285,9 +4354,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5144",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Welders',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -4312,9 +4381,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5145",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Welders',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -4339,9 +4408,9 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5146",
-			"bid": 0,
-			"maxBids":[],
-			"bidder": null,
+			"bids": [],
+			"maxBid":{bid: 0,bidder: null},
+			"category": 'Welders',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -4372,76 +4441,76 @@ const categories = [
 		quantity: 12,
 	},{
 		name: 'Agriculture - Misc',
-		quantity: 12,
+		quantity: 8,
 	},{
 		name: 'Attachments - Equipment',
-		quantity: 12,
+		quantity: 121,
 	},{
 		name: 'Attachments - Excavator',
-		quantity: 12,
+		quantity: 56,
 	},{
 		name: 'Attachments - Motor Grader',
-		quantity: 12,
+		quantity: 88,
 	},{
 		name: 'Attachments - Skid Steer',
-		quantity: 12,
+		quantity: 31,
 	},{
 		name: 'Attachments - Truck',
-		quantity: 12,
+		quantity: 66,
 	},{
 		name: 'Cranes - Accessories',
-		quantity: 12,
+		quantity: 77,
 	},{
 		name: 'Cranes - Conventional Truck',
-		quantity: 12,
+		quantity: 88,
 	},{
 		name: 'Drilling - Miscellaneous',
 		quantity: 12,
 	},{
 		name: 'Emergency Vehicles',
-		quantity: 12,
+		quantity: 1,
 	},{
 		name: 'Engines',
-		quantity: 12,
+		quantity: 5,
 	},{
 		name: 'Environmental Equipment',
-		quantity: 12,
+		quantity: 17,
 	},{
 		name: 'Hydraulic Excavators - Crawler',
-		quantity: 12,
+		quantity: 18,
 	},{
 		name: 'Industrial Plant Equipment',
-		quantity: 12,
+		quantity: 7,
 	},{
 		name: 'Landscape Equipment',
-		quantity: 12,
+		quantity: 44,
 	},{
 		name: 'Livestock Equipment',
-		quantity: 12,
+		quantity: 7,
 	},{
 		name: 'Miscellaneous - Shop, Warehouse, Consumer',
 		quantity: 12,
 	},{
 		name: 'Mobile Structures',
-		quantity: 12,
+		quantity: 9,
 	},{
 		name: 'Parts or Stationary - Construction',
-		quantity: 12,
+		quantity: 14,
 	},{
 		name: 'Pumps',
-		quantity: 12,
+		quantity: 3,
 	},{
-		name: 'Sacales',
-		quantity: 12,
+		name: 'Scales',
+		quantity: 2,
 	},{
 		name: 'Survey Equipment',
 		quantity: 12,
 	},{
 		name: 'Tanks',
-		quantity: 12,
+		quantity: 8,
 	},{
 		name: 'Welders',
-		quantity: 12,
+		quantity: 22,
 	},
 
 ]
@@ -4450,7 +4519,7 @@ const talObject = {
 		auction: {
 			startLot: 5000,
 			endLot: 5145,
-			totalLots: 850,
+			totalLots: 146,
 			closingNext: 7,
 		},
 		lots: lotlist,
@@ -4488,6 +4557,9 @@ const talObject = {
 		mobileSearchVisible: false,
 		pastSearches: ['Cat 350','40 foot container','Gen Set'],
 		categories: categories,
+		categoriesVisible: false,
+		activeCategory: null,
+		categoryLots: [],
 		filteredResults: {},
 	};
 
@@ -4541,6 +4613,7 @@ const talController = {
 		******************************************/	
 			toggleSearchVisible: function(e){
 				talObject.mobileSearchVisible = !talObject.mobileSearchVisible;
+				talObject.categoriesVisible = false;
 				pushHistory('search','modal');
 
 				$('.js--search-input').focus();
@@ -4590,6 +4663,29 @@ const talController = {
 					categories: [],
 					matches: [],
 				};
+			},
+
+		/******************************************
+			CATEGORIES
+		******************************************/	
+
+			toggleCategoriesVisible: function(){
+				talObject.categoriesVisible = !talObject.categoriesVisible;
+			},
+
+			goToCategory: function(e){
+				talObject.activeCategory = $(e.currentTarget).data('value');
+				talObject.categoryLots = talObject.lots.filter((lot) => {return lot.category === talObject.activeCategory});
+				console.log(talObject.categoryLots);
+
+				talObject.categoriesVisible = false;
+			},
+
+			clearCategory: function(e){
+				talObject.activeCategory = null;
+				talObject.categoryLots = [];
+				scrollArea.destroy();
+				createOptiscroll();
 			},
 
 		/******************************************
@@ -4646,15 +4742,58 @@ const talController = {
 			},
 
 			confirmQuickBid: function(e,context) {
-				talController.placeBid(talObject.focusedLot);
+				let lot = talObject.focusedLot;
+				//IF THERE'S A MAX BID ON THIS LOT
+				if(lot.maxBid.bid > 0){
+					//IF THE QUICK BID WOULD BE MORE THAN THE MAX BID
+					if(talController.increment(lot.bids[0].bid) > lot.maxBid.bid){
+						talController.incrementBid(lot,'quick',talObject.bidder);
+						talController.clearMaxBid(lot);
+					}
+					//YOU'VE BEEN OUTBID
+					else{
+						talController.outBid(lot,bid,false);
+					}
+				}
+				else talController.incrementBid(lot,'quick',talObject.bidder);
+				
+				//ADD TO WATCH LIST AND BIDDING LIST (WHEN APPROPRIATE)
+				talController.watchAndPush(lot);
+
 				talObject.quickBidConfirmVisible = false;
 			},
 
-			placeBid: function(lot){
-				lot.bidder = talObject.bidder;
-				lot.bid = talController.increment(lot.bid);
-				talController.watchThisLot(lot,false);
-				talObject.biddingLots.push(lot);
+			watchAndPush: function(lot){
+				let isBidding = lot.bids.filter((bid) => { 
+					if(typeof bid != 'undefined' && bid.bidder === talObject.bidder)return 1; 
+				})
+
+				if(isBidding.length === 1){	
+					talController.watchThisLot(lot,false);
+					talObject.biddingLots.push(lot);
+				}
+			},
+
+			incrementBid: function(lot,type,bidder){
+				let currentBid = (lot.bids.length === 0 || typeof lot.bids[0] == 'undefined')? 0 : lot.bids[0].bid;
+
+				lot.bids.unshift(talController.buildBid(bidder,talController.increment(currentBid),type));
+			},
+
+			pricedBid: function(lot,type,bidder,amt){
+				lot.bids.unshift(talController.buildBid(bidder,amt,type));
+				console.log(lot.bids);
+			},
+
+			buildBid: function(bidder,amt,type) {
+				let bid = {
+					bidder: bidder,
+					bid: amt,
+					time: new Date().toJSON(),
+					type: type,
+				};
+				
+				return bid;
 			},
 
 			increment: function(amt){
@@ -4663,40 +4802,58 @@ const talController = {
 				}
 			},
 
+			outBid: function(lot,bid,max){
+				
+				if(max) talController.pricedBid(lot,'max',talObject.bidder,bid); //PLACE A BID AT YOUR MAX BEFORE PLACING AN INCREMENT BID BY THE OTHER BIDDER
+				else talController.incrementBid(lot,'quick',talObject.bidder);
+				//PLACE INCREMENT BID FOR OTHER BIDDER
+				talController.incrementBid(lot,'max',lot.maxBid.bidder);
+				spawnNotification('You were Outbid','Another Bidder has outbid you.');
+			},
+
 		/******************************************
 			MAX BIDS
 		******************************************/
 
 			toggleMaximumBidVisible: function(e,context){
 				talObject.maximumBidVisible = !talObject.maximumBidVisible;
-				if(talObject.maximumBidVisible) talObject.focusedLot = context.lot;
+				if(typeof context.lot != 'undefined' && talObject.maximumBidVisible) talObject.focusedLot = context.lot;
+				
 			},
 
 			setMaximumBid: function(){
-				let bid = {
-					bidder: talObject.bidder,
-					bid: talObject.tempMaxBid,
-					time: new Date().toJSON()
+				let lot = talObject.focusedLot;
+				let bid = parseInt(talObject.tempMaxBid);
+				
+				if(bid > lot.maxBid.bid) {
+					//IF THERE IS CURRENTLY A MAX BID, PLACE A BID BY THE OTHER BIDDER AT THEIR MAX BEFORE PLACING YOUR OWN
+					if(lot.maxBid.bid > 0) talController.pricedBid(lot,lot.maxBid.bidder,'max',lot.maxBid.bid);
+					
+					lot.maxBid.bidder = talObject.bidder;
+					lot.maxBid.bid = bid;
+					if(lot.bids[0].bidder != talObject.bidder) talController.incrementBid(lot,'max',talObject.bidder);
+
+					//ADD TO WATCH LIST AND BIDDING LIST (WHEN APPROPIRATE)
+					talController.watchAndPush(lot);
+				}
+				else if(bid === lot.maxBid.bid){//IT'S A TIE!
+					//QUICKLY (FOR THE PURPOSE OF THE PROTOTYE) THROW IN A BID AT THE NEXT INCREMENT (NOT SAFE,BUT SHOULD WORK)
+					talController.incrementBid(lot,'max',talObject.bidder);
+					//AND THEN PUT THE ORIGINAL BIDDER ON AT THEIR MAX
+					talController.pricedBid(lot,lot.maxBid.bidder,'max',lot.maxBid.bid);
+					spawnNotification('You were Outbid','Another Bidder had already placed a maximum bid at the same price. The first bidder in wins.');
+				}
+				else{//YOU WERE OUTBID
+					talController.outBid(lot,bid,true);
 				}
 
-				talObject.focusedLot.maxBids.push(bid);
-				//talController.placeBid(talObject.focusedLot);
-				talController.manageMaxBids(talObject.focusedLot);
 				talObject.maximumBidVisible = false;
 			},
 
-			manageMaxBids: function(lot) {
-				
-				lot.maxBids.sort((a,b) => {return b.bid - a.bid});//SORT REVERSE BY BID VALUE (HIGHEST FIRST)
-				
-				if(lot.maxBids.length > 1) lot.bid = lot.maxBids[1].bid ; //IF THERE ARE OTHER MAX BIDS, THE HIGH BID IS NOW THE SECOND HIGHEST MAX BID
-				else lot.bid = talController.increment(lot.bid);//OTHERWISE JUST BID AS NORMAL
-
-				lot.bidder = lot.maxBids[0].bidder; 
-				talObject.biddingLots.push(lot);
-
-				//TODO: IF YOU'RE THE HIGH BIDDER SHOW HIGH, ELSE SHOW OUTBID MESSAGE
-			}
+			clearMaxBid: function(lot){
+				lot.maxBid.bid = 0;
+				lot.maxBid.bidder = null;
+			},
 
 		/******************************************
 			GROUP BIDS
@@ -4788,6 +4945,7 @@ const talController = {
 				talObject.biddingLots.push(newGroup);
 
 				talController.goToTab('bids');
+				pushHistory('bids', 'page');//PUSH STATE
 			},
 
 			bidOnGroupLots: function(group){
@@ -4796,12 +4954,11 @@ const talController = {
 				group.lots.forEach(function(lot){
 					if(i > group.quantity) return;
 
-					if(lot.bid< group.maxbid){
-						lot.bidder = talObject.bidder;
-						lot.bid = talController.increment(lot.bid);
+					if(typeof lot.bids[0] == 'undefined' || lot.bids[0].bid < group.maxbid){
+						talController.incrementBid(lot,'max',talObject.bidder);
 						i++;
 					}
-				});
+				}); 
 
 			},
 

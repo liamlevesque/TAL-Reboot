@@ -3,3 +3,51 @@
 
 	
 }
+
+
+.c-category-list{
+	position: fixed;
+	top: 90px;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 1000;
+	background-color: white;
+	box-shadow: $ritchie-shadow;
+	overflow-y: auto;
+
+	@include breakpoint(small){
+		top: 100px;
+		left: calc((100vw - 800px) / 2);
+		right: auto;
+		bottom: auto;
+		max-height: calc(90vh - 100px);
+		
+	}
+}
+
+.c-subhead{
+	background-color: palette(grey,dark);
+	color: white;
+	padding: spacing(xx-small) spacing(x-small);
+
+	@include breakpoint(small){
+		padding: spacing(x-small) spacing(small);
+	}
+}
+
+
+	.o-category-tag{
+		display: inline-block;
+		padding: spacing(xx-small) spacing(small);
+		background-color: lighten(palette(grey,dark),10%);
+		border-radius: 20px;
+
+		i{
+			cursor: pointer;
+
+			&:hover{
+				color: black;
+			}
+		}
+	}
