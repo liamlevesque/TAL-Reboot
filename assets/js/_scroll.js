@@ -16,6 +16,9 @@ function createOptiscroll() {
 			//wrapContent: false,
 		});
 
+		let el = $('#5022');
+		scrollArea.scrollIntoView(el,100,{top: 5});
+
 		$('.js--lot-scroll-hover-area').on('mouseenter',function(e){
 			$('.optiscroll').addClass('s-scrolling');
 			e.currentTarget.addEventListener('mousemove',function(e){

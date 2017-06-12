@@ -7434,6 +7434,198 @@
 		"sM": 0,
 		"sU": 0
 		},
+	"\/bower_components\/tooltipster\/.bower.json": {
+		"ft": 524288,
+		"oA": 2,
+		"oAP": "\/bower_components\/tooltipster\/.bower.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/bower_components\/tooltipster\/bower.json": {
+		"ft": 524288,
+		"oA": 2,
+		"oAP": "\/bower_components\/tooltipster\/bower.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/bower_components\/tooltipster\/dist\/css\/plugins\/tooltipster\/sideTip\/themes\/tooltipster-sideTip-borderless.min.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 2,
+		"oAP": "\/bower_components\/tooltipster\/dist\/css\/plugins\/tooltipster\/sideTip\/themes\/tooltipster-sideTip-borderless.min.css",
+		"oF": 0,
+		"oS": 0
+		},
+	"\/bower_components\/tooltipster\/dist\/css\/plugins\/tooltipster\/sideTip\/themes\/tooltipster-sideTip-light.min.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 2,
+		"oAP": "\/bower_components\/tooltipster\/dist\/css\/plugins\/tooltipster\/sideTip\/themes\/tooltipster-sideTip-light.min.css",
+		"oF": 0,
+		"oS": 0
+		},
+	"\/bower_components\/tooltipster\/dist\/css\/plugins\/tooltipster\/sideTip\/themes\/tooltipster-sideTip-noir.min.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 2,
+		"oAP": "\/bower_components\/tooltipster\/dist\/css\/plugins\/tooltipster\/sideTip\/themes\/tooltipster-sideTip-noir.min.css",
+		"oF": 0,
+		"oS": 0
+		},
+	"\/bower_components\/tooltipster\/dist\/css\/plugins\/tooltipster\/sideTip\/themes\/tooltipster-sideTip-punk.min.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 2,
+		"oAP": "\/bower_components\/tooltipster\/dist\/css\/plugins\/tooltipster\/sideTip\/themes\/tooltipster-sideTip-punk.min.css",
+		"oF": 0,
+		"oS": 0
+		},
+	"\/bower_components\/tooltipster\/dist\/css\/plugins\/tooltipster\/sideTip\/themes\/tooltipster-sideTip-shadow.min.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 2,
+		"oAP": "\/bower_components\/tooltipster\/dist\/css\/plugins\/tooltipster\/sideTip\/themes\/tooltipster-sideTip-shadow.min.css",
+		"oF": 0,
+		"oS": 0
+		},
+	"\/bower_components\/tooltipster\/dist\/css\/tooltipster.bundle.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 2,
+		"oAP": "\/bower_components\/tooltipster\/dist\/css\/tooltipster.bundle.css",
+		"oF": 0,
+		"oS": 0
+		},
+	"\/bower_components\/tooltipster\/dist\/css\/tooltipster.bundle.min.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 2,
+		"oAP": "\/bower_components\/tooltipster\/dist\/css\/tooltipster.bundle.min.css",
+		"oF": 0,
+		"oS": 0
+		},
+	"\/bower_components\/tooltipster\/dist\/css\/tooltipster.main.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 2,
+		"oAP": "\/bower_components\/tooltipster\/dist\/css\/tooltipster.main.css",
+		"oF": 0,
+		"oS": 0
+		},
+	"\/bower_components\/tooltipster\/dist\/css\/tooltipster.main.min.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 2,
+		"oAP": "\/bower_components\/tooltipster\/dist\/css\/tooltipster.main.min.css",
+		"oF": 0,
+		"oS": 0
+		},
+	"\/bower_components\/tooltipster\/dist\/js\/plugins\/tooltipster\/SVG\/tooltipster-SVG.js": {
+		"ft": 64,
+		"mi": 1,
+		"oA": 2,
+		"oAP": "\/bower_components\/tooltipster\/dist\/js\/plugins\/tooltipster\/SVG\/tooltipster-SVG.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
+	"\/bower_components\/tooltipster\/dist\/js\/plugins\/tooltipster\/SVG\/tooltipster-SVG.min.js": {
+		"ft": 64,
+		"mi": 1,
+		"oA": 2,
+		"oAP": "\/bower_components\/tooltipster\/dist\/js\/plugins\/tooltipster\/SVG\/tooltipster-SVG.min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
+	"\/bower_components\/tooltipster\/dist\/js\/tooltipster.bundle.js": {
+		"ft": 64,
+		"mi": 1,
+		"oA": 2,
+		"oAP": "\/bower_components\/tooltipster\/dist\/js\/tooltipster.bundle.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
+	"\/bower_components\/tooltipster\/dist\/js\/tooltipster.bundle.min.js": {
+		"ft": 64,
+		"mi": 1,
+		"oA": 1,
+		"oAP": "\/bower_components\/tooltipster\/dist\/js\/tooltipster.bundle.min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
+	"\/bower_components\/tooltipster\/dist\/js\/tooltipster.main.js": {
+		"ft": 64,
+		"mi": 1,
+		"oA": 2,
+		"oAP": "\/bower_components\/tooltipster\/dist\/js\/tooltipster.main.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
+	"\/bower_components\/tooltipster\/dist\/js\/tooltipster.main.min.js": {
+		"ft": 64,
+		"mi": 1,
+		"oA": 2,
+		"oAP": "\/bower_components\/tooltipster\/dist\/js\/tooltipster.main.min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
+	"\/bower_components\/tooltipster\/LICENSE": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/bower_components\/tooltipster\/LICENSE",
+		"oF": 0
+		},
+	"\/bower_components\/tooltipster\/package.json": {
+		"ft": 524288,
+		"oA": 2,
+		"oAP": "\/bower_components\/tooltipster\/package.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/bower_components\/tooltipster\/README.md": {
+		"cS": 0,
+		"eF": 1,
+		"eL": 1,
+		"eLB": 0,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"oA": 2,
+		"oAP": "\/bower_components\/tooltipster\/README.md",
+		"oF": 0,
+		"oFM": 0,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
+		},
 	"\/index.html": {
 		"ft": 8192,
 		"oA": 2,
@@ -7496,45 +7688,51 @@
 			"type": 0
 			},
 		{
-			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/_formatters.js",
+			"followForSyntaxChecking": 0,
+			"linkedFileAbbreviatedPath": "\/bower_components\/tooltipster\/dist\/js\/tooltipster.bundle.min.js",
 			"position": 5,
-			"type": 1
+			"type": 0
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/_scroll.js",
+			"linkedFileAbbreviatedPath": "\/assets\/js\/_formatters.js",
 			"position": 6,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/_history.js",
+			"linkedFileAbbreviatedPath": "\/assets\/js\/_scroll.js",
 			"position": 7,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/_notifications.js",
+			"linkedFileAbbreviatedPath": "\/assets\/js\/_history.js",
 			"position": 8,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/_lotlist.js",
+			"linkedFileAbbreviatedPath": "\/assets\/js\/_notifications.js",
 			"position": 9,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/_categories.js",
+			"linkedFileAbbreviatedPath": "\/assets\/js\/_lotlist.js",
 			"position": 10,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/_tal.js",
+			"linkedFileAbbreviatedPath": "\/assets\/js\/_categories.js",
 			"position": 11,
+			"type": 1
+			},
+		{
+			"followForSyntaxChecking": 1,
+			"linkedFileAbbreviatedPath": "\/assets\/js\/_tal.js",
+			"position": 12,
 			"type": 1
 			}
 		]

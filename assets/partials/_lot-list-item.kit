@@ -1,4 +1,4 @@
-<div class="o-lot" rv-bidstatusclass="lot.bids | highbidder talObject.bidder" rv-on-click="talController.toggleLotDetails" rv-class-s-group-select="talObject.isGroupChoosing">
+<div class="o-lot" rv-bidstatusclass="lot.bids | highbidder talObject.bidder" rv-on-click="talController.toggleLotDetails" rv-class-s-group-select="talObject.isGroupChoosing" rv-class-s-sold="lot.status | compare 'sold'">
 	
 	<!-- <input type="checkbox" rv-show="talObject.isGroupChoosing" class="lot--group-selector" rv-on-click="talController.addToGroup" rv-ischecked="lot.group | indexof talObject.tempGroup.uid"> -->
 
@@ -52,7 +52,27 @@
 				</div>
 			</div>
 		</div>
-		<div class="lot--bid-details l-grid-half h-hide-mobile" rv-on-click="talController.stopProp">
+		<div class="lot--bid-details l-grid-half h-hide-mobile" rv-if="lot.status | compare 'sold'">
+			<div class="bid-details--section bid-details--bid"> 
+				<div rv-if="lot.bids.0.bid | greaterthan 0">
+					<label class="t-smalllabel">Sold</label>
+					<span class="CCY h-float-right" rv-html="lot.bids.0.bid | price"></span>
+					<div class="bid-details--caveat">
+						High Bidder <span class="h-float-right">{lot.bids.0.bidder}</span>
+					</div>
+				</div>
+				<div rv-unless="lot.bids.0.bid | greaterthan 0" class="t-empty h-ta-center">
+					No Bids Placed. Lot did not sell.
+				</div>
+			</div>
+			<div class="bid-details--section h-ta-right">
+				<label class="t-smalllabel h-float-left">Closed</label>
+				{lot.closes | calendarTime}
+			</div>
+		</div>
+		
+		<div class="lot--bid-details l-grid-half h-hide-mobile" rv-on-click="talController.stopProp" rv-unless="lot.status | compare 'sold'">
+
 			<div>
 				<button class="l-grid-half o-icon-label-button" rv-on-click="talController.watchLot" rv-class-s-active="lot.watching | indexof talObject.bidder">
 					<i class="icon-eye"></i><label for="">Watch<span rv-if="lot.watching | indexof talObject.bidder">ing</span></label>

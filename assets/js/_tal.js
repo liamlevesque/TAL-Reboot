@@ -1,3 +1,11 @@
+$(function(){
+
+	for(let i = 0; i < talObject.lots.length; i++){
+		talObject.lots[i].closes = moment().add(i - 20,'minutes');
+	};
+
+});
+
 const talObject = {
 		auction: {
 			startLot: 5000,

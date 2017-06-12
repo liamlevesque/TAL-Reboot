@@ -11,7 +11,7 @@ const lotlist = [
 			"notes":'',
 			"group": [],
 			"video":false,
-			"status" : null,
+			"status" : 'sold',
 			"description" : "2008 Manitou 4x4 Bucket Lift",
 			"photo" : "assets/img/vramp1.jpg",
 			"photos": [
@@ -39,7 +39,7 @@ const lotlist = [
 			"video":[
 				{"src": "assets/img/vramp1.jpg","disabled":false}
 			],
-			"status" : null,
+			"status" : 'sold',
 			"description" : "2008 Manitou 4x4 Bucket Lift",
 			"photo" : "assets/img/vramp1.jpg",
 			"photos": [
@@ -64,7 +64,7 @@ const lotlist = [
 			"notes":'',
 			"group": [],
 			"video":false,
-			"status" : null,
+			"status" : 'sold',
 			"description" : "2008 Manitou 4x4 Bucket Lift",
 			"photo" : "assets/img/vramp1.jpg",
 			"photos": [
@@ -89,7 +89,7 @@ const lotlist = [
 			"notes":'',
 			"group": [],
 			"video":false,
-			"status" : "out",
+			"status" : "sold",
 			"description" : "2012 Manitou 4x4 Bucket Lift #2",
 			"photo" : "assets/img/vramp1.jpg",
 			"photos": [
@@ -116,7 +116,7 @@ const lotlist = [
 			"notes":'',
 			"group": [],
 			"video":false,
-			"status" : null,
+			"status" : 'sold',
 			"description" : "2012 Manitou 4x4 Bucket Lift #3",
 			"photo" : "assets/img/vramp1.jpg",
 			"photos": [
@@ -143,7 +143,7 @@ const lotlist = [
 			"notes":'',
 			"group": [],
 			"video":false,
-			"status" : null,
+			"status" : 'sold',
 			"description" : "2012 Manitou 4x4 Bucket Lift for Liam",
 			"photo" : "assets/img/vramp1.jpg",
 			"photos": [
@@ -170,7 +170,7 @@ const lotlist = [
 			"notes":'',
 			"group": [],
 			"video":false,
-			"status" : "out",
+			"status" : "sold",
 			"description" : "2012 Manitou 4x4 Bucket Lift #2",
 			"photo" : "assets/img/vramp1.jpg",
 			"photos": [
@@ -197,7 +197,7 @@ const lotlist = [
 			"notes":'',
 			"group": [],
 			"video":false,
-			"status" : null,
+			"status" : 'sold',
 			"description" : "2012 Manitou 4x4 Bucket Lift #3",
 			"photo" : "assets/img/vramp1.jpg",
 			"photos": [
@@ -224,7 +224,7 @@ const lotlist = [
 			"notes":'',
 			"group": [],
 			"video":false,
-			"status" : null,
+			"status" : 'sold',
 			"description" : "2012 Manitou 4x4 Bucket Lift for Liam",
 			"photo" : "assets/img/vramp1.jpg",
 			"photos": [
@@ -251,7 +251,7 @@ const lotlist = [
 			"notes":'',
 			"group": [],
 			"video":false,
-			"status" : "out",
+			"status" : "sold",
 			"description" : "2012 Manitou 4x4 Bucket Lift #2",
 			"photo" : "assets/img/vramp1.jpg",
 			"photos": [
@@ -278,7 +278,7 @@ const lotlist = [
 			"notes":'',
 			"group": [],
 			"video":false,
-			"status" : null,
+			"status" : 'sold',
 			"description" : "2012 Manitou 4x4 Bucket Lift #3",
 			"photo" : "assets/img/vramp1.jpg",
 			"photos": [
@@ -305,7 +305,7 @@ const lotlist = [
 			"notes":'',
 			"group": [],
 			"video":false,
-			"status" : null,
+			"status" : 'sold',
 			"description" : "2012 Manitou 4x4 Bucket Lift #3",
 			"photo" : "assets/img/vramp1.jpg",
 			"photos": [
@@ -359,7 +359,7 @@ const lotlist = [
 			"notes":'',
 			"group": [],
 			"video":false,
-			"status" : null,
+			"status" : 'sold',
 			"description" : "2012 Manitou 4x4 Bucket Lift for Liam",
 			"photo" : "assets/img/vramp1.jpg",
 			"photos": [
@@ -383,7 +383,7 @@ const lotlist = [
 			"notes":'',
 			"group": [],
 			"video":false,
-			"status" : null,
+			"status" : 'sold',
 			"description" : "2012 Manitou 4x4 Bucket Lift for Liam",
 			"photo" : "assets/img/vramp1.jpg",
 			"photos": [
@@ -410,7 +410,7 @@ const lotlist = [
 			"notes":'',
 			"group": [],
 			"video":false,
-			"status" : "out",
+			"status" : "sold",
 			"description" : "2008 Manitou 4x4 Bucket Lift",
 			"photo" : "assets/img/vramp1.jpg",
 			"photos": [
@@ -437,7 +437,7 @@ const lotlist = [
 			"notes":'',
 			"group": [],
 			"video":false,
-			"status" : null,
+			"status" : 'sold',
 			"description" : "2008 Manitou 4x4 Bucket Lift",
 			"photo" : "assets/img/vramp1.jpg",
 			"photos": [
@@ -491,7 +491,7 @@ const lotlist = [
 			"notes":'',
 			"group": [],
 			"video":false,
-			"status" : null,
+			"status" : 'sold',
 			"description" : "2012 Manitou 4x4 Bucket Lift for Liam",
 			"photo" : "assets/img/vramp1.jpg",
 			"photos": [
@@ -518,7 +518,7 @@ const lotlist = [
 			"notes":'',
 			"group": [],
 			"video":false,
-			"status" : null,
+			"status" : 'sold',
 			"description" : "2012 Manitou 4x4 Bucket Lift for Liam",
 			"photo" : "assets/img/vramp1.jpg",
 			"photos": [
@@ -545,7 +545,7 @@ const lotlist = [
 			"notes":'',
 			"group": [],
 			"video":false,
-			"status" : "out",
+			"status" : "sold",
 			"description" : "2008 Manitou 4x4 Bucket Lift",
 			"photo" : "assets/img/vramp1.jpg",
 			"photos": [
@@ -626,7 +626,7 @@ const lotlist = [
 			"notes":'',
 			"group": [],
 			"video":false,
-			"status" : "sold",
+			"status" : null,
 			"description" : "2012 Manitou 4x4 Bucket Lift for Liam",
 			"photo" : "assets/img/vramp1.jpg",
 			"photos": [
@@ -724,8 +724,8 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5028",
-			"bids": [],
-			"maxBid":{bid: 0,bidder: null},
+			"bids": [{bid: 100, bidder: "12345", time: "2017-06-07T22:20:58.162Z", type: 'max'}],
+			"maxBid":{bid: 500,bidder: "12345"},
 			"category": 'Attachments - Equipment',
 			"watching": [],
 			"equipid": '1234567890A',
@@ -815,7 +815,7 @@ const lotlist = [
 			"notes":'',
 			"group": [],
 			"video":false,
-			"status" : "sold",
+			"status" : null,
 			"description" : "2012 Manitou 4x4 Bucket Lift for Liam",
 			"photo" : "assets/img/vramp1.jpg",
 			"photos": [
@@ -886,8 +886,8 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5034",
-			"bids": [],
-			"maxBid":{bid: 0,bidder: null},
+			"bids": [{bid: 100, bidder: "12345", time: "2017-06-07T22:20:58.162Z", type: 'max'}],
+			"maxBid":{bid: 500,bidder: "12345"},
 			"category": 'Attachments - Excavator',
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1031,7 +1031,7 @@ const lotlist = [
 			"notes":'',
 			"group": [],
 			"video":false,
-			"status" : "sold",
+			"status" : null,
 			"description" : "2012 Manitou 4x4 Bucket Lift for Liam",
 			"photo" : "assets/img/vramp1.jpg",
 			"photos": [
@@ -1102,8 +1102,8 @@ const lotlist = [
 		},
 		{
 			"lotNumber" : "5042",
-			"bids": [],
-			"maxBid":{bid: 0,bidder: null},
+			"bids": [{bid: 100, bidder: "12345", time: "2017-06-07T22:20:58.162Z", type: 'max'}],
+			"maxBid":{bid: 500,bidder: "12345"},
 			"category": 'Attachments - Motor Grader',
 			"watching": [],
 			"equipid": '1234567890A',
@@ -1112,7 +1112,7 @@ const lotlist = [
 			"notes":'',
 			"group": [],
 			"video":false,
-			"status" : "out",
+			"status" : null,
 			"description" : "2008 Manitou 4x4 Bucket Lift",
 			"photo" : "assets/img/vramp1.jpg",
 			"photos": [
@@ -1274,7 +1274,7 @@ const lotlist = [
 			"notes":'',
 			"group": [],
 			"video":false,
-			"status" : "sold",
+			"status" : null,
 			"description" : "2012 Manitou 4x4 Bucket Lift for Liam",
 			"photo" : "assets/img/vramp1.jpg",
 			"photos": [
@@ -1355,7 +1355,7 @@ const lotlist = [
 			"notes":'',
 			"group": [],
 			"video":false,
-			"status" : "out",
+			"status" : null,
 			"description" : "2008 Manitou 4x4 Bucket Lift",
 			"photo" : "assets/img/vramp1.jpg",
 			"photos": [
@@ -1544,7 +1544,7 @@ const lotlist = [
 			"notes":'',
 			"group": [],
 			"video":false,
-			"status" : "sold",
+			"status" : null,
 			"description" : "2012 Manitou 4x4 Bucket Lift for Liam",
 			"photo" : "assets/img/vramp1.jpg",
 			"photos": [
@@ -1625,7 +1625,7 @@ const lotlist = [
 			"notes":'',
 			"group": [],
 			"video":false,
-			"status" : "out",
+			"status" : null,
 			"description" : "2008 Manitou 4x4 Bucket Lift",
 			"photo" : "assets/img/vramp1.jpg",
 			"photos": [
@@ -1841,7 +1841,7 @@ const lotlist = [
 			"notes":'',
 			"group": [],
 			"video":false,
-			"status" : "sold",
+			"status" : null,
 			"description" : "2012 Manitou 4x4 Bucket Lift for Liam",
 			"photo" : "assets/img/vramp1.jpg",
 			"photos": [
@@ -1922,7 +1922,7 @@ const lotlist = [
 			"notes":'',
 			"group": [],
 			"video":false,
-			"status" : "out",
+			"status" : null,
 			"description" : "2008 Manitou 4x4 Bucket Lift",
 			"photo" : "assets/img/vramp1.jpg",
 			"photos": [
@@ -2273,7 +2273,7 @@ const lotlist = [
 			"notes":'',
 			"group": [],
 			"video":false,
-			"status" : "sold",
+			"status" : null,
 			"description" : "2012 Manitou 4x4 Bucket Lift for Liam",
 			"photo" : "assets/img/vramp1.jpg",
 			"photos": [

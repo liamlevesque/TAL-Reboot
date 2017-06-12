@@ -3698,9 +3698,12 @@ a {
   position: relative; }
   @media (min-width: 30.0625em) {
     .o-lot, .o-group-bid-item {
-      padding: 20px 0; } }
+      padding: 20px 10px; } }
   .o-lot.s-group-select, .o-group-bid-item.s-group-select {
     padding-left: 40px; }
+  .o-lot.s-sold, .o-group-bid-item.s-sold {
+    opacity: 0.9;
+    background-color: #F0F0F0; }
 
 .lot--status {
   display: none;
