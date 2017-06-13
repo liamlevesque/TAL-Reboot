@@ -5,7 +5,7 @@
 				<button class="o-text-button_black m-grid-fifth" rv-on-click="talController.toggleSearchVisible">Cancel</button>
 				<div class="m-grid-four-fifths h-pos-relative">
 					<input type="text" class="o-input--text js--search-input" placeholder="find by lot # or keyword" rv-value="talObject.filteredResults.input" rv-on-keyup="talController.updateSearch">
-					<button class="o-icon-button--medium l-input--toggle" rv-if="talObject.filteredResults.input | lengthToBool" rv-on-click="talController.clearSearch"><i class="icon-check-inner"></i></button>
+					<button class="o-icon-button--medium l-input--toggle" rv-if="talObject.filteredResults.input | lengthToBool" rv-on-click="talController.clearSearch"><i class="icon-error"></i></button>
 				</div>
 			</div>
 		</div>

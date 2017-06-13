@@ -12,13 +12,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : 'sold',
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2012 Cummins C150D6R-A041K83 150 KW T/A Gen Set",
+			"photo" : "assets/img/asset1-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset1-1.jpg","disabled":false},
+				{"src": "assets/img/asset1-2.jpg","disabled":false},
+				{"src": "assets/img/asset1-3.jpg","disabled":false},
+				{"src": "assets/img/asset1-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -38,16 +38,16 @@ const lotlist = [
 			"notes":'',
 			"group": [],
 			"video":[
-				{"src": "assets/img/vramp1.jpg","disabled":false}
+				{"src": "assets/img/asset1-1.jpg","disabled":false}
 			],
 			"status" : 'sold',
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2012 Cummins C150D6R-A041K83 150 KW T/A Gen Set",
+			"photo" : "assets/img/asset1-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset1-1.jpg","disabled":false},
+				{"src": "assets/img/asset1-2.jpg","disabled":false},
+				{"src": "assets/img/asset1-3.jpg","disabled":false},
+				{"src": "assets/img/asset1-4.jpg","disabled":false}
 			],
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
 			"unused" : false,
@@ -67,13 +67,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : 'sold',
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2012 Cummins C150D6R-A041K83 150 KW T/A Gen Set",
+			"photo" : "assets/img/asset1-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset1-1.jpg","disabled":false},
+				{"src": "assets/img/asset1-2.jpg","disabled":false},
+				{"src": "assets/img/asset1-3.jpg","disabled":false},
+				{"src": "assets/img/asset1-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"unused" : true,
@@ -93,13 +93,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : "sold",
-			"description" : "2012 Manitou 4x4 Bucket Lift #2",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2012 Cummins C150D6R-A041K83 150 KW T/A Gen Set",
+			"photo" : "assets/img/asset1-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset1-1.jpg","disabled":false},
+				{"src": "assets/img/asset1-2.jpg","disabled":false},
+				{"src": "assets/img/asset1-3.jpg","disabled":false},
+				{"src": "assets/img/asset1-4.jpg","disabled":false}
 			],
 			"usage" : "90000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -121,13 +121,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : 'sold',
-			"description" : "2012 Manitou 4x4 Bucket Lift #3",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2012 Cummins C150D6R-A041K83 150 KW T/A Gen Set",
+			"photo" : "assets/img/asset1-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset1-1.jpg","disabled":false},
+				{"src": "assets/img/asset1-2.jpg","disabled":false},
+				{"src": "assets/img/asset1-3.jpg","disabled":false},
+				{"src": "assets/img/asset1-4.jpg","disabled":false}
 			],
 			"usage" : "110000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -149,13 +149,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : 'sold',
-			"description" : "2012 Manitou 4x4 Bucket Lift for Liam",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2012 Cummins C150D6R-A041K83 150 KW T/A Gen Set",
+			"photo" : "assets/img/asset1-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset1-1.jpg","disabled":false},
+				{"src": "assets/img/asset1-2.jpg","disabled":false},
+				{"src": "assets/img/asset1-3.jpg","disabled":false},
+				{"src": "assets/img/asset1-4.jpg","disabled":false}
 			],
 			"usage" : "100000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -177,13 +177,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : "sold",
-			"description" : "2012 Manitou 4x4 Bucket Lift #2",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2012 Cummins C150D6R-A041K83 150 KW T/A Gen Set",
+			"photo" : "assets/img/asset1-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset1-1.jpg","disabled":false},
+				{"src": "assets/img/asset1-2.jpg","disabled":false},
+				{"src": "assets/img/asset1-3.jpg","disabled":false},
+				{"src": "assets/img/asset1-4.jpg","disabled":false}
 			],
 			"usage" : "90000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -205,13 +205,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : 'sold',
-			"description" : "2012 Manitou 4x4 Bucket Lift #3",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2012 Cummins C150D6R-A041K83 150 KW T/A Gen Set",
+			"photo" : "assets/img/asset1-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset1-1.jpg","disabled":false},
+				{"src": "assets/img/asset1-2.jpg","disabled":false},
+				{"src": "assets/img/asset1-3.jpg","disabled":false},
+				{"src": "assets/img/asset1-4.jpg","disabled":false}
 			],
 			"usage" : "110000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -233,13 +233,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : 'sold',
-			"description" : "2012 Manitou 4x4 Bucket Lift for Liam",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2012 Cummins C150D6R-A041K83 150 KW T/A Gen Set",
+			"photo" : "assets/img/asset1-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset1-1.jpg","disabled":false},
+				{"src": "assets/img/asset1-2.jpg","disabled":false},
+				{"src": "assets/img/asset1-3.jpg","disabled":false},
+				{"src": "assets/img/asset1-4.jpg","disabled":false}
 			],
 			"usage" : "100000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -261,13 +261,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : "sold",
-			"description" : "2012 Manitou 4x4 Bucket Lift #2",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2012 Cummins C150D6R-A041K83 150 KW T/A Gen Set",
+			"photo" : "assets/img/asset1-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset1-1.jpg","disabled":false},
+				{"src": "assets/img/asset1-2.jpg","disabled":false},
+				{"src": "assets/img/asset1-3.jpg","disabled":false},
+				{"src": "assets/img/asset1-4.jpg","disabled":false}
 			],
 			"usage" : "90000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -289,13 +289,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : 'sold',
-			"description" : "2012 Manitou 4x4 Bucket Lift #3",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2012 Cummins C150D6R-A041K83 150 KW T/A Gen Set",
+			"photo" : "assets/img/asset1-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset1-1.jpg","disabled":false},
+				{"src": "assets/img/asset1-2.jpg","disabled":false},
+				{"src": "assets/img/asset1-3.jpg","disabled":false},
+				{"src": "assets/img/asset1-4.jpg","disabled":false}
 			],
 			"usage" : "110000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -317,13 +317,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : 'sold',
-			"description" : "2012 Manitou 4x4 Bucket Lift #3",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2012 Cummins C150D6R-A041K83 150 KW T/A Gen Set",
+			"photo" : "assets/img/asset1-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset1-1.jpg","disabled":false},
+				{"src": "assets/img/asset1-2.jpg","disabled":false},
+				{"src": "assets/img/asset1-3.jpg","disabled":false},
+				{"src": "assets/img/asset1-4.jpg","disabled":false}
 			],
 			"usage" : "110000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -345,13 +345,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : "sold",
-			"description" : "2012 Manitou 4x4 Bucket Lift for Liam",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2012 Cummins C150D6R-A041K83 150 KW T/A Gen Set",
+			"photo" : "assets/img/asset1-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset1-1.jpg","disabled":false},
+				{"src": "assets/img/asset1-2.jpg","disabled":false},
+				{"src": "assets/img/asset1-3.jpg","disabled":false},
+				{"src": "assets/img/asset1-4.jpg","disabled":false}
 			],
 			"usage" : "100000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -373,10 +373,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : 'sold',
-			"description" : "2012 Manitou 4x4 Bucket Lift for Liam",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2012 Cummins C150D6R-A041K83 150 KW T/A Gen Set",
+			"photo" : "assets/img/asset1-1.jpg",
 			"photos": [
-				
+				{"src": "assets/img/asset1-1.jpg","disabled":false},
+				{"src": "assets/img/asset1-2.jpg","disabled":false},
+				{"src": "assets/img/asset1-3.jpg","disabled":false},
+				{"src": "assets/img/asset1-4.jpg","disabled":false}
 			],
 			"usage" : "100000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -398,13 +401,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : 'sold',
-			"description" : "2012 Manitou 4x4 Bucket Lift for Liam",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2012 Cummins C150D6R-A041K83 150 KW T/A Gen Set",
+			"photo" : "assets/img/asset1-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset1-1.jpg","disabled":false},
+				{"src": "assets/img/asset1-2.jpg","disabled":false},
+				{"src": "assets/img/asset1-3.jpg","disabled":false},
+				{"src": "assets/img/asset1-4.jpg","disabled":false}
 			],
 			"usage" : "100000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -426,13 +429,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : "sold",
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2012 Cummins C150D6R-A041K83 150 KW T/A Gen Set",
+			"photo" : "assets/img/asset1-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset1-1.jpg","disabled":false},
+				{"src": "assets/img/asset1-2.jpg","disabled":false},
+				{"src": "assets/img/asset1-3.jpg","disabled":false},
+				{"src": "assets/img/asset1-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -454,13 +457,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : 'sold',
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2012 Cummins C150D6R-A041K83 150 KW T/A Gen Set",
+			"photo" : "assets/img/asset1-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset1-1.jpg","disabled":false},
+				{"src": "assets/img/asset1-2.jpg","disabled":false},
+				{"src": "assets/img/asset1-3.jpg","disabled":false},
+				{"src": "assets/img/asset1-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -482,13 +485,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : "sold",
-			"description" : "2012 Manitou 4x4 Bucket Lift for Liam",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2012 Cummins C150D6R-A041K83 150 KW T/A Gen Set",
+			"photo" : "assets/img/asset1-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset1-1.jpg","disabled":false},
+				{"src": "assets/img/asset1-2.jpg","disabled":false},
+				{"src": "assets/img/asset1-3.jpg","disabled":false},
+				{"src": "assets/img/asset1-4.jpg","disabled":false}
 			],
 			"usage" : "100000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -510,13 +513,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : 'sold',
-			"description" : "2012 Manitou 4x4 Bucket Lift for Liam",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2012 Cummins C150D6R-A041K83 150 KW T/A Gen Set",
+			"photo" : "assets/img/asset1-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset1-1.jpg","disabled":false},
+				{"src": "assets/img/asset1-2.jpg","disabled":false},
+				{"src": "assets/img/asset1-3.jpg","disabled":false},
+				{"src": "assets/img/asset1-4.jpg","disabled":false}
 			],
 			"usage" : "100000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -538,13 +541,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : 'sold',
-			"description" : "2012 Manitou 4x4 Bucket Lift for Liam",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2012 Cummins C150D6R-A041K83 150 KW T/A Gen Set",
+			"photo" : "assets/img/asset1-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset1-1.jpg","disabled":false},
+				{"src": "assets/img/asset1-2.jpg","disabled":false},
+				{"src": "assets/img/asset1-3.jpg","disabled":false},
+				{"src": "assets/img/asset1-4.jpg","disabled":false}
 			],
 			"usage" : "100000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -566,13 +569,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : "sold",
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2012 Cummins C150D6R-A041K83 150 KW T/A Gen Set",
+			"photo" : "assets/img/asset1-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset1-1.jpg","disabled":false},
+				{"src": "assets/img/asset1-2.jpg","disabled":false},
+				{"src": "assets/img/asset1-3.jpg","disabled":false},
+				{"src": "assets/img/asset1-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -594,13 +597,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2012 Cummins C150D6R-A041K83 150 KW T/A Gen Set",
+			"photo" : "assets/img/asset1-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset1-1.jpg","disabled":false},
+				{"src": "assets/img/asset1-2.jpg","disabled":false},
+				{"src": "assets/img/asset1-3.jpg","disabled":false},
+				{"src": "assets/img/asset1-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -622,13 +625,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2012 Cummins C150D6R-A041K83 150 KW T/A Gen Set",
+			"photo" : "assets/img/asset1-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset1-1.jpg","disabled":false},
+				{"src": "assets/img/asset1-2.jpg","disabled":false},
+				{"src": "assets/img/asset1-3.jpg","disabled":false},
+				{"src": "assets/img/asset1-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -650,13 +653,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2012 Manitou 4x4 Bucket Lift for Liam",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2012 Cummins C150D6R-A041K83 150 KW T/A Gen Set",
+			"photo" : "assets/img/asset1-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset1-1.jpg","disabled":false},
+				{"src": "assets/img/asset1-2.jpg","disabled":false},
+				{"src": "assets/img/asset1-3.jpg","disabled":false},
+				{"src": "assets/img/asset1-4.jpg","disabled":false}
 			],
 			"usage" : "100000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -678,13 +681,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2012 Manitou 4x4 Bucket Lift for Liam",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2012 Cummins C150D6R-A041K83 150 KW T/A Gen Set",
+			"photo" : "assets/img/asset1-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset1-1.jpg","disabled":false},
+				{"src": "assets/img/asset1-2.jpg","disabled":false},
+				{"src": "assets/img/asset1-3.jpg","disabled":false},
+				{"src": "assets/img/asset1-4.jpg","disabled":false}
 			],
 			"usage" : "100000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -706,13 +709,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2012 Manitou 4x4 Bucket Lift for Liam",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2012 Cummins C150D6R-A041K83 150 KW T/A Gen Set",
+			"photo" : "assets/img/asset1-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset1-1.jpg","disabled":false},
+				{"src": "assets/img/asset1-2.jpg","disabled":false},
+				{"src": "assets/img/asset1-3.jpg","disabled":false},
+				{"src": "assets/img/asset1-4.jpg","disabled":false}
 			],
 			"usage" : "100000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -734,13 +737,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : "out",
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2012 Cummins C150D6R-A041K83 150 KW T/A Gen Set",
+			"photo" : "assets/img/asset1-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset1-1.jpg","disabled":false},
+				{"src": "assets/img/asset1-2.jpg","disabled":false},
+				{"src": "assets/img/asset1-3.jpg","disabled":false},
+				{"src": "assets/img/asset1-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -762,13 +765,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2012 Cummins C150D6R-A041K83 150 KW T/A Gen Set",
+			"photo" : "assets/img/asset1-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset1-1.jpg","disabled":false},
+				{"src": "assets/img/asset1-2.jpg","disabled":false},
+				{"src": "assets/img/asset1-3.jpg","disabled":false},
+				{"src": "assets/img/asset1-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -790,13 +793,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2012 Cummins C150D6R-A041K83 150 KW T/A Gen Set",
+			"photo" : "assets/img/asset1-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset1-1.jpg","disabled":false},
+				{"src": "assets/img/asset1-2.jpg","disabled":false},
+				{"src": "assets/img/asset1-3.jpg","disabled":false},
+				{"src": "assets/img/asset1-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -818,13 +821,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2012 Cummins C150D6R-A041K83 150 KW T/A Gen Set",
+			"photo" : "assets/img/asset1-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset1-1.jpg","disabled":false},
+				{"src": "assets/img/asset1-2.jpg","disabled":false},
+				{"src": "assets/img/asset1-3.jpg","disabled":false},
+				{"src": "assets/img/asset1-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -846,13 +849,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2012 Manitou 4x4 Bucket Lift for Liam",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2012 Cummins C150D6R-A041K83 150 KW T/A Gen Set",
+			"photo" : "assets/img/asset1-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset1-1.jpg","disabled":false},
+				{"src": "assets/img/asset1-2.jpg","disabled":false},
+				{"src": "assets/img/asset1-3.jpg","disabled":false},
+				{"src": "assets/img/asset1-4.jpg","disabled":false}
 			],
 			"usage" : "100000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -874,13 +877,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2012 Manitou 4x4 Bucket Lift for Liam",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "Magnum MMG75 58 KW Skid Mtd Gen Set",
+			"photo" : "assets/img/asset2-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset2-1.jpg","disabled":false},
+				{"src": "assets/img/asset2-2.jpg","disabled":false},
+				{"src": "assets/img/asset2-3.jpg","disabled":false},
+				{"src": "assets/img/asset2-4.jpg","disabled":false}
 			],
 			"usage" : "100000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -902,13 +905,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2012 Manitou 4x4 Bucket Lift for Liam",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "Magnum MMG75 58 KW Skid Mtd Gen Set",
+			"photo" : "assets/img/asset2-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset2-1.jpg","disabled":false},
+				{"src": "assets/img/asset2-2.jpg","disabled":false},
+				{"src": "assets/img/asset2-3.jpg","disabled":false},
+				{"src": "assets/img/asset2-4.jpg","disabled":false}
 			],
 			"usage" : "100000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -930,13 +933,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : "out",
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "Magnum MMG75 58 KW Skid Mtd Gen Set",
+			"photo" : "assets/img/asset2-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset2-1.jpg","disabled":false},
+				{"src": "assets/img/asset2-2.jpg","disabled":false},
+				{"src": "assets/img/asset2-3.jpg","disabled":false},
+				{"src": "assets/img/asset2-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -958,13 +961,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "Magnum MMG75 58 KW Skid Mtd Gen Set",
+			"photo" : "assets/img/asset2-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset2-1.jpg","disabled":false},
+				{"src": "assets/img/asset2-2.jpg","disabled":false},
+				{"src": "assets/img/asset2-3.jpg","disabled":false},
+				{"src": "assets/img/asset2-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -986,13 +989,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "Magnum MMG75 58 KW Skid Mtd Gen Set",
+			"photo" : "assets/img/asset2-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset2-1.jpg","disabled":false},
+				{"src": "assets/img/asset2-2.jpg","disabled":false},
+				{"src": "assets/img/asset2-3.jpg","disabled":false},
+				{"src": "assets/img/asset2-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -1014,13 +1017,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "Magnum MMG75 58 KW Skid Mtd Gen Set",
+			"photo" : "assets/img/asset2-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset2-1.jpg","disabled":false},
+				{"src": "assets/img/asset2-2.jpg","disabled":false},
+				{"src": "assets/img/asset2-3.jpg","disabled":false},
+				{"src": "assets/img/asset2-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -1042,13 +1045,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "Magnum MMG75 58 KW Skid Mtd Gen Set",
+			"photo" : "assets/img/asset2-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset2-1.jpg","disabled":false},
+				{"src": "assets/img/asset2-2.jpg","disabled":false},
+				{"src": "assets/img/asset2-3.jpg","disabled":false},
+				{"src": "assets/img/asset2-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -1070,13 +1073,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2012 Manitou 4x4 Bucket Lift for Liam",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "Magnum MMG75 58 KW Skid Mtd Gen Set",
+			"photo" : "assets/img/asset2-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset2-1.jpg","disabled":false},
+				{"src": "assets/img/asset2-2.jpg","disabled":false},
+				{"src": "assets/img/asset2-3.jpg","disabled":false},
+				{"src": "assets/img/asset2-4.jpg","disabled":false}
 			],
 			"usage" : "100000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -1098,13 +1101,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2012 Manitou 4x4 Bucket Lift for Liam",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "Magnum MMG75 58 KW Skid Mtd Gen Set",
+			"photo" : "assets/img/asset2-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset2-1.jpg","disabled":false},
+				{"src": "assets/img/asset2-2.jpg","disabled":false},
+				{"src": "assets/img/asset2-3.jpg","disabled":false},
+				{"src": "assets/img/asset2-4.jpg","disabled":false}
 			],
 			"usage" : "100000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -1126,13 +1129,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2012 Manitou 4x4 Bucket Lift for Liam",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "Magnum MMG75 58 KW Skid Mtd Gen Set",
+			"photo" : "assets/img/asset2-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset2-1.jpg","disabled":false},
+				{"src": "assets/img/asset2-2.jpg","disabled":false},
+				{"src": "assets/img/asset2-3.jpg","disabled":false},
+				{"src": "assets/img/asset2-4.jpg","disabled":false}
 			],
 			"usage" : "100000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -1154,13 +1157,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "Magnum MMG75 58 KW Skid Mtd Gen Set",
+			"photo" : "assets/img/asset2-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset2-1.jpg","disabled":false},
+				{"src": "assets/img/asset2-2.jpg","disabled":false},
+				{"src": "assets/img/asset2-3.jpg","disabled":false},
+				{"src": "assets/img/asset2-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -1182,13 +1185,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "Magnum MMG75 58 KW Skid Mtd Gen Set",
+			"photo" : "assets/img/asset2-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset2-1.jpg","disabled":false},
+				{"src": "assets/img/asset2-2.jpg","disabled":false},
+				{"src": "assets/img/asset2-3.jpg","disabled":false},
+				{"src": "assets/img/asset2-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -1210,13 +1213,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "Magnum MMG75 58 KW Skid Mtd Gen Set",
+			"photo" : "assets/img/asset2-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset2-1.jpg","disabled":false},
+				{"src": "assets/img/asset2-2.jpg","disabled":false},
+				{"src": "assets/img/asset2-3.jpg","disabled":false},
+				{"src": "assets/img/asset2-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -1238,13 +1241,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "Magnum MMG75 58 KW Skid Mtd Gen Set",
+			"photo" : "assets/img/asset2-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset2-1.jpg","disabled":false},
+				{"src": "assets/img/asset2-2.jpg","disabled":false},
+				{"src": "assets/img/asset2-3.jpg","disabled":false},
+				{"src": "assets/img/asset2-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -1266,13 +1269,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "Magnum MMG75 58 KW Skid Mtd Gen Set",
+			"photo" : "assets/img/asset2-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset2-1.jpg","disabled":false},
+				{"src": "assets/img/asset2-2.jpg","disabled":false},
+				{"src": "assets/img/asset2-3.jpg","disabled":false},
+				{"src": "assets/img/asset2-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -1294,13 +1297,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "Magnum MMG75 58 KW Skid Mtd Gen Set",
+			"photo" : "assets/img/asset2-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset2-1.jpg","disabled":false},
+				{"src": "assets/img/asset2-2.jpg","disabled":false},
+				{"src": "assets/img/asset2-3.jpg","disabled":false},
+				{"src": "assets/img/asset2-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -1322,13 +1325,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2012 Manitou 4x4 Bucket Lift for Liam",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "Magnum MMG75 58 KW Skid Mtd Gen Set",
+			"photo" : "assets/img/asset2-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset2-1.jpg","disabled":false},
+				{"src": "assets/img/asset2-2.jpg","disabled":false},
+				{"src": "assets/img/asset2-3.jpg","disabled":false},
+				{"src": "assets/img/asset2-4.jpg","disabled":false}
 			],
 			"usage" : "100000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -1350,13 +1353,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2012 Manitou 4x4 Bucket Lift for Liam",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "Magnum MMG75 58 KW Skid Mtd Gen Set",
+			"photo" : "assets/img/asset2-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset2-1.jpg","disabled":false},
+				{"src": "assets/img/asset2-2.jpg","disabled":false},
+				{"src": "assets/img/asset2-3.jpg","disabled":false},
+				{"src": "assets/img/asset2-4.jpg","disabled":false}
 			],
 			"usage" : "100000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -1378,13 +1381,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2012 Manitou 4x4 Bucket Lift for Liam",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "Magnum MMG75 58 KW Skid Mtd Gen Set",
+			"photo" : "assets/img/asset2-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset2-1.jpg","disabled":false},
+				{"src": "assets/img/asset2-2.jpg","disabled":false},
+				{"src": "assets/img/asset2-3.jpg","disabled":false},
+				{"src": "assets/img/asset2-4.jpg","disabled":false}
 			],
 			"usage" : "100000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -1406,13 +1409,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2014 Allmand Bros. PAL1250 Light Tower",
+			"photo" : "assets/img/asset3-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset3-1.jpg","disabled":false},
+				{"src": "assets/img/asset3-2.jpg","disabled":false},
+				{"src": "assets/img/asset3-3.jpg","disabled":false},
+				{"src": "assets/img/asset3-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -1434,13 +1437,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2014 Allmand Bros. PAL1250 Light Tower",
+			"photo" : "assets/img/asset3-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset3-1.jpg","disabled":false},
+				{"src": "assets/img/asset3-2.jpg","disabled":false},
+				{"src": "assets/img/asset3-3.jpg","disabled":false},
+				{"src": "assets/img/asset3-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -1462,13 +1465,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2014 Allmand Bros. PAL1250 Light Tower",
+			"photo" : "assets/img/asset3-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset3-1.jpg","disabled":false},
+				{"src": "assets/img/asset3-2.jpg","disabled":false},
+				{"src": "assets/img/asset3-3.jpg","disabled":false},
+				{"src": "assets/img/asset3-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -1490,13 +1493,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2014 Allmand Bros. PAL1250 Light Tower",
+			"photo" : "assets/img/asset3-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset3-1.jpg","disabled":false},
+				{"src": "assets/img/asset3-2.jpg","disabled":false},
+				{"src": "assets/img/asset3-3.jpg","disabled":false},
+				{"src": "assets/img/asset3-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -1518,13 +1521,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2014 Allmand Bros. PAL1250 Light Tower",
+			"photo" : "assets/img/asset3-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset3-1.jpg","disabled":false},
+				{"src": "assets/img/asset3-2.jpg","disabled":false},
+				{"src": "assets/img/asset3-3.jpg","disabled":false},
+				{"src": "assets/img/asset3-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -1546,13 +1549,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2014 Allmand Bros. PAL1250 Light Tower",
+			"photo" : "assets/img/asset3-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset3-1.jpg","disabled":false},
+				{"src": "assets/img/asset3-2.jpg","disabled":false},
+				{"src": "assets/img/asset3-3.jpg","disabled":false},
+				{"src": "assets/img/asset3-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -1574,13 +1577,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2014 Allmand Bros. PAL1250 Light Tower",
+			"photo" : "assets/img/asset3-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset3-1.jpg","disabled":false},
+				{"src": "assets/img/asset3-2.jpg","disabled":false},
+				{"src": "assets/img/asset3-3.jpg","disabled":false},
+				{"src": "assets/img/asset3-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -1602,13 +1605,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2012 Manitou 4x4 Bucket Lift for Liam",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2014 Allmand Bros. PAL1250 Light Tower",
+			"photo" : "assets/img/asset3-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset3-1.jpg","disabled":false},
+				{"src": "assets/img/asset3-2.jpg","disabled":false},
+				{"src": "assets/img/asset3-3.jpg","disabled":false},
+				{"src": "assets/img/asset3-4.jpg","disabled":false}
 			],
 			"usage" : "100000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -1630,13 +1633,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2012 Manitou 4x4 Bucket Lift for Liam",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2014 Allmand Bros. PAL1250 Light Tower",
+			"photo" : "assets/img/asset3-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset3-1.jpg","disabled":false},
+				{"src": "assets/img/asset3-2.jpg","disabled":false},
+				{"src": "assets/img/asset3-3.jpg","disabled":false},
+				{"src": "assets/img/asset3-4.jpg","disabled":false}
 			],
 			"usage" : "100000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -1658,13 +1661,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2012 Manitou 4x4 Bucket Lift for Liam",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2014 Allmand Bros. PAL1250 Light Tower",
+			"photo" : "assets/img/asset3-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset3-1.jpg","disabled":false},
+				{"src": "assets/img/asset3-2.jpg","disabled":false},
+				{"src": "assets/img/asset3-3.jpg","disabled":false},
+				{"src": "assets/img/asset3-4.jpg","disabled":false}
 			],
 			"usage" : "100000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -1686,13 +1689,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2014 Allmand Bros. PAL1250 Light Tower",
+			"photo" : "assets/img/asset3-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset3-1.jpg","disabled":false},
+				{"src": "assets/img/asset3-2.jpg","disabled":false},
+				{"src": "assets/img/asset3-3.jpg","disabled":false},
+				{"src": "assets/img/asset3-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -1714,13 +1717,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2014 Allmand Bros. PAL1250 Light Tower",
+			"photo" : "assets/img/asset3-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset3-1.jpg","disabled":false},
+				{"src": "assets/img/asset3-2.jpg","disabled":false},
+				{"src": "assets/img/asset3-3.jpg","disabled":false},
+				{"src": "assets/img/asset3-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -1742,13 +1745,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2014 Allmand Bros. PAL1250 Light Tower",
+			"photo" : "assets/img/asset3-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset3-1.jpg","disabled":false},
+				{"src": "assets/img/asset3-2.jpg","disabled":false},
+				{"src": "assets/img/asset3-3.jpg","disabled":false},
+				{"src": "assets/img/asset3-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -1770,13 +1773,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2014 Allmand Bros. PAL1250 Light Tower",
+			"photo" : "assets/img/asset3-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset3-1.jpg","disabled":false},
+				{"src": "assets/img/asset3-2.jpg","disabled":false},
+				{"src": "assets/img/asset3-3.jpg","disabled":false},
+				{"src": "assets/img/asset3-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -1798,13 +1801,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2014 Allmand Bros. PAL1250 Light Tower",
+			"photo" : "assets/img/asset3-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset3-1.jpg","disabled":false},
+				{"src": "assets/img/asset3-2.jpg","disabled":false},
+				{"src": "assets/img/asset3-3.jpg","disabled":false},
+				{"src": "assets/img/asset3-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -1826,13 +1829,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2014 Allmand Bros. PAL1250 Light Tower",
+			"photo" : "assets/img/asset3-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset3-1.jpg","disabled":false},
+				{"src": "assets/img/asset3-2.jpg","disabled":false},
+				{"src": "assets/img/asset3-3.jpg","disabled":false},
+				{"src": "assets/img/asset3-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -1854,13 +1857,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "Alamo RHGK 64 In. Flail Mower",
+			"photo" : "assets/img/asset4-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset4-1.jpg","disabled":false},
+				{"src": "assets/img/asset4-2.jpg","disabled":false},
+				{"src": "assets/img/asset4-3.jpg","disabled":false},
+				{"src": "assets/img/asset4-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -1882,13 +1885,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "Alamo RHGK 64 In. Flail Mower",
+			"photo" : "assets/img/asset4-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset4-1.jpg","disabled":false},
+				{"src": "assets/img/asset4-2.jpg","disabled":false},
+				{"src": "assets/img/asset4-3.jpg","disabled":false},
+				{"src": "assets/img/asset4-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -1910,13 +1913,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2012 Manitou 4x4 Bucket Lift for Liam",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "Alamo RHGK 64 In. Flail Mower",
+			"photo" : "assets/img/asset4-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset4-1.jpg","disabled":false},
+				{"src": "assets/img/asset4-2.jpg","disabled":false},
+				{"src": "assets/img/asset4-3.jpg","disabled":false},
+				{"src": "assets/img/asset4-4.jpg","disabled":false}
 			],
 			"usage" : "100000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -1938,13 +1941,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2012 Manitou 4x4 Bucket Lift for Liam",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "Alamo RHGK 64 In. Flail Mower",
+			"photo" : "assets/img/asset4-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset4-1.jpg","disabled":false},
+				{"src": "assets/img/asset4-2.jpg","disabled":false},
+				{"src": "assets/img/asset4-3.jpg","disabled":false},
+				{"src": "assets/img/asset4-4.jpg","disabled":false}
 			],
 			"usage" : "100000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -1966,13 +1969,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2012 Manitou 4x4 Bucket Lift for Liam",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "Alamo RHGK 64 In. Flail Mower",
+			"photo" : "assets/img/asset4-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset4-1.jpg","disabled":false},
+				{"src": "assets/img/asset4-2.jpg","disabled":false},
+				{"src": "assets/img/asset4-3.jpg","disabled":false},
+				{"src": "assets/img/asset4-4.jpg","disabled":false}
 			],
 			"usage" : "100000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -1994,13 +1997,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "Alamo RHGK 64 In. Flail Mower",
+			"photo" : "assets/img/asset4-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset4-1.jpg","disabled":false},
+				{"src": "assets/img/asset4-2.jpg","disabled":false},
+				{"src": "assets/img/asset4-3.jpg","disabled":false},
+				{"src": "assets/img/asset4-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -2022,13 +2025,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "Alamo RHGK 64 In. Flail Mower",
+			"photo" : "assets/img/asset4-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset4-1.jpg","disabled":false},
+				{"src": "assets/img/asset4-2.jpg","disabled":false},
+				{"src": "assets/img/asset4-3.jpg","disabled":false},
+				{"src": "assets/img/asset4-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -2050,13 +2053,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "Alamo RHGK 64 In. Flail Mower",
+			"photo" : "assets/img/asset4-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset4-1.jpg","disabled":false},
+				{"src": "assets/img/asset4-2.jpg","disabled":false},
+				{"src": "assets/img/asset4-3.jpg","disabled":false},
+				{"src": "assets/img/asset4-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -2078,13 +2081,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "Alamo RHGK 64 In. Flail Mower",
+			"photo" : "assets/img/asset4-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset4-1.jpg","disabled":false},
+				{"src": "assets/img/asset4-2.jpg","disabled":false},
+				{"src": "assets/img/asset4-3.jpg","disabled":false},
+				{"src": "assets/img/asset4-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -2106,13 +2109,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "Alamo RHGK 64 In. Flail Mower",
+			"photo" : "assets/img/asset4-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset4-1.jpg","disabled":false},
+				{"src": "assets/img/asset4-2.jpg","disabled":false},
+				{"src": "assets/img/asset4-3.jpg","disabled":false},
+				{"src": "assets/img/asset4-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -2134,13 +2137,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "Alamo RHGK 64 In. Flail Mower",
+			"photo" : "assets/img/asset4-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset4-1.jpg","disabled":false},
+				{"src": "assets/img/asset4-2.jpg","disabled":false},
+				{"src": "assets/img/asset4-3.jpg","disabled":false},
+				{"src": "assets/img/asset4-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -2162,13 +2165,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "Alamo RHGK 64 In. Flail Mower",
+			"photo" : "assets/img/asset4-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset4-1.jpg","disabled":false},
+				{"src": "assets/img/asset4-2.jpg","disabled":false},
+				{"src": "assets/img/asset4-3.jpg","disabled":false},
+				{"src": "assets/img/asset4-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -2190,13 +2193,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "Alamo RHGK 64 In. Flail Mower",
+			"photo" : "assets/img/asset4-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset4-1.jpg","disabled":false},
+				{"src": "assets/img/asset4-2.jpg","disabled":false},
+				{"src": "assets/img/asset4-3.jpg","disabled":false},
+				{"src": "assets/img/asset4-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -2218,13 +2221,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "Alamo RHGK 64 In. Flail Mower",
+			"photo" : "assets/img/asset4-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset4-1.jpg","disabled":false},
+				{"src": "assets/img/asset4-2.jpg","disabled":false},
+				{"src": "assets/img/asset4-3.jpg","disabled":false},
+				{"src": "assets/img/asset4-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -2246,13 +2249,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "Alamo RHGK 64 In. Flail Mower",
+			"photo" : "assets/img/asset4-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset4-1.jpg","disabled":false},
+				{"src": "assets/img/asset4-2.jpg","disabled":false},
+				{"src": "assets/img/asset4-3.jpg","disabled":false},
+				{"src": "assets/img/asset4-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -2274,13 +2277,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "Alamo RHGK 64 In. Flail Mower",
+			"photo" : "assets/img/asset4-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset4-1.jpg","disabled":false},
+				{"src": "assets/img/asset4-2.jpg","disabled":false},
+				{"src": "assets/img/asset4-3.jpg","disabled":false},
+				{"src": "assets/img/asset4-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -2302,13 +2305,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "Alamo RHGK 64 In. Flail Mower",
+			"photo" : "assets/img/asset4-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset4-1.jpg","disabled":false},
+				{"src": "assets/img/asset4-2.jpg","disabled":false},
+				{"src": "assets/img/asset4-3.jpg","disabled":false},
+				{"src": "assets/img/asset4-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -2330,13 +2333,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "Alamo RHGK 64 In. Flail Mower",
+			"photo" : "assets/img/asset4-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset4-1.jpg","disabled":false},
+				{"src": "assets/img/asset4-2.jpg","disabled":false},
+				{"src": "assets/img/asset4-3.jpg","disabled":false},
+				{"src": "assets/img/asset4-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -2358,13 +2361,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2012 Manitou 4x4 Bucket Lift for Liam",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "Alamo RHGK 64 In. Flail Mower",
+			"photo" : "assets/img/asset4-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset4-1.jpg","disabled":false},
+				{"src": "assets/img/asset4-2.jpg","disabled":false},
+				{"src": "assets/img/asset4-3.jpg","disabled":false},
+				{"src": "assets/img/asset4-4.jpg","disabled":false}
 			],
 			"usage" : "100000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -2386,13 +2389,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2012 Manitou 4x4 Bucket Lift for Liam",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "John Deere 2755 21 Ft 2WD Finishing Mower Tractor",
+			"photo" : "assets/img/asset5-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset5-1.jpg","disabled":false},
+				{"src": "assets/img/asset5-2.jpg","disabled":false},
+				{"src": "assets/img/asset5-3.jpg","disabled":false},
+				{"src": "assets/img/asset5-4.jpg","disabled":false}
 			],
 			"usage" : "100000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -2414,13 +2417,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2012 Manitou 4x4 Bucket Lift for Liam",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "John Deere 2755 21 Ft 2WD Finishing Mower Tractor",
+			"photo" : "assets/img/asset5-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset5-1.jpg","disabled":false},
+				{"src": "assets/img/asset5-2.jpg","disabled":false},
+				{"src": "assets/img/asset5-3.jpg","disabled":false},
+				{"src": "assets/img/asset5-4.jpg","disabled":false}
 			],
 			"usage" : "100000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -2442,13 +2445,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "John Deere 2755 21 Ft 2WD Finishing Mower Tractor",
+			"photo" : "assets/img/asset5-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset5-1.jpg","disabled":false},
+				{"src": "assets/img/asset5-2.jpg","disabled":false},
+				{"src": "assets/img/asset5-3.jpg","disabled":false},
+				{"src": "assets/img/asset5-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -2470,13 +2473,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "John Deere 2755 21 Ft 2WD Finishing Mower Tractor",
+			"photo" : "assets/img/asset5-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset5-1.jpg","disabled":false},
+				{"src": "assets/img/asset5-2.jpg","disabled":false},
+				{"src": "assets/img/asset5-3.jpg","disabled":false},
+				{"src": "assets/img/asset5-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -2498,13 +2501,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "John Deere 2755 21 Ft 2WD Finishing Mower Tractor",
+			"photo" : "assets/img/asset5-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset5-1.jpg","disabled":false},
+				{"src": "assets/img/asset5-2.jpg","disabled":false},
+				{"src": "assets/img/asset5-3.jpg","disabled":false},
+				{"src": "assets/img/asset5-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -2526,13 +2529,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "John Deere 2755 21 Ft 2WD Finishing Mower Tractor",
+			"photo" : "assets/img/asset5-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset5-1.jpg","disabled":false},
+				{"src": "assets/img/asset5-2.jpg","disabled":false},
+				{"src": "assets/img/asset5-3.jpg","disabled":false},
+				{"src": "assets/img/asset5-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -2554,13 +2557,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "John Deere 2755 21 Ft 2WD Finishing Mower Tractor",
+			"photo" : "assets/img/asset5-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset5-1.jpg","disabled":false},
+				{"src": "assets/img/asset5-2.jpg","disabled":false},
+				{"src": "assets/img/asset5-3.jpg","disabled":false},
+				{"src": "assets/img/asset5-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -2582,13 +2585,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "John Deere 2755 21 Ft 2WD Finishing Mower Tractor",
+			"photo" : "assets/img/asset5-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset5-1.jpg","disabled":false},
+				{"src": "assets/img/asset5-2.jpg","disabled":false},
+				{"src": "assets/img/asset5-3.jpg","disabled":false},
+				{"src": "assets/img/asset5-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -2610,13 +2613,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "John Deere 2755 21 Ft 2WD Finishing Mower Tractor",
+			"photo" : "assets/img/asset5-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset5-1.jpg","disabled":false},
+				{"src": "assets/img/asset5-2.jpg","disabled":false},
+				{"src": "assets/img/asset5-3.jpg","disabled":false},
+				{"src": "assets/img/asset5-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -2638,13 +2641,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "John Deere 2755 21 Ft 2WD Finishing Mower Tractor",
+			"photo" : "assets/img/asset5-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset5-1.jpg","disabled":false},
+				{"src": "assets/img/asset5-2.jpg","disabled":false},
+				{"src": "assets/img/asset5-3.jpg","disabled":false},
+				{"src": "assets/img/asset5-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -2666,13 +2669,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "John Deere 2755 21 Ft 2WD Finishing Mower Tractor",
+			"photo" : "assets/img/asset5-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset5-1.jpg","disabled":false},
+				{"src": "assets/img/asset5-2.jpg","disabled":false},
+				{"src": "assets/img/asset5-3.jpg","disabled":false},
+				{"src": "assets/img/asset5-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -2694,13 +2697,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "John Deere 2755 21 Ft 2WD Finishing Mower Tractor",
+			"photo" : "assets/img/asset5-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset5-1.jpg","disabled":false},
+				{"src": "assets/img/asset5-2.jpg","disabled":false},
+				{"src": "assets/img/asset5-3.jpg","disabled":false},
+				{"src": "assets/img/asset5-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -2722,13 +2725,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "John Deere 2755 21 Ft 2WD Finishing Mower Tractor",
+			"photo" : "assets/img/asset5-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset5-1.jpg","disabled":false},
+				{"src": "assets/img/asset5-2.jpg","disabled":false},
+				{"src": "assets/img/asset5-3.jpg","disabled":false},
+				{"src": "assets/img/asset5-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -2750,13 +2753,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "John Deere 2755 21 Ft 2WD Finishing Mower Tractor",
+			"photo" : "assets/img/asset5-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset5-1.jpg","disabled":false},
+				{"src": "assets/img/asset5-2.jpg","disabled":false},
+				{"src": "assets/img/asset5-3.jpg","disabled":false},
+				{"src": "assets/img/asset5-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -2778,13 +2781,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "John Deere 2755 21 Ft 2WD Finishing Mower Tractor",
+			"photo" : "assets/img/asset5-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset5-1.jpg","disabled":false},
+				{"src": "assets/img/asset5-2.jpg","disabled":false},
+				{"src": "assets/img/asset5-3.jpg","disabled":false},
+				{"src": "assets/img/asset5-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -2806,13 +2809,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "John Deere 2755 21 Ft 2WD Finishing Mower Tractor",
+			"photo" : "assets/img/asset5-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset5-1.jpg","disabled":false},
+				{"src": "assets/img/asset5-2.jpg","disabled":false},
+				{"src": "assets/img/asset5-3.jpg","disabled":false},
+				{"src": "assets/img/asset5-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -2834,13 +2837,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "John Deere 2755 21 Ft 2WD Finishing Mower Tractor",
+			"photo" : "assets/img/asset5-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset5-1.jpg","disabled":false},
+				{"src": "assets/img/asset5-2.jpg","disabled":false},
+				{"src": "assets/img/asset5-3.jpg","disabled":false},
+				{"src": "assets/img/asset5-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -2862,13 +2865,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "John Deere 2755 21 Ft 2WD Finishing Mower Tractor",
+			"photo" : "assets/img/asset5-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset5-1.jpg","disabled":false},
+				{"src": "assets/img/asset5-2.jpg","disabled":false},
+				{"src": "assets/img/asset5-3.jpg","disabled":false},
+				{"src": "assets/img/asset5-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -2890,13 +2893,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "John Deere 2755 21 Ft 2WD Finishing Mower Tractor",
+			"photo" : "assets/img/asset5-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset5-1.jpg","disabled":false},
+				{"src": "assets/img/asset5-2.jpg","disabled":false},
+				{"src": "assets/img/asset5-3.jpg","disabled":false},
+				{"src": "assets/img/asset5-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -2918,13 +2921,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2012 Manitou 4x4 Bucket Lift for Liam",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2011 Lincoln Vantage 500 S/A Welder",
+			"photo" : "assets/img/asset6-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset6-1.jpg","disabled":false},
+				{"src": "assets/img/asset6-2.jpg","disabled":false},
+				{"src": "assets/img/asset6-3.jpg","disabled":false},
+				{"src": "assets/img/asset6-4.jpg","disabled":false}
 			],
 			"usage" : "100000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -2946,13 +2949,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2012 Manitou 4x4 Bucket Lift for Liam",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2011 Lincoln Vantage 500 S/A Welder",
+			"photo" : "assets/img/asset6-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset6-1.jpg","disabled":false},
+				{"src": "assets/img/asset6-2.jpg","disabled":false},
+				{"src": "assets/img/asset6-3.jpg","disabled":false},
+				{"src": "assets/img/asset6-4.jpg","disabled":false}
 			],
 			"usage" : "100000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -2974,13 +2977,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2012 Manitou 4x4 Bucket Lift for Liam",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2011 Lincoln Vantage 500 S/A Welder",
+			"photo" : "assets/img/asset6-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset6-1.jpg","disabled":false},
+				{"src": "assets/img/asset6-2.jpg","disabled":false},
+				{"src": "assets/img/asset6-3.jpg","disabled":false},
+				{"src": "assets/img/asset6-4.jpg","disabled":false}
 			],
 			"usage" : "100000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -3002,13 +3005,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2011 Lincoln Vantage 500 S/A Welder",
+			"photo" : "assets/img/asset6-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset6-1.jpg","disabled":false},
+				{"src": "assets/img/asset6-2.jpg","disabled":false},
+				{"src": "assets/img/asset6-3.jpg","disabled":false},
+				{"src": "assets/img/asset6-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -3030,13 +3033,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2011 Lincoln Vantage 500 S/A Welder",
+			"photo" : "assets/img/asset6-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset6-1.jpg","disabled":false},
+				{"src": "assets/img/asset6-2.jpg","disabled":false},
+				{"src": "assets/img/asset6-3.jpg","disabled":false},
+				{"src": "assets/img/asset6-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -3058,13 +3061,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2012 Manitou 4x4 Bucket Lift for Liam",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2011 Lincoln Vantage 500 S/A Welder",
+			"photo" : "assets/img/asset6-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset6-1.jpg","disabled":false},
+				{"src": "assets/img/asset6-2.jpg","disabled":false},
+				{"src": "assets/img/asset6-3.jpg","disabled":false},
+				{"src": "assets/img/asset6-4.jpg","disabled":false}
 			],
 			"usage" : "100000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -3086,13 +3089,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2012 Manitou 4x4 Bucket Lift for Liam",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2011 Lincoln Vantage 500 S/A Welder",
+			"photo" : "assets/img/asset6-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset6-1.jpg","disabled":false},
+				{"src": "assets/img/asset6-2.jpg","disabled":false},
+				{"src": "assets/img/asset6-3.jpg","disabled":false},
+				{"src": "assets/img/asset6-4.jpg","disabled":false}
 			],
 			"usage" : "100000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -3114,13 +3117,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2012 Manitou 4x4 Bucket Lift for Liam",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2011 Lincoln Vantage 500 S/A Welder",
+			"photo" : "assets/img/asset6-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset6-1.jpg","disabled":false},
+				{"src": "assets/img/asset6-2.jpg","disabled":false},
+				{"src": "assets/img/asset6-3.jpg","disabled":false},
+				{"src": "assets/img/asset6-4.jpg","disabled":false}
 			],
 			"usage" : "100000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -3142,13 +3145,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2011 Lincoln Vantage 500 S/A Welder",
+			"photo" : "assets/img/asset6-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset6-1.jpg","disabled":false},
+				{"src": "assets/img/asset6-2.jpg","disabled":false},
+				{"src": "assets/img/asset6-3.jpg","disabled":false},
+				{"src": "assets/img/asset6-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -3170,13 +3173,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2012 Manitou 4x4 Bucket Lift for Liam",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2011 Lincoln Vantage 500 S/A Welder",
+			"photo" : "assets/img/asset6-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset6-1.jpg","disabled":false},
+				{"src": "assets/img/asset6-2.jpg","disabled":false},
+				{"src": "assets/img/asset6-3.jpg","disabled":false},
+				{"src": "assets/img/asset6-4.jpg","disabled":false}
 			],
 			"usage" : "100000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -3198,13 +3201,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2012 Manitou 4x4 Bucket Lift for Liam",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2011 Lincoln Vantage 500 S/A Welder",
+			"photo" : "assets/img/asset6-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset6-1.jpg","disabled":false},
+				{"src": "assets/img/asset6-2.jpg","disabled":false},
+				{"src": "assets/img/asset6-3.jpg","disabled":false},
+				{"src": "assets/img/asset6-4.jpg","disabled":false}
 			],
 			"usage" : "100000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -3226,13 +3229,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2012 Manitou 4x4 Bucket Lift for Liam",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2011 Lincoln Vantage 500 S/A Welder",
+			"photo" : "assets/img/asset6-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset6-1.jpg","disabled":false},
+				{"src": "assets/img/asset6-2.jpg","disabled":false},
+				{"src": "assets/img/asset6-3.jpg","disabled":false},
+				{"src": "assets/img/asset6-4.jpg","disabled":false}
 			],
 			"usage" : "100000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -3254,13 +3257,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2011 Lincoln Vantage 500 S/A Welder",
+			"photo" : "assets/img/asset6-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset6-1.jpg","disabled":false},
+				{"src": "assets/img/asset6-2.jpg","disabled":false},
+				{"src": "assets/img/asset6-3.jpg","disabled":false},
+				{"src": "assets/img/asset6-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -3282,13 +3285,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2012 Manitou 4x4 Bucket Lift for Liam",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2011 Lincoln Vantage 500 S/A Welder",
+			"photo" : "assets/img/asset6-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset6-1.jpg","disabled":false},
+				{"src": "assets/img/asset6-2.jpg","disabled":false},
+				{"src": "assets/img/asset6-3.jpg","disabled":false},
+				{"src": "assets/img/asset6-4.jpg","disabled":false}
 			],
 			"usage" : "100000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -3310,13 +3313,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2012 Manitou 4x4 Bucket Lift for Liam",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2011 Lincoln Vantage 500 S/A Welder",
+			"photo" : "assets/img/asset6-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset6-1.jpg","disabled":false},
+				{"src": "assets/img/asset6-2.jpg","disabled":false},
+				{"src": "assets/img/asset6-3.jpg","disabled":false},
+				{"src": "assets/img/asset6-4.jpg","disabled":false}
 			],
 			"usage" : "100000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -3338,13 +3341,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2012 Manitou 4x4 Bucket Lift for Liam",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2011 Lincoln Vantage 500 S/A Welder",
+			"photo" : "assets/img/asset6-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset6-1.jpg","disabled":false},
+				{"src": "assets/img/asset6-2.jpg","disabled":false},
+				{"src": "assets/img/asset6-3.jpg","disabled":false},
+				{"src": "assets/img/asset6-4.jpg","disabled":false}
 			],
 			"usage" : "100000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -3366,13 +3369,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2011 Lincoln Vantage 500 S/A Welder",
+			"photo" : "assets/img/asset6-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset6-1.jpg","disabled":false},
+				{"src": "assets/img/asset6-2.jpg","disabled":false},
+				{"src": "assets/img/asset6-3.jpg","disabled":false},
+				{"src": "assets/img/asset6-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -3394,13 +3397,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2012 Manitou 4x4 Bucket Lift for Liam",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2011 Lincoln Vantage 500 S/A Welder",
+			"photo" : "assets/img/asset6-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset6-1.jpg","disabled":false},
+				{"src": "assets/img/asset6-2.jpg","disabled":false},
+				{"src": "assets/img/asset6-3.jpg","disabled":false},
+				{"src": "assets/img/asset6-4.jpg","disabled":false}
 			],
 			"usage" : "100000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -3422,13 +3425,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2012 Manitou 4x4 Bucket Lift for Liam",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2011 Lincoln Vantage 500 S/A Welder",
+			"photo" : "assets/img/asset6-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset6-1.jpg","disabled":false},
+				{"src": "assets/img/asset6-2.jpg","disabled":false},
+				{"src": "assets/img/asset6-3.jpg","disabled":false},
+				{"src": "assets/img/asset6-4.jpg","disabled":false}
 			],
 			"usage" : "100000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -3450,13 +3453,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2012 Manitou 4x4 Bucket Lift for Liam",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2011 Lincoln Vantage 500 S/A Welder",
+			"photo" : "assets/img/asset6-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset6-1.jpg","disabled":false},
+				{"src": "assets/img/asset6-2.jpg","disabled":false},
+				{"src": "assets/img/asset6-3.jpg","disabled":false},
+				{"src": "assets/img/asset6-4.jpg","disabled":false}
 			],
 			"usage" : "100000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -3478,13 +3481,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2011 Lincoln Vantage 500 S/A Welder",
+			"photo" : "assets/img/asset6-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset6-1.jpg","disabled":false},
+				{"src": "assets/img/asset6-2.jpg","disabled":false},
+				{"src": "assets/img/asset6-3.jpg","disabled":false},
+				{"src": "assets/img/asset6-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -3506,13 +3509,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2012 Manitou 4x4 Bucket Lift for Liam",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2011 Lincoln Vantage 500 S/A Welder",
+			"photo" : "assets/img/asset6-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset6-1.jpg","disabled":false},
+				{"src": "assets/img/asset6-2.jpg","disabled":false},
+				{"src": "assets/img/asset6-3.jpg","disabled":false},
+				{"src": "assets/img/asset6-4.jpg","disabled":false}
 			],
 			"usage" : "100000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -3534,13 +3537,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2012 Manitou 4x4 Bucket Lift for Liam",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2011 Lincoln Vantage 500 S/A Welder",
+			"photo" : "assets/img/asset6-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset6-1.jpg","disabled":false},
+				{"src": "assets/img/asset6-2.jpg","disabled":false},
+				{"src": "assets/img/asset6-3.jpg","disabled":false},
+				{"src": "assets/img/asset6-4.jpg","disabled":false}
 			],
 			"usage" : "100000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -3562,13 +3565,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2012 Manitou 4x4 Bucket Lift for Liam",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2011 Lincoln Vantage 500 S/A Welder",
+			"photo" : "assets/img/asset6-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset6-1.jpg","disabled":false},
+				{"src": "assets/img/asset6-2.jpg","disabled":false},
+				{"src": "assets/img/asset6-3.jpg","disabled":false},
+				{"src": "assets/img/asset6-4.jpg","disabled":false}
 			],
 			"usage" : "100000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -3590,13 +3593,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2011 Lincoln Vantage 500 S/A Welder",
+			"photo" : "assets/img/asset6-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset6-1.jpg","disabled":false},
+				{"src": "assets/img/asset6-2.jpg","disabled":false},
+				{"src": "assets/img/asset6-3.jpg","disabled":false},
+				{"src": "assets/img/asset6-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -3618,13 +3621,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2012 Manitou 4x4 Bucket Lift for Liam",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2011 Lincoln Vantage 500 S/A Welder",
+			"photo" : "assets/img/asset6-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset6-1.jpg","disabled":false},
+				{"src": "assets/img/asset6-2.jpg","disabled":false},
+				{"src": "assets/img/asset6-3.jpg","disabled":false},
+				{"src": "assets/img/asset6-4.jpg","disabled":false}
 			],
 			"usage" : "100000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -3646,13 +3649,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2012 Manitou 4x4 Bucket Lift for Liam",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2011 Lincoln Vantage 500 S/A Welder",
+			"photo" : "assets/img/asset6-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset6-1.jpg","disabled":false},
+				{"src": "assets/img/asset6-2.jpg","disabled":false},
+				{"src": "assets/img/asset6-3.jpg","disabled":false},
+				{"src": "assets/img/asset6-4.jpg","disabled":false}
 			],
 			"usage" : "100000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -3674,13 +3677,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2012 Manitou 4x4 Bucket Lift for Liam",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2011 Lincoln Vantage 500 S/A Welder",
+			"photo" : "assets/img/asset6-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset6-1.jpg","disabled":false},
+				{"src": "assets/img/asset6-2.jpg","disabled":false},
+				{"src": "assets/img/asset6-3.jpg","disabled":false},
+				{"src": "assets/img/asset6-4.jpg","disabled":false}
 			],
 			"usage" : "100000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -3702,13 +3705,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2011 Lincoln Vantage 500 S/A Welder",
+			"photo" : "assets/img/asset6-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset6-1.jpg","disabled":false},
+				{"src": "assets/img/asset6-2.jpg","disabled":false},
+				{"src": "assets/img/asset6-3.jpg","disabled":false},
+				{"src": "assets/img/asset6-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -3730,13 +3733,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2012 Manitou 4x4 Bucket Lift for Liam",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2011 Lincoln Vantage 500 S/A Welder",
+			"photo" : "assets/img/asset6-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset6-1.jpg","disabled":false},
+				{"src": "assets/img/asset6-2.jpg","disabled":false},
+				{"src": "assets/img/asset6-3.jpg","disabled":false},
+				{"src": "assets/img/asset6-4.jpg","disabled":false}
 			],
 			"usage" : "100000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -3758,13 +3761,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2012 Manitou 4x4 Bucket Lift for Liam",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2011 Lincoln Vantage 500 S/A Welder",
+			"photo" : "assets/img/asset6-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset6-1.jpg","disabled":false},
+				{"src": "assets/img/asset6-2.jpg","disabled":false},
+				{"src": "assets/img/asset6-3.jpg","disabled":false},
+				{"src": "assets/img/asset6-4.jpg","disabled":false}
 			],
 			"usage" : "100000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -3786,13 +3789,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2012 Manitou 4x4 Bucket Lift for Liam",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2011 Lincoln Vantage 500 S/A Welder",
+			"photo" : "assets/img/asset6-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset6-1.jpg","disabled":false},
+				{"src": "assets/img/asset6-2.jpg","disabled":false},
+				{"src": "assets/img/asset6-3.jpg","disabled":false},
+				{"src": "assets/img/asset6-4.jpg","disabled":false}
 			],
 			"usage" : "100000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -3814,13 +3817,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2011 Lincoln Vantage 500 S/A Welder",
+			"photo" : "assets/img/asset6-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset6-1.jpg","disabled":false},
+				{"src": "assets/img/asset6-2.jpg","disabled":false},
+				{"src": "assets/img/asset6-3.jpg","disabled":false},
+				{"src": "assets/img/asset6-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -3842,13 +3845,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2012 Manitou 4x4 Bucket Lift for Liam",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2011 Lincoln Vantage 500 S/A Welder",
+			"photo" : "assets/img/asset6-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset6-1.jpg","disabled":false},
+				{"src": "assets/img/asset6-2.jpg","disabled":false},
+				{"src": "assets/img/asset6-3.jpg","disabled":false},
+				{"src": "assets/img/asset6-4.jpg","disabled":false}
 			],
 			"usage" : "100000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -3870,13 +3873,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2012 Manitou 4x4 Bucket Lift for Liam",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2011 Lincoln Vantage 500 S/A Welder",
+			"photo" : "assets/img/asset6-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset6-1.jpg","disabled":false},
+				{"src": "assets/img/asset6-2.jpg","disabled":false},
+				{"src": "assets/img/asset6-3.jpg","disabled":false},
+				{"src": "assets/img/asset6-4.jpg","disabled":false}
 			],
 			"usage" : "100000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -3898,13 +3901,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2012 Manitou 4x4 Bucket Lift for Liam",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2011 Lincoln Vantage 500 S/A Welder",
+			"photo" : "assets/img/asset6-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset6-1.jpg","disabled":false},
+				{"src": "assets/img/asset6-2.jpg","disabled":false},
+				{"src": "assets/img/asset6-3.jpg","disabled":false},
+				{"src": "assets/img/asset6-4.jpg","disabled":false}
 			],
 			"usage" : "100000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -3926,13 +3929,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2011 Lincoln Vantage 500 S/A Welder",
+			"photo" : "assets/img/asset6-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset6-1.jpg","disabled":false},
+				{"src": "assets/img/asset6-2.jpg","disabled":false},
+				{"src": "assets/img/asset6-3.jpg","disabled":false},
+				{"src": "assets/img/asset6-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -3954,13 +3957,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2012 Manitou 4x4 Bucket Lift for Liam",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2011 Lincoln Vantage 500 S/A Welder",
+			"photo" : "assets/img/asset6-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset6-1.jpg","disabled":false},
+				{"src": "assets/img/asset6-2.jpg","disabled":false},
+				{"src": "assets/img/asset6-3.jpg","disabled":false},
+				{"src": "assets/img/asset6-4.jpg","disabled":false}
 			],
 			"usage" : "100000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -3982,13 +3985,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2012 Manitou 4x4 Bucket Lift for Liam",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2011 Lincoln Vantage 500 S/A Welder",
+			"photo" : "assets/img/asset6-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset6-1.jpg","disabled":false},
+				{"src": "assets/img/asset6-2.jpg","disabled":false},
+				{"src": "assets/img/asset6-3.jpg","disabled":false},
+				{"src": "assets/img/asset6-4.jpg","disabled":false}
 			],
 			"usage" : "100000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -4010,13 +4013,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2012 Manitou 4x4 Bucket Lift for Liam",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2011 Lincoln Vantage 500 S/A Welder",
+			"photo" : "assets/img/asset6-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset6-1.jpg","disabled":false},
+				{"src": "assets/img/asset6-2.jpg","disabled":false},
+				{"src": "assets/img/asset6-3.jpg","disabled":false},
+				{"src": "assets/img/asset6-4.jpg","disabled":false}
 			],
 			"usage" : "100000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -4038,13 +4041,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2011 Lincoln Vantage 500 S/A Welder",
+			"photo" : "assets/img/asset6-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset6-1.jpg","disabled":false},
+				{"src": "assets/img/asset6-2.jpg","disabled":false},
+				{"src": "assets/img/asset6-3.jpg","disabled":false},
+				{"src": "assets/img/asset6-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -4066,13 +4069,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2008 Manitou 4x4 Bucket Lift",
-			"photo" : "assets/img/vramp1.jpg",
+			"description" : "2011 Lincoln Vantage 500 S/A Welder",
+			"photo" : "assets/img/asset6-1.jpg",
 			"photos": [
-				{"src": "assets/img/vramp1.jpg","disabled":false},
-				{"src": "assets/img/vramp2.jpg","disabled":false},
-				{"src": "assets/img/vramp3.jpg","disabled":false},
-				{"src": "assets/img/vramp4.jpg","disabled":false}
+				{"src": "assets/img/asset6-1.jpg","disabled":false},
+				{"src": "assets/img/asset6-2.jpg","disabled":false},
+				{"src": "assets/img/asset6-3.jpg","disabled":false},
+				{"src": "assets/img/asset6-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",

@@ -63,7 +63,7 @@
 				
 		<div class="l-width--800 h-mb-50">
 			<button class="o-button--outline m-grid-fifth l-grid-quarter" rv-on-click="talController.toggleCategoriesVisible">
-				<span class="h-hide-mobile">Categories<i class="icon-arrow-down h-ml-100"></i></span><span class="h-hide-desktop">=</span>
+				<span class="h-hide-mobile">Categories<i class="icon-arrow-down h-ml-100"></i></span><span class="h-hide-desktop"><i class="icon-more_horiz"></i></span>
 			</button>
 			<input type="text" class="o-input--text_inline m-grid-three-fifths l-grid-half" placeholder="find by lot # or keyword" rv-on-click="talController.toggleSearchVisible" rv-value="talObject.filteredResults.input">
 			<button class="o-button h-hide-mobile">Search</button>
@@ -142,7 +142,7 @@
 												<div class="meta--field h-hide-mobile" rv-if="lot.comeswith"><label class="t-smalllabel">Comes With: </label><span>{lot.comeswith}</span></div>
 												<div class="meta--field h-hide-mobile" rv-if="lot.notes"><label class="t-smalllabel">Notes: </label><span>{lot.notes}</span></div>
 												
-												<div class="h-ta-right h-hide-desktop">
+												<div class="h-ta-right h-hide-desktop" rv-unless="talObject.time | compareTime lot.closes">
 													<div class="h-mb-50">{talObject.time | countdownTimer lot.closes}</div>
 							
 													<div rv-unless="lot.bids.0.bid | greaterthan 0" class="t-empty">
@@ -156,6 +156,12 @@
 														<span class="CCY" rv-html="lot.bids.0.bid | price"></span>
 													</div>
 												</div>
+							
+												<div class="h-ta-right h-hide-desktop" rv-if="talObject.time | compareTime lot.closes">
+													<div class="h-mb-50"><label class="t-smalllabel">Closed </label>{lot.closes | calendarTime}</div>
+													<label class="t-smalllabel">Sold </label><span class="CCY" rv-html="lot.bids.0.bid | price"></span>
+												</div>
+							
 											</div>
 										</div>
 									</div>
@@ -283,7 +289,7 @@
 												<div class="meta--field h-hide-mobile" rv-if="lot.comeswith"><label class="t-smalllabel">Comes With: </label><span>{lot.comeswith}</span></div>
 												<div class="meta--field h-hide-mobile" rv-if="lot.notes"><label class="t-smalllabel">Notes: </label><span>{lot.notes}</span></div>
 												
-												<div class="h-ta-right h-hide-desktop">
+												<div class="h-ta-right h-hide-desktop" rv-unless="talObject.time | compareTime lot.closes">
 													<div class="h-mb-50">{talObject.time | countdownTimer lot.closes}</div>
 							
 													<div rv-unless="lot.bids.0.bid | greaterthan 0" class="t-empty">
@@ -297,6 +303,12 @@
 														<span class="CCY" rv-html="lot.bids.0.bid | price"></span>
 													</div>
 												</div>
+							
+												<div class="h-ta-right h-hide-desktop" rv-if="talObject.time | compareTime lot.closes">
+													<div class="h-mb-50"><label class="t-smalllabel">Closed </label>{lot.closes | calendarTime}</div>
+													<label class="t-smalllabel">Sold </label><span class="CCY" rv-html="lot.bids.0.bid | price"></span>
+												</div>
+							
 											</div>
 										</div>
 									</div>
@@ -437,7 +449,7 @@
 													<div class="meta--field h-hide-mobile" rv-if="lot.comeswith"><label class="t-smalllabel">Comes With: </label><span>{lot.comeswith}</span></div>
 													<div class="meta--field h-hide-mobile" rv-if="lot.notes"><label class="t-smalllabel">Notes: </label><span>{lot.notes}</span></div>
 													
-													<div class="h-ta-right h-hide-desktop">
+													<div class="h-ta-right h-hide-desktop" rv-unless="talObject.time | compareTime lot.closes">
 														<div class="h-mb-50">{talObject.time | countdownTimer lot.closes}</div>
 								
 														<div rv-unless="lot.bids.0.bid | greaterthan 0" class="t-empty">
@@ -451,6 +463,12 @@
 															<span class="CCY" rv-html="lot.bids.0.bid | price"></span>
 														</div>
 													</div>
+								
+													<div class="h-ta-right h-hide-desktop" rv-if="talObject.time | compareTime lot.closes">
+														<div class="h-mb-50"><label class="t-smalllabel">Closed </label>{lot.closes | calendarTime}</div>
+														<label class="t-smalllabel">Sold </label><span class="CCY" rv-html="lot.bids.0.bid | price"></span>
+													</div>
+								
 												</div>
 											</div>
 										</div>
@@ -592,7 +610,7 @@
 																<div class="meta--field h-hide-mobile" rv-if="lot.comeswith"><label class="t-smalllabel">Comes With: </label><span>{lot.comeswith}</span></div>
 																<div class="meta--field h-hide-mobile" rv-if="lot.notes"><label class="t-smalllabel">Notes: </label><span>{lot.notes}</span></div>
 																
-																<div class="h-ta-right h-hide-desktop">
+																<div class="h-ta-right h-hide-desktop" rv-unless="talObject.time | compareTime lot.closes">
 																	<div class="h-mb-50">{talObject.time | countdownTimer lot.closes}</div>
 											
 																	<div rv-unless="lot.bids.0.bid | greaterthan 0" class="t-empty">
@@ -606,6 +624,12 @@
 																		<span class="CCY" rv-html="lot.bids.0.bid | price"></span>
 																	</div>
 																</div>
+											
+																<div class="h-ta-right h-hide-desktop" rv-if="talObject.time | compareTime lot.closes">
+																	<div class="h-mb-50"><label class="t-smalllabel">Closed </label>{lot.closes | calendarTime}</div>
+																	<label class="t-smalllabel">Sold </label><span class="CCY" rv-html="lot.bids.0.bid | price"></span>
+																</div>
+											
 															</div>
 														</div>
 													</div>
@@ -791,7 +815,7 @@
 																	<div class="meta--field h-hide-mobile" rv-if="lot.comeswith"><label class="t-smalllabel">Comes With: </label><span>{lot.comeswith}</span></div>
 																	<div class="meta--field h-hide-mobile" rv-if="lot.notes"><label class="t-smalllabel">Notes: </label><span>{lot.notes}</span></div>
 																	
-																	<div class="h-ta-right h-hide-desktop">
+																	<div class="h-ta-right h-hide-desktop" rv-unless="talObject.time | compareTime lot.closes">
 																		<div class="h-mb-50">{talObject.time | countdownTimer lot.closes}</div>
 												
 																		<div rv-unless="lot.bids.0.bid | greaterthan 0" class="t-empty">
@@ -805,6 +829,12 @@
 																			<span class="CCY" rv-html="lot.bids.0.bid | price"></span>
 																		</div>
 																	</div>
+												
+																	<div class="h-ta-right h-hide-desktop" rv-if="talObject.time | compareTime lot.closes">
+																		<div class="h-mb-50"><label class="t-smalllabel">Closed </label>{lot.closes | calendarTime}</div>
+																		<label class="t-smalllabel">Sold </label><span class="CCY" rv-html="lot.bids.0.bid | price"></span>
+																	</div>
+												
 																</div>
 															</div>
 														</div>
@@ -998,11 +1028,13 @@
 						<div rv-bidstatusclass="talObject.focusedLot.bids | highbidder talObject.bidder" rv-class-s-sold="talObject.time | compareTime lot.closes">
 							
 							<div class="lot--status lot--status_high-bidder">
-								You are the high bidder
+								<span rv-unless="talObject.time | compareTime talObject.focusedLot.closes">You are the high bidder</span>
+								<span rv-if="talObject.time | compareTime talObject.focusedLot.closes">You won this lot!</span>
 							</div>
 							
 							<div class="lot--status lot--status_outbid">
-								You were outbid
+								<span rv-unless="talObject.time | compareTime talObject.focusedLot.closes">You were outbid.</span>
+								<span rv-if="talObject.time | compareTime talObject.focusedLot.closes">You were outbid.</span>
 							</div>
 				
 							<div class="lot-photos">
@@ -1069,7 +1101,7 @@
 				
 									<div class="bid-details--section h-ta-right">
 										<label class="t-smalllabel h-float-left">Closes</label>
-										{talObject.time | countdownTimer lot.closes} 
+										{talObject.time | countdownTimer talObject.focusedLot.closes} 
 										<div class="bid-details--caveat">{talObject.focusedLot.closes | calendarTime}</div>
 									</div>
 								</div>
@@ -1082,7 +1114,7 @@
 							</div>
 						</div>
 			</div>
-			<div class="c-modal--footer h-ta-center">
+			<div class="c-modal--footer h-ta-center" rv-unless="talObject.time | compareTime talObject.focusedLot.closes">
 				<button class="o-button--outline h-mb-50" rv-class-l-grid-half="talObject.focusedLot.maxBid.bidder | inversecompare talObject.bidder" rv-on-click="talController.toggleMaximumBidVisible">
 					<span rv-unless="talObject.focusedLot.maxBid.bidder | compare talObject.bidder">Set Maximum Bid</span>
 					<span rv-if="talObject.focusedLot.maxBid.bidder | compare talObject.bidder">Change Maximum Bid of <span class="CCY" rv-html="talObject.focusedLot.maxBid.bid | price">}</span></span>
@@ -1185,11 +1217,13 @@
 									<div rv-bidstatusclass="talObject.focusedLot.bids | highbidder talObject.bidder" rv-class-s-sold="talObject.time | compareTime lot.closes">
 										
 										<div class="lot--status lot--status_high-bidder">
-											You are the high bidder
+											<span rv-unless="talObject.time | compareTime talObject.focusedLot.closes">You are the high bidder</span>
+											<span rv-if="talObject.time | compareTime talObject.focusedLot.closes">You won this lot!</span>
 										</div>
 										
 										<div class="lot--status lot--status_outbid">
-											You were outbid
+											<span rv-unless="talObject.time | compareTime talObject.focusedLot.closes">You were outbid.</span>
+											<span rv-if="talObject.time | compareTime talObject.focusedLot.closes">You were outbid.</span>
 										</div>
 							
 										<div class="lot-photos">
@@ -1256,7 +1290,7 @@
 							
 												<div class="bid-details--section h-ta-right">
 													<label class="t-smalllabel h-float-left">Closes</label>
-													{talObject.time | countdownTimer lot.closes} 
+													{talObject.time | countdownTimer talObject.focusedLot.closes} 
 													<div class="bid-details--caveat">{talObject.focusedLot.closes | calendarTime}</div>
 												</div>
 											</div>
@@ -1330,7 +1364,7 @@
 										<button class="o-text-button_black m-grid-fifth" rv-on-click="talController.toggleSearchVisible">Cancel</button>
 										<div class="m-grid-four-fifths h-pos-relative">
 											<input type="text" class="o-input--text js--search-input" placeholder="find by lot # or keyword" rv-value="talObject.filteredResults.input" rv-on-keyup="talController.updateSearch">
-											<button class="o-icon-button--medium l-input--toggle" rv-if="talObject.filteredResults.input | lengthToBool" rv-on-click="talController.clearSearch"><i class="icon-check-inner"></i></button>
+											<button class="o-icon-button--medium l-input--toggle" rv-if="talObject.filteredResults.input | lengthToBool" rv-on-click="talController.clearSearch"><i class="icon-error"></i></button>
 										</div>
 									</div>
 								</div>

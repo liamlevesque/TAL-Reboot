@@ -37,7 +37,7 @@
 					<div class="meta--field h-hide-mobile" rv-if="lot.comeswith"><label class="t-smalllabel">Comes With: </label><span>{lot.comeswith}</span></div>
 					<div class="meta--field h-hide-mobile" rv-if="lot.notes"><label class="t-smalllabel">Notes: </label><span>{lot.notes}</span></div>
 					
-					<div class="h-ta-right h-hide-desktop">
+					<div class="h-ta-right h-hide-desktop" rv-unless="talObject.time | compareTime lot.closes">
 						<div class="h-mb-50">{talObject.time | countdownTimer lot.closes}</div>
 
 						<div rv-unless="lot.bids.0.bid | greaterthan 0" class="t-empty">
@@ -51,6 +51,12 @@
 							<span class="CCY" rv-html="lot.bids.0.bid | price"></span>
 						</div>
 					</div>
+
+					<div class="h-ta-right h-hide-desktop" rv-if="talObject.time | compareTime lot.closes">
+						<div class="h-mb-50"><label class="t-smalllabel">Closed </label>{lot.closes | calendarTime}</div>
+						<label class="t-smalllabel">Sold </label><span class="CCY" rv-html="lot.bids.0.bid | price"></span>
+					</div>
+
 				</div>
 			</div>
 		</div>

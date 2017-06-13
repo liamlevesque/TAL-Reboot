@@ -3769,11 +3769,17 @@ a {
   .lot-photos .swiper-container {
     width: 100%;
     max-height: 250px; }
+    @media (min-width: 48em) and (max-width: 64em) {
+      .lot-photos .swiper-container {
+        max-height: 400px; } }
   .lot-photos img {
     display: block;
     max-height: 250px;
     max-width: 100%;
     margin: 0 auto; }
+    @media (min-width: 48em) and (max-width: 64em) {
+      .lot-photos img {
+        max-height: 400px; } }
 
 .group-bid--photos {
   position: relative; }

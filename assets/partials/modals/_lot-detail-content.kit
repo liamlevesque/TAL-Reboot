@@ -1,11 +1,13 @@
 		<div rv-bidstatusclass="talObject.focusedLot.bids | highbidder talObject.bidder" rv-class-s-sold="talObject.time | compareTime lot.closes">
 			
 			<div class="lot--status lot--status_high-bidder">
-				You are the high bidder
+				<span rv-unless="talObject.time | compareTime talObject.focusedLot.closes">You are the high bidder</span>
+				<span rv-if="talObject.time | compareTime talObject.focusedLot.closes">You won this lot!</span>
 			</div>
 			
 			<div class="lot--status lot--status_outbid">
-				You were outbid
+				<span rv-unless="talObject.time | compareTime talObject.focusedLot.closes">You were outbid.</span>
+				<span rv-if="talObject.time | compareTime talObject.focusedLot.closes">You were outbid.</span>
 			</div>
 
 			<div class="lot-photos">
@@ -72,7 +74,7 @@
 
 					<div class="bid-details--section h-ta-right">
 						<label class="t-smalllabel h-float-left">Closes</label>
-						{talObject.time | countdownTimer lot.closes} 
+						{talObject.time | countdownTimer talObject.focusedLot.closes} 
 						<div class="bid-details--caveat">{talObject.focusedLot.closes | calendarTime}</div>
 					</div>
 				</div>

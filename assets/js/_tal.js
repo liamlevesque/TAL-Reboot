@@ -5,8 +5,8 @@ $(function(){
 	};
 
 	setInterval(function(){
-		talObject.time = moment();
-		talObject.intervalCount += 1000;
+		//talObject.time = moment();
+		//talObject.intervalCount += 1000;
 		if(talObject.intervalCount % talObject.closeInterval === 0){
 			let nextLot = (talObject.intervalCount/talObject.closeInterval) + talObject.preSoldOffset;
 			talController.sellLot(nextLot);
