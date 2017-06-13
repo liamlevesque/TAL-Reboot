@@ -3738,10 +3738,10 @@ a {
   @media (min-width: 64em) {
     .l-width--1200 {
       padding: 0 20px; } }
-  @media (max-width: 80em) {
+  @media (max-width: 64em) {
     .l-width--1200 {
       padding-right: 100px; } }
-  @media (max-width: 64em) {
+  @media (max-width: 30.0625em) {
     .l-width--1200 {
       padding-right: 50px; } }
 
