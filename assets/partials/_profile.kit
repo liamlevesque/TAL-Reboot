@@ -9,13 +9,13 @@
 		</div>
 		<div class="o-setting-list-item">
 			<label for="" class="t-smalllabel">Credit Spent</label>
-			<span class="o-setting-list-item--value">{talObject.userprofile.spent}</span>
+			<span class="o-setting-list-item--value CCY" rv-html="talObject.userprofile.spent | price"></span>
 			<div rv-if="talObject.purchasedLots | lengthToBool"><a class="h-float-right h-color-brand" rv-on-click="talController.loadTab" data-tab="purchases">View Purchases</a></div>
 		</div>
 		<div class="o-setting-section-separator">Bidding Activity</div>
 		<div class="o-setting-list-item">
 			<label for="" class="t-smalllabel">Total Bids</label>
-			<span class="o-setting-list-item--value">{talObject.userprofile.bids}</span>
+			<span class="o-setting-list-item--value CCY" rv-html="talObject.biddingLots | totalBids "></span>
 			<div rv-if="talObject.watchingLots | lengthToBool"><a class="h-float-right h-color-brand" rv-on-click="talController.loadTab" data-tab="bids">View Bids</a></div>
 		</div>
 

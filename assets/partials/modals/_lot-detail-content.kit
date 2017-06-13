@@ -1,4 +1,4 @@
-		<div rv-bidstatusclass="talObject.focusedLot.bids | highbidder talObject.bidder">
+		<div rv-bidstatusclass="talObject.focusedLot.bids | highbidder talObject.bidder" rv-class-s-sold="talObject.time | compareTime lot.closes">
 			
 			<div class="lot--status lot--status_high-bidder">
 				You are the high bidder
@@ -25,7 +25,7 @@
 			</div>
 			<div class="h-p-100">
 				<h3 class="h3 h-mb-100">{talObject.focusedLot.description}</h3>
-				<div class="lot--bid-details l-grid-half h-hide-mobile" rv-if="talObject.focusedLot.status | compare 'sold'">
+				<div class="lot--bid-details l-grid-half h-hide-mobile" rv-if="talObject.time | compareTime talObject.focusedLot.closes">
 					<div class="bid-details--section bid-details--bid"> 
 						<div rv-if="talObject.focusedLot.bids.0.bid | greaterthan 0">
 							<label class="t-smalllabel">Sold</label>
@@ -44,7 +44,7 @@
 					</div>
 				</div>
 
-				<div class="lot--bid-details h-mb-100" rv-unless="talObject.focusedLot.status | compare 'sold'">
+				<div class="lot--bid-details h-mb-100" rv-unless="talObject.time | compareTime talObject.focusedLot.closes">
 					<div>
 						<button class="l-grid-half m-grid-half o-icon-label-button" rv-on-click="talController.watchFocusedLot" rv-class-s-active="talObject.focusedLot.watching | indexof talObject.bidder">
 							<i class="icon-eye"></i><label for="">Watch<span rv-if="talObject.focusedLot.watching | indexof talObject.bidder">ing</span></label>

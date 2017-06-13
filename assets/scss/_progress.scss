@@ -10,12 +10,12 @@ $scroll-width: 10px;
 
 .optiscroll-v{
 	width: $scroll-width;
-	background-color: palette(grey);
+	background-color: transparent;
 	transition: width $transition;
 	z-index: 91;
 
 	&:hover{
-		width: 2 * $scroll-width;
+		//width: 2 * $scroll-width;
 	}
 
 	@include breakpoint(smallmax){
@@ -73,11 +73,12 @@ $progress-indicator-height: 50px;
 	}
 }
 
+$progress-track-width: 15px;
 
 .auction-progress-meter{
 	display: none;
 	position: absolute;
-	right: 0;
+	right: 12px;
 	top: 0;
 	bottom: 0;
 	width: 100px;
@@ -91,6 +92,16 @@ $progress-indicator-height: 50px;
 
 	.optiscroll.s-scrolling ~ &{
 		opacity: 1;
+	}
+
+	&:before{
+		content: "";
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: $progress-track-width;
+		bottom: 0;
+		background-color: palette(grey,x-light);
 	}
 }
 
@@ -122,19 +133,30 @@ $progress-indicator-height: 50px;
 			}
 		}
 
+
+
 	.c-progress--bids{
 	    position: absolute;
 	    height: 100%;
 	    top: 0;
 	    bottom: 0;
-	    right: 15px;
-	    width: 15px;
+	    right: 0;
+	    width: $progress-track-width;
 	}
+
+		.c-progress--auction{
+	    	position: absolute;
+	    	width: $progress-track-width;
+	    	right: 0;
+	    	bottom: 0;
+	    	top: 0;
+	    	background-color: rgba(palette(active),0.5);
+	    }
 
 		.c-progress--bid{
 			position: absolute;
 			border-bottom: 3px solid black;
-			width: 15px;  
+			width: $progress-track-width;  
 
 			&.s-winning{
 				border-color: palette(affirmative);

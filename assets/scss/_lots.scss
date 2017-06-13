@@ -60,6 +60,11 @@
 			.s-outbid &{
 				display: block;
 			}
+
+			.s-sold &{
+				background-color: palette(error);
+				color: white;
+			}
 		}
 
 	.lot--group-selector{
@@ -151,6 +156,11 @@
 				.s-outbid &{
 					background-color: palette(warning);
 					color: black;
+				}
+
+				.s-sold.s-outbid &{
+					background-color: palette(error);
+					color: white;
 				}
 			}
 

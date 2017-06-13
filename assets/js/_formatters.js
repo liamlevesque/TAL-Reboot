@@ -195,6 +195,19 @@ rivets.formatters.countdownTime = function(value){
 	return span.days() + 'd ' + span.hours() + 'h ' + span.minutes() + 'm ' + span.seconds() + 's';
 };
 
+rivets.formatters.countdownTimer = function(now,closes){
+	let end = moment(closes);
+	var span = moment.duration(end - now);
+	return span.days() + 'd ' + span.hours() + 'h ' + span.minutes() + 'm ' + span.seconds() + 's';
+};
+
+rivets.formatters.compareTime = function(now,closes) {
+	let end = moment(closes);
+	var span = moment.duration(end - now);
+	if(span._milliseconds > 0) return false;
+	return true; 
+}
+
 rivets.formatters.calendarTime = function(value){
 	if(typeof value == 'undefined') return '';
 	return moment(new Date(value)).calendar();
@@ -220,6 +233,11 @@ rivets.formatters.lotnumber = function (value){
 rivets.formatters.plusone = function (value){
 	if(typeof value == 'undefined') return 1;
 	return parseInt(value) + 1;
+}
+
+rivets.formatters.totalBids = function(lots) {
+	let totalbids = lots.reduce( (acc,lot) => {if(lot.bids[0].bidder === talObject.bidder) return acc + lot.bids[0].bid}, 0); 
+	return formatprice(totalbids);
 }
 
 rivets.binders.rangeposition = function(el,value){
@@ -252,6 +270,12 @@ rivets.formatters.lotposition = function(lot, first, last){
 	let lotNumber = 0;
 	if(lot.type === 'group') lotNumber = lot.lots[0].lotNumber;
 	else lotNumber = lot.lotNumber;
+	
+	return Math.floor(100 * ((lotNumber - first) / (last - first)));
+}
+
+rivets.formatters.lotpositionDelta = function(index, first, last){
+	let lotNumber = talObject.lots[index].lotNumber;
 	
 	return Math.floor(100 * ((lotNumber - first) / (last - first)));
 }

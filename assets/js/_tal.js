@@ -1,21 +1,36 @@
 $(function(){
 
 	for(let i = 0; i < talObject.lots.length; i++){
-		talObject.lots[i].closes = moment().add(i - 20,'minutes');
+		talObject.lots[i].closes = moment().add((i - talObject.preSoldOffset) * 30,'seconds');
 	};
 
-});
+	setInterval(function(){
+		talObject.time = moment();
+		talObject.intervalCount += 1000;
+		if(talObject.intervalCount % talObject.closeInterval === 0){
+			let nextLot = (talObject.intervalCount/talObject.closeInterval) + talObject.preSoldOffset;
+			talController.sellLot(nextLot);
+			talObject.auction.closingNext = nextLot; 
+		}
+	},1000);
+
+}); 
 
 const talObject = {
+		closeInterval: 30000,
+		intervalCount: 0,
+		preSoldOffset: 20,
+		time: moment(),
 		auction: {
 			startLot: 5000,
 			endLot: 5145,
 			totalLots: 146,
-			closingNext: 7,
+			closingNext: 21,
 		},
 		lots: lotlist,
 		watchingLots: [],
 		biddingLots: [],
+		purchasedLots: [],
 		groupBids:[],
 		maxBids:[],
 		bidder: 'v5001',
@@ -82,7 +97,7 @@ const talController = {
 				pushHistory(context.lot.lotNumber, 'lot');//PUSH STATE
 			}
 			else{
-				history.back();
+				pushHistory(talObject.activeTab, 'tab');
 			}
 		},
 
@@ -97,6 +112,14 @@ const talController = {
 				speed: 300,
 				effect: "coverflow",
 			})
+		},
+
+		sellLot: function(lotIndex){
+			//ADD TO PURCHASES IF YOU WERE THE TOP BIDDER
+			if(typeof talObject.lots[lotIndex].bids[0] != 'undefined' && talObject.lots[lotIndex].bids[0].bidder === talObject.bidder){
+				talObject.purchasedLots.push(talObject.lots[lotIndex]);
+				talObject.userprofile.spent += talObject.lots[lotIndex].bids[0].bid;
+			}
 		},
 
 		/******************************************

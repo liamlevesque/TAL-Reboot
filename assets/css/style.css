@@ -3526,11 +3526,9 @@ a {
 
 .optiscroll-v {
   width: 10px;
-  background-color: #bfc0be;
+  background-color: transparent;
   transition: width 0.2s cubic-bezier(0.63, 0.005, 0.365, 1);
   z-index: 91; }
-  .optiscroll-v:hover {
-    width: 20px; }
   @media (max-width: 30.0625em) {
     .s-scrolling .optiscroll-v {
       width: 20px; } }
@@ -3562,7 +3560,7 @@ a {
 .auction-progress-meter {
   display: none;
   position: absolute;
-  right: 0;
+  right: 12px;
   top: 0;
   bottom: 0;
   width: 100px;
@@ -3573,6 +3571,14 @@ a {
     display: block; }
   .optiscroll.s-scrolling ~ .auction-progress-meter {
     opacity: 1; }
+  .auction-progress-meter:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 15px;
+    bottom: 0;
+    background-color: #F0F0F0; }
 
 .auction-lot-intervals {
   position: relative;
@@ -3610,8 +3616,16 @@ a {
   height: 100%;
   top: 0;
   bottom: 0;
-  right: 15px;
+  right: 0;
   width: 15px; }
+
+.c-progress--auction {
+  position: absolute;
+  width: 15px;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background-color: rgba(32, 87, 158, 0.5); }
 
 .c-progress--bid {
   position: absolute;
@@ -3729,6 +3743,9 @@ a {
       color: black; } }
   .s-outbid .lot--status_outbid {
     display: block; }
+  .s-sold .lot--status_outbid {
+    background-color: #c4483a;
+    color: white; }
 
 .lot--group-selector {
   position: absolute;
@@ -3788,6 +3805,9 @@ a {
   .s-outbid .bid-details--bid {
     background-color: #FCD748;
     color: black; }
+  .s-sold.s-outbid .bid-details--bid {
+    background-color: #c4483a;
+    color: white; }
 
 .bid-details--maxbid {
   background-color: #248838;

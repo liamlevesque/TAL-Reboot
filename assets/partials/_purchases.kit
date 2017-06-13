@@ -9,6 +9,11 @@
 		<div rv-unless="talObject.purchasedLots | lengthToBool">
 			<!-- @include '/assets/partials/empty-state' -->
 		</div>
+
+		<div class="h-float-right">
+			<label class="t-smalllabel">Total Purchases:</label>
+			<span class="CCY" rv-html="talObject.userprofile.spent"></span> 
+		</div>
 	</div>
 
 </div>
