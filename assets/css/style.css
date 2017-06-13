@@ -309,21 +309,21 @@ h1, h2, h3, h4, h5 {
 .h1 {
   font-size: 1.4rem;
   font-weight: 400; }
-  @media (min-width: 64em) {
+  @media (min-width: 30.0625em) {
     .h1 {
       font-size: 2rem; } }
 
 .h2 {
   font-size: 1.2rem;
   font-weight: 700; }
-  @media (min-width: 64em) {
+  @media (min-width: 30.0625em) {
     .h2 {
       font-size: 1.4rem; } }
 
 .h3 {
   font-size: 1rem;
   font-weight: 700; }
-  @media (min-width: 64em) {
+  @media (min-width: 30.0625em) {
     .h3 {
       font-size: 1.2rem; } }
 
@@ -331,7 +331,7 @@ h1, h2, h3, h4, h5 {
   text-transform: uppercase;
   letter-spacing: 0.06em;
   font-size: 0.7rem; }
-  @media (min-width: 64em) {
+  @media (min-width: 30.0625em) {
     .h5 {
       font-size: 0.8rem; } }
 
@@ -3829,7 +3829,8 @@ a {
     max-height: 250px; }
     @media (min-width: 48em) and (max-width: 64em) {
       .lot-photos .swiper-container {
-        max-height: 400px; } }
+        height: 450px;
+        max-height: 450px; } }
   .lot-photos img {
     display: block;
     max-height: 250px;
@@ -3837,7 +3838,8 @@ a {
     margin: 0 auto; }
     @media (min-width: 48em) and (max-width: 64em) {
       .lot-photos img {
-        max-height: 400px; } }
+        height: 450px;
+        max-height: 450px; } }
 
 .group-bid--photos {
   position: relative; }

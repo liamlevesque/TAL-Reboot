@@ -86,7 +86,8 @@
 			max-height: 250px;
 			
 			@include breakpoint(med-to-medlarge){
-				max-height: 400px;
+				height: 450px;
+				max-height: 450px;
 			}
 			
 		}
@@ -103,7 +104,8 @@
 			margin: 0 auto;
 
 			@include breakpoint(med-to-medlarge){
-				max-height: 400px;
+				height: 450px;
+				max-height: 450px;
 			}
 		}
 	}
