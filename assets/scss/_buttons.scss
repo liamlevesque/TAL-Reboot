@@ -92,7 +92,7 @@
 	background-color: $bg-color;
 	color: $text-color;
 
-	@include breakpoint(smallmax){
+	@include breakpoint(medmax){
 		width: 100%;
 	}
 
@@ -190,7 +190,7 @@
   		text-align: center;
   		font-size: fontsize(30);
   		
-  		@include breakpoint(small){
+  		@include breakpoint(medium){
   			font-size: fontsize(50);
   		}
   	}

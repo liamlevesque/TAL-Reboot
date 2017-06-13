@@ -21,7 +21,7 @@
 	position: relative;
 	vertical-align: top;
 	
-	@include breakpoint(smallmax){
+	@include breakpoint(medmax){
 		display: inline-block;
 		vertical-align: top;
 		width: $width;

@@ -83,7 +83,7 @@ h1, h2, h3, h4, h5 {
     font-size: fontsize(300);
     font-weight: 400;
 
-    @include breakpoint(small){
+    @include breakpoint(medium){
       font-size: fontsize(500);
     }
   }
@@ -92,7 +92,7 @@ h1, h2, h3, h4, h5 {
     font-size: fontsize(200);
     font-weight: 700;
 
-    @include breakpoint(small){
+    @include breakpoint(medium){
        font-size: fontsize(300);
     }
   }
@@ -101,7 +101,7 @@ h1, h2, h3, h4, h5 {
     font-size: fontsize(100);
     font-weight: 700;
 
-    @include breakpoint(small){
+    @include breakpoint(medium){
       font-size: fontsize(200);
     }
   }
@@ -110,7 +110,7 @@ h1, h2, h3, h4, h5 {
     @include allcaps;
     font-size: fontsize(30);
 
-    @include breakpoint(small){
+    @include breakpoint(medium){
        font-size: fontsize(50);
     }
   }

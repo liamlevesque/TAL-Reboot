@@ -160,7 +160,7 @@
 			padding: spacing(small);
 			position: relative;
 			
-			@include breakpoint(smallmax){
+			@include breakpoint(medmax){
 				margin-top: spacing(small);
 			}
 		}

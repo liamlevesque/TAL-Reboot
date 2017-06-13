@@ -22,7 +22,7 @@
 		height: $mobile-footer-height;
 		background-color: palette(grey,light);
 
-		@include breakpoint(small){
+		@include breakpoint(medium){
 			display: none;
 		}
 	}
@@ -38,7 +38,7 @@
 		max-width: 1200px;
 		padding: 0;
 
-		@include breakpoint(small){
+		@include breakpoint(medium){
 			padding: 0 spacing(medium);
 		}
 
@@ -46,7 +46,7 @@
 			padding-right: 100px;
 		}
 
-		@include breakpoint(smallmax){
+		@include breakpoint(medmax){
 			padding-right: 50px;
 		}
 	}

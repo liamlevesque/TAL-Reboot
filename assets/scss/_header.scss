@@ -1,7 +1,7 @@
 .l-header{
 		box-shadow: $ritchie-shadow;
 	
-		@include breakpoint(smallmax){
+		@include breakpoint(medmax){
 			//height: $mobile-header-height;
 		}
 	}
@@ -11,7 +11,7 @@
 			width: 46px; 
 			height: 46px;
 
-			@include breakpoint(smallmax){
+			@include breakpoint(medmax){
 				position: absolute;
 				top: 5px;
 				left: 5px;
@@ -21,7 +21,7 @@
 		        display: none;
 		    }
 
-			@include breakpoint(small){
+			@include breakpoint(medium){
 		        width: 200px;
 
 				.logo-hide-small{
@@ -35,7 +35,7 @@
 			margin-bottom: spacing(x-small);
 			padding-top: spacing(xx-small);
 
-			@include breakpoint(small){
+			@include breakpoint(medium){
 				text-align: left;
 				display: inline-block;
 			}

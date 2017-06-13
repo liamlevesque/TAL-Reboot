@@ -219,13 +219,13 @@
 	}
 
 	.h-hide-desktop{
-		@include breakpoint(small){
+		@include breakpoint(medium){
 			display: none;
 		}
 	}
 
 	.h-hide-mobile{
-		@include breakpoint(smallmax){
+		@include breakpoint(medmax){
 			display: none;
 		}
 	}

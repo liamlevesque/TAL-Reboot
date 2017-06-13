@@ -16,7 +16,7 @@
 	box-shadow: $ritchie-shadow;
 	overflow-y: auto;
 
-	@include breakpoint(small){
+	@include breakpoint(medium){
 		top: 100px;
 		left: calc((100vw - 800px) / 2);
 		right: auto;
@@ -31,7 +31,7 @@
 	color: white;
 	padding: spacing(xx-small) spacing(x-small);
 
-	@include breakpoint(small){
+	@include breakpoint(medium){
 		padding: spacing(x-small) spacing(small);
 	}
 }

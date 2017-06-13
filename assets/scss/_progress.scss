@@ -18,7 +18,7 @@ $scroll-width: 10px;
 		//width: 2 * $scroll-width;
 	}
 
-	@include breakpoint(smallmax){
+	@include breakpoint(medmax){
 		.s-scrolling &{
 			width: 2 * $scroll-width;
 		}

@@ -8,7 +8,7 @@
 	overflow: hidden;
 	position: relative;
 
-	@include breakpoint(small){
+	@include breakpoint(medium){
 		padding: spacing(medium) spacing(x-small);
 	}
 
@@ -31,7 +31,7 @@
 		display: none;
 		padding: spacing(xx-small) 0;
 
-		@include breakpoint(small){
+		@include breakpoint(medium){
 			padding: spacing(x-small) spacing(small);
 		}
 	}
@@ -39,7 +39,7 @@
 		.lot--status_high-bidder{
 			color: palette(affirmative);
 
-			@include breakpoint(small){
+			@include breakpoint(medium){
 				background-color: palette(affirmative);
 				color: white;
 			}
@@ -52,7 +52,7 @@
 		.lot--status_outbid{
 			color: palette(warning,dark);
 
-			@include breakpoint(small){
+			@include breakpoint(medium){
 				background-color: palette(warning);
 				color: black;
 			}
@@ -192,7 +192,7 @@
 	.group-bid--quantity{
 		font-weight: 700;
 
-		@include breakpoint(small){
+		@include breakpoint(medium){
 			position: absolute;
 			top: spacing(small);
 			left: spacing(small);
