@@ -7877,6 +7877,12 @@
 		"oA": 2,
 		"oAP": "\/login.html",
 		"oF": 0
+		},
+	"\/TestingDebrief.txt": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/TestingDebrief.txt",
+		"oF": 0
 		}
 	},
 "hooks": [

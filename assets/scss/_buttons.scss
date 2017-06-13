@@ -92,6 +92,10 @@
 	background-color: $bg-color;
 	color: $text-color;
 
+	@include breakpoint(med-to-medlarge){
+		font-size: fontsize(200);
+	}
+	
 	@include breakpoint(medmax){
 		width: 100%;
 	}
@@ -112,6 +116,11 @@
 	@include button-base;
 	
 	font-size: fontsize($font-size);
+
+	@include breakpoint(med-to-medlarge){
+		font-size: fontsize(2 * $font-size);
+	}
+
 	background-color: transparent;
 	color: $text-color;
 

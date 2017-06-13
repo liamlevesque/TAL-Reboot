@@ -32,10 +32,11 @@
 
 		@include breakpoint(medium){
 			width: 600px;
-			margin: 0 auto;
+			margin: 0;
 			position: relative;
 			top: calc(50% + 20px);
-			transform: translateY(-50%);
+			left: 50%;
+			transform: translate(-50%,-50%);
 			max-height: 100%;
 			
 			//background-color: white;
@@ -59,16 +60,16 @@
 			width: 350px;
 			display: block;
 			height: auto;
+			position: absolute;
+			left: 50%;
 			top: 50%;
-			transform: translateY(-50%);
-			margin: 0 auto;
+			margin: 0;
+			transform: translate(-50%,-50%);
 			position: relative;
 
-			@include breakpoint(medmax){
-				position: absolute;
-				left: 50%;
-				transform: translate(-50%,-50%);
-			}
+			// @include breakpoint(medmax){
+				
+			// }
 
 			.c-modal--footer{
 
