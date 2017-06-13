@@ -83,7 +83,7 @@
 				<button class="l-grid-half o-icon-label-button" rv-if="lot.group | lengthand talObject.isGroupChoosing" rv-on-click="talController.showGroupViewModalFromLot">View Group</button>
 
 				<button class="l-grid-half o-icon-label-button" rv-unless="lot.group | lengthand talObject.isGroupChoosing" rv-on-click="talController.createGroupBid" rv-class-s-active="lot.group | indexof talObject.tempGroup.uid">
-					<i class="icon-eye"></i>
+					<i class="icon-group-bid"></i>
 					<label rv-unless="talObject.isGroupChoosing">Group Bid</label>
 					<span rv-if="talObject.isGroupChoosing">
 						<label rv-unless="lot.group | indexof talObject.tempGroup.uid">Add To Group</label>

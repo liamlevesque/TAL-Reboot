@@ -33,25 +33,29 @@
 			</div>
 		
 			<div class="h-float-right h-hide-mobile">
-				<button class="o-icon-label-button m-grid-fifth" rv-on-click="talController.loadTab" data-tab="watching"  rv-class-s-active="talObject.activeTab | compare 'watching'">
-					<i class="icon-eye"></i>
-					<label>Watching</label>
-					<div class="badge--count" rv-if="talObject.watchingLots | lengthToBool">{talObject.watchingLots | length}</div>
+				<button class="o-icon-label-button m-grid-fifth" rv-on-click="talController.loadTab" data-tab="auction" rv-class-s-active="talObject.activeTab | compare 'auction'">
+					<i class="icon-gavel"></i>
+					<label>Auction</label>
 				</button>
-				<button class="o-icon-label-button m-grid-fifth" rv-on-click="talController.loadTab" data-tab="bids" rv-class-s-active="talObject.activeTab | compare 'bids'">
+				<button class="o-icon-label-button m-grid-fifth" rv-on-click="talController.loadTab" data-tab="watching"  rv-class-s-active="talObject.activeTab | compare 'watching'">
 							<i class="icon-eye"></i>
-							<label>Bids</label>
-							<div class="badge--count" rv-if="talObject.biddingLots | lengthToBool">{talObject.biddingLots | length}</div>
+							<label>Watching</label>
+							<div class="badge--count" rv-if="talObject.watchingLots | lengthToBool">{talObject.watchingLots | length}</div>
 						</button>
-				<button class="o-icon-label-button m-grid-fifth" rv-on-click="talController.loadTab" data-tab="purchases" rv-class-s-active="talObject.activeTab | compare 'purchases'">
-									<i class="icon-cart"></i>
-									<label>Purchases</label>
-									<div class="badge--count_cart" rv-if="talObject.purchasedLots | lengthToBool">{talObject.purchasedLots | length}</div>
+				<button class="o-icon-label-button m-grid-fifth" rv-on-click="talController.loadTab" data-tab="bids" rv-class-s-active="talObject.activeTab | compare 'bids'">
+									<i class="icon-check"></i>
+									<label>Bids</label>
+									<div class="badge--count" rv-if="talObject.biddingLots | lengthToBool">{talObject.biddingLots | length}</div>
 								</button>
-				<button class="o-icon-label-button m-grid-fifth" rv-on-click="talController.loadTab" data-tab="profile"  rv-class-s-active="talObject.activeTab | compare 'profile'">
-											<i class="icon-user"></i>
-											<label>Profile</label>
+				<button class="o-icon-label-button m-grid-fifth" rv-on-click="talController.loadTab" data-tab="purchases" rv-class-s-active="talObject.activeTab | compare 'purchases'">
+											<i class="icon-cart"></i>
+											<label>Purchases</label>
+											<div class="badge--count_cart" rv-if="talObject.purchasedLots | lengthToBool">{talObject.purchasedLots | length}</div>
 										</button>
+				<button class="o-icon-label-button m-grid-fifth" rv-on-click="talController.loadTab" data-tab="profile"  rv-class-s-active="talObject.activeTab | compare 'profile'">
+													<i class="icon-user"></i>
+													<label>Profile</label>
+												</button>
 			</div>
 			
 		</header>
@@ -184,7 +188,7 @@
 											<button class="l-grid-half o-icon-label-button" rv-if="lot.group | lengthand talObject.isGroupChoosing" rv-on-click="talController.showGroupViewModalFromLot">View Group</button>
 							
 											<button class="l-grid-half o-icon-label-button" rv-unless="lot.group | lengthand talObject.isGroupChoosing" rv-on-click="talController.createGroupBid" rv-class-s-active="lot.group | indexof talObject.tempGroup.uid">
-												<i class="icon-eye"></i>
+												<i class="icon-group-bid"></i>
 												<label rv-unless="talObject.isGroupChoosing">Group Bid</label>
 												<span rv-if="talObject.isGroupChoosing">
 													<label rv-unless="lot.group | indexof talObject.tempGroup.uid">Add To Group</label>
@@ -325,7 +329,7 @@
 											<button class="l-grid-half o-icon-label-button" rv-if="lot.group | lengthand talObject.isGroupChoosing" rv-on-click="talController.showGroupViewModalFromLot">View Group</button>
 							
 											<button class="l-grid-half o-icon-label-button" rv-unless="lot.group | lengthand talObject.isGroupChoosing" rv-on-click="talController.createGroupBid" rv-class-s-active="lot.group | indexof talObject.tempGroup.uid">
-												<i class="icon-eye"></i>
+												<i class="icon-group-bid"></i>
 												<label rv-unless="talObject.isGroupChoosing">Group Bid</label>
 												<span rv-if="talObject.isGroupChoosing">
 													<label rv-unless="lot.group | indexof talObject.tempGroup.uid">Add To Group</label>
@@ -479,7 +483,7 @@
 												<button class="l-grid-half o-icon-label-button" rv-if="lot.group | lengthand talObject.isGroupChoosing" rv-on-click="talController.showGroupViewModalFromLot">View Group</button>
 								
 												<button class="l-grid-half o-icon-label-button" rv-unless="lot.group | lengthand talObject.isGroupChoosing" rv-on-click="talController.createGroupBid" rv-class-s-active="lot.group | indexof talObject.tempGroup.uid">
-													<i class="icon-eye"></i>
+													<i class="icon-group-bid"></i>
 													<label rv-unless="talObject.isGroupChoosing">Group Bid</label>
 													<span rv-if="talObject.isGroupChoosing">
 														<label rv-unless="lot.group | indexof talObject.tempGroup.uid">Add To Group</label>
@@ -634,7 +638,7 @@
 															<button class="l-grid-half o-icon-label-button" rv-if="lot.group | lengthand talObject.isGroupChoosing" rv-on-click="talController.showGroupViewModalFromLot">View Group</button>
 											
 															<button class="l-grid-half o-icon-label-button" rv-unless="lot.group | lengthand talObject.isGroupChoosing" rv-on-click="talController.createGroupBid" rv-class-s-active="lot.group | indexof talObject.tempGroup.uid">
-																<i class="icon-eye"></i>
+																<i class="icon-group-bid"></i>
 																<label rv-unless="talObject.isGroupChoosing">Group Bid</label>
 																<span rv-if="talObject.isGroupChoosing">
 																	<label rv-unless="lot.group | indexof talObject.tempGroup.uid">Add To Group</label>
@@ -833,7 +837,7 @@
 																<button class="l-grid-half o-icon-label-button" rv-if="lot.group | lengthand talObject.isGroupChoosing" rv-on-click="talController.showGroupViewModalFromLot">View Group</button>
 												
 																<button class="l-grid-half o-icon-label-button" rv-unless="lot.group | lengthand talObject.isGroupChoosing" rv-on-click="talController.createGroupBid" rv-class-s-active="lot.group | indexof talObject.tempGroup.uid">
-																	<i class="icon-eye"></i>
+																	<i class="icon-group-bid"></i>
 																	<label rv-unless="talObject.isGroupChoosing">Group Bid</label>
 																	<span rv-if="talObject.isGroupChoosing">
 																		<label rv-unless="lot.group | indexof talObject.tempGroup.uid">Add To Group</label>
@@ -957,7 +961,7 @@
 	
 	<div class="l-nav--mobile-footer">
 		<button class="o-icon-label-button m-grid-fifth" rv-on-click="talController.loadTab" data-tab="auction" rv-class-s-active="talObject.activeTab | compare 'auction'">
-			<i class="icon-eye"></i>
+			<i class="icon-gavel"></i>
 			<label>Auction</label>
 		</button>
 		<button class="o-icon-label-button m-grid-fifth" rv-on-click="talController.loadTab" data-tab="watching"  rv-class-s-active="talObject.activeTab | compare 'watching'">
@@ -966,7 +970,7 @@
 			<div class="badge--count" rv-if="talObject.watchingLots | lengthToBool">{talObject.watchingLots | length}</div>
 		</button>
 		<button class="o-icon-label-button m-grid-fifth" rv-on-click="talController.loadTab" data-tab="bids" rv-class-s-active="talObject.activeTab | compare 'bids'">
-			<i class="icon-eye"></i>
+			<i class="icon-check"></i>
 			<label>Bids</label>
 			<div class="badge--count" rv-if="talObject.biddingLots | lengthToBool">{talObject.biddingLots | length}</div>
 		</button>
@@ -1043,7 +1047,7 @@
 											<i class="icon-eye"></i><label for="">Watch<span rv-if="talObject.focusedLot.watching | indexof talObject.bidder">ing</span></label>
 										</button>
 										<button class="l-grid-half m-grid-half o-icon-label-button" rv-on-click="talController.dismissAndGroupBid">
-											<i class="icon-eye"></i><label for="">Group Bid</label>
+											<i class="icon-group-bid"></i><label for="">Group Bid</label>
 										</button>
 									</div>
 									
@@ -1089,9 +1093,9 @@
 	</div>
 	<div class="o-toast--prompt-save-changes" rv-class-s-visible="talObject.isGroupChoosing">
 			<div class="o-width-wrapper">
-				<button class="o-text-button" rv-on-click="talController.cancelGroupBid">Cancel</button>
 				<button class="o-button_affirmative h-float-right" rv-on-click="talController.toggleGroupBidModalVisible">Create group with {talObject.tempGroup.lots | length} lots</button>
 				<span class="h-float-right h-color-white h-mr-100"><strong>Creating a group bid</strong><br/>Choose all lots you'd like to include in this group</span>
+				<button class="o-text-button" rv-on-click="talController.cancelGroupBid">Cancel</button>
 			</div>
 		</div>
 		
@@ -1230,7 +1234,7 @@
 														<i class="icon-eye"></i><label for="">Watch<span rv-if="talObject.focusedLot.watching | indexof talObject.bidder">ing</span></label>
 													</button>
 													<button class="l-grid-half m-grid-half o-icon-label-button" rv-on-click="talController.dismissAndGroupBid">
-														<i class="icon-eye"></i><label for="">Group Bid</label>
+														<i class="icon-group-bid"></i><label for="">Group Bid</label>
 													</button>
 												</div>
 												
