@@ -230,6 +230,12 @@
 		}
 	}
 
+	.h-hide-tiny{
+		@include breakpoint(smallmax){
+			display: none;
+		}
+	}
+
 
 .h-color-white{
 	color: white !important;

@@ -3045,6 +3045,10 @@ input[type="email"].s-error {
   .h-hide-mobile {
     display: none; } }
 
+@media (max-width: 30.0625em) {
+  .h-hide-tiny {
+    display: none; } }
+
 .h-color-white {
   color: white !important; }
 
