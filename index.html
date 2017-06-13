@@ -66,10 +66,13 @@
 			<button class="o-button--outline m-grid-fifth l-grid-quarter" rv-on-click="talController.toggleCategoriesVisible">
 				<span class="h-hide-tiny">Categories<i class="icon-arrow-down h-ml-100 h-hide-mobile"></i></span><span class="h-hide-desktop"><i class="icon-more_horiz"></i></span>
 			</button>
-			<input type="text" class="o-input--text_inline m-grid-three-fifths l-grid-half" placeholder="find by lot # or keyword" rv-on-click="talController.toggleSearchVisible" rv-value="talObject.filteredResults.input">
-			<button class="o-button h-hide-mobile">Search</button>
-		
-			<button class="o-text-button h-hide-desktop m-grid-fifth l-grid-quarter">Sort</button>
+			<div class="m-grid-three-fifths l-grid-half">
+				<input type="text" class="o-input--text" placeholder="find by lot # or keyword" rv-on-click="talController.toggleSearchVisible" rv-value="talObject.filteredResults.input">
+				<button class="o-icon-button--medium l-input--toggle" rv-if="talObject.filteredResults.input | lengthToBool" rv-on-click="talController.clearSearch"><i class="icon-error"></i></button>
+			</div>
+			<button class="o-button h-hide-mobile l-grid-quarter">Search</button>
+			
+			<button class="o-text-button h-hide-desktop m-grid-fifth">Sort</button>
 		</div>
 		<div class="c-subhead" rv-if="talObject.activeTab | compare 'auction'">
 			<div class="l-width--1200">
@@ -1389,12 +1392,12 @@
 										</div>
 										<div class="o-setting-section-separator">Search Within Categories</div>
 										<ul>
-											<li class="o-setting-list-item" rv-on-click="talController.doSearch">{ talObject.filteredResults.topMatch }</li>
-											<li class="o-setting-list-item t-empty h-ta-right" rv-each-category="talObject.filteredResults.categories" rv-on-click="talController.doSearch" rv-data-value="category">{ category }</li>
+											<li class="o-setting-list-item" rv-on-click="talController.doSearch">{ talObject.filteredResults.input }</li>
+											<li class="o-setting-list-item h-color-grey h-ml-100" rv-each-category="talObject.filteredResults.categories" rv-on-click="talController.doCategorySearch" rv-data-value="category">in { category }</li>
 										</ul>
 										<div class="o-setting-section-separator">Suggested Searches</div>
 										<ul>
-											<li class="o-setting-list-item" rv-each-match="talObject.filteredResults.matches" rv-on-click="talController.doSearch" rv-data-value="match">{ match }</li>
+											<li class="o-setting-list-item" rv-each-match="talObject.filteredResults.matches" rv-on-click="talController.doSearch" rv-data-value="match.lotNumber">Lot {match.lotNumber} - { match.description }</li>
 										</ul>
 						
 									</div>

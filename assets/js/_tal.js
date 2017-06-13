@@ -66,6 +66,7 @@ const talObject = {
 		categoriesVisible: false,
 		activeCategory: null,
 		categoryLots: [],
+		searchLots: [],
 		filteredResults: {},
 	};
 
@@ -158,8 +159,26 @@ const talController = {
 				} 
 				else{
 					talObject.filteredResults.lotMatch = null;
+					talObject.filteredResults.input = value;
+					talObject.filteredResults.categories = [];
+					talObject.filteredResults.matches = talObject.lots.filter((lot) => {
+						
+						if (lot.description.toLowerCase().indexOf(value) >= 0){
+							if(talObject.filteredResults.categories.indexOf(lot.category) === -1) talObject.filteredResults.categories.push(lot.category);
+							return true;
+						}
+					})
 				}
 				
+			},
+
+			doCategorySearch: function(e){
+				let value = $(e.currentTarget).data('value');
+				talObject.activeCategory = value;
+				talObject.categoryLots = talObject.lots.filter((lot) => {
+					return (lot.category === talObject.activeCategory && lot.description.toLowerCase().indexOf(talObject.filteredResults.input) >= 0);
+				});
+				talObject.mobileSearchVisible = false;
 			},
 
 			doSearch: function(e) {
@@ -179,6 +198,7 @@ const talController = {
 					categories: [],
 					matches: [],
 				};
+				talController.clearCategory();
 			},
 
 		/******************************************
@@ -192,8 +212,6 @@ const talController = {
 			goToCategory: function(e){
 				talObject.activeCategory = $(e.currentTarget).data('value');
 				talObject.categoryLots = talObject.lots.filter((lot) => {return lot.category === talObject.activeCategory});
-				console.log(talObject.categoryLots);
-
 				talObject.categoriesVisible = false;
 			},
 

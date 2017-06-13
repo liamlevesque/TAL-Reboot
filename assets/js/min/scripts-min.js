@@ -1508,7 +1508,7 @@ const lotlist = [
 			"lotNumber" : "5036",
 			"bids": [],
 			"maxBid":{bid: 0,bidder: null},
-			"category": 'Attachments - Motor Grader',
+			"category": 'Attachments - Wheel Loader',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -1517,13 +1517,11 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "Magnum MMG75 58 KW Skid Mtd Gen Set",
-			"photo" : "assets/img/asset2-1.jpg",
+			"description" : "John Deere Q/C 60 In. Wheel Loader Forks",
+			"photo" : "assets/img/asset10-1.jpg",
 			"photos": [
-				{"src": "assets/img/asset2-1.jpg","disabled":false},
-				{"src": "assets/img/asset2-2.jpg","disabled":false},
-				{"src": "assets/img/asset2-3.jpg","disabled":false},
-				{"src": "assets/img/asset2-4.jpg","disabled":false}
+				{"src": "assets/img/asset10-1.jpg","disabled":false},
+				{"src": "assets/img/asset10-2.jpg","disabled":false},
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -1536,7 +1534,7 @@ const lotlist = [
 			"lotNumber" : "5037",
 			"bids": [],
 			"maxBid":{bid: 0,bidder: null},
-			"category": 'Attachments - Motor Grader',
+			"category": 'Attachments - Wheel Loader',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -1545,13 +1543,11 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "Magnum MMG75 58 KW Skid Mtd Gen Set",
-			"photo" : "assets/img/asset2-1.jpg",
+			"description" : "John Deere Q/C 60 In. Wheel Loader Forks",
+			"photo" : "assets/img/asset10-1.jpg",
 			"photos": [
-				{"src": "assets/img/asset2-1.jpg","disabled":false},
-				{"src": "assets/img/asset2-2.jpg","disabled":false},
-				{"src": "assets/img/asset2-3.jpg","disabled":false},
-				{"src": "assets/img/asset2-4.jpg","disabled":false}
+				{"src": "assets/img/asset10-1.jpg","disabled":false},
+				{"src": "assets/img/asset10-2.jpg","disabled":false},
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -1564,7 +1560,7 @@ const lotlist = [
 			"lotNumber" : "5038",
 			"bids": [],
 			"maxBid":{bid: 0,bidder: null},
-			"category": 'Attachments - Motor Grader',
+			"category": 'Attachments - Wheel Loader',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -1573,13 +1569,11 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "Magnum MMG75 58 KW Skid Mtd Gen Set",
-			"photo" : "assets/img/asset2-1.jpg",
+			"description" : "John Deere Q/C 60 In. Wheel Loader Forks",
+			"photo" : "assets/img/asset10-1.jpg",
 			"photos": [
-				{"src": "assets/img/asset2-1.jpg","disabled":false},
-				{"src": "assets/img/asset2-2.jpg","disabled":false},
-				{"src": "assets/img/asset2-3.jpg","disabled":false},
-				{"src": "assets/img/asset2-4.jpg","disabled":false}
+				{"src": "assets/img/asset10-1.jpg","disabled":false},
+				{"src": "assets/img/asset10-2.jpg","disabled":false},
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -1592,7 +1586,7 @@ const lotlist = [
 			"lotNumber" : "5039",
 			"bids": [],
 			"maxBid":{bid: 0,bidder: null},
-			"category": 'Attachments - Motor Grader',
+			"category": 'Attachments - Wheel Loader',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -1601,13 +1595,11 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "Magnum MMG75 58 KW Skid Mtd Gen Set",
-			"photo" : "assets/img/asset2-1.jpg",
+			"description" : "John Deere Q/C 60 In. Wheel Loader Forks",
+			"photo" : "assets/img/asset10-1.jpg",
 			"photos": [
-				{"src": "assets/img/asset2-1.jpg","disabled":false},
-				{"src": "assets/img/asset2-2.jpg","disabled":false},
-				{"src": "assets/img/asset2-3.jpg","disabled":false},
-				{"src": "assets/img/asset2-4.jpg","disabled":false}
+				{"src": "assets/img/asset10-1.jpg","disabled":false},
+				{"src": "assets/img/asset10-2.jpg","disabled":false},
 			],
 			"usage" : "100000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -1620,7 +1612,7 @@ const lotlist = [
 			"lotNumber" : "5040",
 			"bids": [],
 			"maxBid":{bid: 0,bidder: null},
-			"category": 'Attachments - Motor Grader',
+			"category": 'Attachments - Wheel Loader',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -1629,13 +1621,11 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "Magnum MMG75 58 KW Skid Mtd Gen Set",
-			"photo" : "assets/img/asset2-1.jpg",
+			"description" : "John Deere Q/C 60 In. Wheel Loader Forks",
+			"photo" : "assets/img/asset10-1.jpg",
 			"photos": [
-				{"src": "assets/img/asset2-1.jpg","disabled":false},
-				{"src": "assets/img/asset2-2.jpg","disabled":false},
-				{"src": "assets/img/asset2-3.jpg","disabled":false},
-				{"src": "assets/img/asset2-4.jpg","disabled":false}
+				{"src": "assets/img/asset10-1.jpg","disabled":false},
+				{"src": "assets/img/asset10-2.jpg","disabled":false},
 			],
 			"usage" : "100000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -1648,7 +1638,7 @@ const lotlist = [
 			"lotNumber" : "5041",
 			"bids": [],
 			"maxBid":{bid: 0,bidder: null},
-			"category": 'Attachments - Motor Grader',
+			"category": 'Attachments - Wheel Loader',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -1657,13 +1647,11 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "Magnum MMG75 58 KW Skid Mtd Gen Set",
-			"photo" : "assets/img/asset2-1.jpg",
+			"description" : "John Deere Q/C 60 In. Wheel Loader Forks",
+			"photo" : "assets/img/asset10-1.jpg",
 			"photos": [
-				{"src": "assets/img/asset2-1.jpg","disabled":false},
-				{"src": "assets/img/asset2-2.jpg","disabled":false},
-				{"src": "assets/img/asset2-3.jpg","disabled":false},
-				{"src": "assets/img/asset2-4.jpg","disabled":false}
+				{"src": "assets/img/asset10-1.jpg","disabled":false},
+				{"src": "assets/img/asset10-2.jpg","disabled":false},
 			],
 			"usage" : "100000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -1676,7 +1664,7 @@ const lotlist = [
 			"lotNumber" : "5042",
 			"bids": [{bid: 100, bidder: "12345", time: "2017-06-07T22:20:58.162Z", type: 'max'}],
 			"maxBid":{bid: 500,bidder: "12345"},
-			"category": 'Attachments - Motor Grader',
+			"category": 'Attachments - Wheel Loader',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -1685,13 +1673,11 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "Magnum MMG75 58 KW Skid Mtd Gen Set",
-			"photo" : "assets/img/asset2-1.jpg",
+			"description" : "John Deere Q/C 60 In. Wheel Loader Forks",
+			"photo" : "assets/img/asset10-1.jpg",
 			"photos": [
-				{"src": "assets/img/asset2-1.jpg","disabled":false},
-				{"src": "assets/img/asset2-2.jpg","disabled":false},
-				{"src": "assets/img/asset2-3.jpg","disabled":false},
-				{"src": "assets/img/asset2-4.jpg","disabled":false}
+				{"src": "assets/img/asset10-1.jpg","disabled":false},
+				{"src": "assets/img/asset10-2.jpg","disabled":false},
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -1704,7 +1690,7 @@ const lotlist = [
 			"lotNumber" : "5043",
 			"bids": [],
 			"maxBid":{bid: 0,bidder: null},
-			"category": 'Attachments - Motor Grader',
+			"category": 'Attachments - Wheel Loader',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -1713,13 +1699,11 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "Magnum MMG75 58 KW Skid Mtd Gen Set",
-			"photo" : "assets/img/asset2-1.jpg",
+			"description" : "John Deere Q/C 60 In. Wheel Loader Forks",
+			"photo" : "assets/img/asset10-1.jpg",
 			"photos": [
-				{"src": "assets/img/asset2-1.jpg","disabled":false},
-				{"src": "assets/img/asset2-2.jpg","disabled":false},
-				{"src": "assets/img/asset2-3.jpg","disabled":false},
-				{"src": "assets/img/asset2-4.jpg","disabled":false}
+				{"src": "assets/img/asset10-1.jpg","disabled":false},
+				{"src": "assets/img/asset10-2.jpg","disabled":false},
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -1732,7 +1716,7 @@ const lotlist = [
 			"lotNumber" : "5044",
 			"bids": [],
 			"maxBid":{bid: 0,bidder: null},
-			"category": 'Attachments - Motor Grader',
+			"category": 'Attachments - Wheel Loader',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -1741,13 +1725,11 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "Magnum MMG75 58 KW Skid Mtd Gen Set",
-			"photo" : "assets/img/asset2-1.jpg",
+			"description" : "John Deere Q/C 60 In. Wheel Loader Forks",
+			"photo" : "assets/img/asset10-1.jpg",
 			"photos": [
-				{"src": "assets/img/asset2-1.jpg","disabled":false},
-				{"src": "assets/img/asset2-2.jpg","disabled":false},
-				{"src": "assets/img/asset2-3.jpg","disabled":false},
-				{"src": "assets/img/asset2-4.jpg","disabled":false}
+				{"src": "assets/img/asset10-1.jpg","disabled":false},
+				{"src": "assets/img/asset10-2.jpg","disabled":false},
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -1760,7 +1742,7 @@ const lotlist = [
 			"lotNumber" : "5045",
 			"bids": [],
 			"maxBid":{bid: 0,bidder: null},
-			"category": 'Attachments - Motor Grader',
+			"category": 'Attachments - Wheel Loader',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -1769,13 +1751,11 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "Magnum MMG75 58 KW Skid Mtd Gen Set",
-			"photo" : "assets/img/asset2-1.jpg",
+			"description" : "John Deere Q/C 60 In. Wheel Loader Forks",
+			"photo" : "assets/img/asset10-1.jpg",
 			"photos": [
-				{"src": "assets/img/asset2-1.jpg","disabled":false},
-				{"src": "assets/img/asset2-2.jpg","disabled":false},
-				{"src": "assets/img/asset2-3.jpg","disabled":false},
-				{"src": "assets/img/asset2-4.jpg","disabled":false}
+				{"src": "assets/img/asset10-1.jpg","disabled":false},
+				{"src": "assets/img/asset10-2.jpg","disabled":false},
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -1788,7 +1768,7 @@ const lotlist = [
 			"lotNumber" : "5046",
 			"bids": [],
 			"maxBid":{bid: 0,bidder: null},
-			"category": 'Attachments - Motor Grader',
+			"category": 'Attachments - Wheel Loader',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -1797,13 +1777,11 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "Magnum MMG75 58 KW Skid Mtd Gen Set",
-			"photo" : "assets/img/asset2-1.jpg",
+			"description" : "John Deere Q/C 60 In. Wheel Loader Forks",
+			"photo" : "assets/img/asset10-1.jpg",
 			"photos": [
-				{"src": "assets/img/asset2-1.jpg","disabled":false},
-				{"src": "assets/img/asset2-2.jpg","disabled":false},
-				{"src": "assets/img/asset2-3.jpg","disabled":false},
-				{"src": "assets/img/asset2-4.jpg","disabled":false}
+				{"src": "assets/img/asset10-1.jpg","disabled":false},
+				{"src": "assets/img/asset10-2.jpg","disabled":false},
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -1825,13 +1803,11 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "Magnum MMG75 58 KW Skid Mtd Gen Set",
-			"photo" : "assets/img/asset2-1.jpg",
+			"description" : "2010 John Deere 78 In. Skid Steer Bucket",
+			"photo" : "assets/img/asset8-1.jpg",
 			"photos": [
-				{"src": "assets/img/asset2-1.jpg","disabled":false},
-				{"src": "assets/img/asset2-2.jpg","disabled":false},
-				{"src": "assets/img/asset2-3.jpg","disabled":false},
-				{"src": "assets/img/asset2-4.jpg","disabled":false}
+				{"src": "assets/img/asset8-1.jpg","disabled":false},
+				{"src": "assets/img/asset8-2.jpg","disabled":false},
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -1853,13 +1829,11 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "Magnum MMG75 58 KW Skid Mtd Gen Set",
-			"photo" : "assets/img/asset2-1.jpg",
+			"description" : "2010 John Deere 78 In. Skid Steer Bucket",
+			"photo" : "assets/img/asset8-1.jpg",
 			"photos": [
-				{"src": "assets/img/asset2-1.jpg","disabled":false},
-				{"src": "assets/img/asset2-2.jpg","disabled":false},
-				{"src": "assets/img/asset2-3.jpg","disabled":false},
-				{"src": "assets/img/asset2-4.jpg","disabled":false}
+				{"src": "assets/img/asset8-1.jpg","disabled":false},
+				{"src": "assets/img/asset8-2.jpg","disabled":false},
 			],
 			"usage" : "100000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -1872,7 +1846,7 @@ const lotlist = [
 			"lotNumber" : "5049",
 			"bids": [],
 			"maxBid":{bid: 0,bidder: null},
-			"category": 'Attachments - Skid Steer',
+			"category": 'Light Tower',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -1881,13 +1855,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "Magnum MMG75 58 KW Skid Mtd Gen Set",
-			"photo" : "assets/img/asset2-1.jpg",
+			"description" : "2014 Allmand Bros. PAL1250 Light Tower",
+			"photo" : "assets/img/asset3-1.jpg",
 			"photos": [
-				{"src": "assets/img/asset2-1.jpg","disabled":false},
-				{"src": "assets/img/asset2-2.jpg","disabled":false},
-				{"src": "assets/img/asset2-3.jpg","disabled":false},
-				{"src": "assets/img/asset2-4.jpg","disabled":false}
+				{"src": "assets/img/asset3-1.jpg","disabled":false},
+				{"src": "assets/img/asset3-2.jpg","disabled":false},
+				{"src": "assets/img/asset3-3.jpg","disabled":false},
+				{"src": "assets/img/asset3-4.jpg","disabled":false}
 			],
 			"usage" : "100000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -1900,7 +1874,7 @@ const lotlist = [
 			"lotNumber" : "5050",
 			"bids": [],
 			"maxBid":{bid: 0,bidder: null},
-			"category": 'Attachments - Skid Steer',
+			"category": 'Light Tower',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -1909,13 +1883,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "Magnum MMG75 58 KW Skid Mtd Gen Set",
-			"photo" : "assets/img/asset2-1.jpg",
+			"description" : "2014 Allmand Bros. PAL1250 Light Tower",
+			"photo" : "assets/img/asset3-1.jpg",
 			"photos": [
-				{"src": "assets/img/asset2-1.jpg","disabled":false},
-				{"src": "assets/img/asset2-2.jpg","disabled":false},
-				{"src": "assets/img/asset2-3.jpg","disabled":false},
-				{"src": "assets/img/asset2-4.jpg","disabled":false}
+				{"src": "assets/img/asset3-1.jpg","disabled":false},
+				{"src": "assets/img/asset3-2.jpg","disabled":false},
+				{"src": "assets/img/asset3-3.jpg","disabled":false},
+				{"src": "assets/img/asset3-4.jpg","disabled":false}
 			],
 			"usage" : "100000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -1928,7 +1902,7 @@ const lotlist = [
 			"lotNumber" : "5051",
 			"bids": [],
 			"maxBid":{bid: 0,bidder: null},
-			"category": 'Attachments - Skid Steer',
+			"category": 'Light Tower',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -1956,7 +1930,7 @@ const lotlist = [
 			"lotNumber" : "5052",
 			"bids": [],
 			"maxBid":{bid: 0,bidder: null},
-			"category": 'Attachments - Skid Steer',
+			"category": 'Light Tower',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -1984,7 +1958,7 @@ const lotlist = [
 			"lotNumber" : "5053",
 			"bids": [],
 			"maxBid":{bid: 0,bidder: null},
-			"category": 'Attachments - Skid Steer',
+			"category": 'Light Tower',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -2012,7 +1986,7 @@ const lotlist = [
 			"lotNumber" : "5054",
 			"bids": [],
 			"maxBid":{bid: 0,bidder: null},
-			"category": 'Attachments - Skid Steer',
+			"category": 'Light Tower',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -2040,7 +2014,7 @@ const lotlist = [
 			"lotNumber" : "5055",
 			"bids": [],
 			"maxBid":{bid: 0,bidder: null},
-			"category": 'Attachments - Skid Steer',
+			"category": 'Light Tower',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -2068,7 +2042,7 @@ const lotlist = [
 			"lotNumber" : "5056",
 			"bids": [],
 			"maxBid":{bid: 0,bidder: null},
-			"category": 'Attachments - Skid Steer',
+			"category": 'Light Tower',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -3421,13 +3395,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "John Deere 2755 21 Ft 2WD Finishing Mower Tractor",
-			"photo" : "assets/img/asset5-1.jpg",
+			"description" : "2013 John Deere 665 66 In. Auto Hitch Rototiller Mower Tractor",
+			"photo" : "assets/img/asset9-1.jpg",
 			"photos": [
-				{"src": "assets/img/asset5-1.jpg","disabled":false},
-				{"src": "assets/img/asset5-2.jpg","disabled":false},
-				{"src": "assets/img/asset5-3.jpg","disabled":false},
-				{"src": "assets/img/asset5-4.jpg","disabled":false}
+				{"src": "assets/img/asset9-1.jpg","disabled":false},
+				{"src": "assets/img/asset9-2.jpg","disabled":false},
+				{"src": "assets/img/asset9-3.jpg","disabled":false},
+				{"src": "assets/img/asset9-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -3449,13 +3423,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2011 Lincoln Vantage 500 S/A Welder",
-			"photo" : "assets/img/asset6-1.jpg",
+			"description" : "2013 John Deere 665 66 In. Auto Hitch Rototiller",
+			"photo" : "assets/img/asset9-1.jpg",
 			"photos": [
-				{"src": "assets/img/asset6-1.jpg","disabled":false},
-				{"src": "assets/img/asset6-2.jpg","disabled":false},
-				{"src": "assets/img/asset6-3.jpg","disabled":false},
-				{"src": "assets/img/asset6-4.jpg","disabled":false}
+				{"src": "assets/img/asset9-1.jpg","disabled":false},
+				{"src": "assets/img/asset9-2.jpg","disabled":false},
+				{"src": "assets/img/asset9-3.jpg","disabled":false},
+				{"src": "assets/img/asset9-4.jpg","disabled":false}
 			],
 			"usage" : "100000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -3477,13 +3451,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2011 Lincoln Vantage 500 S/A Welder",
-			"photo" : "assets/img/asset6-1.jpg",
+			"description" : "2013 John Deere 665 66 In. Auto Hitch Rototiller",
+			"photo" : "assets/img/asset9-1.jpg",
 			"photos": [
-				{"src": "assets/img/asset6-1.jpg","disabled":false},
-				{"src": "assets/img/asset6-2.jpg","disabled":false},
-				{"src": "assets/img/asset6-3.jpg","disabled":false},
-				{"src": "assets/img/asset6-4.jpg","disabled":false}
+				{"src": "assets/img/asset9-1.jpg","disabled":false},
+				{"src": "assets/img/asset9-2.jpg","disabled":false},
+				{"src": "assets/img/asset9-3.jpg","disabled":false},
+				{"src": "assets/img/asset9-4.jpg","disabled":false}
 			],
 			"usage" : "100000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -3505,13 +3479,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2011 Lincoln Vantage 500 S/A Welder",
-			"photo" : "assets/img/asset6-1.jpg",
+			"description" : "2013 John Deere 665 66 In. Auto Hitch Rototiller",
+			"photo" : "assets/img/asset9-1.jpg",
 			"photos": [
-				{"src": "assets/img/asset6-1.jpg","disabled":false},
-				{"src": "assets/img/asset6-2.jpg","disabled":false},
-				{"src": "assets/img/asset6-3.jpg","disabled":false},
-				{"src": "assets/img/asset6-4.jpg","disabled":false}
+				{"src": "assets/img/asset9-1.jpg","disabled":false},
+				{"src": "assets/img/asset9-2.jpg","disabled":false},
+				{"src": "assets/img/asset9-3.jpg","disabled":false},
+				{"src": "assets/img/asset9-4.jpg","disabled":false}
 			],
 			"usage" : "100000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -3533,13 +3507,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2011 Lincoln Vantage 500 S/A Welder",
-			"photo" : "assets/img/asset6-1.jpg",
+			"description" : "2013 John Deere 665 66 In. Auto Hitch Rototiller",
+			"photo" : "assets/img/asset9-1.jpg",
 			"photos": [
-				{"src": "assets/img/asset6-1.jpg","disabled":false},
-				{"src": "assets/img/asset6-2.jpg","disabled":false},
-				{"src": "assets/img/asset6-3.jpg","disabled":false},
-				{"src": "assets/img/asset6-4.jpg","disabled":false}
+				{"src": "assets/img/asset9-1.jpg","disabled":false},
+				{"src": "assets/img/asset9-2.jpg","disabled":false},
+				{"src": "assets/img/asset9-3.jpg","disabled":false},
+				{"src": "assets/img/asset9-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -3561,13 +3535,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2011 Lincoln Vantage 500 S/A Welder",
-			"photo" : "assets/img/asset6-1.jpg",
+			"description" : "2013 John Deere 665 66 In. Auto Hitch Rototiller",
+			"photo" : "assets/img/asset9-1.jpg",
 			"photos": [
-				{"src": "assets/img/asset6-1.jpg","disabled":false},
-				{"src": "assets/img/asset6-2.jpg","disabled":false},
-				{"src": "assets/img/asset6-3.jpg","disabled":false},
-				{"src": "assets/img/asset6-4.jpg","disabled":false}
+				{"src": "assets/img/asset9-1.jpg","disabled":false},
+				{"src": "assets/img/asset9-2.jpg","disabled":false},
+				{"src": "assets/img/asset9-3.jpg","disabled":false},
+				{"src": "assets/img/asset9-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -3589,13 +3563,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2011 Lincoln Vantage 500 S/A Welder",
-			"photo" : "assets/img/asset6-1.jpg",
+			"description" : "2013 John Deere 665 66 In. Auto Hitch Rototiller",
+			"photo" : "assets/img/asset9-1.jpg",
 			"photos": [
-				{"src": "assets/img/asset6-1.jpg","disabled":false},
-				{"src": "assets/img/asset6-2.jpg","disabled":false},
-				{"src": "assets/img/asset6-3.jpg","disabled":false},
-				{"src": "assets/img/asset6-4.jpg","disabled":false}
+				{"src": "assets/img/asset9-1.jpg","disabled":false},
+				{"src": "assets/img/asset9-2.jpg","disabled":false},
+				{"src": "assets/img/asset9-3.jpg","disabled":false},
+				{"src": "assets/img/asset9-4.jpg","disabled":false}
 			],
 			"usage" : "100000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -4028,7 +4002,7 @@ const lotlist = [
 			"lotNumber" : "5126",
 			"bids": [],
 			"maxBid":{bid: 0,bidder: null},
-			"category": 'Pumps',
+			"category": 'Utility Vehicles',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -4037,13 +4011,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2011 Lincoln Vantage 500 S/A Welder",
-			"photo" : "assets/img/asset6-1.jpg",
+			"description" : "2015 John Deere Gator 4x4 Side By Side Utility Vehicle",
+			"photo" : "assets/img/asset7-1.jpg",
 			"photos": [
-				{"src": "assets/img/asset6-1.jpg","disabled":false},
-				{"src": "assets/img/asset6-2.jpg","disabled":false},
-				{"src": "assets/img/asset6-3.jpg","disabled":false},
-				{"src": "assets/img/asset6-4.jpg","disabled":false}
+				{"src": "assets/img/asset7-1.jpg","disabled":false},
+				{"src": "assets/img/asset7-2.jpg","disabled":false},
+				{"src": "assets/img/asset7-3.jpg","disabled":false},
+				{"src": "assets/img/asset7-4.jpg","disabled":false}
 			],
 			"usage" : "100000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -4056,7 +4030,7 @@ const lotlist = [
 			"lotNumber" : "5127",
 			"bids": [],
 			"maxBid":{bid: 0,bidder: null},
-			"category": 'Pumps',
+			"category": 'Utility Vehicles',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -4065,13 +4039,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2011 Lincoln Vantage 500 S/A Welder",
-			"photo" : "assets/img/asset6-1.jpg",
+			"description" : "2015 John Deere Gator 4x4 Side By Side Utility Vehicle",
+			"photo" : "assets/img/asset7-1.jpg",
 			"photos": [
-				{"src": "assets/img/asset6-1.jpg","disabled":false},
-				{"src": "assets/img/asset6-2.jpg","disabled":false},
-				{"src": "assets/img/asset6-3.jpg","disabled":false},
-				{"src": "assets/img/asset6-4.jpg","disabled":false}
+				{"src": "assets/img/asset7-1.jpg","disabled":false},
+				{"src": "assets/img/asset7-2.jpg","disabled":false},
+				{"src": "assets/img/asset7-3.jpg","disabled":false},
+				{"src": "assets/img/asset7-4.jpg","disabled":false}
 			],
 			"usage" : "100000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -4084,7 +4058,7 @@ const lotlist = [
 			"lotNumber" : "5128",
 			"bids": [],
 			"maxBid":{bid: 0,bidder: null},
-			"category": 'Pumps',
+			"category": 'Utility Vehicles',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -4093,13 +4067,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2011 Lincoln Vantage 500 S/A Welder",
-			"photo" : "assets/img/asset6-1.jpg",
+			"description" : "2015 John Deere Gator 4x4 Side By Side Utility Vehicle",
+			"photo" : "assets/img/asset7-1.jpg",
 			"photos": [
-				{"src": "assets/img/asset6-1.jpg","disabled":false},
-				{"src": "assets/img/asset6-2.jpg","disabled":false},
-				{"src": "assets/img/asset6-3.jpg","disabled":false},
-				{"src": "assets/img/asset6-4.jpg","disabled":false}
+				{"src": "assets/img/asset7-1.jpg","disabled":false},
+				{"src": "assets/img/asset7-2.jpg","disabled":false},
+				{"src": "assets/img/asset7-3.jpg","disabled":false},
+				{"src": "assets/img/asset7-4.jpg","disabled":false}
 			],
 			"usage" : "100000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -4112,7 +4086,7 @@ const lotlist = [
 			"lotNumber" : "5129",
 			"bids": [],
 			"maxBid":{bid: 0,bidder: null},
-			"category": 'Pumps',
+			"category": 'Utility Vehicles',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -4121,13 +4095,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2011 Lincoln Vantage 500 S/A Welder",
-			"photo" : "assets/img/asset6-1.jpg",
+			"description" : "2015 John Deere Gator 4x4 Side By Side Utility Vehicle",
+			"photo" : "assets/img/asset7-1.jpg",
 			"photos": [
-				{"src": "assets/img/asset6-1.jpg","disabled":false},
-				{"src": "assets/img/asset6-2.jpg","disabled":false},
-				{"src": "assets/img/asset6-3.jpg","disabled":false},
-				{"src": "assets/img/asset6-4.jpg","disabled":false}
+				{"src": "assets/img/asset7-1.jpg","disabled":false},
+				{"src": "assets/img/asset7-2.jpg","disabled":false},
+				{"src": "assets/img/asset7-3.jpg","disabled":false},
+				{"src": "assets/img/asset7-4.jpg","disabled":false}
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -4140,7 +4114,7 @@ const lotlist = [
 			"lotNumber" : "5130",
 			"bids": [],
 			"maxBid":{bid: 0,bidder: null},
-			"category": 'Pumps',
+			"category": 'Utility Vehicles',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -4149,13 +4123,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2011 Lincoln Vantage 500 S/A Welder",
-			"photo" : "assets/img/asset6-1.jpg",
+			"description" : "2015 John Deere Gator 4x4 Side By Side Utility Vehicle",
+			"photo" : "assets/img/asset7-1.jpg",
 			"photos": [
-				{"src": "assets/img/asset6-1.jpg","disabled":false},
-				{"src": "assets/img/asset6-2.jpg","disabled":false},
-				{"src": "assets/img/asset6-3.jpg","disabled":false},
-				{"src": "assets/img/asset6-4.jpg","disabled":false}
+				{"src": "assets/img/asset7-1.jpg","disabled":false},
+				{"src": "assets/img/asset7-2.jpg","disabled":false},
+				{"src": "assets/img/asset7-3.jpg","disabled":false},
+				{"src": "assets/img/asset7-4.jpg","disabled":false}
 			],
 			"usage" : "100000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -4168,7 +4142,7 @@ const lotlist = [
 			"lotNumber" : "5131",
 			"bids": [],
 			"maxBid":{bid: 0,bidder: null},
-			"category": 'Pumps',
+			"category": 'Utility Vehicles',
 			"watching": [],
 			"equipid": '1234567890A',
 			"flagged": false,
@@ -4177,13 +4151,13 @@ const lotlist = [
 			"group": [],
 			"video":false,
 			"status" : null,
-			"description" : "2011 Lincoln Vantage 500 S/A Welder",
-			"photo" : "assets/img/asset6-1.jpg",
+			"description" : "2015 John Deere Gator 4x4 Side By Side Utility Vehicle",
+			"photo" : "assets/img/asset7-1.jpg",
 			"photos": [
-				{"src": "assets/img/asset6-1.jpg","disabled":false},
-				{"src": "assets/img/asset6-2.jpg","disabled":false},
-				{"src": "assets/img/asset6-3.jpg","disabled":false},
-				{"src": "assets/img/asset6-4.jpg","disabled":false}
+				{"src": "assets/img/asset7-1.jpg","disabled":false},
+				{"src": "assets/img/asset7-2.jpg","disabled":false},
+				{"src": "assets/img/asset7-3.jpg","disabled":false},
+				{"src": "assets/img/asset7-4.jpg","disabled":false}
 			],
 			"usage" : "100000 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
@@ -4664,6 +4638,9 @@ const categories = [
 		name: 'Landscape Equipment',
 		quantity: 44,
 	},{
+		name: 'Light Tower',
+		quantity: 11,
+	},{
 		name: 'Livestock Equipment',
 		quantity: 7,
 	},{
@@ -4687,6 +4664,9 @@ const categories = [
 	},{
 		name: 'Tanks',
 		quantity: 8,
+	},{
+		name: 'Utility Vehicles',
+		quantity: 11,
 	},{
 		name: 'Welders',
 		quantity: 22,
@@ -4762,6 +4742,7 @@ const talObject = {
 		categoriesVisible: false,
 		activeCategory: null,
 		categoryLots: [],
+		searchLots: [],
 		filteredResults: {},
 	};
 
@@ -4854,8 +4835,26 @@ const talController = {
 				} 
 				else{
 					talObject.filteredResults.lotMatch = null;
+					talObject.filteredResults.input = value;
+					talObject.filteredResults.categories = [];
+					talObject.filteredResults.matches = talObject.lots.filter((lot) => {
+						
+						if (lot.description.toLowerCase().indexOf(value) >= 0){
+							if(talObject.filteredResults.categories.indexOf(lot.category) === -1) talObject.filteredResults.categories.push(lot.category);
+							return true;
+						}
+					})
 				}
 				
+			},
+
+			doCategorySearch: function(e){
+				let value = $(e.currentTarget).data('value');
+				talObject.activeCategory = value;
+				talObject.categoryLots = talObject.lots.filter((lot) => {
+					return (lot.category === talObject.activeCategory && lot.description.toLowerCase().indexOf(talObject.filteredResults.input) >= 0);
+				});
+				talObject.mobileSearchVisible = false;
 			},
 
 			doSearch: function(e) {
@@ -4875,6 +4874,7 @@ const talController = {
 					categories: [],
 					matches: [],
 				};
+				talController.clearCategory();
 			},
 
 		/******************************************
@@ -4888,8 +4888,6 @@ const talController = {
 			goToCategory: function(e){
 				talObject.activeCategory = $(e.currentTarget).data('value');
 				talObject.categoryLots = talObject.lots.filter((lot) => {return lot.category === talObject.activeCategory});
-				console.log(talObject.categoryLots);
-
 				talObject.categoriesVisible = false;
 			},
 

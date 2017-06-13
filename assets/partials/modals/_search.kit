@@ -27,12 +27,12 @@
 				</div>
 				<div class="o-setting-section-separator">Search Within Categories</div>
 				<ul>
-					<li class="o-setting-list-item" rv-on-click="talController.doSearch">{ talObject.filteredResults.topMatch }</li>
-					<li class="o-setting-list-item t-empty h-ta-right" rv-each-category="talObject.filteredResults.categories" rv-on-click="talController.doSearch" rv-data-value="category">{ category }</li>
+					<li class="o-setting-list-item" rv-on-click="talController.doSearch">{ talObject.filteredResults.input }</li>
+					<li class="o-setting-list-item h-color-grey h-ml-100" rv-each-category="talObject.filteredResults.categories" rv-on-click="talController.doCategorySearch" rv-data-value="category">in { category }</li>
 				</ul>
 				<div class="o-setting-section-separator">Suggested Searches</div>
 				<ul>
-					<li class="o-setting-list-item" rv-each-match="talObject.filteredResults.matches" rv-on-click="talController.doSearch" rv-data-value="match">{ match }</li>
+					<li class="o-setting-list-item" rv-each-match="talObject.filteredResults.matches" rv-on-click="talController.doSearch" rv-data-value="match.lotNumber">Lot {match.lotNumber} - { match.description }</li>
 				</ul>
 
 			</div>

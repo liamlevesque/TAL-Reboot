@@ -48,6 +48,9 @@ const categories = [
 		name: 'Landscape Equipment',
 		quantity: 44,
 	},{
+		name: 'Light Tower',
+		quantity: 11,
+	},{
 		name: 'Livestock Equipment',
 		quantity: 7,
 	},{
@@ -71,6 +74,9 @@ const categories = [
 	},{
 		name: 'Tanks',
 		quantity: 8,
+	},{
+		name: 'Utility Vehicles',
+		quantity: 11,
 	},{
 		name: 'Welders',
 		quantity: 22,
