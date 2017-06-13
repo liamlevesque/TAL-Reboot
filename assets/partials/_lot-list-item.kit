@@ -38,7 +38,7 @@
 					<div class="meta--field h-hide-mobile" rv-if="lot.notes"><label class="t-smalllabel">Notes: </label><span>{lot.notes}</span></div>
 					
 					<div class="h-ta-right h-hide-desktop" rv-unless="lot.status | compare 'sold'">
-						<div class="h-mb-50">{talObject.time | countdownTimer lot.closes}</div>
+						<div class="h-mb-50"><label class="t-smalllabel">Closes in </label>{talObject.time | countdownTimer lot.closes}</div>
 
 						<div rv-unless="lot.bids.0.bid | greaterthan 0" class="t-empty">
 							No Bids Placed Yet
