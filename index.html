@@ -103,7 +103,7 @@
 				<div class="l-width--1200">
 					<ul class="c-lot-list js--optiscroll-content">
 						<li rv-each-lot="talObject.lots" rv-id="lot.lotNumber">
-							<div class="o-lot" rv-bidstatusclass="lot.bids | highbidder talObject.bidder" rv-on-click="talController.toggleLotDetails" rv-class-s-group-select="talObject.isGroupChoosing" rv-class-s-sold="talObject.time | compareTime lot.closes">
+							<div class="o-lot" rv-bidstatusclass="lot.bids | highbidder talObject.bidder" rv-on-click="talController.toggleLotDetails" rv-class-s-group-select="talObject.isGroupChoosing" rv-class-s-sold="lot.status | compare 'sold'">
 								
 								<!-- <input type="checkbox" rv-show="talObject.isGroupChoosing" class="lot--group-selector" rv-on-click="talController.addToGroup" rv-ischecked="lot.group | indexof talObject.tempGroup.uid"> -->
 							
@@ -113,13 +113,13 @@
 								</label>
 							
 								<div class="lot--status lot--status_high-bidder">
-									<span rv-unless="talObject.time | compareTime lot.closes">You are the high bidder</span>
-									<span rv-if="talObject.time | compareTime lot.closes">You won this lot!</span>
+									<span rv-unless="lot.status | compare 'sold'">You are the high bidder</span>
+									<span rv-if="lot.status | compare 'sold'">You won this lot!</span>
 								</div>
 								
 								<div class="lot--status lot--status_outbid">
-									<span rv-unless="talObject.time | compareTime lot.closes">You were outbid</span>
-									<span rv-if="talObject.time | compareTime lot.closes">You were outbid.</span>
+									<span rv-unless="lot.status | compare 'sold'">You were outbid</span>
+									<span rv-if="lot.status | compare 'sold'">You were outbid.</span>
 								</div>
 								
 							
@@ -142,7 +142,7 @@
 												<div class="meta--field h-hide-mobile" rv-if="lot.comeswith"><label class="t-smalllabel">Comes With: </label><span>{lot.comeswith}</span></div>
 												<div class="meta--field h-hide-mobile" rv-if="lot.notes"><label class="t-smalllabel">Notes: </label><span>{lot.notes}</span></div>
 												
-												<div class="h-ta-right h-hide-desktop" rv-unless="talObject.time | compareTime lot.closes">
+												<div class="h-ta-right h-hide-desktop" rv-unless="lot.status | compare 'sold'">
 													<div class="h-mb-50">{talObject.time | countdownTimer lot.closes}</div>
 							
 													<div rv-unless="lot.bids.0.bid | greaterthan 0" class="t-empty">
@@ -157,7 +157,7 @@
 													</div>
 												</div>
 							
-												<div class="h-ta-right h-hide-desktop" rv-if="talObject.time | compareTime lot.closes">
+												<div class="h-ta-right h-hide-desktop" rv-if="lot.status | compare 'sold'">
 													<div class="h-mb-50"><label class="t-smalllabel">Closed </label>{lot.closes | calendarTime}</div>
 													<label class="t-smalllabel">Sold </label><span class="CCY" rv-html="lot.bids.0.bid | price"></span>
 												</div>
@@ -165,7 +165,7 @@
 											</div>
 										</div>
 									</div>
-									<div class="lot--bid-details l-grid-half h-hide-mobile" rv-if="talObject.time | compareTime lot.closes">
+									<div class="lot--bid-details l-grid-half h-hide-mobile" rv-if="lot.status | compare 'sold'">
 										<div class="bid-details--section bid-details--bid"> 
 											<div rv-if="lot.bids.0.bid | greaterthan 0">
 												<label class="t-smalllabel">Sold</label>
@@ -184,7 +184,7 @@
 										</div>
 									</div>
 									
-									<div class="lot--bid-details l-grid-half h-hide-mobile" rv-on-click="talController.stopProp" rv-unless="talObject.time | compareTime lot.closes">
+									<div class="lot--bid-details l-grid-half h-hide-mobile" rv-on-click="talController.stopProp" rv-unless="lot.status | compare 'sold'">
 							
 										<div>
 											<button class="l-grid-half o-icon-label-button" rv-on-click="talController.watchLot" rv-class-s-active="lot.watching | indexof talObject.bidder">
@@ -250,7 +250,7 @@
 				<div class="l-width--1200">
 					<ul class="c-lot-list">
 						<li rv-each-lot="talObject.categoryLots" rv-id="lot.lotNumber">
-							<div class="o-lot" rv-bidstatusclass="lot.bids | highbidder talObject.bidder" rv-on-click="talController.toggleLotDetails" rv-class-s-group-select="talObject.isGroupChoosing" rv-class-s-sold="talObject.time | compareTime lot.closes">
+							<div class="o-lot" rv-bidstatusclass="lot.bids | highbidder talObject.bidder" rv-on-click="talController.toggleLotDetails" rv-class-s-group-select="talObject.isGroupChoosing" rv-class-s-sold="lot.status | compare 'sold'">
 								
 								<!-- <input type="checkbox" rv-show="talObject.isGroupChoosing" class="lot--group-selector" rv-on-click="talController.addToGroup" rv-ischecked="lot.group | indexof talObject.tempGroup.uid"> -->
 							
@@ -260,13 +260,13 @@
 								</label>
 							
 								<div class="lot--status lot--status_high-bidder">
-									<span rv-unless="talObject.time | compareTime lot.closes">You are the high bidder</span>
-									<span rv-if="talObject.time | compareTime lot.closes">You won this lot!</span>
+									<span rv-unless="lot.status | compare 'sold'">You are the high bidder</span>
+									<span rv-if="lot.status | compare 'sold'">You won this lot!</span>
 								</div>
 								
 								<div class="lot--status lot--status_outbid">
-									<span rv-unless="talObject.time | compareTime lot.closes">You were outbid</span>
-									<span rv-if="talObject.time | compareTime lot.closes">You were outbid.</span>
+									<span rv-unless="lot.status | compare 'sold'">You were outbid</span>
+									<span rv-if="lot.status | compare 'sold'">You were outbid.</span>
 								</div>
 								
 							
@@ -289,7 +289,7 @@
 												<div class="meta--field h-hide-mobile" rv-if="lot.comeswith"><label class="t-smalllabel">Comes With: </label><span>{lot.comeswith}</span></div>
 												<div class="meta--field h-hide-mobile" rv-if="lot.notes"><label class="t-smalllabel">Notes: </label><span>{lot.notes}</span></div>
 												
-												<div class="h-ta-right h-hide-desktop" rv-unless="talObject.time | compareTime lot.closes">
+												<div class="h-ta-right h-hide-desktop" rv-unless="lot.status | compare 'sold'">
 													<div class="h-mb-50">{talObject.time | countdownTimer lot.closes}</div>
 							
 													<div rv-unless="lot.bids.0.bid | greaterthan 0" class="t-empty">
@@ -304,7 +304,7 @@
 													</div>
 												</div>
 							
-												<div class="h-ta-right h-hide-desktop" rv-if="talObject.time | compareTime lot.closes">
+												<div class="h-ta-right h-hide-desktop" rv-if="lot.status | compare 'sold'">
 													<div class="h-mb-50"><label class="t-smalllabel">Closed </label>{lot.closes | calendarTime}</div>
 													<label class="t-smalllabel">Sold </label><span class="CCY" rv-html="lot.bids.0.bid | price"></span>
 												</div>
@@ -312,7 +312,7 @@
 											</div>
 										</div>
 									</div>
-									<div class="lot--bid-details l-grid-half h-hide-mobile" rv-if="talObject.time | compareTime lot.closes">
+									<div class="lot--bid-details l-grid-half h-hide-mobile" rv-if="lot.status | compare 'sold'">
 										<div class="bid-details--section bid-details--bid"> 
 											<div rv-if="lot.bids.0.bid | greaterthan 0">
 												<label class="t-smalllabel">Sold</label>
@@ -331,7 +331,7 @@
 										</div>
 									</div>
 									
-									<div class="lot--bid-details l-grid-half h-hide-mobile" rv-on-click="talController.stopProp" rv-unless="talObject.time | compareTime lot.closes">
+									<div class="lot--bid-details l-grid-half h-hide-mobile" rv-on-click="talController.stopProp" rv-unless="lot.status | compare 'sold'">
 							
 										<div>
 											<button class="l-grid-half o-icon-label-button" rv-on-click="talController.watchLot" rv-class-s-active="lot.watching | indexof talObject.bidder">
@@ -410,7 +410,7 @@
 					<div class="l-width--1200">
 						<ul class="c-lot-list" rv-if="talObject.watchingLots | lengthToBool">
 							<li rv-each-lot="talObject.watchingLots">
-								<div class="o-lot" rv-bidstatusclass="lot.bids | highbidder talObject.bidder" rv-on-click="talController.toggleLotDetails" rv-class-s-group-select="talObject.isGroupChoosing" rv-class-s-sold="talObject.time | compareTime lot.closes">
+								<div class="o-lot" rv-bidstatusclass="lot.bids | highbidder talObject.bidder" rv-on-click="talController.toggleLotDetails" rv-class-s-group-select="talObject.isGroupChoosing" rv-class-s-sold="lot.status | compare 'sold'">
 									
 									<!-- <input type="checkbox" rv-show="talObject.isGroupChoosing" class="lot--group-selector" rv-on-click="talController.addToGroup" rv-ischecked="lot.group | indexof talObject.tempGroup.uid"> -->
 								
@@ -420,13 +420,13 @@
 									</label>
 								
 									<div class="lot--status lot--status_high-bidder">
-										<span rv-unless="talObject.time | compareTime lot.closes">You are the high bidder</span>
-										<span rv-if="talObject.time | compareTime lot.closes">You won this lot!</span>
+										<span rv-unless="lot.status | compare 'sold'">You are the high bidder</span>
+										<span rv-if="lot.status | compare 'sold'">You won this lot!</span>
 									</div>
 									
 									<div class="lot--status lot--status_outbid">
-										<span rv-unless="talObject.time | compareTime lot.closes">You were outbid</span>
-										<span rv-if="talObject.time | compareTime lot.closes">You were outbid.</span>
+										<span rv-unless="lot.status | compare 'sold'">You were outbid</span>
+										<span rv-if="lot.status | compare 'sold'">You were outbid.</span>
 									</div>
 									
 								
@@ -449,7 +449,7 @@
 													<div class="meta--field h-hide-mobile" rv-if="lot.comeswith"><label class="t-smalllabel">Comes With: </label><span>{lot.comeswith}</span></div>
 													<div class="meta--field h-hide-mobile" rv-if="lot.notes"><label class="t-smalllabel">Notes: </label><span>{lot.notes}</span></div>
 													
-													<div class="h-ta-right h-hide-desktop" rv-unless="talObject.time | compareTime lot.closes">
+													<div class="h-ta-right h-hide-desktop" rv-unless="lot.status | compare 'sold'">
 														<div class="h-mb-50">{talObject.time | countdownTimer lot.closes}</div>
 								
 														<div rv-unless="lot.bids.0.bid | greaterthan 0" class="t-empty">
@@ -464,7 +464,7 @@
 														</div>
 													</div>
 								
-													<div class="h-ta-right h-hide-desktop" rv-if="talObject.time | compareTime lot.closes">
+													<div class="h-ta-right h-hide-desktop" rv-if="lot.status | compare 'sold'">
 														<div class="h-mb-50"><label class="t-smalllabel">Closed </label>{lot.closes | calendarTime}</div>
 														<label class="t-smalllabel">Sold </label><span class="CCY" rv-html="lot.bids.0.bid | price"></span>
 													</div>
@@ -472,7 +472,7 @@
 												</div>
 											</div>
 										</div>
-										<div class="lot--bid-details l-grid-half h-hide-mobile" rv-if="talObject.time | compareTime lot.closes">
+										<div class="lot--bid-details l-grid-half h-hide-mobile" rv-if="lot.status | compare 'sold'">
 											<div class="bid-details--section bid-details--bid"> 
 												<div rv-if="lot.bids.0.bid | greaterthan 0">
 													<label class="t-smalllabel">Sold</label>
@@ -491,7 +491,7 @@
 											</div>
 										</div>
 										
-										<div class="lot--bid-details l-grid-half h-hide-mobile" rv-on-click="talController.stopProp" rv-unless="talObject.time | compareTime lot.closes">
+										<div class="lot--bid-details l-grid-half h-hide-mobile" rv-on-click="talController.stopProp" rv-unless="lot.status | compare 'sold'">
 								
 											<div>
 												<button class="l-grid-half o-icon-label-button" rv-on-click="talController.watchLot" rv-class-s-active="lot.watching | indexof talObject.bidder">
@@ -571,7 +571,7 @@
 								<ul class="c-lot-list" rv-if="talObject.biddingLots | lengthToBool">
 									<li class="h-overflow-hidden" rv-each-lot="talObject.biddingLots">
 										<div rv-unless="lot.type | compare 'group'">
-											<div class="o-lot" rv-bidstatusclass="lot.bids | highbidder talObject.bidder" rv-on-click="talController.toggleLotDetails" rv-class-s-group-select="talObject.isGroupChoosing" rv-class-s-sold="talObject.time | compareTime lot.closes">
+											<div class="o-lot" rv-bidstatusclass="lot.bids | highbidder talObject.bidder" rv-on-click="talController.toggleLotDetails" rv-class-s-group-select="talObject.isGroupChoosing" rv-class-s-sold="lot.status | compare 'sold'">
 												
 												<!-- <input type="checkbox" rv-show="talObject.isGroupChoosing" class="lot--group-selector" rv-on-click="talController.addToGroup" rv-ischecked="lot.group | indexof talObject.tempGroup.uid"> -->
 											
@@ -581,13 +581,13 @@
 												</label>
 											
 												<div class="lot--status lot--status_high-bidder">
-													<span rv-unless="talObject.time | compareTime lot.closes">You are the high bidder</span>
-													<span rv-if="talObject.time | compareTime lot.closes">You won this lot!</span>
+													<span rv-unless="lot.status | compare 'sold'">You are the high bidder</span>
+													<span rv-if="lot.status | compare 'sold'">You won this lot!</span>
 												</div>
 												
 												<div class="lot--status lot--status_outbid">
-													<span rv-unless="talObject.time | compareTime lot.closes">You were outbid</span>
-													<span rv-if="talObject.time | compareTime lot.closes">You were outbid.</span>
+													<span rv-unless="lot.status | compare 'sold'">You were outbid</span>
+													<span rv-if="lot.status | compare 'sold'">You were outbid.</span>
 												</div>
 												
 											
@@ -610,7 +610,7 @@
 																<div class="meta--field h-hide-mobile" rv-if="lot.comeswith"><label class="t-smalllabel">Comes With: </label><span>{lot.comeswith}</span></div>
 																<div class="meta--field h-hide-mobile" rv-if="lot.notes"><label class="t-smalllabel">Notes: </label><span>{lot.notes}</span></div>
 																
-																<div class="h-ta-right h-hide-desktop" rv-unless="talObject.time | compareTime lot.closes">
+																<div class="h-ta-right h-hide-desktop" rv-unless="lot.status | compare 'sold'">
 																	<div class="h-mb-50">{talObject.time | countdownTimer lot.closes}</div>
 											
 																	<div rv-unless="lot.bids.0.bid | greaterthan 0" class="t-empty">
@@ -625,7 +625,7 @@
 																	</div>
 																</div>
 											
-																<div class="h-ta-right h-hide-desktop" rv-if="talObject.time | compareTime lot.closes">
+																<div class="h-ta-right h-hide-desktop" rv-if="lot.status | compare 'sold'">
 																	<div class="h-mb-50"><label class="t-smalllabel">Closed </label>{lot.closes | calendarTime}</div>
 																	<label class="t-smalllabel">Sold </label><span class="CCY" rv-html="lot.bids.0.bid | price"></span>
 																</div>
@@ -633,7 +633,7 @@
 															</div>
 														</div>
 													</div>
-													<div class="lot--bid-details l-grid-half h-hide-mobile" rv-if="talObject.time | compareTime lot.closes">
+													<div class="lot--bid-details l-grid-half h-hide-mobile" rv-if="lot.status | compare 'sold'">
 														<div class="bid-details--section bid-details--bid"> 
 															<div rv-if="lot.bids.0.bid | greaterthan 0">
 																<label class="t-smalllabel">Sold</label>
@@ -652,7 +652,7 @@
 														</div>
 													</div>
 													
-													<div class="lot--bid-details l-grid-half h-hide-mobile" rv-on-click="talController.stopProp" rv-unless="talObject.time | compareTime lot.closes">
+													<div class="lot--bid-details l-grid-half h-hide-mobile" rv-on-click="talController.stopProp" rv-unless="lot.status | compare 'sold'">
 											
 														<div>
 															<button class="l-grid-half o-icon-label-button" rv-on-click="talController.watchLot" rv-class-s-active="lot.watching | indexof talObject.bidder">
@@ -776,7 +776,7 @@
 									<div class="l-width--1200">
 										<ul class="c-lot-list" rv-if="talObject.purchasedLots | lengthToBool">
 											<li rv-each-lot="talObject.purchasedLots">
-												<div class="o-lot" rv-bidstatusclass="lot.bids | highbidder talObject.bidder" rv-on-click="talController.toggleLotDetails" rv-class-s-group-select="talObject.isGroupChoosing" rv-class-s-sold="talObject.time | compareTime lot.closes">
+												<div class="o-lot" rv-bidstatusclass="lot.bids | highbidder talObject.bidder" rv-on-click="talController.toggleLotDetails" rv-class-s-group-select="talObject.isGroupChoosing" rv-class-s-sold="lot.status | compare 'sold'">
 													
 													<!-- <input type="checkbox" rv-show="talObject.isGroupChoosing" class="lot--group-selector" rv-on-click="talController.addToGroup" rv-ischecked="lot.group | indexof talObject.tempGroup.uid"> -->
 												
@@ -786,13 +786,13 @@
 													</label>
 												
 													<div class="lot--status lot--status_high-bidder">
-														<span rv-unless="talObject.time | compareTime lot.closes">You are the high bidder</span>
-														<span rv-if="talObject.time | compareTime lot.closes">You won this lot!</span>
+														<span rv-unless="lot.status | compare 'sold'">You are the high bidder</span>
+														<span rv-if="lot.status | compare 'sold'">You won this lot!</span>
 													</div>
 													
 													<div class="lot--status lot--status_outbid">
-														<span rv-unless="talObject.time | compareTime lot.closes">You were outbid</span>
-														<span rv-if="talObject.time | compareTime lot.closes">You were outbid.</span>
+														<span rv-unless="lot.status | compare 'sold'">You were outbid</span>
+														<span rv-if="lot.status | compare 'sold'">You were outbid.</span>
 													</div>
 													
 												
@@ -815,7 +815,7 @@
 																	<div class="meta--field h-hide-mobile" rv-if="lot.comeswith"><label class="t-smalllabel">Comes With: </label><span>{lot.comeswith}</span></div>
 																	<div class="meta--field h-hide-mobile" rv-if="lot.notes"><label class="t-smalllabel">Notes: </label><span>{lot.notes}</span></div>
 																	
-																	<div class="h-ta-right h-hide-desktop" rv-unless="talObject.time | compareTime lot.closes">
+																	<div class="h-ta-right h-hide-desktop" rv-unless="lot.status | compare 'sold'">
 																		<div class="h-mb-50">{talObject.time | countdownTimer lot.closes}</div>
 												
 																		<div rv-unless="lot.bids.0.bid | greaterthan 0" class="t-empty">
@@ -830,7 +830,7 @@
 																		</div>
 																	</div>
 												
-																	<div class="h-ta-right h-hide-desktop" rv-if="talObject.time | compareTime lot.closes">
+																	<div class="h-ta-right h-hide-desktop" rv-if="lot.status | compare 'sold'">
 																		<div class="h-mb-50"><label class="t-smalllabel">Closed </label>{lot.closes | calendarTime}</div>
 																		<label class="t-smalllabel">Sold </label><span class="CCY" rv-html="lot.bids.0.bid | price"></span>
 																	</div>
@@ -838,7 +838,7 @@
 																</div>
 															</div>
 														</div>
-														<div class="lot--bid-details l-grid-half h-hide-mobile" rv-if="talObject.time | compareTime lot.closes">
+														<div class="lot--bid-details l-grid-half h-hide-mobile" rv-if="lot.status | compare 'sold'">
 															<div class="bid-details--section bid-details--bid"> 
 																<div rv-if="lot.bids.0.bid | greaterthan 0">
 																	<label class="t-smalllabel">Sold</label>
@@ -857,7 +857,7 @@
 															</div>
 														</div>
 														
-														<div class="lot--bid-details l-grid-half h-hide-mobile" rv-on-click="talController.stopProp" rv-unless="talObject.time | compareTime lot.closes">
+														<div class="lot--bid-details l-grid-half h-hide-mobile" rv-on-click="talController.stopProp" rv-unless="lot.status | compare 'sold'">
 												
 															<div>
 																<button class="l-grid-half o-icon-label-button" rv-on-click="talController.watchLot" rv-class-s-active="lot.watching | indexof talObject.bidder">
@@ -1028,13 +1028,13 @@
 						<div rv-bidstatusclass="talObject.focusedLot.bids | highbidder talObject.bidder" rv-class-s-sold="talObject.time | compareTime lot.closes">
 							
 							<div class="lot--status lot--status_high-bidder">
-								<span rv-unless="talObject.time | compareTime talObject.focusedLot.closes">You are the high bidder</span>
-								<span rv-if="talObject.time | compareTime talObject.focusedLot.closes">You won this lot!</span>
+								<span rv-unless="talObject.focusedLot.status | compare 'sold'">You are the high bidder</span>
+								<span rv-if="talObject.focusedLot.status | compare 'sold'">You won this lot!</span>
 							</div>
 							
 							<div class="lot--status lot--status_outbid">
-								<span rv-unless="talObject.time | compareTime talObject.focusedLot.closes">You were outbid.</span>
-								<span rv-if="talObject.time | compareTime talObject.focusedLot.closes">You were outbid.</span>
+								<span rv-unless="talObject.focusedLot.status | compare 'sold'">You were outbid.</span>
+								<span rv-if="talObject.focusedLot.status | compare 'sold'">You were outbid.</span>
 							</div>
 				
 							<div class="lot-photos">
@@ -1054,7 +1054,7 @@
 							</div>
 							<div class="h-p-100">
 								<h3 class="h3 h-mb-100">{talObject.focusedLot.description}</h3>
-								<div class="lot--bid-details l-grid-half h-hide-mobile" rv-if="talObject.time | compareTime talObject.focusedLot.closes">
+								<div class="lot--bid-details h-mb-100" rv-if="talObject.focusedLot.status | compare 'sold'">
 									<div class="bid-details--section bid-details--bid"> 
 										<div rv-if="talObject.focusedLot.bids.0.bid | greaterthan 0">
 											<label class="t-smalllabel">Sold</label>
@@ -1073,7 +1073,7 @@
 									</div>
 								</div>
 				
-								<div class="lot--bid-details h-mb-100" rv-unless="talObject.time | compareTime talObject.focusedLot.closes">
+								<div class="lot--bid-details h-mb-100" rv-unless="talObject.focusedLot.status | compare 'sold'">
 									<div>
 										<button class="l-grid-half m-grid-half o-icon-label-button" rv-on-click="talController.watchFocusedLot" rv-class-s-active="talObject.focusedLot.watching | indexof talObject.bidder">
 											<i class="icon-eye"></i><label for="">Watch<span rv-if="talObject.focusedLot.watching | indexof talObject.bidder">ing</span></label>
@@ -1114,7 +1114,7 @@
 							</div>
 						</div>
 			</div>
-			<div class="c-modal--footer h-ta-center" rv-unless="talObject.time | compareTime talObject.focusedLot.closes">
+			<div class="c-modal--footer h-ta-center" rv-unless="talObject.focusedLot.status | compare 'sold'">
 				<button class="o-button--outline h-mb-50" rv-class-l-grid-half="talObject.focusedLot.maxBid.bidder | inversecompare talObject.bidder" rv-on-click="talController.toggleMaximumBidVisible">
 					<span rv-unless="talObject.focusedLot.maxBid.bidder | compare talObject.bidder">Set Maximum Bid</span>
 					<span rv-if="talObject.focusedLot.maxBid.bidder | compare talObject.bidder">Change Maximum Bid of <span class="CCY" rv-html="talObject.focusedLot.maxBid.bid | price">}</span></span>
@@ -1217,13 +1217,13 @@
 									<div rv-bidstatusclass="talObject.focusedLot.bids | highbidder talObject.bidder" rv-class-s-sold="talObject.time | compareTime lot.closes">
 										
 										<div class="lot--status lot--status_high-bidder">
-											<span rv-unless="talObject.time | compareTime talObject.focusedLot.closes">You are the high bidder</span>
-											<span rv-if="talObject.time | compareTime talObject.focusedLot.closes">You won this lot!</span>
+											<span rv-unless="talObject.focusedLot.status | compare 'sold'">You are the high bidder</span>
+											<span rv-if="talObject.focusedLot.status | compare 'sold'">You won this lot!</span>
 										</div>
 										
 										<div class="lot--status lot--status_outbid">
-											<span rv-unless="talObject.time | compareTime talObject.focusedLot.closes">You were outbid.</span>
-											<span rv-if="talObject.time | compareTime talObject.focusedLot.closes">You were outbid.</span>
+											<span rv-unless="talObject.focusedLot.status | compare 'sold'">You were outbid.</span>
+											<span rv-if="talObject.focusedLot.status | compare 'sold'">You were outbid.</span>
 										</div>
 							
 										<div class="lot-photos">
@@ -1243,7 +1243,7 @@
 										</div>
 										<div class="h-p-100">
 											<h3 class="h3 h-mb-100">{talObject.focusedLot.description}</h3>
-											<div class="lot--bid-details l-grid-half h-hide-mobile" rv-if="talObject.time | compareTime talObject.focusedLot.closes">
+											<div class="lot--bid-details h-mb-100" rv-if="talObject.focusedLot.status | compare 'sold'">
 												<div class="bid-details--section bid-details--bid"> 
 													<div rv-if="talObject.focusedLot.bids.0.bid | greaterthan 0">
 														<label class="t-smalllabel">Sold</label>
@@ -1262,7 +1262,7 @@
 												</div>
 											</div>
 							
-											<div class="lot--bid-details h-mb-100" rv-unless="talObject.time | compareTime talObject.focusedLot.closes">
+											<div class="lot--bid-details h-mb-100" rv-unless="talObject.focusedLot.status | compare 'sold'">
 												<div>
 													<button class="l-grid-half m-grid-half o-icon-label-button" rv-on-click="talController.watchFocusedLot" rv-class-s-active="talObject.focusedLot.watching | indexof talObject.bidder">
 														<i class="icon-eye"></i><label for="">Watch<span rv-if="talObject.focusedLot.watching | indexof talObject.bidder">ing</span></label>
