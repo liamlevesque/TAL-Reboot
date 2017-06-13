@@ -3317,8 +3317,7 @@ a {
   left: 50%;
   top: 50%;
   margin: 0;
-  transform: translate(-50%, -50%);
-  position: relative; }
+  transform: translate(-50%, -50%); }
 
 .c-modal--header {
   padding: 10px 0;

@@ -7878,6 +7878,14 @@
 		"oAP": "\/login.html",
 		"oF": 0
 		},
+	"\/manifest.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "\/manifest-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
 	"\/TestingDebrief.txt": {
 		"ft": 8192,
 		"oA": 2,
