@@ -143,7 +143,7 @@
 												<div class="meta--field h-hide-mobile" rv-if="lot.notes"><label class="t-smalllabel">Notes: </label><span>{lot.notes}</span></div>
 												
 												<div class="h-ta-right h-hide-desktop">
-													<div class="h-mb-50">{lot.closes | countdownTime}</div>
+													<div class="h-mb-50">{talObject.time | countdownTimer lot.closes}</div>
 							
 													<div rv-unless="lot.bids.0.bid | greaterthan 0" class="t-empty">
 														No Bids Placed Yet
@@ -284,7 +284,7 @@
 												<div class="meta--field h-hide-mobile" rv-if="lot.notes"><label class="t-smalllabel">Notes: </label><span>{lot.notes}</span></div>
 												
 												<div class="h-ta-right h-hide-desktop">
-													<div class="h-mb-50">{lot.closes | countdownTime}</div>
+													<div class="h-mb-50">{talObject.time | countdownTimer lot.closes}</div>
 							
 													<div rv-unless="lot.bids.0.bid | greaterthan 0" class="t-empty">
 														No Bids Placed Yet
@@ -438,7 +438,7 @@
 													<div class="meta--field h-hide-mobile" rv-if="lot.notes"><label class="t-smalllabel">Notes: </label><span>{lot.notes}</span></div>
 													
 													<div class="h-ta-right h-hide-desktop">
-														<div class="h-mb-50">{lot.closes | countdownTime}</div>
+														<div class="h-mb-50">{talObject.time | countdownTimer lot.closes}</div>
 								
 														<div rv-unless="lot.bids.0.bid | greaterthan 0" class="t-empty">
 															No Bids Placed Yet
@@ -593,7 +593,7 @@
 																<div class="meta--field h-hide-mobile" rv-if="lot.notes"><label class="t-smalllabel">Notes: </label><span>{lot.notes}</span></div>
 																
 																<div class="h-ta-right h-hide-desktop">
-																	<div class="h-mb-50">{lot.closes | countdownTime}</div>
+																	<div class="h-mb-50">{talObject.time | countdownTimer lot.closes}</div>
 											
 																	<div rv-unless="lot.bids.0.bid | greaterthan 0" class="t-empty">
 																		No Bids Placed Yet
@@ -792,7 +792,7 @@
 																	<div class="meta--field h-hide-mobile" rv-if="lot.notes"><label class="t-smalllabel">Notes: </label><span>{lot.notes}</span></div>
 																	
 																	<div class="h-ta-right h-hide-desktop">
-																		<div class="h-mb-50">{lot.closes | countdownTime}</div>
+																		<div class="h-mb-50">{talObject.time | countdownTimer lot.closes}</div>
 												
 																		<div rv-unless="lot.bids.0.bid | greaterthan 0" class="t-empty">
 																			No Bids Placed Yet
@@ -1069,7 +1069,7 @@
 				
 									<div class="bid-details--section h-ta-right">
 										<label class="t-smalllabel h-float-left">Closes</label>
-										{talObject.focusedLot.closes | countdownTime} 
+										{talObject.time | countdownTimer lot.closes} 
 										<div class="bid-details--caveat">{talObject.focusedLot.closes | calendarTime}</div>
 									</div>
 								</div>
@@ -1256,7 +1256,7 @@
 							
 												<div class="bid-details--section h-ta-right">
 													<label class="t-smalllabel h-float-left">Closes</label>
-													{talObject.focusedLot.closes | countdownTime} 
+													{talObject.time | countdownTimer lot.closes} 
 													<div class="bid-details--caveat">{talObject.focusedLot.closes | calendarTime}</div>
 												</div>
 											</div>

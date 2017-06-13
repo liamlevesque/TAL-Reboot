@@ -3256,6 +3256,11 @@ a {
   transform: translateY(-50%);
   margin: 0 auto;
   position: relative; }
+  @media (max-width: 64em) {
+    .c-modal--content_mini {
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%, -50%); } }
 
 .c-modal--header {
   padding: 10px 0;
