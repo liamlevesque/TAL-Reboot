@@ -3779,10 +3779,14 @@ a {
       text-align: left;
       display: inline-block; } }
 
+.c-lot-list > li {
+  position: relative; }
+
 .o-lot, .o-group-bid-item {
   border-bottom: 1px solid #bfc0be;
   overflow: hidden;
-  position: relative; }
+  position: relative;
+  background-color: white; }
   .o-lot.s-group-select, .o-group-bid-item.s-group-select {
     padding-left: 40px; }
   .o-lot.s-in-group, .o-group-bid-item.s-in-group {
@@ -3796,6 +3800,16 @@ a {
     border-left: 15px solid #FCD748; }
   .o-lot.s-sold.s-outbid, .o-group-bid-item.s-sold.s-outbid {
     border-left: 15px solid #c4483a; }
+  .o-lot.s-swiped, .o-group-bid-item.s-swiped {
+    transform: translateX(200px) !important; }
+
+.o-lot--under-controls {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: #E9E9E9; }
 
 .o-lot--content, .o-group-bid-item {
   padding: 10px; }

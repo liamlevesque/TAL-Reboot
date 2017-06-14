@@ -107,7 +107,11 @@
 				<div class="l-width--1200">
 					<ul class="c-lot-list js--optiscroll-content">
 						<li rv-each-lot="talObject.lots" rv-id="lot.lotNumber">
-							<div class="o-lot" rv-bidstatusclass="lot.bids | highbidder talObject.bidder" rv-class-s-group-select="talObject.isGroupChoosing" rv-class-s-sold="lot.status | compare 'sold'" rv-class-s-in-group="lot.group | lengthand talObject.isGroupChoosing">
+							<div class="o-lot--under-controls">
+								<button class="o-icon-label-button" rv-on-click="talController.dragQuickBid"><i class="icon-check"></i><label for="">Quick Bid</label></button>
+							</div>
+							
+							<div class="o-lot" rv-bidstatusclass="lot.bids | highbidder talObject.bidder" rv-class-s-group-select="talObject.isGroupChoosing" rv-class-s-sold="lot.status | compare 'sold'" rv-class-s-in-group="lot.group | lengthand talObject.isGroupChoosing" rv-on-touchstart="talController.startDrag" rv-on-touchmove="talController.doDrag" rv-on-touchend="talController.endDrag" rv-on-touchcancel="talController.cancelDrag">
 								
 								<!-- <input type="checkbox" rv-show="talObject.isGroupChoosing" class="o-lot--group-selector" rv-on-click="talController.addToGroup" rv-ischecked="lot.group | indexof talObject.tempGroup.uid"> -->
 							
@@ -258,7 +262,11 @@
 				<div class="l-width--1200">
 					<ul class="c-lot-list">
 						<li rv-each-lot="talObject.categoryLots" rv-id="lot.lotNumber">
-							<div class="o-lot" rv-bidstatusclass="lot.bids | highbidder talObject.bidder" rv-class-s-group-select="talObject.isGroupChoosing" rv-class-s-sold="lot.status | compare 'sold'" rv-class-s-in-group="lot.group | lengthand talObject.isGroupChoosing">
+							<div class="o-lot--under-controls">
+								<button class="o-icon-label-button" rv-on-click="talController.dragQuickBid"><i class="icon-check"></i><label for="">Quick Bid</label></button>
+							</div>
+							
+							<div class="o-lot" rv-bidstatusclass="lot.bids | highbidder talObject.bidder" rv-class-s-group-select="talObject.isGroupChoosing" rv-class-s-sold="lot.status | compare 'sold'" rv-class-s-in-group="lot.group | lengthand talObject.isGroupChoosing" rv-on-touchstart="talController.startDrag" rv-on-touchmove="talController.doDrag" rv-on-touchend="talController.endDrag" rv-on-touchcancel="talController.cancelDrag">
 								
 								<!-- <input type="checkbox" rv-show="talObject.isGroupChoosing" class="o-lot--group-selector" rv-on-click="talController.addToGroup" rv-ischecked="lot.group | indexof talObject.tempGroup.uid"> -->
 							
@@ -424,7 +432,11 @@
 					<div class="l-width--1200">
 						<ul class="c-lot-list" rv-if="talObject.watchingLots | lengthToBool">
 							<li rv-each-lot="talObject.watchingLots">
-								<div class="o-lot" rv-bidstatusclass="lot.bids | highbidder talObject.bidder" rv-class-s-group-select="talObject.isGroupChoosing" rv-class-s-sold="lot.status | compare 'sold'" rv-class-s-in-group="lot.group | lengthand talObject.isGroupChoosing">
+								<div class="o-lot--under-controls">
+									<button class="o-icon-label-button" rv-on-click="talController.dragQuickBid"><i class="icon-check"></i><label for="">Quick Bid</label></button>
+								</div>
+								
+								<div class="o-lot" rv-bidstatusclass="lot.bids | highbidder talObject.bidder" rv-class-s-group-select="talObject.isGroupChoosing" rv-class-s-sold="lot.status | compare 'sold'" rv-class-s-in-group="lot.group | lengthand talObject.isGroupChoosing" rv-on-touchstart="talController.startDrag" rv-on-touchmove="talController.doDrag" rv-on-touchend="talController.endDrag" rv-on-touchcancel="talController.cancelDrag">
 									
 									<!-- <input type="checkbox" rv-show="talObject.isGroupChoosing" class="o-lot--group-selector" rv-on-click="talController.addToGroup" rv-ischecked="lot.group | indexof talObject.tempGroup.uid"> -->
 								
@@ -589,7 +601,11 @@
 								<ul class="c-lot-list" rv-if="talObject.biddingLots | lengthToBool">
 									<li class="h-overflow-hidden" rv-each-lot="talObject.biddingLots">
 										<div rv-unless="lot.type | compare 'group'">
-											<div class="o-lot" rv-bidstatusclass="lot.bids | highbidder talObject.bidder" rv-class-s-group-select="talObject.isGroupChoosing" rv-class-s-sold="lot.status | compare 'sold'" rv-class-s-in-group="lot.group | lengthand talObject.isGroupChoosing">
+											<div class="o-lot--under-controls">
+												<button class="o-icon-label-button" rv-on-click="talController.dragQuickBid"><i class="icon-check"></i><label for="">Quick Bid</label></button>
+											</div>
+											
+											<div class="o-lot" rv-bidstatusclass="lot.bids | highbidder talObject.bidder" rv-class-s-group-select="talObject.isGroupChoosing" rv-class-s-sold="lot.status | compare 'sold'" rv-class-s-in-group="lot.group | lengthand talObject.isGroupChoosing" rv-on-touchstart="talController.startDrag" rv-on-touchmove="talController.doDrag" rv-on-touchend="talController.endDrag" rv-on-touchcancel="talController.cancelDrag">
 												
 												<!-- <input type="checkbox" rv-show="talObject.isGroupChoosing" class="o-lot--group-selector" rv-on-click="talController.addToGroup" rv-ischecked="lot.group | indexof talObject.tempGroup.uid"> -->
 											
@@ -798,7 +814,11 @@
 									<div class="l-width--1200">
 										<ul class="c-lot-list" rv-if="talObject.purchasedLots | lengthToBool">
 											<li rv-each-lot="talObject.purchasedLots">
-												<div class="o-lot" rv-bidstatusclass="lot.bids | highbidder talObject.bidder" rv-class-s-group-select="talObject.isGroupChoosing" rv-class-s-sold="lot.status | compare 'sold'" rv-class-s-in-group="lot.group | lengthand talObject.isGroupChoosing">
+												<div class="o-lot--under-controls">
+													<button class="o-icon-label-button" rv-on-click="talController.dragQuickBid"><i class="icon-check"></i><label for="">Quick Bid</label></button>
+												</div>
+												
+												<div class="o-lot" rv-bidstatusclass="lot.bids | highbidder talObject.bidder" rv-class-s-group-select="talObject.isGroupChoosing" rv-class-s-sold="lot.status | compare 'sold'" rv-class-s-in-group="lot.group | lengthand talObject.isGroupChoosing" rv-on-touchstart="talController.startDrag" rv-on-touchmove="talController.doDrag" rv-on-touchend="talController.endDrag" rv-on-touchcancel="talController.cancelDrag">
 													
 													<!-- <input type="checkbox" rv-show="talObject.isGroupChoosing" class="o-lot--group-selector" rv-on-click="talController.addToGroup" rv-ischecked="lot.group | indexof talObject.tempGroup.uid"> -->
 												

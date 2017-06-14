@@ -1,11 +1,14 @@
 .c-lot-list{
-
+	>li{
+		position: relative;
+	}
 }
 
 .o-lot, .o-group-bid-item{
 	border-bottom: $default-border;	
 	overflow: hidden;
 	position: relative;
+	background-color: white;
 
 	&.s-group-select{
 		padding-left: 40px;
@@ -32,7 +35,20 @@
 		border-left: 15px solid palette(error);
 	}
 
+	&.s-swiped{
+		transform: translateX(200px) !important;
+	}
+
 }
+
+	.o-lot--under-controls{
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		background-color: palette(grey,light);
+	}
 
 	.o-lot--content,.o-group-bid-item{
 		padding: spacing(x-small);

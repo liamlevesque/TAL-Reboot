@@ -4760,6 +4760,7 @@ const talObject = {
 		categoryLots: [],
 		searchLots: [],
 		filteredResults: {},
+		draggingLot: null,
 	};
 
 
@@ -5218,8 +5219,46 @@ const talController = {
 				talObject.focusedLot = talObject.tempGroup.lots[$(e.currentTarget).data('index')];
 			},
 
+
+		/******************************************
+			DRAGGING
+		******************************************/
+
+			startDrag: function(e,context){
+				talController.updateTouchStart(e);
+				talObject.draggingLot = $(e.currentTarget);
+			},
+			doDrag: function(e,context){
+				let relativeX = e.changedTouches[0].pageX - touchStart.x;
+				if(relativeX > swipeDistance) $(e.currentTarget).addClass('s-swiped');
+				else $(talObject.draggingLot).css('transform','translateX('+ relativeX + 'px)');
+			},
+			cancelDrag: function(e,context){
+
+			},
+			endDrag: function(e,context){
+				let relativeX = e.changedTouches[0].pageX - touchStart.x;
+				if(relativeX > swipeDistance) $(e.currentTarget).addClass('s-swiped');
+				else $(talObject.draggingLot).css('transform','translateX(0)');
+			},
+			updateTouchStart: function(e){
+				touchStart.x = e.changedTouches[0].pageX;
+			},
+
+			dragQuickBid: function(e,context){
+				$(talObject.draggingLot).removeClass('s-swiped');
+				$(talObject.draggingLot).css('transform','translateX(0)');
+				talController.quickBid(e,context);
+			}
+
 	};
 
+const swipeDistance = 150;
+
+const touchStart = {
+	x: 0,
+	y: 0,
+}
 
 const incrementTable = [
 	{
