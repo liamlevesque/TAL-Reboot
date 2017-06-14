@@ -4737,7 +4737,7 @@ const talObject = {
 		},
 		lotDetailsVisible: false,
 		maximumBidVisible: false,
-		tempMaxBid: 0,
+		tempMaxBid: null,
 		focusedLot: null,
 
 		activeTab: 'auction',
@@ -4747,7 +4747,7 @@ const talObject = {
 			uid: null,
 			lots: [],
 			quantity: 0,
-			maxbid: 0,
+			maxbid: null,
 			step: 1,
 		},
 		groupViewModalVisible: false,
@@ -5046,7 +5046,7 @@ const talController = {
 			toggleMaximumBidVisible: function(e,context){
 				talObject.maximumBidVisible = !talObject.maximumBidVisible;
 				if(typeof context.lot != 'undefined' && talObject.maximumBidVisible) talObject.focusedLot = context.lot;
-				
+				$('.js--maxbid-focus').focus();
 			},
 
 			setMaximumBid: function(){
@@ -5076,6 +5076,7 @@ const talController = {
 				}
 
 				talObject.maximumBidVisible = false;
+				talObject.tempMaxBid = null;
 			},
 
 			clearMaxBid: function(lot){
@@ -5108,7 +5109,7 @@ const talController = {
 					uid: new Date().toJSON(),
 					lots: [],
 					quantity: 1,
-					maxbid: 0,
+					maxbid: null,
 					step: 1,
 				}
 
@@ -5154,6 +5155,7 @@ const talController = {
 
 			groupBiddingStep: function(e){
 				talObject.tempGroup.step = $(e.currentTarget).data('targetstep');
+				if(talObject.tempGroup.step === 2) $('.js--group-max-input').focus();
 			},
 
 			completeGroupBid: function(e){
