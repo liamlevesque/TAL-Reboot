@@ -11,6 +11,10 @@
 		padding-left: 40px;
 	}
 
+	&.s-in-group{
+		border-left: 15px solid palette(grey);
+	}
+
 	&.s-sold{
 		opacity: 0.9;
 		background-color: palette(grey,x-light);
@@ -67,6 +71,13 @@
 			.s-sold &{
 				background-color: palette(error);
 				color: white;
+			}
+		}
+
+		.o-lot--status_group-not-on{
+			
+			.s-in-group &{
+				display: block;
 			}
 		}
 

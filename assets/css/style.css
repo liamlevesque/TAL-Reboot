@@ -3748,7 +3748,7 @@ a {
       padding-right: 100px; } }
   @media (max-width: 30.0625em) {
     .l-width--1200 {
-      padding-right: 50px; } }
+      padding-right: 20px; } }
 
 .l-header {
   box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.5); }
@@ -3785,6 +3785,8 @@ a {
   position: relative; }
   .o-lot.s-group-select, .o-group-bid-item.s-group-select {
     padding-left: 40px; }
+  .o-lot.s-in-group, .o-group-bid-item.s-in-group {
+    border-left: 15px solid #bfc0be; }
   .o-lot.s-sold, .o-group-bid-item.s-sold {
     opacity: 0.9;
     background-color: #F0F0F0; }
@@ -3822,6 +3824,9 @@ a {
   .s-sold .o-lot--status_outbid {
     background-color: #c4483a;
     color: white; }
+
+.s-in-group .o-lot--status_group-not-on {
+  display: block; }
 
 .o-lot--group-selector {
   position: absolute;

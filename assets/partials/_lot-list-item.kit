@@ -1,4 +1,4 @@
-<div class="o-lot" rv-bidstatusclass="lot.bids | highbidder talObject.bidder" rv-class-s-group-select="talObject.isGroupChoosing" rv-class-s-sold="lot.status | compare 'sold'">
+<div class="o-lot" rv-bidstatusclass="lot.bids | highbidder talObject.bidder" rv-class-s-group-select="talObject.isGroupChoosing" rv-class-s-sold="lot.status | compare 'sold'" rv-class-s-in-group="lot.group | lengthand talObject.isGroupChoosing">
 	
 	<!-- <input type="checkbox" rv-show="talObject.isGroupChoosing" class="o-lot--group-selector" rv-on-click="talController.addToGroup" rv-ischecked="lot.group | indexof talObject.tempGroup.uid"> -->
 
@@ -16,6 +16,10 @@
 		<span rv-unless="lot.status | compare 'sold'">You were outbid</span>
 		<span rv-if="lot.status | compare 'sold'">You were outbid.</span>
 	</div>
+
+	<div class="o-lot--status o-lot--status_group-not-on">
+		Part of a group bid. <span class="h-color-brand" rv-on-click="talController.showGroupViewModalFromLot">Show me the group</span>
+	</div>	
 	
 	<div class="o-lot--content" rv-on-click="talController.toggleLotDetails">
 

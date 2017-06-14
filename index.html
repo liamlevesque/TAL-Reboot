@@ -107,7 +107,7 @@
 				<div class="l-width--1200">
 					<ul class="c-lot-list js--optiscroll-content">
 						<li rv-each-lot="talObject.lots" rv-id="lot.lotNumber">
-							<div class="o-lot" rv-bidstatusclass="lot.bids | highbidder talObject.bidder" rv-class-s-group-select="talObject.isGroupChoosing" rv-class-s-sold="lot.status | compare 'sold'">
+							<div class="o-lot" rv-bidstatusclass="lot.bids | highbidder talObject.bidder" rv-class-s-group-select="talObject.isGroupChoosing" rv-class-s-sold="lot.status | compare 'sold'" rv-class-s-in-group="lot.group | lengthand talObject.isGroupChoosing">
 								
 								<!-- <input type="checkbox" rv-show="talObject.isGroupChoosing" class="o-lot--group-selector" rv-on-click="talController.addToGroup" rv-ischecked="lot.group | indexof talObject.tempGroup.uid"> -->
 							
@@ -125,6 +125,10 @@
 									<span rv-unless="lot.status | compare 'sold'">You were outbid</span>
 									<span rv-if="lot.status | compare 'sold'">You were outbid.</span>
 								</div>
+							
+								<div class="o-lot--status o-lot--status_group-not-on">
+									Part of a group bid. <span class="h-color-brand" rv-on-click="talController.showGroupViewModalFromLot">Show me the group</span>
+								</div>	
 								
 								<div class="o-lot--content" rv-on-click="talController.toggleLotDetails">
 							
@@ -254,7 +258,7 @@
 				<div class="l-width--1200">
 					<ul class="c-lot-list">
 						<li rv-each-lot="talObject.categoryLots" rv-id="lot.lotNumber">
-							<div class="o-lot" rv-bidstatusclass="lot.bids | highbidder talObject.bidder" rv-class-s-group-select="talObject.isGroupChoosing" rv-class-s-sold="lot.status | compare 'sold'">
+							<div class="o-lot" rv-bidstatusclass="lot.bids | highbidder talObject.bidder" rv-class-s-group-select="talObject.isGroupChoosing" rv-class-s-sold="lot.status | compare 'sold'" rv-class-s-in-group="lot.group | lengthand talObject.isGroupChoosing">
 								
 								<!-- <input type="checkbox" rv-show="talObject.isGroupChoosing" class="o-lot--group-selector" rv-on-click="talController.addToGroup" rv-ischecked="lot.group | indexof talObject.tempGroup.uid"> -->
 							
@@ -272,6 +276,10 @@
 									<span rv-unless="lot.status | compare 'sold'">You were outbid</span>
 									<span rv-if="lot.status | compare 'sold'">You were outbid.</span>
 								</div>
+							
+								<div class="o-lot--status o-lot--status_group-not-on">
+									Part of a group bid. <span class="h-color-brand" rv-on-click="talController.showGroupViewModalFromLot">Show me the group</span>
+								</div>	
 								
 								<div class="o-lot--content" rv-on-click="talController.toggleLotDetails">
 							
@@ -416,7 +424,7 @@
 					<div class="l-width--1200">
 						<ul class="c-lot-list" rv-if="talObject.watchingLots | lengthToBool">
 							<li rv-each-lot="talObject.watchingLots">
-								<div class="o-lot" rv-bidstatusclass="lot.bids | highbidder talObject.bidder" rv-class-s-group-select="talObject.isGroupChoosing" rv-class-s-sold="lot.status | compare 'sold'">
+								<div class="o-lot" rv-bidstatusclass="lot.bids | highbidder talObject.bidder" rv-class-s-group-select="talObject.isGroupChoosing" rv-class-s-sold="lot.status | compare 'sold'" rv-class-s-in-group="lot.group | lengthand talObject.isGroupChoosing">
 									
 									<!-- <input type="checkbox" rv-show="talObject.isGroupChoosing" class="o-lot--group-selector" rv-on-click="talController.addToGroup" rv-ischecked="lot.group | indexof talObject.tempGroup.uid"> -->
 								
@@ -434,6 +442,10 @@
 										<span rv-unless="lot.status | compare 'sold'">You were outbid</span>
 										<span rv-if="lot.status | compare 'sold'">You were outbid.</span>
 									</div>
+								
+									<div class="o-lot--status o-lot--status_group-not-on">
+										Part of a group bid. <span class="h-color-brand" rv-on-click="talController.showGroupViewModalFromLot">Show me the group</span>
+									</div>	
 									
 									<div class="o-lot--content" rv-on-click="talController.toggleLotDetails">
 								
@@ -577,7 +589,7 @@
 								<ul class="c-lot-list" rv-if="talObject.biddingLots | lengthToBool">
 									<li class="h-overflow-hidden" rv-each-lot="talObject.biddingLots">
 										<div rv-unless="lot.type | compare 'group'">
-											<div class="o-lot" rv-bidstatusclass="lot.bids | highbidder talObject.bidder" rv-class-s-group-select="talObject.isGroupChoosing" rv-class-s-sold="lot.status | compare 'sold'">
+											<div class="o-lot" rv-bidstatusclass="lot.bids | highbidder talObject.bidder" rv-class-s-group-select="talObject.isGroupChoosing" rv-class-s-sold="lot.status | compare 'sold'" rv-class-s-in-group="lot.group | lengthand talObject.isGroupChoosing">
 												
 												<!-- <input type="checkbox" rv-show="talObject.isGroupChoosing" class="o-lot--group-selector" rv-on-click="talController.addToGroup" rv-ischecked="lot.group | indexof talObject.tempGroup.uid"> -->
 											
@@ -595,6 +607,10 @@
 													<span rv-unless="lot.status | compare 'sold'">You were outbid</span>
 													<span rv-if="lot.status | compare 'sold'">You were outbid.</span>
 												</div>
+											
+												<div class="o-lot--status o-lot--status_group-not-on">
+													Part of a group bid. <span class="h-color-brand" rv-on-click="talController.showGroupViewModalFromLot">Show me the group</span>
+												</div>	
 												
 												<div class="o-lot--content" rv-on-click="talController.toggleLotDetails">
 											
@@ -782,7 +798,7 @@
 									<div class="l-width--1200">
 										<ul class="c-lot-list" rv-if="talObject.purchasedLots | lengthToBool">
 											<li rv-each-lot="talObject.purchasedLots">
-												<div class="o-lot" rv-bidstatusclass="lot.bids | highbidder talObject.bidder" rv-class-s-group-select="talObject.isGroupChoosing" rv-class-s-sold="lot.status | compare 'sold'">
+												<div class="o-lot" rv-bidstatusclass="lot.bids | highbidder talObject.bidder" rv-class-s-group-select="talObject.isGroupChoosing" rv-class-s-sold="lot.status | compare 'sold'" rv-class-s-in-group="lot.group | lengthand talObject.isGroupChoosing">
 													
 													<!-- <input type="checkbox" rv-show="talObject.isGroupChoosing" class="o-lot--group-selector" rv-on-click="talController.addToGroup" rv-ischecked="lot.group | indexof talObject.tempGroup.uid"> -->
 												
@@ -800,6 +816,10 @@
 														<span rv-unless="lot.status | compare 'sold'">You were outbid</span>
 														<span rv-if="lot.status | compare 'sold'">You were outbid.</span>
 													</div>
+												
+													<div class="o-lot--status o-lot--status_group-not-on">
+														Part of a group bid. <span class="h-color-brand" rv-on-click="talController.showGroupViewModalFromLot">Show me the group</span>
+													</div>	
 													
 													<div class="o-lot--content" rv-on-click="talController.toggleLotDetails">
 												
