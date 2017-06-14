@@ -77,7 +77,7 @@
 			text-align: center;
 
 			@include breakpoint(medmax){
-				height: $mobile-header-height/2;
+				height: 55px;
 			}
 
 			@include breakpoint(medium){

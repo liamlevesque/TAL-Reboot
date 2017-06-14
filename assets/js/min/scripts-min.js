@@ -4695,7 +4695,6 @@ function updatetime(){
 
 	let time = Math.floor((new Date().getTime() - talObject.startTime)/1000);
 	let diff = (new Date().getTime() - talObject.startTime) - talObject.crudeInterval;
-	console.log(time,diff);
 	
 	talObject.time = moment();
 	talObject.intervalCount = time;
@@ -4704,11 +4703,11 @@ function updatetime(){
 		talController.sellLot(nextLot);
 		talObject.auction.closingNext = nextLot; 
 	}
-	setTimeout(updatetime, (1000-diff));
+	setTimeout(updatetime, (1000-diff)); 
 }
 
 const talObject = {
-		closeInterval: 15,
+		closeInterval: 30,
 		startTime: null,
 		crudeInterval: 0,
 		intervalCount: 0,

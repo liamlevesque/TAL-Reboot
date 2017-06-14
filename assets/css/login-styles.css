@@ -57,7 +57,7 @@ body {
   font-size: 16px; }
   @media (min-width: 48em) and (max-width: 64em) {
     body {
-      font-size: 20px; } }
+      font-size: 22px; } }
 
 h1, h2, h3, h4, h5 {
   margin-top: 0;
@@ -78,14 +78,14 @@ h1, h2, h3, h4, h5 {
   font-weight: 700; }
   @media (min-width: 30.0625em) {
     .h2 {
-      font-size: 1.4rem; } }
+      font-size: 1.6rem; } }
 
 .h3 {
   font-size: 1rem;
   font-weight: 700; }
   @media (min-width: 30.0625em) {
     .h3 {
-      font-size: 1.2rem; } }
+      font-size: 1.4rem; } }
 
 .h5 {
   text-transform: uppercase;
@@ -93,13 +93,13 @@ h1, h2, h3, h4, h5 {
   font-size: 0.7rem; }
   @media (min-width: 30.0625em) {
     .h5 {
-      font-size: 0.8rem; } }
+      font-size: 0.9rem; } }
 
 .h6 {
   font-size: 0.7rem; }
   @media (min-width: 30.0625em) {
     .h6 {
-      font-size: 0.8rem; } }
+      font-size: 0.9rem; } }
 
 p {
   font-size: 1rem;
@@ -564,9 +564,9 @@ a {
     display: block;
     text-align: center;
     font-size: 0.7rem; }
-    @media (min-width: 64em) {
+    @media (min-width: 48em) and (max-width: 64em) {
       .o-icon-label-button label {
-        font-size: 0.8rem; } }
+        font-size: 0.9rem; } }
 
 .o-icon-button--toggle-round {
   font-weight: 700;
@@ -710,7 +710,7 @@ a {
     color: white; }
   @media (min-width: 48em) and (max-width: 64em) {
     .o-button {
-      font-size: 1.2rem; } }
+      font-size: 1.4rem; } }
   @media (max-width: 64em) {
     .o-button {
       width: 100%; } }
@@ -777,7 +777,7 @@ a {
     color: white; }
   @media (min-width: 48em) and (max-width: 64em) {
     .o-button--contrast {
-      font-size: 1.2rem; } }
+      font-size: 1.4rem; } }
   @media (max-width: 64em) {
     .o-button--contrast {
       width: 100%; } }
@@ -844,7 +844,7 @@ a {
     color: white; }
   @media (min-width: 48em) and (max-width: 64em) {
     .o-button--light {
-      font-size: 1.2rem; } }
+      font-size: 1.4rem; } }
   @media (max-width: 64em) {
     .o-button--light {
       width: 100%; } }
@@ -911,7 +911,7 @@ a {
     color: white; }
   @media (min-width: 48em) and (max-width: 64em) {
     .o-button--light_on-orange {
-      font-size: 1.2rem; } }
+      font-size: 1.4rem; } }
   @media (max-width: 64em) {
     .o-button--light_on-orange {
       width: 100%; } }
@@ -978,7 +978,7 @@ a {
     color: white; }
   @media (min-width: 48em) and (max-width: 64em) {
     .o-button_error {
-      font-size: 1.2rem; } }
+      font-size: 1.4rem; } }
   @media (max-width: 64em) {
     .o-button_error {
       width: 100%; } }
@@ -1045,7 +1045,7 @@ a {
     color: white; }
   @media (min-width: 48em) and (max-width: 64em) {
     .o-button_affirmative {
-      font-size: 1.2rem; } }
+      font-size: 1.4rem; } }
   @media (max-width: 64em) {
     .o-button_affirmative {
       width: 100%; } }
@@ -1113,7 +1113,7 @@ a {
     color: white; }
   @media (min-width: 48em) and (max-width: 64em) {
     .o-button--outline {
-      font-size: 1.2rem; } }
+      font-size: 1.4rem; } }
   @media (max-width: 64em) {
     .o-button--outline {
       width: 100%; } }
@@ -1181,7 +1181,7 @@ a {
     color: white; }
   @media (min-width: 48em) and (max-width: 64em) {
     .o-button--outline_error {
-      font-size: 1.2rem; } }
+      font-size: 1.4rem; } }
   @media (max-width: 64em) {
     .o-button--outline_error {
       width: 100%; } }
@@ -1249,7 +1249,7 @@ a {
     color: white; }
   @media (min-width: 48em) and (max-width: 64em) {
     .o-button--outline_grey {
-      font-size: 1.2rem; } }
+      font-size: 1.4rem; } }
   @media (max-width: 64em) {
     .o-button--outline_grey {
       width: 100%; } }
@@ -1317,7 +1317,7 @@ a {
     color: white; }
   @media (min-width: 48em) and (max-width: 64em) {
     .o-button--outline_white {
-      font-size: 1.2rem; } }
+      font-size: 1.4rem; } }
   @media (max-width: 64em) {
     .o-button--outline_white {
       width: 100%; } }
@@ -1390,7 +1390,7 @@ a {
     color: white; }
   @media (min-width: 48em) and (max-width: 64em) {
     .o-button--outline-small_grey {
-      font-size: 1.2rem; } }
+      font-size: 1.4rem; } }
   @media (max-width: 64em) {
     .o-button--outline-small_grey {
       width: 100%; } }
@@ -1463,7 +1463,7 @@ a {
     color: white; }
   @media (min-width: 48em) and (max-width: 64em) {
     .o-button--outline-small_error {
-      font-size: 1.2rem; } }
+      font-size: 1.4rem; } }
   @media (max-width: 64em) {
     .o-button--outline-small_error {
       width: 100%; } }
@@ -1525,9 +1525,6 @@ a {
     top: 0;
     background-color: #36AE4F;
     color: white; }
-  @media (min-width: 48em) and (max-width: 64em) {
-    .o-text-button {
-      font-size: 1rem; } }
   .o-text-button:hover, .o-text-button:focus {
     color: #C1631C; }
 
@@ -1582,9 +1579,6 @@ a {
     top: 0;
     background-color: #36AE4F;
     color: white; }
-  @media (min-width: 48em) and (max-width: 64em) {
-    .o-text-button_white {
-      font-size: 1rem; } }
   .o-text-button_white:hover, .o-text-button_white:focus {
     color: #E87722; }
 
@@ -1639,9 +1633,6 @@ a {
     top: 0;
     background-color: #36AE4F;
     color: white; }
-  @media (min-width: 48em) and (max-width: 64em) {
-    .o-text-button_black {
-      font-size: 1rem; } }
   .o-text-button_black:hover, .o-text-button_black:focus {
     color: #E87722; }
 
@@ -1696,9 +1687,6 @@ a {
     top: 0;
     background-color: #36AE4F;
     color: white; }
-  @media (min-width: 48em) and (max-width: 64em) {
-    .o-text-button_error {
-      font-size: 1rem; } }
   .o-text-button_error:hover, .o-text-button_error:focus {
     color: #A62F21; }
 
@@ -1755,7 +1743,7 @@ a {
     color: white; }
   @media (min-width: 48em) and (max-width: 64em) {
     .o-text-button--large {
-      font-size: 1.2rem; } }
+      font-size: 1.4rem; } }
   .o-text-button--large:hover, .o-text-button--large:focus {
     color: #C1631C; }
 
@@ -1812,7 +1800,7 @@ a {
     color: white; }
   @media (min-width: 48em) and (max-width: 64em) {
     .o-text-button--large_white {
-      font-size: 1.2rem; } }
+      font-size: 1.4rem; } }
   .o-text-button--large_white:hover, .o-text-button--large_white:focus {
     color: #E87722; }
 
@@ -1871,9 +1859,6 @@ a {
     top: 0;
     background-color: #36AE4F;
     color: white; }
-  @media (min-width: 48em) and (max-width: 64em) {
-    .o-button--combo-item {
-      font-size: 1rem; } }
   .o-button--combo-item:hover, .o-button--combo-item:focus {
     color: #E87722; }
   .o-button--combo-item:last-child {

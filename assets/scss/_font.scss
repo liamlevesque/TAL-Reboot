@@ -72,7 +72,7 @@ body{
 	font-size: 16px;
 
   @include breakpoint(med-to-medlarge){
-    font-size: 20px;
+    font-size: 22px;
   }
 
 }
@@ -98,7 +98,7 @@ h1, h2, h3, h4, h5 {
     font-weight: 700;
 
     @include breakpoint(small){
-       font-size: fontsize(300);
+       font-size: fontsize(400);
     }
   }
 
@@ -107,7 +107,7 @@ h1, h2, h3, h4, h5 {
     font-weight: 700;
 
     @include breakpoint(small){
-      font-size: fontsize(200);
+      font-size: fontsize(300);
     }
   }
 
@@ -116,7 +116,7 @@ h1, h2, h3, h4, h5 {
     font-size: fontsize(30);
 
     @include breakpoint(small){
-       font-size: fontsize(50);
+       font-size: fontsize(80);
     }
   }
 
@@ -124,7 +124,7 @@ h1, h2, h3, h4, h5 {
     font-size: fontsize(30);
 
     @include breakpoint(small){
-       font-size: fontsize(50);
+       font-size: fontsize(80);
     }
   }
 

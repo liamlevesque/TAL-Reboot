@@ -93,7 +93,7 @@
 	color: $text-color;
 
 	@include breakpoint(med-to-medlarge){
-		font-size: fontsize(200);
+		font-size: fontsize(300);
 	}
 	
 	@include breakpoint(medmax){
@@ -118,7 +118,7 @@
 	font-size: fontsize($font-size);
 
 	@include breakpoint(med-to-medlarge){
-		font-size: fontsize(2 * $font-size);
+		font-size: fontsize(3 * $font-size);
 	}
 
 	background-color: transparent;
@@ -199,8 +199,8 @@
   		text-align: center;
   		font-size: fontsize(30);
   		
-  		@include breakpoint(medium){
-  			font-size: fontsize(50);
+  		@include breakpoint(med-to-medlarge){
+  			font-size: fontsize(80);
   		}
   	}
   }
