@@ -159,11 +159,10 @@ const talController = {
 				} 
 				else{
 					talObject.filteredResults.lotMatch = null;
-					talObject.filteredResults.input = value;
+					talObject.filteredResults.input = value.toLowerCase();
 					talObject.filteredResults.categories = [];
 					talObject.filteredResults.matches = talObject.lots.filter((lot) => {
-						console.log(value, lot.description.toLowerCase());
-						if (lot.description.toLowerCase().indexOf(value) >= 0){
+						if (lot.description.toLowerCase().indexOf(talObject.filteredResults.input) >= 0){
 							if(talObject.filteredResults.categories.indexOf(lot.category) === -1) talObject.filteredResults.categories.push(lot.category);
 							return true;
 						}
