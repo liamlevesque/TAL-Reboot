@@ -12,7 +12,7 @@
 			<h4 class="h4">You want to win: <strong>{lot.quantity} of {lot.lots | length}</strong></h4>
 			<h4 class="h4">Bid up to: <span class="CCY" rv-html="lot.maxbid | price"></span> on each lot</h4>
 			<div class="h-ta-right h-hide-desktop">
-				<div class="h-mb-50">Next lot closes in<br/><strong>{lot.lots.0.closes | countdownTime}</strong></div>
+				<div class="h-mb-50">Next lot closes in<br/><strong>{talObject.time | countdownTimer lot.lots.0.closes}</strong></div>
 				<div rv-each-sublot="lot.lots" rv-show="sublot.bids.0.bidder | compare talObject.bidder" class="group-bid--bid_mobile">Bidding <strong class="CCY" rv-html="sublot.bids.0.bid | price"></strong> on <strong>Lot {sublot.lotNumber}</strong></div>
 			</div>
 
@@ -25,7 +25,7 @@
 
 			<div class="bid-details--section h-ta-right">
 				<label class="t-smalllabel h-float-left">Next lot closes in</label>
-				{lot.lots.0.closes | countdownTime}
+				{talObject.time | countdownTimer lot.lots.0.closes}
 				<div class="bid-details--caveat h-hide-mobile">{lot.lots.0.closes | calendarTime}</div>
 			</div>
 

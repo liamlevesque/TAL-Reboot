@@ -95,6 +95,10 @@ $progress-indicator-height: 50px;
 			&:before{
 				width: 2 * $scroll-width;
 			}
+
+			.auction-lot-intervals{
+				opacity: 1;
+			}
 		}
 	}
 
@@ -113,6 +117,12 @@ $progress-indicator-height: 50px;
 	.auction-lot-intervals{
 		position: relative;
 		height: 100%;
+		transition: opacity $transition;
+
+		@include breakpoint(smallmax){
+			background: linear-gradient(to left, white, rgba(white,0));
+			opacity: 0;
+		}
 	}
 
 		.auction-lot-interval{
