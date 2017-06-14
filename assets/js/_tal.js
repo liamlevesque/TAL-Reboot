@@ -1,7 +1,7 @@
 $(function(){
 
 	for(let i = 0; i < talObject.lots.length; i++){
-		talObject.lots[i].closes = moment().add((i - talObject.preSoldOffset) * 30,'seconds');
+		talObject.lots[i].closes = moment().add((i - talObject.preSoldOffset) * (talObject.closeInterval/1000),'seconds');
 	};
 
 	setInterval(function(){
