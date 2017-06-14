@@ -21,6 +21,9 @@ const categories = [
 		name: 'Attachments - Truck',
 		quantity: 66,
 	},{
+		name: 'Attachments - Wheel Loader',
+		quantity: 66,
+	},{
 		name: 'Cranes - Accessories',
 		quantity: 77,
 	},{

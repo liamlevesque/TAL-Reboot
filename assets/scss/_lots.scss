@@ -3,18 +3,9 @@
 }
 
 .o-lot, .o-group-bid-item{
-	padding: spacing(x-small);
 	border-bottom: $default-border;	
 	overflow: hidden;
 	position: relative;
-
-	@include breakpoint(medium){
-		padding: spacing(medium) spacing(x-small);
-	}
-
-	&.s-high-bidder{
-
-	}
 
 	&.s-group-select{
 		padding-left: 40px;
@@ -25,38 +16,50 @@
 		background-color: palette(grey,x-light);
 	}
 
+	&.s-winning{
+		border-left: 15px solid palette(affirmative);
+	}
+
+	&.s-outbid{
+		border-left: 15px solid palette(warning);
+	}
+
+	&.s-sold.s-outbid{
+		border-left: 15px solid palette(error);
+	}
+
 }
 
-	.lot--status{
+	.o-lot--content{
+		padding: spacing(x-small);
+
+		@include breakpoint(medium){
+			padding: spacing(medium) spacing(x-small);
+		}
+	}
+
+	.o-lot--status{
 		display: none;
-		padding: spacing(xx-small) 0;
+		padding: spacing(xx-small) spacing(x-small);
 
 		@include breakpoint(medium){
 			padding: spacing(x-small) spacing(small);
 		}
 	}
 
-		.lot--status_high-bidder{
-			color: palette(affirmative);
-
-			@include breakpoint(medium){
-				background-color: palette(affirmative);
-				color: white;
-			}
-
+		.o-lot--status_high-bidder{
+			background-color: palette(affirmative);
+			color: white;
+			
 			.s-winning &{
 				display: block;
 			}
 		}
 
-		.lot--status_outbid{
-			color: palette(warning,dark);
-
-			@include breakpoint(medium){
-				background-color: palette(warning);
-				color: black;
-			}
-
+		.o-lot--status_outbid{
+			background-color: palette(warning);
+			color: black;
+			
 			.s-outbid &{
 				display: block;
 			}
@@ -67,18 +70,18 @@
 			}
 		}
 
-	.lot--group-selector{
+	.o-lot--group-selector{
 		position: absolute;
 		top: spacing(small);
 		left: 0;
 	}
 
-	.lot--photo{
+	.o-lot--photo{
 		width: 100%;
 		max-width: 100%;
 	}
 
-	.lot-photos{
+	.o-lot--photos{
 		background-color: palette(grey,dark);
 
 		.swiper-container{
@@ -136,13 +139,21 @@
 		}
 	}
 
-	.lot--meta{	
+	.o-lot--meta{	
 	}
 		.meta--field{
 			margin-bottom: spacing(xx-small);
 		}
+		
+		.o-lot--bidder{
+			color: palette(brand);
 
-	.lot--bid-details{
+			.s-winning &{
+				color: palette(affirmative);
+			}
+		}
+
+	.o-lot--bid-details{
 		
 		border: 1px solid black;
 

@@ -122,6 +122,10 @@ h1, h2, h3, h4, h5 {
 
   .h6{
     font-size: fontsize(30);
+
+    @include breakpoint(small){
+       font-size: fontsize(50);
+    }
   }
 
 p{

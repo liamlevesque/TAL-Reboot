@@ -23,14 +23,16 @@
 
 	<div class="progress-indicator js--lot-scroll-indicator"></div>
 	<div class="auction-progress-meter js--lot-scroll-hover-area">
-		<div class="c-progress--auction" rv-vlocation="talObject.auction.closingNext | lotpositionDelta talObject.auction.startLot talObject.auction.endLot"></div>
 		<ul class="auction-lot-intervals">
 			<li class="auction-lot-interval" rv-each-interval="talObject.auction.totalLots | lotintervals talObject.auction.startLot talObject.auction.endLot">
 				{interval}
 			</li>
 		</ul>
-		<ul class="c-progress--bids">
-			<li class="c-progress--bid" rv-each-lot="talObject.biddingLots" rv-vlocation="lot | lotposition talObject.auction.startLot talObject.auction.endLot" rv-bidstatusclass="lot.bids | highbidder talObject.bidder"></li>
-		</ul>
+		<div class="c-progress--bar">
+			<div class="c-progress--auction" rv-vlocation="talObject.auction.closingNext | lotpositionDelta talObject.auction.startLot talObject.auction.endLot"></div>
+			<ul class="c-progress--bids">
+				<li class="c-progress--bid" rv-each-lot="talObject.biddingLots" rv-vlocation="lot | lotposition talObject.auction.startLot talObject.auction.endLot" rv-bidstatusclass="lot.bids | highbidder talObject.bidder" rv-class-s-sold="lot.status | compare 'sold'"></li>
+			</ul>
+		</div>
 	</div>
 </div>
