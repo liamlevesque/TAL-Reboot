@@ -3286,10 +3286,10 @@ a {
       width: 600px;
       margin: 0;
       position: absolute;
-      top: calc(50% + 20px);
+      top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      max-height: 100%;
+      max-height: 90%;
       box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.5);
       background-color: transparent; } }
 
@@ -3788,10 +3788,10 @@ a {
   .o-lot.s-sold.s-outbid, .o-group-bid-item.s-sold.s-outbid {
     border-left: 15px solid #c4483a; }
 
-.o-lot--content {
+.o-lot--content, .o-group-bid-item {
   padding: 10px; }
   @media (min-width: 64em) {
-    .o-lot--content {
+    .o-lot--content, .o-group-bid-item {
       padding: 20px 10px; } }
 
 .o-lot--status {

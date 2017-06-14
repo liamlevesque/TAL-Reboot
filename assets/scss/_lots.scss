@@ -30,7 +30,7 @@
 
 }
 
-	.o-lot--content{
+	.o-lot--content,.o-group-bid-item{
 		padding: spacing(x-small);
 
 		@include breakpoint(medium){
