@@ -4866,6 +4866,9 @@ const talController = {
 				if(talObject.filteredResults.lotMatch != null){
 					goToLot(talObject.filteredResults.lotMatch);
 					talObject.mobileSearchVisible = false;
+				}else{
+					goToLot($(e.currentTarget).data('value'));
+					talObject.mobileSearchVisible = false;
 				}
 			},
 
