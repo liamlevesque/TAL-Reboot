@@ -109,6 +109,7 @@
 						<li rv-each-lot="talObject.lots" rv-id="lot.lotNumber">
 							<div class="o-lot--under-controls">
 								<button class="o-icon-label-button" rv-on-click="talController.dragQuickBid"><i class="icon-check"></i><label for="">Quick Bid</label></button>
+								<button class="o-icon-label-button" rv-on-click="talController.dragWatchLot"><i class="icon-eye"></i><label for="">Watch</label></button>
 							</div>
 							
 							<div class="o-lot" rv-bidstatusclass="lot.bids | highbidder talObject.bidder" rv-class-s-group-select="talObject.isGroupChoosing" rv-class-s-sold="lot.status | compare 'sold'" rv-class-s-in-group="lot.group | lengthand talObject.isGroupChoosing" rv-on-touchstart="talController.startDrag" rv-on-touchmove="talController.doDrag" rv-on-touchend="talController.endDrag" rv-on-touchcancel="talController.cancelDrag">
@@ -132,6 +133,10 @@
 							
 								<div class="o-lot--status o-lot--status_group-not-on">
 									Part of a group bid. <span class="h-color-brand" rv-on-click="talController.showGroupViewModalFromLot">Show me the group</span>
+								</div>	
+							
+								<div class="o-lot--status o-lot--status_watching h-hide-desktop" rv-if="lot.watching | indexof talObject.bidder">
+									<i class="icon-eye h-color-active"></i> You are watching this lot.
 								</div>	
 								
 								<div class="o-lot--content" rv-on-click="talController.toggleLotDetails">
@@ -264,6 +269,7 @@
 						<li rv-each-lot="talObject.categoryLots" rv-id="lot.lotNumber">
 							<div class="o-lot--under-controls">
 								<button class="o-icon-label-button" rv-on-click="talController.dragQuickBid"><i class="icon-check"></i><label for="">Quick Bid</label></button>
+								<button class="o-icon-label-button" rv-on-click="talController.dragWatchLot"><i class="icon-eye"></i><label for="">Watch</label></button>
 							</div>
 							
 							<div class="o-lot" rv-bidstatusclass="lot.bids | highbidder talObject.bidder" rv-class-s-group-select="talObject.isGroupChoosing" rv-class-s-sold="lot.status | compare 'sold'" rv-class-s-in-group="lot.group | lengthand talObject.isGroupChoosing" rv-on-touchstart="talController.startDrag" rv-on-touchmove="talController.doDrag" rv-on-touchend="talController.endDrag" rv-on-touchcancel="talController.cancelDrag">
@@ -287,6 +293,10 @@
 							
 								<div class="o-lot--status o-lot--status_group-not-on">
 									Part of a group bid. <span class="h-color-brand" rv-on-click="talController.showGroupViewModalFromLot">Show me the group</span>
+								</div>	
+							
+								<div class="o-lot--status o-lot--status_watching h-hide-desktop" rv-if="lot.watching | indexof talObject.bidder">
+									<i class="icon-eye h-color-active"></i> You are watching this lot.
 								</div>	
 								
 								<div class="o-lot--content" rv-on-click="talController.toggleLotDetails">
@@ -434,6 +444,7 @@
 							<li rv-each-lot="talObject.watchingLots">
 								<div class="o-lot--under-controls">
 									<button class="o-icon-label-button" rv-on-click="talController.dragQuickBid"><i class="icon-check"></i><label for="">Quick Bid</label></button>
+									<button class="o-icon-label-button" rv-on-click="talController.dragWatchLot"><i class="icon-eye"></i><label for="">Watch</label></button>
 								</div>
 								
 								<div class="o-lot" rv-bidstatusclass="lot.bids | highbidder talObject.bidder" rv-class-s-group-select="talObject.isGroupChoosing" rv-class-s-sold="lot.status | compare 'sold'" rv-class-s-in-group="lot.group | lengthand talObject.isGroupChoosing" rv-on-touchstart="talController.startDrag" rv-on-touchmove="talController.doDrag" rv-on-touchend="talController.endDrag" rv-on-touchcancel="talController.cancelDrag">
@@ -457,6 +468,10 @@
 								
 									<div class="o-lot--status o-lot--status_group-not-on">
 										Part of a group bid. <span class="h-color-brand" rv-on-click="talController.showGroupViewModalFromLot">Show me the group</span>
+									</div>	
+								
+									<div class="o-lot--status o-lot--status_watching h-hide-desktop" rv-if="lot.watching | indexof talObject.bidder">
+										<i class="icon-eye h-color-active"></i> You are watching this lot.
 									</div>	
 									
 									<div class="o-lot--content" rv-on-click="talController.toggleLotDetails">
@@ -603,6 +618,7 @@
 										<div rv-unless="lot.type | compare 'group'">
 											<div class="o-lot--under-controls">
 												<button class="o-icon-label-button" rv-on-click="talController.dragQuickBid"><i class="icon-check"></i><label for="">Quick Bid</label></button>
+												<button class="o-icon-label-button" rv-on-click="talController.dragWatchLot"><i class="icon-eye"></i><label for="">Watch</label></button>
 											</div>
 											
 											<div class="o-lot" rv-bidstatusclass="lot.bids | highbidder talObject.bidder" rv-class-s-group-select="talObject.isGroupChoosing" rv-class-s-sold="lot.status | compare 'sold'" rv-class-s-in-group="lot.group | lengthand talObject.isGroupChoosing" rv-on-touchstart="talController.startDrag" rv-on-touchmove="talController.doDrag" rv-on-touchend="talController.endDrag" rv-on-touchcancel="talController.cancelDrag">
@@ -626,6 +642,10 @@
 											
 												<div class="o-lot--status o-lot--status_group-not-on">
 													Part of a group bid. <span class="h-color-brand" rv-on-click="talController.showGroupViewModalFromLot">Show me the group</span>
+												</div>	
+											
+												<div class="o-lot--status o-lot--status_watching h-hide-desktop" rv-if="lot.watching | indexof talObject.bidder">
+													<i class="icon-eye h-color-active"></i> You are watching this lot.
 												</div>	
 												
 												<div class="o-lot--content" rv-on-click="talController.toggleLotDetails">
@@ -816,6 +836,7 @@
 											<li rv-each-lot="talObject.purchasedLots">
 												<div class="o-lot--under-controls">
 													<button class="o-icon-label-button" rv-on-click="talController.dragQuickBid"><i class="icon-check"></i><label for="">Quick Bid</label></button>
+													<button class="o-icon-label-button" rv-on-click="talController.dragWatchLot"><i class="icon-eye"></i><label for="">Watch</label></button>
 												</div>
 												
 												<div class="o-lot" rv-bidstatusclass="lot.bids | highbidder talObject.bidder" rv-class-s-group-select="talObject.isGroupChoosing" rv-class-s-sold="lot.status | compare 'sold'" rv-class-s-in-group="lot.group | lengthand talObject.isGroupChoosing" rv-on-touchstart="talController.startDrag" rv-on-touchmove="talController.doDrag" rv-on-touchend="talController.endDrag" rv-on-touchcancel="talController.cancelDrag">
@@ -839,6 +860,10 @@
 												
 													<div class="o-lot--status o-lot--status_group-not-on">
 														Part of a group bid. <span class="h-color-brand" rv-on-click="talController.showGroupViewModalFromLot">Show me the group</span>
+													</div>	
+												
+													<div class="o-lot--status o-lot--status_watching h-hide-desktop" rv-if="lot.watching | indexof talObject.bidder">
+														<i class="icon-eye h-color-active"></i> You are watching this lot.
 													</div>	
 													
 													<div class="o-lot--content" rv-on-click="talController.toggleLotDetails">

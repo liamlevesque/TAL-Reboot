@@ -3842,6 +3842,11 @@ a {
 .s-in-group .o-lot--status_group-not-on {
   display: block; }
 
+.o-lot--status_watching {
+  display: block; }
+  .s-outbid .o-lot--status_watching, .s-winning .o-lot--status_watching {
+    display: none; }
+
 .o-lot--group-selector {
   position: absolute;
   top: 15px;

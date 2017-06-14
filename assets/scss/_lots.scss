@@ -97,6 +97,14 @@
 			}
 		}
 
+		.o-lot--status_watching{
+			display: block;
+
+			.s-outbid &, .s-winning &{
+				display: none;
+			}
+		}
+
 	.o-lot--group-selector{
 		position: absolute;
 		top: spacing(small);

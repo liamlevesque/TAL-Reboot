@@ -549,6 +549,7 @@ const talController = {
 			doDrag: function(e,context){
 				let relativeX = e.changedTouches[0].pageX - touchStart.x;
 				if(relativeX > swipeDistance) $(e.currentTarget).addClass('s-swiped');
+				if(relativeX < -20 && $(e.currentTarget).hasClass('s-swiped')) talController.resetDrag(talObject.draggingLot);
 				else $(talObject.draggingLot).css('transform','translateX('+ relativeX + 'px)');
 			},
 			cancelDrag: function(e,context){
@@ -557,17 +558,29 @@ const talController = {
 			endDrag: function(e,context){
 				let relativeX = e.changedTouches[0].pageX - touchStart.x;
 				if(relativeX > swipeDistance) $(e.currentTarget).addClass('s-swiped');
+				if(relativeX < -20 && $(e.currentTarget).hasClass('s-swiped')) talController.resetDrag(talObject.draggingLot);
 				else $(talObject.draggingLot).css('transform','translateX(0)');
 			},
 			updateTouchStart: function(e){
 				touchStart.x = e.changedTouches[0].pageX;
 			},
 
+			resetDrag: function(lot) {
+				$(lot).removeClass('s-swiped');
+				$(lot).css('transform','translateX(0)');
+			},
+
 			dragQuickBid: function(e,context){
-				$(talObject.draggingLot).removeClass('s-swiped');
-				$(talObject.draggingLot).css('transform','translateX(0)');
+				talController.resetDrag(talObject.draggingLot);
 				talController.quickBid(e,context);
-			}
+			},
+
+			dragWatchLot: function(e,context){
+				talController.resetDrag(talObject.draggingLot);
+				talController.watchLot(e,context);
+			},
+
+
 
 	};
 
