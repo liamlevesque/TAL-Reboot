@@ -223,7 +223,7 @@ rivets.formatters.and = function(value,item){
 };
 
 rivets.formatters.lengthand = function(value,item){
-	if(value.length > 0 && !item) return true;
+	if(typeof value != 'undefined' && value.length > 0 && !item) return true;
 	return false;
 };
 
