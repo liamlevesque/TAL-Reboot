@@ -1363,7 +1363,7 @@
 							</div>
 						</div>
 					</div>
-	<div class="c-modal" rv-class-s-visible="talObject.mobileSearchVisible">
+	<div class="c-modal" rv-class-s-visible="talObject.mobileSearchVisible" rv-on-click="talController.toggleSearchVisible">
 							<div class="c-modal--content" rv-on-click="talController.stopProp">
 								<div class="c-modal--header">
 									<div class="h-ta-left h-mr-100">
@@ -1399,7 +1399,7 @@
 										</ul>
 										<div class="o-setting-section-separator">Suggested Searches</div>
 										<ul>
-											<li class="o-setting-list-item" rv-each-match="talObject.filteredResults.matches" rv-on-click="talController.doSearch" rv-data-value="match.lotNumber">Lot {match.lotNumber} - { match.description }</li>
+											<li class="o-setting-list-item" rv-each-match="talObject.filteredResults.matches" rv-on-click="talController.doSearch" rv-data-value="match.lotNumber"><strong>Lot {match.lotNumber}</strong> - { match.description }</li>
 										</ul>
 						
 									</div>
