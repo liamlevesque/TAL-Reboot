@@ -1,6 +1,6 @@
 <div class="o-lot--under-controls">
-	<button class="o-icon-label-button" rv-on-click="talController.dragQuickBid"><i class="icon-check"></i><label for="">Quick Bid</label></button>
-	<button class="o-icon-label-button" rv-on-click="talController.dragWatchLot"><i class="icon-eye"></i><label for="">Watch</label></button>
+	<button class="o-icon-label-button" rv-on-click="talController.dragQuickBid"><i class="icon-check icon-size--large"></i><label for="">Quick Bid</label></button>
+	<button class="o-icon-label-button" rv-on-click="talController.dragWatchLot"><i class="icon-eye icon-size--large"></i><label for="">Watch</label></button>
 </div>
 
 <div class="o-lot" rv-bidstatusclass="lot.bids | highbidder talObject.bidder" rv-class-s-group-select="talObject.isGroupChoosing" rv-class-s-sold="lot.status | compare 'sold'" rv-class-s-in-group="lot.group | lengthand talObject.isGroupChoosing" rv-on-touchstart="talController.startDrag" rv-on-touchmove="talController.doDrag" rv-on-touchend="talController.endDrag" rv-on-touchcancel="talController.cancelDrag">

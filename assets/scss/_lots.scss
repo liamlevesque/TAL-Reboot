@@ -48,6 +48,10 @@
 		top: 0;
 		bottom: 0;
 		background-color: palette(grey,light);
+
+		button label{
+			margin-top: spacing(1000);
+		}
 	}
 
 	.o-lot--content,.o-group-bid-item{
