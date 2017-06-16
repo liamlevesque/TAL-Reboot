@@ -6,7 +6,7 @@
 		<input type="text" class="o-input--text" placeholder="find by lot # or keyword" rv-on-click="talController.toggleSearchVisible" rv-value="talObject.filteredResults.input">
 		<button class="o-icon-button--medium l-input--toggle" rv-if="talObject.filteredResults.input | lengthToBool" rv-on-click="talController.clearSearch"><i class="icon-error"></i></button>
 	</div>
-	<button class="o-button h-hide-mobile l-grid-quarter">Search</button>
+	<button class="o-button h-hide-mobile l-grid-quarter l-grid-last-item">Search</button>
 	
 	<button class="o-text-button h-hide-desktop m-grid-fifth">Sort</button>
 </div>

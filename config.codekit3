@@ -593,11 +593,29 @@
 		"sC": 1,
 		"tS": 0
 		},
+	"\/assets\/js\/_dragging.js": {
+		"ft": 64,
+		"mi": 1,
+		"oA": 1,
+		"oAP": "\/assets\/js\/min\/_dragging-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
 	"\/assets\/js\/_formatters.js": {
 		"ft": 64,
 		"mi": 1,
 		"oA": 1,
 		"oAP": "\/assets\/js\/min\/_formatters-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
+	"\/assets\/js\/_groupbid.js": {
+		"ft": 64,
+		"mi": 1,
+		"oA": 1,
+		"oAP": "\/assets\/js\/min\/_groupbid-min.js",
 		"oF": 0,
 		"sC": 1,
 		"tS": 0
@@ -620,11 +638,29 @@
 		"sC": 1,
 		"tS": 0
 		},
+	"\/assets\/js\/_maxbid.js": {
+		"ft": 64,
+		"mi": 1,
+		"oA": 1,
+		"oAP": "\/assets\/js\/min\/_maxbid-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
 	"\/assets\/js\/_notifications.js": {
 		"ft": 64,
 		"mi": 1,
 		"oA": 1,
 		"oAP": "\/assets\/js\/min\/_notifications-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
+	"\/assets\/js\/_quickbid.js": {
+		"ft": 64,
+		"mi": 1,
+		"oA": 1,
+		"oAP": "\/assets\/js\/min\/_quickbid-min.js",
 		"oF": 0,
 		"sC": 1,
 		"tS": 0
@@ -638,11 +674,56 @@
 		"sC": 1,
 		"tS": 0
 		},
+	"\/assets\/js\/_search.js": {
+		"ft": 64,
+		"mi": 1,
+		"oA": 1,
+		"oAP": "\/assets\/js\/min\/_search-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
+	"\/assets\/js\/_tal-end.js": {
+		"ft": 64,
+		"mi": 1,
+		"oA": 1,
+		"oAP": "\/assets\/js\/min\/_tal-end-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
+	"\/assets\/js\/_tal-start.js": {
+		"ft": 64,
+		"mi": 1,
+		"oA": 1,
+		"oAP": "\/assets\/js\/min\/_tal-start-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
 	"\/assets\/js\/_tal.js": {
 		"ft": 64,
 		"mi": 1,
 		"oA": 1,
 		"oAP": "\/assets\/js\/min\/_tal-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
+	"\/assets\/js\/_timing.js": {
+		"ft": 64,
+		"mi": 1,
+		"oA": 1,
+		"oAP": "\/assets\/js\/min\/_timing-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
+	"\/assets\/js\/_watching.js": {
+		"ft": 64,
+		"mi": 1,
+		"oA": 1,
+		"oAP": "\/assets\/js\/min\/_watching-min.js",
 		"oF": 0,
 		"sC": 1,
 		"tS": 0
@@ -711,6 +792,12 @@
 		"ft": 2048,
 		"oA": 1,
 		"oAP": "\/assets\/partials\/_header.html",
+		"oF": 0
+		},
+	"\/assets\/partials\/_loading-overlay.kit": {
+		"ft": 2048,
+		"oA": 1,
+		"oAP": "\/assets\/partials\/_loading-overlay.html",
 		"oF": 0
 		},
 	"\/assets\/partials\/_lot-list-item.kit": {
@@ -1034,6 +1121,19 @@
 		"oS": 0,
 		"uL": 1
 		},
+	"\/assets\/scss\/_loading.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/assets\/css\/_loading.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
 	"\/assets\/scss\/_login.scss": {
 		"aP": 0,
 		"bl": 0,
@@ -1095,6 +1195,19 @@
 		"ma": 0,
 		"oA": 1,
 		"oAP": "\/assets\/css\/_modal.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"\/assets\/scss\/_notifications.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/assets\/css\/_notifications.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
@@ -8215,8 +8328,62 @@
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/_tal.js",
+			"linkedFileAbbreviatedPath": "\/assets\/js\/_timing.js",
 			"position": 12,
+			"type": 1
+			},
+		{
+			"followForSyntaxChecking": 1,
+			"linkedFileAbbreviatedPath": "\/assets\/js\/_tal.js",
+			"position": 13,
+			"type": 1
+			},
+		{
+			"followForSyntaxChecking": 1,
+			"linkedFileAbbreviatedPath": "\/assets\/js\/_tal-start.js",
+			"position": 14,
+			"type": 1
+			},
+		{
+			"followForSyntaxChecking": 1,
+			"linkedFileAbbreviatedPath": "\/assets\/js\/_search.js",
+			"position": 15,
+			"type": 1
+			},
+		{
+			"followForSyntaxChecking": 1,
+			"linkedFileAbbreviatedPath": "\/assets\/js\/_watching.js",
+			"position": 16,
+			"type": 1
+			},
+		{
+			"followForSyntaxChecking": 1,
+			"linkedFileAbbreviatedPath": "\/assets\/js\/_quickbid.js",
+			"position": 17,
+			"type": 1
+			},
+		{
+			"followForSyntaxChecking": 1,
+			"linkedFileAbbreviatedPath": "\/assets\/js\/_maxbid.js",
+			"position": 18,
+			"type": 1
+			},
+		{
+			"followForSyntaxChecking": 1,
+			"linkedFileAbbreviatedPath": "\/assets\/js\/_groupbid.js",
+			"position": 19,
+			"type": 1
+			},
+		{
+			"followForSyntaxChecking": 1,
+			"linkedFileAbbreviatedPath": "\/assets\/js\/_dragging.js",
+			"position": 20,
+			"type": 1
+			},
+		{
+			"followForSyntaxChecking": 1,
+			"linkedFileAbbreviatedPath": "\/assets\/js\/_tal-end.js",
+			"position": 21,
 			"type": 1
 			}
 		]

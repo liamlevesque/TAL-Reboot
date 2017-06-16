@@ -19,6 +19,7 @@
 @import '../../bower_components/optiscroll/scss/optiscroll.scss'; 
 @import "empty-state";
 
+@import 'loading';
 @import 'search';
 @import 'progress';
 @import 'base';
@@ -27,3 +28,4 @@
 @import 'group-bid-list';
 @import 'mobile';
 @import 'settings';
+@import 'notifications';

@@ -84,6 +84,7 @@ $progress-indicator-height: 50px;
 	width: 100px;
 	z-index: 90;
 	transition: width $transition;
+	pointer-events: none;
 
 	.optiscroll.is-enabled ~ &{
 		display: block;
@@ -91,7 +92,8 @@ $progress-indicator-height: 50px;
 
 	@include breakpoint(medmax){
 		.optiscroll.s-scrolling ~ &{
-		
+			pointer-events: initial;
+
 			&:before{
 				width: 2 * $scroll-width;
 			}

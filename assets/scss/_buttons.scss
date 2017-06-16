@@ -160,7 +160,7 @@
     height: auto;
   }
 
-  .o-icon-label-button{
+  .o-icon-label-button, [class^='o-icon-label-button']{
 	@include icon-button(palette(grey,dark),black,$icon-medium);
 	height: auto;
 	padding: spacing(x-small);
@@ -191,6 +191,7 @@
 	}
 
 	i{
+		display: block;
 		margin-bottom: spacing(x-small);
 	}
 
@@ -204,6 +205,15 @@
   		}
   	}
   }
+
+  	.o-icon-label-button_large{
+		i{
+			margin-bottom: spacing(small);
+		}
+		label{
+			font-size: fontsize(80);
+		}
+	}
 
 	.o-icon-button--toggle-round{
 		@include icon-button(white,white,14px);

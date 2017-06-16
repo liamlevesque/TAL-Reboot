@@ -111,3 +111,13 @@
 	.l-grid-seveneigths{
 		@include g-cell(87.5%,1%)
 	}
+
+
+
+
+	.l-grid-last-item{
+		@include breakpoint(medium){
+			float: right;
+			margin-right: 0;
+		}
+	}

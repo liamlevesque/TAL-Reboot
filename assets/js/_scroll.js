@@ -2,6 +2,13 @@ $(function(){
 
 	createOptiscroll();
 	
+	setTimeout(function(){
+		talObject.doneLoading = true;
+		
+		setTimeout(function(){
+			talObject.scrollUpNoticeVisible = false;
+		},5000);
+	},1000);
 });
 
 
@@ -16,8 +23,8 @@ function createOptiscroll() {
 			//wrapContent: false,
 		});
 
-		let el = $('#5022');
-		scrollArea.scrollIntoView(el,100,{top: 5});
+		let nextLot = talObject.auction.startLot + talObject.auction.closingNext;
+		$('.optiscroll-content').scrollTop($('#' + nextLot).offset().top);
 
 		$('.js--lot-scroll-hover-area').on('mouseenter',function(e){
 			$('.optiscroll').addClass('s-scrolling');

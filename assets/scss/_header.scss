@@ -1,5 +1,6 @@
 .l-header{
 		box-shadow: $ritchie-shadow;
+		z-index: 100;
 	
 		@include breakpoint(medmax){
 			//height: $mobile-header-height;

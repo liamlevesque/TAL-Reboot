@@ -1,0 +1,17 @@
+.c-loading-overlay{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 200;
+    background: linear-gradient(to bottom, palette(brand), palette(brand,dark));
+    color: white;
+
+    transform: translateY(0);
+    transition: transform $transition;
+
+    &.s-hidden{
+        transform: translateY(-100%);
+    }
+}

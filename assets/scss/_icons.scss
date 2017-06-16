@@ -26,11 +26,11 @@ $icon-xxlarge: 48px;
 
 @font-face {
     font-family: 'ritchie-icons';
-    src:    url('../fonts/ritchie-icons.eot?lu0r2w');
-    src:    url('../fonts/ritchie-icons.eot?lu0r2w#iefix') format('embedded-opentype'),
-        url('../fonts/ritchie-icons.ttf?lu0r2w') format('truetype'),
-        url('../fonts/ritchie-icons.woff?lu0r2w') format('woff'),
-        url('../fonts/ritchie-icons.svg?lu0r2w#ritchie-icons') format('svg');
+    src:    url('../fonts/ritchie-icons.eot?yxocwn');
+    src:    url('../fonts/ritchie-icons.eot?yxocwn#iefix') format('embedded-opentype'),
+        url('../fonts/ritchie-icons.ttf?yxocwn') format('truetype'),
+        url('../fonts/ritchie-icons.woff?yxocwn') format('woff'),
+        url('../fonts/ritchie-icons.svg?yxocwn#ritchie-icons') format('svg');
     font-weight: normal;
     font-style: normal;
 } 
@@ -67,6 +67,9 @@ $icon-xxlarge: 48px;
     vertical-align: middle;
 }
 
+.icon-keyboard_arrow_up:before {
+  content: "\e929";
+}
 .icon-group-bid:before {
   content: "\e928";
 }

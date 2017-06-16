@@ -9,6 +9,7 @@
 	overflow: hidden;
 	position: relative;
 	background-color: white;
+	//transition: transform $transition;
 
 	&.s-group-select{
 		padding-left: 40px;
@@ -19,7 +20,7 @@
 	}
 
 	&.s-sold{
-		opacity: 0.9;
+		opacity: 1;
 		background-color: palette(grey,x-light);
 	}
 
@@ -35,23 +36,25 @@
 		border-left: 15px solid palette(error);
 	}
 
-	&.s-swiped{
+	&.s-swiped-right{
 		transform: translateX(200px) !important;
 	}
 
+	&.s-swiped-left{
+		transform: translateX(-200px) !important;
+	}
+
+	
+
 }
 
-	.o-lot--under-controls{
+	.o-lot--action-controls{
 		position: absolute;
 		left: 0;
 		right: 0;
 		top: 0;
 		bottom: 0;
 		background-color: palette(grey,light);
-
-		button label{
-			margin-top: spacing(1000);
-		}
 	}
 
 	.o-lot--content,.o-group-bid-item{
@@ -112,7 +115,7 @@
 	.o-lot--group-selector{
 		position: absolute;
 		top: spacing(small);
-		left: 0;
+		left: spacing(x-small);
 	}
 
 	.o-lot--photo{

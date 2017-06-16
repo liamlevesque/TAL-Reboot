@@ -1,0 +1,25 @@
+.o-notification{
+    position: absolute;
+    top: spacing(xx-small);
+    width: 90%;
+    max-width: 600px;
+    margin: 0 auto;
+
+    z-index: 6;
+
+    padding: spacing(xx-small) spacing(small);
+    text-align: center;
+    background-color: rgba(palette(grey,dark),0.9);
+    color: white;
+    font-size: fontsize(200);
+
+    border-radius: $default-border-radius;
+    box-shadow: $ritchie-shadow;
+
+    transform: translateY(-200%);
+    transition: transform $transition;
+
+    &.s-visible{
+        transform: translateY(0);
+    }
+}

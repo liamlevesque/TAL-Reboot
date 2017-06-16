@@ -392,6 +392,13 @@ $(function(){
 
 	createOptiscroll();
 	
+	setTimeout(function(){
+		talObject.doneLoading = true;
+		
+		setTimeout(function(){
+			talObject.scrollUpNoticeVisible = false;
+		},5000);
+	},1000);
 });
 
 
@@ -406,8 +413,8 @@ function createOptiscroll() {
 			//wrapContent: false,
 		});
 
-		let el = $('#5022');
-		scrollArea.scrollIntoView(el,100,{top: 5});
+		let nextLot = talObject.auction.startLot + talObject.auction.closingNext;
+		$('.optiscroll-content').scrollTop($('#' + nextLot).offset().top);
 
 		$('.js--lot-scroll-hover-area').on('mouseenter',function(e){
 			$('.optiscroll').addClass('s-scrolling');
@@ -4707,6 +4714,8 @@ function updatetime(){
 }
 
 const talObject = {
+		doneLoading: false,
+
 		closeInterval: 30,
 		startTime: null,
 		crudeInterval: 0,
@@ -4714,10 +4723,10 @@ const talObject = {
 		preSoldOffset: 20,
 		time: moment(),
 		auction: {
-			startLot: 5000,
+			startLot: 5001,
 			endLot: 5145,
 			totalLots: 146,
-			closingNext: 21,
+			closingNext: 20,
 		},
 		lots: lotlist,
 		watchingLots: [],
@@ -4760,8 +4769,63 @@ const talObject = {
 		categoryLots: [],
 		searchLots: [],
 		filteredResults: {},
+		
+		scrollUpNoticeVisible: true,
 		draggingLot: null,
+		swipeDistance: 150,
+		touchStart: {
+				x: 0,
+				y: 0,
+			},
 	};
+
+const incrementTable = [
+	{
+		upto: 99,
+		increment: 5
+	},
+	{
+		upto: 249,
+		increment: 10
+	},
+	{
+		upto: 499,
+		increment: 25
+	},
+	{
+		upto: 999,
+		increment: 50
+	},
+	{
+		upto: 2499,
+		increment: 100
+	},
+	{
+		upto: 9999,
+		increment: 250
+	},
+	{
+		upto: 24999,
+		increment: 500
+	},
+	{
+		upto: 149999,
+		increment: 1000
+	},
+	{
+		upto: 299999,
+		increment: 2500
+	},
+	{
+		upto: 999999,
+		increment: 5000
+	},
+	{
+		upto: 9999999,
+		increment: 10000
+	},
+]
+
 
 
 
@@ -4782,6 +4846,7 @@ const talController = {
 			scrollArea.destroy();
 			talObject.activeTab = target;
 			createOptiscroll();
+			
 		},
 
 		toggleLotDetails: function(e,context){
@@ -4818,7 +4883,7 @@ const talController = {
 			}
 		},
 
-		/******************************************
+        /******************************************
 			SEARCH
 		******************************************/	
 			toggleSearchVisible: function(e){
@@ -4896,6 +4961,7 @@ const talController = {
 				talController.clearCategory();
 			},
 
+
 		/******************************************
 			CATEGORIES
 		******************************************/	
@@ -4917,7 +4983,7 @@ const talController = {
 				createOptiscroll();
 			},
 
-		/******************************************
+        /******************************************
 			WATCH LOTS
 		******************************************/	
 
@@ -4953,7 +5019,8 @@ const talController = {
 
 			},
 
-		/******************************************
+
+        /******************************************
 			QUICK BIDS
 		******************************************/
 
@@ -5040,7 +5107,7 @@ const talController = {
 				//spawnNotification('You were Outbid','Another Bidder has outbid you.');
 			},
 
-		/******************************************
+        /******************************************
 			MAX BIDS
 		******************************************/
 
@@ -5085,7 +5152,7 @@ const talController = {
 				lot.maxBid.bidder = null;
 			},
 
-		/******************************************
+        /******************************************
 			GROUP BIDS
 		******************************************/
 
@@ -5219,8 +5286,7 @@ const talController = {
 				talObject.focusedLot = talObject.tempGroup.lots[$(e.currentTarget).data('index')];
 			},
 
-
-		/******************************************
+        /******************************************
 			DRAGGING
 		******************************************/
 
@@ -5229,27 +5295,30 @@ const talController = {
 				talObject.draggingLot = $(e.currentTarget);
 			},
 			doDrag: function(e,context){
-				let relativeX = e.changedTouches[0].pageX - touchStart.x;
-				if(relativeX > swipeDistance) $(e.currentTarget).addClass('s-swiped');
-				if(relativeX < -20 && $(e.currentTarget).hasClass('s-swiped')) talController.resetDrag(talObject.draggingLot);
+				let relativeX = e.changedTouches[0].pageX - talObject.touchStart.x;
+				if(Math.abs(relativeX) < 5) return;
+				else if(relativeX > talObject.swipeDistance) $(e.currentTarget).addClass('s-swiped-right');
+				else if(relativeX < -talObject.swipeDistance) $(e.currentTarget).addClass('s-swiped-left');
+				else if(relativeX < -20 && $(e.currentTarget).hasClass('s-swiped')) talController.resetDrag(talObject.draggingLot);
 				else $(talObject.draggingLot).css('transform','translateX('+ relativeX + 'px)');
 			},
 			cancelDrag: function(e,context){
 
 			},
 			endDrag: function(e,context){
-				let relativeX = e.changedTouches[0].pageX - touchStart.x;
-				if(relativeX > swipeDistance) $(e.currentTarget).addClass('s-swiped');
-				if(relativeX < -20 && $(e.currentTarget).hasClass('s-swiped')) talController.resetDrag(talObject.draggingLot);
+				let relativeX = e.changedTouches[0].pageX - talObject.touchStart.x;
+				if(relativeX > talObject.swipeDistance) $(e.currentTarget).addClass('s-swiped-right');
+				if(relativeX < -20 && $(e.currentTarget).hasClass('s-swiped-right')) talController.resetDrag(talObject.draggingLot);
 				else $(talObject.draggingLot).css('transform','translateX(0)');
 			},
 			updateTouchStart: function(e){
-				touchStart.x = e.changedTouches[0].pageX;
+				talObject.touchStart.x = e.changedTouches[0].pageX;
 			},
 
 			resetDrag: function(lot) {
-				$(lot).removeClass('s-swiped');
-				$(lot).css('transform','translateX(0)');
+				console.log('reset');
+				$('.s-swiped-right,.s-swiped-left').css('transform','translateX(0)').removeClass('s-swiped-left s-swiped-right');
+				// $(lot).removeClass('s-swiped-right s-swiped-left');
 			},
 
 			dragQuickBid: function(e,context){
@@ -5257,69 +5326,22 @@ const talController = {
 				talController.quickBid(e,context);
 			},
 
+			dragMaxBid: function(e,context){
+				talController.resetDrag(talObject.draggingLot);
+				talController.toggleMaximumBidVisible(e,context);
+			},
+
+			dragGroupBid: function(e,context){
+				talController.resetDrag(talObject.draggingLot);
+				talController.createGroupBid(e,context);
+			},
+
 			dragWatchLot: function(e,context){
 				talController.resetDrag(talObject.draggingLot);
 				talController.watchLot(e,context);
 			},
 
-
-
 	};
-
-const swipeDistance = 150;
-
-const touchStart = {
-	x: 0,
-	y: 0,
-}
-
-const incrementTable = [
-	{
-		upto: 99,
-		increment: 5
-	},
-	{
-		upto: 249,
-		increment: 10
-	},
-	{
-		upto: 499,
-		increment: 25
-	},
-	{
-		upto: 999,
-		increment: 50
-	},
-	{
-		upto: 2499,
-		increment: 100
-	},
-	{
-		upto: 9999,
-		increment: 250
-	},
-	{
-		upto: 24999,
-		increment: 500
-	},
-	{
-		upto: 149999,
-		increment: 1000
-	},
-	{
-		upto: 299999,
-		increment: 2500
-	},
-	{
-		upto: 999999,
-		increment: 5000
-	},
-	{
-		upto: 9999999,
-		increment: 10000
-	},
-]
-
 
 const talBinding = rivets.bind($('.js--tal'),{
 		talObject: talObject,
