@@ -10,16 +10,43 @@ $(function(){
 
 function updatetime(){
 	talObject.crudeInterval += 1000;
-
-	let time = Math.floor((new Date().getTime() - talObject.startTime)/1000);
 	let diff = (new Date().getTime() - talObject.startTime) - talObject.crudeInterval;
 	
 	talObject.time = moment();
-	talObject.intervalCount = time;
+	talObject.intervalCount = Math.floor((new Date().getTime() - talObject.startTime)/1000);
+	
+	//IF A LOT SHOULD BE CLOSING NOW (IE A MULTIPLE OF THE CLOSE INTERVAL) SELL THAT LOT
 	if(talObject.intervalCount % talObject.closeInterval === 0){
 		let nextLot = (talObject.intervalCount/talObject.closeInterval) + talObject.preSoldOffset;
 		talController.sellLot(nextLot);
 		talObject.auction.closingNext = nextLot; 
 	}
 	setTimeout(updatetime, (1000-diff)); 
+}
+
+var hidden, visibilityChange; 
+if (typeof document.hidden !== "undefined") { // Opera 12.10 and Firefox 18 and later support 
+  hidden = "hidden";
+  visibilityChange = "visibilitychange";
+} else if (typeof document.msHidden !== "undefined") {
+  hidden = "msHidden";
+  visibilityChange = "msvisibilitychange";
+} else if (typeof document.webkitHidden !== "undefined") {
+  hidden = "webkitHidden";
+  visibilityChange = "webkitvisibilitychange";
+}
+
+document.addEventListener(visibilityChange, handleVisibilityChange, false);
+
+//WHEN YOU BRING FOCUS BACK TO THE TAL WINDOW, CLOSE ANY LOTS THAT SHOULD HAVE CLOSED WHILE YOU WERE GONE
+function handleVisibilityChange(){
+	if(!document[hidden]){
+		talObject.intervalCount = Math.floor((new Date().getTime() - talObject.startTime)/1000);
+		let nextLot = (talObject.intervalCount/talObject.closeInterval) + talObject.preSoldOffset;
+		
+		for(let i = 0; i < nextLot; i++){
+			if(i > talObject.lots.length) break;
+			if(talObject.lots[i].status != 'sold') talController.sellLot(nextLot); 
+		}
+	}
 }

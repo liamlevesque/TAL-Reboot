@@ -194,6 +194,10 @@ $progress-indicator-height: 50px;
 			&.s-outbid{
 				border-color: palette(warning);
 			}
+
+			&.s-sold.s-outbid{
+				border-color: palette(error);
+			}
 		}
 
 

@@ -34,6 +34,24 @@
 	}
 }
 
+@mixin g-cell_tablet($width, $gutter){
+	box-sizing: border-box;
+	position: relative;
+	vertical-align: top;
+	
+	@include breakpoint(med-to-medlarge){
+		display: inline-block;
+		vertical-align: top;
+		width: $width;
+		margin-right: $gutter;
+
+		&:last-child{
+			float: right;
+			margin-right: 0;
+		}
+	}
+}
+
 
 
 	@mixin grid-quarter{
@@ -60,41 +78,44 @@
 	.l-grid-quarter{
 		@include grid-quarter;
 	}
-	.m-grid-quarter{
+	.l-grid-quarter_mobile{
 		@include g-cell_mobile(24%,0);
 	}
 	.l-grid-third{
 		@include grid-third;
 	}
-	.m-grid-third{
-		@include g-cell_mobile(32%,0.5%);	
+	.l-grid-third_mobile{
+		@include g-cell_mobile(32%,0.5%);
 	}
+	
+	
 	.l-grid-half{
 		@include grid-half;
 	}
-	.m-grid-half{
+	.l-grid-half_mobile{
 		@include g-cell_mobile(49%,1%);	
 	}
 
 	.l-grid-two-thirds{
 		@include grid-two-thirds;
 	}
-	.m-grid-two-thirds{
+	.l-grid-two-thirds_mobile{
 		@include g-cell_mobile(65%,0.5%);	
 	}
+
 	.l-grid-three-quarters{
 		@include grid-three-quarters;
 	}
-	.m-grid-three-quarters{
+	.l-grid-three-quarters_mobile{
 		@include g-cell_mobile(74%,1%);
 	}
-	.m-grid-fifth{
+	.l-grid-fifth_mobile{
 		@include g-cell_mobile(19%,0);	
 	}
-	.m-grid-three-fifths{
+	.l-grid-three-fifths_mobile{
 		@include g-cell_mobile(59%,0);	
 	}
-	.m-grid-four-fifths{
+	.l-grid-four-fifths_mobile{
 		@include g-cell_mobile(79%,0);	
 	}
 
@@ -112,6 +133,14 @@
 		@include g-cell(87.5%,1%)
 	}
 
+
+	
+	.l-grid-third_tablet{
+		@include g-cell_tablet(32%,0.5%);
+	}
+	.l-grid-two-thirds_tablet{
+		@include g-cell_tablet(65%,0.5%);
+	}
 
 
 

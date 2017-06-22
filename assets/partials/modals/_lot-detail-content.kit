@@ -48,10 +48,10 @@
 
 				<div class="o-lot--bid-details h-mb-100" rv-unless="talObject.focusedLot.status | compare 'sold'">
 					<div class="h-overflow-hidden">
-						<button class="l-grid-half m-grid-half o-icon-label-button" rv-on-click="talController.watchFocusedLot" rv-class-s-active="talObject.focusedLot.watching | indexof talObject.bidder">
+						<button class="l-grid-half l-grid-half_mobile o-icon-label-button" rv-on-click="talController.watchFocusedLot" rv-class-s-active="talObject.focusedLot.watching | indexof talObject.bidder">
 							<i class="icon-eye"></i><label for="">Watch<span rv-if="talObject.focusedLot.watching | indexof talObject.bidder">ing</span></label>
 						</button>
-						<button class="l-grid-half m-grid-half o-icon-label-button" rv-on-click="talController.dismissAndGroupBid" rv-unless="talObject.focusedLot.group | lengthand talObject.isGroupChoosing">
+						<button class="l-grid-half l-grid-half_mobile o-icon-label-button" rv-on-click="talController.dismissAndGroupBid" rv-unless="talObject.focusedLot.group | lengthand talObject.isGroupChoosing">
 							<i class="icon-group-bid"></i><label for="">Group Bid</label>
 						</button>
 					</div>

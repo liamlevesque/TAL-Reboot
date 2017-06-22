@@ -402,6 +402,8 @@ $(function(){
 });
 
 
+
+
 var scrollArea;
 var scrollTarget = null;
 
@@ -525,10 +527,11 @@ $(function(){
   }); 
 });
 
-function spawnNotification(theTitle,theBody) {
+function spawnNotification(theTitle,theBody,theImage) {
+  if(typeof theImage === 'undefined') theImage = '/assets/img/logo-square.png';
   var options = {
       body: theBody,
-      icon: '/assets/img/logo-square.png'
+      icon: theImage
   }
   var n = new Notification(theTitle,options);
 }
@@ -4699,18 +4702,45 @@ $(function(){
 
 function updatetime(){
 	talObject.crudeInterval += 1000;
-
-	let time = Math.floor((new Date().getTime() - talObject.startTime)/1000);
 	let diff = (new Date().getTime() - talObject.startTime) - talObject.crudeInterval;
 	
 	talObject.time = moment();
-	talObject.intervalCount = time;
+	talObject.intervalCount = Math.floor((new Date().getTime() - talObject.startTime)/1000);
+	
+	//IF A LOT SHOULD BE CLOSING NOW (IE A MULTIPLE OF THE CLOSE INTERVAL) SELL THAT LOT
 	if(talObject.intervalCount % talObject.closeInterval === 0){
 		let nextLot = (talObject.intervalCount/talObject.closeInterval) + talObject.preSoldOffset;
 		talController.sellLot(nextLot);
 		talObject.auction.closingNext = nextLot; 
 	}
 	setTimeout(updatetime, (1000-diff)); 
+}
+
+var hidden, visibilityChange; 
+if (typeof document.hidden !== "undefined") { // Opera 12.10 and Firefox 18 and later support 
+  hidden = "hidden";
+  visibilityChange = "visibilitychange";
+} else if (typeof document.msHidden !== "undefined") {
+  hidden = "msHidden";
+  visibilityChange = "msvisibilitychange";
+} else if (typeof document.webkitHidden !== "undefined") {
+  hidden = "webkitHidden";
+  visibilityChange = "webkitvisibilitychange";
+}
+
+document.addEventListener(visibilityChange, handleVisibilityChange, false);
+
+//WHEN YOU BRING FOCUS BACK TO THE TAL WINDOW, CLOSE ANY LOTS THAT SHOULD HAVE CLOSED WHILE YOU WERE GONE
+function handleVisibilityChange(){
+	if(!document[hidden]){
+		talObject.intervalCount = Math.floor((new Date().getTime() - talObject.startTime)/1000);
+		let nextLot = (talObject.intervalCount/talObject.closeInterval) + talObject.preSoldOffset;
+		
+		for(let i = 0; i < nextLot; i++){
+			if(i > talObject.lots.length) break;
+			if(talObject.lots[i].status != 'sold') talController.sellLot(nextLot); 
+		}
+	}
 }
 
 const talObject = {
@@ -4876,11 +4906,25 @@ const talController = {
 		sellLot: function(lotIndex){
 			let lot = talObject.lots[lotIndex];
 			lot.status = 'sold';
+			
 			//ADD TO PURCHASES IF YOU WERE THE TOP BIDDER
 			if(typeof lot.bids[0] != 'undefined' && lot.bids[0].bidder === talObject.bidder){
+				spawnNotification('You Won Lot '+ lot.lotNumber + ' for ' + lot.bids[0].bid ,lot.description,lot.photos[0].src);
 				talObject.purchasedLots.push(lot);
 				talObject.userprofile.spent += lot.bids[0].bid;
 			}
+			//IF YOU HAD BID BUT WERE OUTBID
+			else if(talController.outbid(lot.bids)){
+				spawnNotification('You did not win lot '+ lot.lotNumber ,lot.description,lot.photos[0].src);
+			}
+		},
+
+		outbid: function(bids){
+			if(typeof bids === 'undefined') return false;
+			for(let i = 1;i<bids.length; i++){
+				if(bids[i].bidder === talObject.bidder) return true;
+			}
+			return false;
 		},
 
         /******************************************
@@ -5296,10 +5340,15 @@ const talController = {
 			},
 			doDrag: function(e,context){
 				let relativeX = e.changedTouches[0].pageX - talObject.touchStart.x;
-				if(Math.abs(relativeX) < 5) return;
+				let relativeY = e.changedTouches[0].pageY - talObject.touchStart.y;
+				if(relativeX < 0 || Math.abs(relativeX) < Math.abs(relativeY)) {
+					//IF SWIPING MORE VERTICALLY, DON'T SWIPE HORIZONTALLY, AND RESET ALL SWIPES
+					talController.resetDrag()
+					return;
+				}
 				else if(relativeX > talObject.swipeDistance) $(e.currentTarget).addClass('s-swiped-right');
-				else if(relativeX < -talObject.swipeDistance) $(e.currentTarget).addClass('s-swiped-left');
-				else if(relativeX < -20 && $(e.currentTarget).hasClass('s-swiped')) talController.resetDrag(talObject.draggingLot);
+				//else if(relativeX < -talObject.swipeDistance) $(e.currentTarget).addClass('s-swiped-left');
+				else if(relativeX < -20 && $(e.currentTarget).hasClass('s-swiped')) talController.resetDrag();
 				else $(talObject.draggingLot).css('transform','translateX('+ relativeX + 'px)');
 			},
 			cancelDrag: function(e,context){
@@ -5308,36 +5357,36 @@ const talController = {
 			endDrag: function(e,context){
 				let relativeX = e.changedTouches[0].pageX - talObject.touchStart.x;
 				if(relativeX > talObject.swipeDistance) $(e.currentTarget).addClass('s-swiped-right');
-				if(relativeX < -20 && $(e.currentTarget).hasClass('s-swiped-right')) talController.resetDrag(talObject.draggingLot);
+				if(relativeX < -20 && $(e.currentTarget).hasClass('s-swiped-right')) talController.resetDrag();
 				else $(talObject.draggingLot).css('transform','translateX(0)');
 			},
 			updateTouchStart: function(e){
 				talObject.touchStart.x = e.changedTouches[0].pageX;
+				talObject.touchStart.y = e.changedTouches[0].pageY;
 			},
 
-			resetDrag: function(lot) {
-				console.log('reset');
+			resetDrag: function() {
 				$('.s-swiped-right,.s-swiped-left').css('transform','translateX(0)').removeClass('s-swiped-left s-swiped-right');
 				// $(lot).removeClass('s-swiped-right s-swiped-left');
 			},
 
 			dragQuickBid: function(e,context){
-				talController.resetDrag(talObject.draggingLot);
+				talController.resetDrag();
 				talController.quickBid(e,context);
 			},
 
 			dragMaxBid: function(e,context){
-				talController.resetDrag(talObject.draggingLot);
+				talController.resetDrag();
 				talController.toggleMaximumBidVisible(e,context);
 			},
 
 			dragGroupBid: function(e,context){
-				talController.resetDrag(talObject.draggingLot);
+				talController.resetDrag();
 				talController.createGroupBid(e,context);
 			},
 
 			dragWatchLot: function(e,context){
-				talController.resetDrag(talObject.draggingLot);
+				talController.resetDrag();
 				talController.watchLot(e,context);
 			},
 

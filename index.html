@@ -34,26 +34,26 @@
 			</div>
 		
 			<div class="h-float-right h-hide-mobile">
-				<button class="o-icon-label-button m-grid-fifth" rv-on-click="talController.loadTab" data-tab="auction" rv-class-s-active="talObject.activeTab | compare 'auction'">
+				<button class="o-icon-label-button l-grid-fifth_mobile" rv-on-click="talController.loadTab" data-tab="auction" rv-class-s-active="talObject.activeTab | compare 'auction'">
 					<i class="icon-gavel"></i>
 					<label>Auction</label>
 				</button>
-				<button class="o-icon-label-button m-grid-fifth" rv-on-click="talController.loadTab" data-tab="watching"  rv-class-s-active="talObject.activeTab | compare 'watching'">
+				<button class="o-icon-label-button l-grid-fifth_mobile" rv-on-click="talController.loadTab" data-tab="watching"  rv-class-s-active="talObject.activeTab | compare 'watching'">
 							<i class="icon-eye"></i>
 							<label>Watching</label>
 							<div class="badge--count" rv-if="talObject.watchingLots | lengthToBool">{talObject.watchingLots | length}</div>
 						</button>
-				<button class="o-icon-label-button m-grid-fifth" rv-on-click="talController.loadTab" data-tab="bids" rv-class-s-active="talObject.activeTab | compare 'bids'">
+				<button class="o-icon-label-button l-grid-fifth_mobile" rv-on-click="talController.loadTab" data-tab="bids" rv-class-s-active="talObject.activeTab | compare 'bids'">
 									<i class="icon-check"></i>
 									<label>Bids</label>
 									<div class="badge--count" rv-if="talObject.biddingLots | lengthToBool">{talObject.biddingLots | length}</div>
-								</button>
-				<button class="o-icon-label-button m-grid-fifth" rv-on-click="talController.loadTab" data-tab="purchases" rv-class-s-active="talObject.activeTab | compare 'purchases'">
+								</button> 
+				<button class="o-icon-label-button l-grid-fifth_mobile" rv-on-click="talController.loadTab" data-tab="purchases" rv-class-s-active="talObject.activeTab | compare 'purchases'">
 											<i class="icon-cart"></i>
 											<label>Purchases</label>
 											<div class="badge--count_cart" rv-if="talObject.purchasedLots | lengthToBool">{talObject.purchasedLots | length}</div>
 										</button>
-				<button class="o-icon-label-button m-grid-fifth" rv-on-click="talController.loadTab" data-tab="profile"  rv-class-s-active="talObject.activeTab | compare 'profile'">
+				<button class="o-icon-label-button l-grid-fifth_mobile" rv-on-click="talController.loadTab" data-tab="profile"  rv-class-s-active="talObject.activeTab | compare 'profile'">
 													<i class="icon-user"></i>
 													<label>Profile</label>
 												</button>
@@ -63,16 +63,16 @@
 		
 				
 		<div class="l-width--800 h-mb-50">
-			<button class="o-button--outline m-grid-fifth l-grid-quarter" rv-on-click="talController.toggleCategoriesVisible">
+			<button class="o-button--outline l-grid-fifth_mobile l-grid-quarter" rv-on-click="talController.toggleCategoriesVisible">
 				<span class="h-hide-tiny">Categories<i class="icon-arrow-down h-ml-100 h-hide-mobile"></i></span><span class="h-hide-desktop"><i class="icon-more_horiz"></i></span>
 			</button>
-			<div class="m-grid-three-fifths l-grid-half">
+			<div class="l-grid-three-fifths_mobile l-grid-half">
 				<input type="text" class="o-input--text" placeholder="find by lot # or keyword" rv-on-click="talController.toggleSearchVisible" rv-value="talObject.filteredResults.input">
 				<button class="o-icon-button--medium l-input--toggle" rv-if="talObject.filteredResults.input | lengthToBool" rv-on-click="talController.clearSearch"><i class="icon-error"></i></button>
 			</div>
 			<button class="o-button h-hide-mobile l-grid-quarter l-grid-last-item">Search</button>
 			
-			<button class="o-text-button h-hide-desktop m-grid-fifth">Sort</button>
+			<button class="o-text-button h-hide-desktop l-grid-fifth_mobile">Sort</button>
 		</div>
 		<div class="c-subhead" rv-if="talObject.activeTab | compare 'auction'">
 			<div class="l-width--1200">
@@ -143,13 +143,13 @@
 							
 								<div class="o-lot--content" rv-on-click="talController.toggleLotDetails">
 							
-									<div class="l-grid-third m-grid-quarter">
+									<div class="l-grid-third l-grid-quarter_mobile l-grid-third_tablet">
 										<img rv-src="lot.photo" class="o-lot--photo">
 										<div class="o-lot--photo-sold-flag" rv-if="lot.status | compare 'sold'"><i class="icon-sold h-mr-100 h-color-brand"></i>Sold</div>
 										<h3 class="h3 h-hide-desktop">Lot {lot.lotNumber}</h3>
 									</div>
 							
-									<div class="l-grid-two-thirds m-grid-three-quarters">
+									<div class="l-grid-two-thirds l-grid-three-quarters_mobile l-grid-two-thirds_tablet">
 							
 										<div class="l-grid-half">
 											<div class="h-mb-100">
@@ -305,13 +305,13 @@
 							
 								<div class="o-lot--content" rv-on-click="talController.toggleLotDetails">
 							
-									<div class="l-grid-third m-grid-quarter">
+									<div class="l-grid-third l-grid-quarter_mobile l-grid-third_tablet">
 										<img rv-src="lot.photo" class="o-lot--photo">
 										<div class="o-lot--photo-sold-flag" rv-if="lot.status | compare 'sold'"><i class="icon-sold h-mr-100 h-color-brand"></i>Sold</div>
 										<h3 class="h3 h-hide-desktop">Lot {lot.lotNumber}</h3>
 									</div>
 							
-									<div class="l-grid-two-thirds m-grid-three-quarters">
+									<div class="l-grid-two-thirds l-grid-three-quarters_mobile l-grid-two-thirds_tablet">
 							
 										<div class="l-grid-half">
 											<div class="h-mb-100">
@@ -482,13 +482,13 @@
 								
 									<div class="o-lot--content" rv-on-click="talController.toggleLotDetails">
 								
-										<div class="l-grid-third m-grid-quarter">
+										<div class="l-grid-third l-grid-quarter_mobile l-grid-third_tablet">
 											<img rv-src="lot.photo" class="o-lot--photo">
 											<div class="o-lot--photo-sold-flag" rv-if="lot.status | compare 'sold'"><i class="icon-sold h-mr-100 h-color-brand"></i>Sold</div>
 											<h3 class="h3 h-hide-desktop">Lot {lot.lotNumber}</h3>
 										</div>
 								
-										<div class="l-grid-two-thirds m-grid-three-quarters">
+										<div class="l-grid-two-thirds l-grid-three-quarters_mobile l-grid-two-thirds_tablet">
 								
 											<div class="l-grid-half">
 												<div class="h-mb-100">
@@ -658,13 +658,13 @@
 											
 												<div class="o-lot--content" rv-on-click="talController.toggleLotDetails">
 											
-													<div class="l-grid-third m-grid-quarter">
+													<div class="l-grid-third l-grid-quarter_mobile l-grid-third_tablet">
 														<img rv-src="lot.photo" class="o-lot--photo">
 														<div class="o-lot--photo-sold-flag" rv-if="lot.status | compare 'sold'"><i class="icon-sold h-mr-100 h-color-brand"></i>Sold</div>
 														<h3 class="h3 h-hide-desktop">Lot {lot.lotNumber}</h3>
 													</div>
 											
-													<div class="l-grid-two-thirds m-grid-three-quarters">
+													<div class="l-grid-two-thirds l-grid-three-quarters_mobile l-grid-two-thirds_tablet">
 											
 														<div class="l-grid-half">
 															<div class="h-mb-100">
@@ -777,14 +777,14 @@
 										</div>
 										<div rv-if="lot.type | compare 'group'">
 											<div class="o-group-bid-item" rv-on-click="talController.showGroupViewModal">
-												<div class="l-grid-third m-grid-third">
+												<div class="l-grid-third l-grid-third_mobile">
 													<div class="group-bid--photos">
 														<img rv-src="lot.lots.0.photo" alt="">
 														<img rv-src="lot.lots.1.photo" alt="">
 													</div>
 													<div class="group-bid--quantity">Group of {lot.lots | length} Lots</div>
 												</div>
-												<div class="l-grid-two-thirds m-grid-two-thirds">
+												<div class="l-grid-two-thirds l-grid-two-thirds_mobile">
 													<div class="l-grid-half">
 														<h3 class="h3">Lots <span rv-each-sublot="lot.lots">{sublot.lotNumber}, </span></h3>
 														<h4 class="h4">You want to win: <strong>{lot.quantity} of {lot.lots | length}</strong></h4>
@@ -878,13 +878,13 @@
 												
 													<div class="o-lot--content" rv-on-click="talController.toggleLotDetails">
 												
-														<div class="l-grid-third m-grid-quarter">
+														<div class="l-grid-third l-grid-quarter_mobile l-grid-third_tablet">
 															<img rv-src="lot.photo" class="o-lot--photo">
 															<div class="o-lot--photo-sold-flag" rv-if="lot.status | compare 'sold'"><i class="icon-sold h-mr-100 h-color-brand"></i>Sold</div>
 															<h3 class="h3 h-hide-desktop">Lot {lot.lotNumber}</h3>
 														</div>
 												
-														<div class="l-grid-two-thirds m-grid-three-quarters">
+														<div class="l-grid-two-thirds l-grid-three-quarters_mobile l-grid-two-thirds_tablet">
 												
 															<div class="l-grid-half">
 																<div class="h-mb-100">
@@ -1072,26 +1072,26 @@
 	</div> 
 	
 	<div class="l-nav--mobile-footer">
-		<button class="o-icon-label-button m-grid-fifth" rv-on-click="talController.loadTab" data-tab="auction" rv-class-s-active="talObject.activeTab | compare 'auction'">
+		<button class="o-icon-label-button l-grid-fifth_mobile" rv-on-click="talController.loadTab" data-tab="auction" rv-class-s-active="talObject.activeTab | compare 'auction'">
 			<i class="icon-gavel"></i>
 			<label>Auction</label>
 		</button>
-		<button class="o-icon-label-button m-grid-fifth" rv-on-click="talController.loadTab" data-tab="watching"  rv-class-s-active="talObject.activeTab | compare 'watching'">
+		<button class="o-icon-label-button l-grid-fifth_mobile" rv-on-click="talController.loadTab" data-tab="watching"  rv-class-s-active="talObject.activeTab | compare 'watching'">
 			<i class="icon-eye"></i>
 			<label>Watching</label>
 			<div class="badge--count" rv-if="talObject.watchingLots | lengthToBool">{talObject.watchingLots | length}</div>
 		</button>
-		<button class="o-icon-label-button m-grid-fifth" rv-on-click="talController.loadTab" data-tab="bids" rv-class-s-active="talObject.activeTab | compare 'bids'">
+		<button class="o-icon-label-button l-grid-fifth_mobile" rv-on-click="talController.loadTab" data-tab="bids" rv-class-s-active="talObject.activeTab | compare 'bids'">
 			<i class="icon-check"></i>
 			<label>Bids</label>
 			<div class="badge--count" rv-if="talObject.biddingLots | lengthToBool">{talObject.biddingLots | length}</div>
-		</button>
-		<button class="o-icon-label-button m-grid-fifth" rv-on-click="talController.loadTab" data-tab="purchases" rv-class-s-active="talObject.activeTab | compare 'purchases'">
+		</button> 
+		<button class="o-icon-label-button l-grid-fifth_mobile" rv-on-click="talController.loadTab" data-tab="purchases" rv-class-s-active="talObject.activeTab | compare 'purchases'">
 			<i class="icon-cart"></i>
 			<label>Purchases</label>
 			<div class="badge--count_cart" rv-if="talObject.purchasedLots | lengthToBool">{talObject.purchasedLots | length}</div>
 		</button>
-		<button class="o-icon-label-button m-grid-fifth" rv-on-click="talController.loadTab" data-tab="profile"  rv-class-s-active="talObject.activeTab | compare 'profile'">
+		<button class="o-icon-label-button l-grid-fifth_mobile" rv-on-click="talController.loadTab" data-tab="profile"  rv-class-s-active="talObject.activeTab | compare 'profile'">
 			<i class="icon-user"></i>
 			<label>Profile</label>
 		</button>
@@ -1157,10 +1157,10 @@
 				
 								<div class="o-lot--bid-details h-mb-100" rv-unless="talObject.focusedLot.status | compare 'sold'">
 									<div class="h-overflow-hidden">
-										<button class="l-grid-half m-grid-half o-icon-label-button" rv-on-click="talController.watchFocusedLot" rv-class-s-active="talObject.focusedLot.watching | indexof talObject.bidder">
+										<button class="l-grid-half l-grid-half_mobile o-icon-label-button" rv-on-click="talController.watchFocusedLot" rv-class-s-active="talObject.focusedLot.watching | indexof talObject.bidder">
 											<i class="icon-eye"></i><label for="">Watch<span rv-if="talObject.focusedLot.watching | indexof talObject.bidder">ing</span></label>
 										</button>
-										<button class="l-grid-half m-grid-half o-icon-label-button" rv-on-click="talController.dismissAndGroupBid" rv-unless="talObject.focusedLot.group | lengthand talObject.isGroupChoosing">
+										<button class="l-grid-half l-grid-half_mobile o-icon-label-button" rv-on-click="talController.dismissAndGroupBid" rv-unless="talObject.focusedLot.group | lengthand talObject.isGroupChoosing">
 											<i class="icon-group-bid"></i><label for="">Group Bid</label>
 										</button>
 									</div>
@@ -1346,10 +1346,10 @@
 							
 											<div class="o-lot--bid-details h-mb-100" rv-unless="talObject.focusedLot.status | compare 'sold'">
 												<div class="h-overflow-hidden">
-													<button class="l-grid-half m-grid-half o-icon-label-button" rv-on-click="talController.watchFocusedLot" rv-class-s-active="talObject.focusedLot.watching | indexof talObject.bidder">
+													<button class="l-grid-half l-grid-half_mobile o-icon-label-button" rv-on-click="talController.watchFocusedLot" rv-class-s-active="talObject.focusedLot.watching | indexof talObject.bidder">
 														<i class="icon-eye"></i><label for="">Watch<span rv-if="talObject.focusedLot.watching | indexof talObject.bidder">ing</span></label>
 													</button>
-													<button class="l-grid-half m-grid-half o-icon-label-button" rv-on-click="talController.dismissAndGroupBid" rv-unless="talObject.focusedLot.group | lengthand talObject.isGroupChoosing">
+													<button class="l-grid-half l-grid-half_mobile o-icon-label-button" rv-on-click="talController.dismissAndGroupBid" rv-unless="talObject.focusedLot.group | lengthand talObject.isGroupChoosing">
 														<i class="icon-group-bid"></i><label for="">Group Bid</label>
 													</button>
 												</div>
@@ -1408,8 +1408,8 @@
 						</div>
 				
 						<div class="c-modal--footer">
-							<button class="o-button--outline l-grid-half m-grid-half" rv-on-click="talController.cancelQuickBid">Cancel</button>
-							<button class="o-button l-grid-half m-grid-half" rv-on-click="talController.confirmQuickBid"> Bid </button>
+							<button class="o-button--outline l-grid-half l-grid-half_mobile" rv-on-click="talController.cancelQuickBid">Cancel</button>
+							<button class="o-button l-grid-half l-grid-half_mobile" rv-on-click="talController.confirmQuickBid"> Bid </button>
 						</div>
 					</div>
 				</div>
@@ -1443,8 +1443,8 @@
 							<div class="c-modal--content" rv-on-click="talController.stopProp">
 								<div class="c-modal--header">
 									<div class="h-ta-left h-mr-100">
-										<button class="o-text-button_black m-grid-fifth" rv-on-click="talController.toggleSearchVisible">Cancel</button>
-										<div class="m-grid-four-fifths h-pos-relative">
+										<button class="o-text-button_black l-grid-fifth_mobile" rv-on-click="talController.toggleSearchVisible">Cancel</button>
+										<div class="l-grid-four-fifths_mobile h-pos-relative">
 											<input type="text" class="o-input--text js--search-input" placeholder="find by lot # or keyword" rv-value="talObject.filteredResults.input" rv-on-keyup="talController.updateSearch">
 											<button class="o-icon-button--medium l-input--toggle" rv-if="talObject.filteredResults.input | lengthToBool" rv-on-click="talController.clearSearch"><i class="icon-error"></i></button>
 										</div>

@@ -4,10 +4,11 @@ $(function(){
   }); 
 });
 
-function spawnNotification(theTitle,theBody) {
+function spawnNotification(theTitle,theBody,theImage) {
+  if(typeof theImage === 'undefined') theImage = '/assets/img/logo-square.png';
   var options = {
       body: theBody,
-      icon: '/assets/img/logo-square.png'
+      icon: theImage
   }
   var n = new Notification(theTitle,options);
 }

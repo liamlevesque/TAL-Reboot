@@ -45,9 +45,23 @@ const talController = {
 		sellLot: function(lotIndex){
 			let lot = talObject.lots[lotIndex];
 			lot.status = 'sold';
+			
 			//ADD TO PURCHASES IF YOU WERE THE TOP BIDDER
 			if(typeof lot.bids[0] != 'undefined' && lot.bids[0].bidder === talObject.bidder){
+				spawnNotification('You Won Lot '+ lot.lotNumber + ' for ' + lot.bids[0].bid ,lot.description,lot.photos[0].src);
 				talObject.purchasedLots.push(lot);
 				talObject.userprofile.spent += lot.bids[0].bid;
 			}
+			//IF YOU HAD BID BUT WERE OUTBID
+			else if(talController.outbid(lot.bids)){
+				spawnNotification('You did not win lot '+ lot.lotNumber ,lot.description,lot.photos[0].src);
+			}
+		},
+
+		outbid: function(bids){
+			if(typeof bids === 'undefined') return false;
+			for(let i = 1;i<bids.length; i++){
+				if(bids[i].bidder === talObject.bidder) return true;
+			}
+			return false;
 		},

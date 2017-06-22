@@ -1,12 +1,12 @@
 <div class="o-group-bid-item" rv-on-click="talController.showGroupViewModal">
-	<div class="l-grid-third m-grid-third">
+	<div class="l-grid-third l-grid-third_mobile">
 		<div class="group-bid--photos">
 			<img rv-src="lot.lots.0.photo" alt="">
 			<img rv-src="lot.lots.1.photo" alt="">
 		</div>
 		<div class="group-bid--quantity">Group of {lot.lots | length} Lots</div>
 	</div>
-	<div class="l-grid-two-thirds m-grid-two-thirds">
+	<div class="l-grid-two-thirds l-grid-two-thirds_mobile">
 		<div class="l-grid-half">
 			<h3 class="h3">Lots <span rv-each-sublot="lot.lots">{sublot.lotNumber}, </span></h3>
 			<h4 class="h4">You want to win: <strong>{lot.quantity} of {lot.lots | length}</strong></h4>
