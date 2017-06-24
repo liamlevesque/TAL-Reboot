@@ -13,7 +13,7 @@
 <body class="body js--tal CAD">
 	
 	<div class="l-header">
-		<header> 
+		<header class="h-overflow-hidden"> 
 			<div class="logo" rv-on-click="talController.loadTab" data-tab="auction">
 				 <svg version="1.1" id="rba-header-logo-svg" class="s-active" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" height="46" enable-background="new 0 0 162 40.25" xml:space="preserve">
 		            <g>
@@ -146,14 +146,13 @@
 									<div class="l-grid-third l-grid-quarter_mobile l-grid-third_tablet">
 										<img rv-src="lot.photo" class="o-lot--photo">
 										<div class="o-lot--photo-sold-flag" rv-if="lot.status | compare 'sold'"><i class="icon-sold h-mr-100 h-color-brand"></i>Sold</div>
-										<h3 class="h3 h-hide-desktop">Lot {lot.lotNumber}</h3>
+										<h3 class="o-lot--lot-number">Lot {lot.lotNumber}</h3>
 									</div>
 							
 									<div class="l-grid-two-thirds l-grid-three-quarters_mobile l-grid-two-thirds_tablet">
 							
 										<div class="l-grid-half">
 											<div class="h-mb-100">
-												<h3 class="h3 h-hide-mobile">Lot {lot.lotNumber}</h3>
 												<h3 class="h3">{lot.description}</h3>
 											</div>
 											<div>
@@ -308,14 +307,13 @@
 									<div class="l-grid-third l-grid-quarter_mobile l-grid-third_tablet">
 										<img rv-src="lot.photo" class="o-lot--photo">
 										<div class="o-lot--photo-sold-flag" rv-if="lot.status | compare 'sold'"><i class="icon-sold h-mr-100 h-color-brand"></i>Sold</div>
-										<h3 class="h3 h-hide-desktop">Lot {lot.lotNumber}</h3>
+										<h3 class="o-lot--lot-number">Lot {lot.lotNumber}</h3>
 									</div>
 							
 									<div class="l-grid-two-thirds l-grid-three-quarters_mobile l-grid-two-thirds_tablet">
 							
 										<div class="l-grid-half">
 											<div class="h-mb-100">
-												<h3 class="h3 h-hide-mobile">Lot {lot.lotNumber}</h3>
 												<h3 class="h3">{lot.description}</h3>
 											</div>
 											<div>
@@ -485,14 +483,13 @@
 										<div class="l-grid-third l-grid-quarter_mobile l-grid-third_tablet">
 											<img rv-src="lot.photo" class="o-lot--photo">
 											<div class="o-lot--photo-sold-flag" rv-if="lot.status | compare 'sold'"><i class="icon-sold h-mr-100 h-color-brand"></i>Sold</div>
-											<h3 class="h3 h-hide-desktop">Lot {lot.lotNumber}</h3>
+											<h3 class="o-lot--lot-number">Lot {lot.lotNumber}</h3>
 										</div>
 								
 										<div class="l-grid-two-thirds l-grid-three-quarters_mobile l-grid-two-thirds_tablet">
 								
 											<div class="l-grid-half">
 												<div class="h-mb-100">
-													<h3 class="h3 h-hide-mobile">Lot {lot.lotNumber}</h3>
 													<h3 class="h3">{lot.description}</h3>
 												</div>
 												<div>
@@ -661,14 +658,13 @@
 													<div class="l-grid-third l-grid-quarter_mobile l-grid-third_tablet">
 														<img rv-src="lot.photo" class="o-lot--photo">
 														<div class="o-lot--photo-sold-flag" rv-if="lot.status | compare 'sold'"><i class="icon-sold h-mr-100 h-color-brand"></i>Sold</div>
-														<h3 class="h3 h-hide-desktop">Lot {lot.lotNumber}</h3>
+														<h3 class="o-lot--lot-number">Lot {lot.lotNumber}</h3>
 													</div>
 											
 													<div class="l-grid-two-thirds l-grid-three-quarters_mobile l-grid-two-thirds_tablet">
 											
 														<div class="l-grid-half">
 															<div class="h-mb-100">
-																<h3 class="h3 h-hide-mobile">Lot {lot.lotNumber}</h3>
 																<h3 class="h3">{lot.description}</h3>
 															</div>
 															<div>
@@ -881,14 +877,13 @@
 														<div class="l-grid-third l-grid-quarter_mobile l-grid-third_tablet">
 															<img rv-src="lot.photo" class="o-lot--photo">
 															<div class="o-lot--photo-sold-flag" rv-if="lot.status | compare 'sold'"><i class="icon-sold h-mr-100 h-color-brand"></i>Sold</div>
-															<h3 class="h3 h-hide-desktop">Lot {lot.lotNumber}</h3>
+															<h3 class="o-lot--lot-number">Lot {lot.lotNumber}</h3>
 														</div>
 												
 														<div class="l-grid-two-thirds l-grid-three-quarters_mobile l-grid-two-thirds_tablet">
 												
 															<div class="l-grid-half">
 																<div class="h-mb-100">
-																	<h3 class="h3 h-hide-mobile">Lot {lot.lotNumber}</h3>
 																	<h3 class="h3">{lot.description}</h3>
 																</div>
 																<div>

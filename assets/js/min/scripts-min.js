@@ -522,12 +522,16 @@ window.addEventListener('popstate', function(e) {
 });
 
 $(function(){
-  Notification.requestPermission().then(function(result) {
-    console.log(result);
-  }); 
+  if ('Notification' in window) { 
+    Notification.requestPermission().then(function(result) {
+      console.log(result);
+    }); 
+  }
 });
 
+
 function spawnNotification(theTitle,theBody,theImage) {
+  if (!('Notification' in window)) return false;
   if(typeof theImage === 'undefined') theImage = '/assets/img/logo-square.png';
   var options = {
       body: theBody,
@@ -4734,11 +4738,11 @@ document.addEventListener(visibilityChange, handleVisibilityChange, false);
 function handleVisibilityChange(){
 	if(!document[hidden]){
 		talObject.intervalCount = Math.floor((new Date().getTime() - talObject.startTime)/1000);
-		let nextLot = (talObject.intervalCount/talObject.closeInterval) + talObject.preSoldOffset;
+		//let nextLot = Math.floor(talObject.intervalCount/talObject.closeInterval) + talObject.preSoldOffset;
 		
-		for(let i = 0; i < nextLot; i++){
-			if(i > talObject.lots.length) break;
-			if(talObject.lots[i].status != 'sold') talController.sellLot(nextLot); 
+		for(let i = 0; i < talObject.lots.length; i++){
+			if(moment().isAfter(talObject.lots[i].closes) && talObject.lots[i].status != 'sold') talController.sellLot(i); 
+			//console.log(talObject.lots[i].status, talObject.lots[i].lotNumber, nextLot);
 		}
 	}
 }

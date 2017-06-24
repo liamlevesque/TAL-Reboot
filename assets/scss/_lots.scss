@@ -138,6 +138,19 @@
 			padding-top: 35%;
 		}
 
+		.o-lot--lot-number{
+			@include breakpoint(small){
+				position: absolute;
+				top: 0;
+				left: spacing(x-small);
+				
+				border-radius: 0 0 $default-border-radius $default-border-radius;
+				padding: spacing(xx-small) spacing(small);
+				background-color: rgba(black,0.6);
+				color: white;
+			}
+		}
+
 	.o-lot--photos{
 		background-color: palette(grey,dark);
 

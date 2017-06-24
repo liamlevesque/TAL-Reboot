@@ -7,7 +7,7 @@
 		"uuidString": "EC5BB6E7-F192-492E-AFDB-D8576E1814C2"
 		}
 	],
-"creatorBuild": "25813",
+"creatorBuild": "25849",
 "files": {
 	"\/.vscode\/settings.json": {
 		"ft": 524288,
@@ -768,6 +768,15 @@
 		"mi": 0,
 		"oA": 0,
 		"oAP": "\/assets\/js\/min\/scripts-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
+	"\/assets\/js\/sw.js": {
+		"ft": 64,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/assets\/js\/min\/sw-min.js",
 		"oF": 0,
 		"sC": 1,
 		"tS": 0
@@ -10336,6 +10345,7 @@
 		},
 	"languageDefaultsUserDefined": [
 		],
+	"overrideExternalServerCSS": 0,
 	"previewPathAddition": "",
 	"skippedFoldersString": "log, _logs, logs, _cache, cache, \/storage\/framework\/sessions, node_modules",
 	"sourceFolderName": "source",

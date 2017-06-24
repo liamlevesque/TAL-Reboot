@@ -3968,6 +3968,16 @@ a {
   font-size: 1.4rem;
   padding-top: 35%; }
 
+@media (min-width: 30.0625em) {
+  .o-lot--lot-number {
+    position: absolute;
+    top: 0;
+    left: 10px;
+    border-radius: 0 0 5px 5px;
+    padding: 5px 15px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white; } }
+
 .o-lot--photos {
   background-color: #585858; }
   .o-lot--photos .swiper-container {
