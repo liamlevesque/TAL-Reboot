@@ -19,6 +19,44 @@
 	cursor: pointer;
 }
 
+	.o-setting-list-item_picker-header{
+
+		i{
+			display: inline-block;
+			transform: rotate(180deg);
+			transition: $transition;
+		}
+
+		&.s-expanded i{
+			transform: rotate(0);
+		}
+	}
+
+	.o-setting-list-item_picker{
+		position: relative;
+		padding-left: 50px;
+		&:hover{
+			background-color: palette(brand);
+			color: white;
+		}
+
+		&.s-selected{
+			//padding-left: 30px;
+			@extend .icon-check;
+			color: palette(brand);
+
+			&:hover{
+				color: white;
+			}
+
+			&:before{
+				@include icon-font;
+				position: absolute;
+				left: 15px;
+			}
+		}
+	}
+
 	.o-setting--selectable:hover{
 		background-color: palette(brand);
 		color: white;

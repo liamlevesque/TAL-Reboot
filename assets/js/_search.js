@@ -98,3 +98,16 @@
 				scrollArea.destroy();
 				createOptiscroll();
 			},
+
+			toggleFiltersVisible: function(){
+				talObject.filtersVisible = !talObject.filtersVisible;
+			},
+
+			updateSort: function(e){
+				talObject.sortName = $(e.currentTarget).data('value');
+				talObject.sortOptionsVisible = false;
+			},
+
+			toggleSortOptionsVisible: function(e){
+				talObject.sortOptionsVisible = !talObject.sortOptionsVisible;
+			},

@@ -54,6 +54,21 @@ const talObject = {
 		categoryLots: [],
 		searchLots: [],
 		filteredResults: {},
+
+		filtersVisible: false,
+		sortOptions: [
+			{
+				name: 'Sort By Closing Time'
+			},
+			{
+				name: 'Sort By Price - Lowest First'
+			},
+			{
+				name: 'Sort By Price - Highest First'
+			},
+		],
+		sortName: 'Sort By Closing Time',
+		sortOptionsVisible: false,
 		
 		scrollUpNoticeVisible: true,
 		draggingLot: null,

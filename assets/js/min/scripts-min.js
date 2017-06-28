@@ -4854,6 +4854,21 @@ const talObject = {
 		categoryLots: [],
 		searchLots: [],
 		filteredResults: {},
+
+		filtersVisible: false,
+		sortOptions: [
+			{
+				name: 'Sort By Closing Time'
+			},
+			{
+				name: 'Sort By Price - Lowest First'
+			},
+			{
+				name: 'Sort By Price - Highest First'
+			},
+		],
+		sortName: 'Sort By Closing Time',
+		sortOptionsVisible: false,
 		
 		scrollUpNoticeVisible: true,
 		draggingLot: null,
@@ -5081,6 +5096,19 @@ const talController = {
 				talObject.categoryLots = [];
 				scrollArea.destroy();
 				createOptiscroll();
+			},
+
+			toggleFiltersVisible: function(){
+				talObject.filtersVisible = !talObject.filtersVisible;
+			},
+
+			updateSort: function(e){
+				talObject.sortName = $(e.currentTarget).data('value');
+				talObject.sortOptionsVisible = false;
+			},
+
+			toggleSortOptionsVisible: function(e){
+				talObject.sortOptionsVisible = !talObject.sortOptionsVisible;
 			},
 
         /******************************************
