@@ -373,6 +373,31 @@ rivets.formatters.highbidder = function(bids,bidder){
 	return 'notbid';
 };
 
+rivets.formatters.highbidormaxbid = function(bids,bidder,match){
+	if(typeof bids === 'undefined' || typeof bids[0] == 'undefined' || typeof bidder == 'undefined' || typeof match == 'undefined' ) return false;
+	switch(match){
+		case 'BIDDING':
+			if(bids[0].bidder === bidder) return true;
+			break;
+
+		case 'MAXBID':
+			if(bids[0].bidder === bidder && bids[0].type === 'max'){
+				console.log('maxbid yes!');
+				return true;
+			} 
+			break;
+
+		case 'BID_NOT_MAXBID':
+			if(bids[0].bidder === bidder && bids[0].type != 'max') return true;
+			break;
+
+		default:
+			return false; 
+	}
+	
+	return false;
+};
+
 rivets.binders.bidstatusclass = function(el,value){
 	//console.log(value);
 
@@ -5156,10 +5181,10 @@ const talController = {
 
 			pricedBid: function(lot,type,bidder,amt){
 				lot.bids.unshift(talController.buildBid(bidder,amt,type));
-				console.log(lot.bids);
 			},
 
 			buildBid: function(bidder,amt,type) {
+				console.log(type);
 				let bid = {
 					bidder: bidder,
 					bid: amt,

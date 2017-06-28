@@ -59,10 +59,10 @@
 
 			pricedBid: function(lot,type,bidder,amt){
 				lot.bids.unshift(talController.buildBid(bidder,amt,type));
-				console.log(lot.bids);
 			},
 
 			buildBid: function(bidder,amt,type) {
+				console.log(type);
 				let bid = {
 					bidder: bidder,
 					bid: amt,
