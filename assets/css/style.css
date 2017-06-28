@@ -290,6 +290,9 @@ ul {
     float: right;
     margin-right: 0; } }
 
+.l-grid-no-float {
+  float: none !important; }
+
 .t-f-xsmall {
   font-size: 0.7rem; }
 
@@ -2906,6 +2909,9 @@ a {
     float: right;
     margin-right: 0; } }
 
+.l-grid-no-float {
+  float: none !important; }
+
 /*******************
 	HELPER CLASSES
 ********************/
@@ -3909,7 +3915,7 @@ a {
   .o-lot.s-sold.s-outbid, .o-group-bid-item.s-sold.s-outbid {
     border-left: 15px solid #c4483a; }
   .o-lot.s-swiped-right, .o-group-bid-item.s-swiped-right {
-    transform: translateX(200px) !important; }
+    transform: translateX(50%) !important; }
   .o-lot.s-swiped-left, .o-group-bid-item.s-swiped-left {
     transform: translateX(-200px) !important; }
   .o-lot.s-all-actions, .o-group-bid-item.s-all-actions {

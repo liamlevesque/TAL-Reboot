@@ -1,11 +1,12 @@
 <div class="o-lot--action-controls" rv-class-s-confirming="lot.swipeQuickBidding">
 	<div rv-unless="lot.swipeQuickBidding">
-		<button class="o-icon-label-button_large" rv-on-click="talController.dragQuickBid"><i class="icon-check icon-size--large"></i><label for="">Quick Bid</label></button>
-		<button class="o-icon-label-button_large" rv-on-click="talController.revealMoreActionsMobile" rv-unless="lot.moreActionsVisible"><i class="icon-more_horiz icon-size--large"></i><label for="">More</label></button>
+		<button class="o-icon-label-button_large l-grid-quarter_mobile" rv-on-click="talController.dragQuickBid" rv-hide="lot.maxBid.bidder | compare talObject.bidder"><i class="icon-check icon-size--large"></i><label for="">Quick Bid</label></button>
+		<button class="o-icon-label-button_large l-grid-quarter_mobile" rv-on-click="talController.dragMaxBid" rv-show="lot.maxBid.bidder | compare talObject.bidder"><i class="icon-check icon-size--large"></i><label for="">Change Maximum Bid</label></button>
+		<button class="o-icon-label-button_large l-grid-quarter_mobile l-grid-no-float" rv-on-click="talController.revealMoreActionsMobile" rv-unless="lot.moreActionsVisible"><i class="icon-more_horiz icon-size--large"></i><label for="">More</label></button>
 		<span rv-if="lot.moreActionsVisible">
-			<button class="o-icon-label-button_large" rv-on-click="talController.dragMaxBid"><i class="icon-check icon-size--large"></i><label for="">Max Bid</label></button>
-			<button class="o-icon-label-button_large" rv-on-click="talController.dragGroupBid"><i class="icon-group-bid icon-size--large"></i><label for="">Group Bid</label></button>
-			<button class="o-icon-label-button_large" rv-on-click="talController.dragWatchLot" rv-class-s-active="lot.watching | indexof talObject.bidder"><i class="icon-eye icon-size--large"></i><label for="">Watch</label></button>
+			<button class="o-icon-label-button_large l-grid-quarter_mobile" rv-on-click="talController.dragMaxBid" rv-hide="lot.maxBid.bidder | compare talObject.bidder"><i class="icon-check icon-size--large"></i><label for="">Maximum Bid</label></button>
+			<button class="o-icon-label-button_large l-grid-quarter_mobile" rv-on-click="talController.dragGroupBid"><i class="icon-group-bid icon-size--large"></i><label for="">Group Bid</label></button>
+			<button class="o-icon-label-button_large l-grid-quarter_mobile l-grid-no-float" rv-on-click="talController.dragWatchLot" rv-class-s-active="lot.watching | indexof talObject.bidder"><i class="icon-eye icon-size--large"></i><label for="">Watch</label></button>
 		</span>
 	</div>
 	<div class="h-ta-center" rv-if="lot.swipeQuickBidding">
@@ -72,6 +73,10 @@
 							<div class="o-lot--bidder" rv-if="lot.bids.0.bid | greaterthan 0">
 								<label class="t-smalllabel">High Bid</label>
 								<span class="CCY" rv-html="lot.bids.0.bid | price"></span>
+							</div>
+							
+							<div rv-if="lot.maxBid.bidder | compare talObject.bidder" class="o-lot--bidder">
+								<label class="t-smalllabel">(Bidding for you up to <span class="CCY" rv-html="lot.maxBid.bid"></span>)</label>
 							</div>
 						</div>
 

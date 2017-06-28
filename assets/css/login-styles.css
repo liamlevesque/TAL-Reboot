@@ -2148,6 +2148,9 @@ a {
     float: right;
     margin-right: 0; } }
 
+.l-grid-no-float {
+  float: none !important; }
+
 .o-input--container {
   position: relative;
   display: block; }
