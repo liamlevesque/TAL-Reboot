@@ -1,0 +1,42 @@
+.o-sidebar{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 60%;
+    transform: translateX(100%);
+    transition: transform $transition;
+
+    display: flex;
+    flex-direction: column;
+    
+    background-color: white;
+    box-shadow: $ritchie-shadow;
+
+    @include breakpoint(smallmax){
+        width: 80%;
+    }
+
+    &.s-visible{
+        transform: translateX(0);
+    }
+}
+    
+    .o-sidebar--header{
+        overflow: hidden;
+        padding: spacing(small);
+
+        span{
+            line-height: 45px;
+        }
+    }
+
+    .o-sidebar--fixed-content{
+
+    }
+
+    .o-sidebar--scroll-content{
+        flex: auto;
+        overflow-y: auto;
+        padding-left: spacing(small);
+    }

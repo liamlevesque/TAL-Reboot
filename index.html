@@ -63,8 +63,8 @@
 		
 				
 		<div class="l-width--800 h-mb-50">
-			<button class="o-button--outline l-grid-fifth_mobile l-grid-quarter" rv-on-click="talController.toggleCategoriesVisible">
-				<span class="h-hide-tiny">Categories<i class="icon-arrow-down h-ml-100 h-hide-mobile"></i></span><span class="h-hide-desktop"><i class="icon-more_horiz"></i></span>
+			<button class="o-button--outline l-grid-quarter h-hide-mobile" rv-on-click="talController.toggleCategoriesVisible">
+				Categories<i class="icon-keyboard_arrow_up h-ml-100 h-hide-mobile"></i>
 			</button>
 			<div class="l-grid-three-fifths_mobile l-grid-half">
 				<input type="text" class="o-input--text" placeholder="find by lot # or keyword" rv-on-click="talController.toggleSearchVisible" rv-value="talObject.filteredResults.input">
@@ -72,7 +72,7 @@
 			</div>
 			<button class="o-button h-hide-mobile l-grid-quarter l-grid-last-item">Search</button>
 			
-			<button class="o-text-button h-hide-desktop l-grid-fifth_mobile">Sort</button>
+			<button class="o-button--outline h-hide-desktop l-grid-quarter_mobile" rv-on-click="talController.toggleFiltersVisible">Sort/Filter</button>
 		</div>
 		<div class="c-subhead" rv-if="talObject.activeTab | compare 'auction'">
 			<div class="l-width--1200">
@@ -85,17 +85,50 @@
 						</div>
 					</div>
 				</div>
-				<div class="h-float-right h-hide-mobile">
+				<div class="c-sort-toggle h-float-right h-hide-mobile" rv-class-s-expanded="talObject.sortOptionsVisible" rv-on-click="talController.toggleSortOptionsVisible">
 					<label class="t-smalllabel">Sort:</label>
-					<span>Closing Time - Soonest first</span>
+					<span>{talObject.sortName}</span><i class="icon-keyboard_arrow_up icon-size--large"></i>
 				</div>
 			</div>
 		</div>
 		
 		
+		<div class="o-sidebar" rv-class-s-visible="talObject.filtersVisible">
+			<div class="o-sidebar--header">
+				<span class="h3">Sort/Filter</span>
+				<button class="o-icon-button--medium h-float-right" rv-on-click="talController.toggleFiltersVisible"><i class="icon-close"></i></button>
+			</div>
+			<!--<div class="o-sidebar--fixed-content">
+				
+			</div>-->
+			<div class="o-sidebar--scroll-content">
+				<div class="o-sidebar--section s-collapsed">
+					<div class="o-setting-section-separator">Sort</div>
+					<div class="o-sidebar--section-content">
+						<div class="o-setting-list-item o-setting-list-item_picker-header" rv-on-click="talController.toggleSortOptionsVisible" rv-class-s-expanded="talObject.sortOptionsVisible">{talObject.sortName}<i class="icon-keyboard_arrow_up icon-size--large h-float-right"></i></div>
+						<ul class="o-setting--picker s-collapsed" rv-if="talObject.sortOptionsVisible">
+							<li class="o-setting-list-item o-setting-list-item_picker" rv-each-sort="talObject.sortOptions" rv-on-click="talController.updateSort" rv-data-value="sort.name" rv-class-s-selected="sort.name | compare talObject.sortName">{sort.name}</li>
+						</ul>
+					</div>
+				</div>
+				<div class="o-setting-section-separator">Equipment Categories</div>
+				<div class="o-sidebar--section s-collapsed">
+					<ul>
+						<li class="o-setting-list-item o-setting--selectable" rv-each-category="talObject.categories" rv-on-click="talController.goToCategory" rv-data-value="category.name">{ category.name } <span class="t-smalllabel">({ category.quantity })</span></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
 		<div class="c-category-list" rv-if="talObject.categoriesVisible" rv-on-focusOut="talController.toggleCategoriesVisible">
 			<ul>
 				<li class="o-setting-list-item o-setting--selectable" rv-each-category="talObject.categories" rv-on-click="talController.goToCategory" rv-data-value="category.name">{ category.name } <span class="t-smalllabel">({ category.quantity })</span></li>
+			</ul>
+		</div>
+		
+		<div class="c-sort-list" rv-if="talObject.sortOptionsVisible" rv-on-focusOut="talController.toggleSortOptionsVisible">
+			<ul class="o-setting--picker s-collapsed">
+				<li class="o-setting-list-item o-setting-list-item_picker" rv-each-sort="talObject.sortOptions" rv-on-click="talController.updateSort" rv-data-value="sort.name" rv-class-s-selected="sort.name | compare talObject.sortName">{sort.name}</li>
 			</ul>
 		</div>	
 	</div>
@@ -1278,7 +1311,7 @@
 				<button class="o-text-button_black m-header-left-button h-hide-desktop" rv-on-click="talController.toggleLotDetails">Back</button>
 				<h3 class="h3 h-d-inline-block">Lot {talObject.focusedLot.lotNumber}</h3>
 				<h5 class="h6 h-hide-desktop">Bidder: {talObject.bidder} | Available Funds: <span class="CCY" rv-html="talObject.userprofile.credit | price"></span></h5>
-				<button class="o-icon-button--medium h-hide-mobile c-modal--close" rv-on-click="talController.toggleLotDetails">X</button>
+				<button class="o-icon-button--medium h-hide-mobile c-modal--close" rv-on-click="talController.toggleLotDetails"><i class="icon-close"></i></button>
 			</div>
 	
 			<div class="c-modal--body">	
@@ -1453,7 +1486,7 @@
 						<button class="o-text-button_black m-header-left-button h-hide-desktop" rv-on-click="talController.dismissGroupViewModal">Back</button>
 						<h3 class="h3 h-d-inline-block">Group Bid</h3>
 						<h5 class="h6 h-hide-desktop">Bidder: {talObject.bidder} | Available Funds: <span class="CCY" rv-html="talObject.userprofile.credit | price"></span></h5>
-						<button class="o-icon-button--medium h-hide-mobile c-modal--close" rv-on-click="talController.dismissGroupViewModal">X</button>
+						<button class="o-icon-button--medium h-hide-mobile c-modal--close" rv-on-click="talController.dismissGroupViewModal"><i class="icon-close"></i></button>
 					</div>
 					
 					<div class="c-modal--body">
@@ -1594,7 +1627,7 @@
 								<button class="o-text-button_black m-header-left-button h-hide-desktop" rv-on-click="talController.toggleMaximumBidVisible">Back</button>
 								<h3 class="h3 h-d-inline-block">Maximum Bid | Lot {talObject.focusedLot.lotNumber}</h3>
 								<h5 class="h6 h-hide-desktop">Bidder: {talObject.bidder} | Available Funds: <span class="CCY" rv-html="talObject.userprofile.credit | price"></span></h5>
-								<button class="o-icon-button--medium h-hide-mobile c-modal--close" rv-on-click="talController.toggleMaximumBidVisible">X</button>
+								<button class="o-icon-button--medium h-hide-mobile c-modal--close" rv-on-click="talController.toggleMaximumBidVisible"><i class="icon-close"></i></button>
 							</div>
 							<div class="c-modal--body">
 								

@@ -5,7 +5,7 @@
 }
 
 
-.c-category-list{
+.c-category-list, .c-sort-list{
 	position: fixed;
 	top: 90px;
 	bottom: 0;
@@ -25,6 +25,30 @@
 		
 	}
 }
+
+	.c-sort-list{
+		left: auto;
+		top: 160px;
+		right: calc((100vw - 1200px) / 2);
+	}
+
+	.c-sort-toggle{
+		cursor: pointer;
+		overflow: hidden;
+
+		span{
+			text-decoration: underline;
+		}
+
+		&.s-expanded i{
+			transform: rotate(0);
+		}
+
+		i{
+			display: inline-block;
+			transform: rotate(180deg);
+		}
+	}
 
 .c-subhead{
 	background-color: palette(grey,dark);
