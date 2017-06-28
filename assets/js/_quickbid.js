@@ -16,7 +16,10 @@
 			},
 
 			confirmQuickBid: function(e,context) {
-				let lot = talObject.focusedLot;
+				talController.placeQuickBid(talObject.focusedLot);
+			},
+
+			placeQuickBid: function(lot){
 				//IF THERE'S A MAX BID ON THIS LOT
 				if(lot.maxBid.bid > 0){
 					//IF THE QUICK BID WOULD BE MORE THAN THE MAX BID

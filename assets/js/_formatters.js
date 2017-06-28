@@ -167,6 +167,11 @@ rivets.formatters.and = function(value,item){
 	return false;
 };
 
+rivets.formatters.or = function(value,item){
+	if(value || item) return true;
+	return false;
+};
+
 rivets.formatters.lengthand = function(value,item){
 	if(typeof value != 'undefined' && value.length > 0 && !item) return true;
 	return false;

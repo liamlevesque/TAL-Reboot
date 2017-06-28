@@ -3016,6 +3016,9 @@ input[type="email"].s-error {
 .h-width-100 {
   width: 100%; }
 
+.h-w-auto {
+  width: auto; }
+
 .h-d-table {
   display: table;
   width: 100%;

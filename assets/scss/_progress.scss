@@ -85,7 +85,7 @@ $progress-indicator-height: 50px;
 	z-index: 90;
 	transition: width $transition;
 	pointer-events: none;
-
+	
 	.optiscroll.is-enabled ~ &{
 		display: block;
 	}
@@ -95,13 +95,17 @@ $progress-indicator-height: 50px;
 			pointer-events: initial;
 
 			&:before{
-				width: 2 * $scroll-width;
+				transform: scaleX(2);
 			}
 
 			.auction-lot-intervals{
 				opacity: 1;
 			}
 		}
+	}
+
+	@include breakpoint(large){
+		pointer-events: initial;
 	}
 
 	&:before{
@@ -159,7 +163,7 @@ $progress-indicator-height: 50px;
 
 	@include breakpoint(medmax){
 		.optiscroll.s-scrolling ~ .auction-progress-meter &{
-			width: 2 * $scroll-width;
+			transform: scaleX(2);
 		}
 	}
 }

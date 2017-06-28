@@ -1,9 +1,9 @@
 .o-notification{
     position: absolute;
     top: spacing(xx-small);
+    left: 50%;
     width: 90%;
     max-width: 600px;
-    margin: 0 auto;
 
     z-index: 6;
 
@@ -16,10 +16,10 @@
     border-radius: $default-border-radius;
     box-shadow: $ritchie-shadow;
 
-    transform: translateY(-200%);
+    transform: translate(-50%,-200%);
     transition: transform $transition;
 
     &.s-visible{
-        transform: translateY(0);
+        transform: translate(-50%,0);
     }
 }

@@ -146,6 +146,10 @@
 		width: 100%;
 	}
 
+	.h-w-auto{
+		width: auto;
+	}
+
 	.h-d-table{
 		@include tableLayout;
 	}

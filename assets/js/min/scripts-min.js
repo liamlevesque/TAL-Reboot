@@ -222,6 +222,11 @@ rivets.formatters.and = function(value,item){
 	return false;
 };
 
+rivets.formatters.or = function(value,item){
+	if(value || item) return true;
+	return false;
+};
+
 rivets.formatters.lengthand = function(value,item){
 	if(typeof value != 'undefined' && value.length > 0 && !item) return true;
 	return false;
@@ -406,6 +411,11 @@ $(function(){
 
 var scrollArea;
 var scrollTarget = null;
+var scrollDetails = {
+	start: null,
+	delta:null,
+	direction: null,
+};
 
 function createOptiscroll() {
 	if($('.js--optiscroll-content').length > 0){
@@ -417,6 +427,9 @@ function createOptiscroll() {
 
 		let nextLot = talObject.auction.startLot + talObject.auction.closingNext;
 		$('.optiscroll-content').scrollTop($('#' + nextLot).offset().top);
+		setTimeout(function(){
+			$('.js--tal').removeClass('s-header-hidden');
+		},500);
 
 		$('.js--lot-scroll-hover-area').on('mouseenter',function(e){
 			$('.optiscroll').addClass('s-scrolling');
@@ -435,8 +448,21 @@ function createOptiscroll() {
 			goToLot(scrollTarget);
 		});
 
-		$('.optiscroll').on('scroll',function(e){
+		$('.optiscroll').on('scrollstart',function(e){
 			$('.optiscroll').addClass('s-scrolling');
+			scrollDetails.start = e.detail.scrollTop;
+			updateProgressIndicator(e.detail.scrollTop/e.detail.scrollHeight);
+		}).on('scroll',function(e){
+			scrollDetails.direction = (e.detail.scrollTop > scrollDetails.start)? 'down' : 'up' ;
+			scrollDetails.delta = Math.abs(e.detail.scrollTop - scrollDetails.start);
+			if(scrollDetails.direction === 'up' && scrollDetails.delta > 5){
+				$('.js--tal').removeClass('s-header-hidden');
+				scrollDetails.start = e.detail.scrollTop;
+			}
+			else if(scrollDetails.direction === 'down' && scrollDetails.delta > 5){
+				$('.js--tal').addClass('s-header-hidden');
+				scrollDetails.start = e.detail.scrollTop;
+			}
 			updateProgressIndicator(e.detail.scrollTop/e.detail.scrollHeight);
 		}).on('scrollstop',function(e){
 			$('.optiscroll').removeClass('s-scrolling');
@@ -4880,7 +4906,7 @@ const talController = {
 			scrollArea.destroy();
 			talObject.activeTab = target;
 			createOptiscroll();
-			
+			$('.js--tal').removeClass('s-header-hidden');
 		},
 
 		toggleLotDetails: function(e,context){
@@ -5022,6 +5048,7 @@ const talController = {
 				talObject.activeCategory = $(e.currentTarget).data('value');
 				talObject.categoryLots = talObject.lots.filter((lot) => {return lot.category === talObject.activeCategory});
 				talObject.categoriesVisible = false;
+				talObject.mobileSearchVisible = false;
 			},
 
 			clearCategory: function(e){
@@ -5086,7 +5113,10 @@ const talController = {
 			},
 
 			confirmQuickBid: function(e,context) {
-				let lot = talObject.focusedLot;
+				talController.placeQuickBid(talObject.focusedLot);
+			},
+
+			placeQuickBid: function(lot){
 				//IF THERE'S A MAX BID ON THIS LOT
 				if(lot.maxBid.bid > 0){
 					//IF THE QUICK BID WOULD BE MORE THAN THE MAX BID
@@ -5339,29 +5369,32 @@ const talController = {
 		******************************************/
 
 			startDrag: function(e,context){
+				if(context.lot.status === 'sold')return;
 				talController.updateTouchStart(e);
 				talObject.draggingLot = $(e.currentTarget);
 			},
 			doDrag: function(e,context){
+				if(context.lot.status === 'sold')return;
 				let relativeX = e.changedTouches[0].pageX - talObject.touchStart.x;
 				let relativeY = e.changedTouches[0].pageY - talObject.touchStart.y;
 				if(relativeX < 0 || Math.abs(relativeX) < Math.abs(relativeY)) {
 					//IF SWIPING MORE VERTICALLY, DON'T SWIPE HORIZONTALLY, AND RESET ALL SWIPES
-					talController.resetDrag()
+					talController.resetDrag(context.lot)
 					return;
 				}
 				else if(relativeX > talObject.swipeDistance) $(e.currentTarget).addClass('s-swiped-right');
 				//else if(relativeX < -talObject.swipeDistance) $(e.currentTarget).addClass('s-swiped-left');
-				else if(relativeX < -20 && $(e.currentTarget).hasClass('s-swiped')) talController.resetDrag();
+				else if(relativeX < -20 && $(e.currentTarget).hasClass('s-swiped')) talController.resetDrag(context.lot);
 				else $(talObject.draggingLot).css('transform','translateX('+ relativeX + 'px)');
 			},
 			cancelDrag: function(e,context){
 
 			},
 			endDrag: function(e,context){
+				if(context.lot.status === 'sold')return;
 				let relativeX = e.changedTouches[0].pageX - talObject.touchStart.x;
 				if(relativeX > talObject.swipeDistance) $(e.currentTarget).addClass('s-swiped-right');
-				if(relativeX < -20 && $(e.currentTarget).hasClass('s-swiped-right')) talController.resetDrag();
+				if(relativeX < -20 && $(e.currentTarget).hasClass('s-swiped-right')) talController.resetDrag(context.lot);
 				else $(talObject.draggingLot).css('transform','translateX(0)');
 			},
 			updateTouchStart: function(e){
@@ -5369,29 +5402,39 @@ const talController = {
 				talObject.touchStart.y = e.changedTouches[0].pageY;
 			},
 
-			resetDrag: function() {
-				$('.s-swiped-right,.s-swiped-left').css('transform','translateX(0)').removeClass('s-swiped-left s-swiped-right');
+			resetDrag: function(lot) {
+				$('.s-swiped-right,.s-swiped-left,.s-all-actions').css('transform','translateX(0)').removeClass('s-swiped-left s-swiped-right s-all-actions');
+				lot.moreActionsVisible = false;
+				lot.swipeQuickBidding = false;
 				// $(lot).removeClass('s-swiped-right s-swiped-left');
 			},
 
 			dragQuickBid: function(e,context){
-				talController.resetDrag();
-				talController.quickBid(e,context);
+				context.lot.swipeQuickBidding = true;
+			},
+
+			dragConfirmQuickBid: function(e,context){
+				talController.placeQuickBid(context.lot);
+				talController.resetDrag(context.lot);
 			},
 
 			dragMaxBid: function(e,context){
-				talController.resetDrag();
+				talController.resetDrag(context.lot);
 				talController.toggleMaximumBidVisible(e,context);
 			},
 
 			dragGroupBid: function(e,context){
-				talController.resetDrag();
+				talController.resetDrag(context.lot);
 				talController.createGroupBid(e,context);
 			},
 
 			dragWatchLot: function(e,context){
-				talController.resetDrag();
+				talController.resetDrag(context.lot);
 				talController.watchLot(e,context);
+			},
+
+			revealMoreActionsMobile: function(e,context){
+				context.lot.moreActionsVisible = true;
 			},
 
 	};

@@ -15,7 +15,7 @@ const talController = {
 			scrollArea.destroy();
 			talObject.activeTab = target;
 			createOptiscroll();
-			
+			$('.js--tal').removeClass('s-header-hidden');
 		},
 
 		toggleLotDetails: function(e,context){

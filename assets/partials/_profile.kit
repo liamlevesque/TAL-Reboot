@@ -4,11 +4,11 @@
 		<h3 class="h4">Bidder: {talObject.bidder}</h3>
 		<div class="o-setting-section-separator">Credit Information</div>
 		<div class="o-setting-list-item">
-			<label for="" class="t-smalllabel">Credit Remaining</label>
+			<label for="" class="t-smalllabel">Available Funds</label>
 			<span class="o-setting-list-item--value">{talObject.userprofile.credit}</span>
 		</div>
 		<div class="o-setting-list-item">
-			<label for="" class="t-smalllabel">Credit Spent</label>
+			<label for="" class="t-smalllabel">Spent</label>
 			<span class="o-setting-list-item--value CCY" rv-html="talObject.userprofile.spent | price"></span>
 			<div rv-if="talObject.purchasedLots | lengthToBool"><a class="h-float-right h-color-brand" rv-on-click="talController.loadTab" data-tab="purchases">View Purchases</a></div>
 		</div>

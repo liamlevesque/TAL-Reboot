@@ -89,6 +89,7 @@
 				talObject.activeCategory = $(e.currentTarget).data('value');
 				talObject.categoryLots = talObject.lots.filter((lot) => {return lot.category === talObject.activeCategory});
 				talObject.categoriesVisible = false;
+				talObject.mobileSearchVisible = false;
 			},
 
 			clearCategory: function(e){

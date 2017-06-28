@@ -107,14 +107,24 @@
 				<div class="l-width--1200">
 					<ul class="c-lot-list js--optiscroll-content">
 						<li rv-each-lot="talObject.lots" rv-id="lot.lotNumber">
-							<div class="o-lot--action-controls">
-								<button class="o-icon-label-button_large" rv-on-click="talController.dragQuickBid"><i class="icon-check icon-size--large"></i><label for="">Quick Bid</label></button>
-								<button class="o-icon-label-button_large" rv-on-click="talController.dragMaxBid"><i class="icon-check icon-size--large"></i><label for="">Max Bid</label></button>
-								<button class="o-icon-label-button_large h-float-right" rv-on-click="talController.dragGroupBid"><i class="icon-group-bid icon-size--large"></i><label for="">Group Bid</label></button>
-								<button class="o-icon-label-button_large h-float-right" rv-on-click="talController.dragWatchLot"><i class="icon-eye icon-size--large"></i><label for="">Watch</label></button>
+							<div class="o-lot--action-controls" rv-class-s-confirming="lot.swipeQuickBidding">
+								<div rv-unless="lot.swipeQuickBidding">
+									<button class="o-icon-label-button_large" rv-on-click="talController.dragQuickBid"><i class="icon-check icon-size--large"></i><label for="">Quick Bid</label></button>
+									<button class="o-icon-label-button_large" rv-on-click="talController.revealMoreActionsMobile" rv-unless="lot.moreActionsVisible"><i class="icon-more_horiz icon-size--large"></i><label for="">More</label></button>
+									<span rv-if="lot.moreActionsVisible">
+										<button class="o-icon-label-button_large" rv-on-click="talController.dragMaxBid"><i class="icon-check icon-size--large"></i><label for="">Max Bid</label></button>
+										<button class="o-icon-label-button_large" rv-on-click="talController.dragGroupBid"><i class="icon-group-bid icon-size--large"></i><label for="">Group Bid</label></button>
+										<button class="o-icon-label-button_large" rv-on-click="talController.dragWatchLot" rv-class-s-active="lot.watching | indexof talObject.bidder"><i class="icon-eye icon-size--large"></i><label for="">Watch</label></button>
+									</span>
+								</div>
+								<div class="h-ta-center" rv-if="lot.swipeQuickBidding">
+									<div class="h-mb-100">Are you sure you want to bid <strong class="CCY" rv-html="lot.bids.0.bid | nextIncrement"></strong> on <strong>Lot { lot.lotNumber }</strong>?</div>
+									<button class="o-button h-d-inline-block h-w-auto" rv-on-click="talController.dragConfirmQuickBid"> Yes - Place Bid </button>
+								</div>
+							
 							</div>
 							
-							<div class="o-lot" rv-bidstatusclass="lot.bids | highbidder talObject.bidder" rv-class-s-group-select="talObject.isGroupChoosing" rv-class-s-sold="lot.status | compare 'sold'" rv-class-s-in-group="lot.group | lengthand talObject.isGroupChoosing" rv-on-touchstart="talController.startDrag" rv-on-touchmove="talController.doDrag" rv-on-touchend="talController.endDrag" rv-on-touchcancel="talController.cancelDrag">
+							<div class="o-lot" rv-bidstatusclass="lot.bids | highbidder talObject.bidder" rv-class-s-group-select="talObject.isGroupChoosing" rv-class-s-sold="lot.status | compare 'sold'" rv-class-s-in-group="lot.group | lengthand talObject.isGroupChoosing" rv-class-s-all-actions="lot.moreActionsVisible | or lot.swipeQuickBidding" rv-on-touchstart="talController.startDrag" rv-on-touchmove="talController.doDrag" rv-on-touchend="talController.endDrag" rv-on-touchcancel="talController.cancelDrag">
 							
 								<!-- <input type="checkbox" rv-show="talObject.isGroupChoosing" class="o-lot--group-selector" rv-on-click="talController.addToGroup" rv-ischecked="lot.group | indexof talObject.tempGroup.uid"> -->
 							
@@ -268,14 +278,24 @@
 				<div class="l-width--1200">
 					<ul class="c-lot-list">
 						<li rv-each-lot="talObject.categoryLots" rv-id="lot.lotNumber">
-							<div class="o-lot--action-controls">
-								<button class="o-icon-label-button_large" rv-on-click="talController.dragQuickBid"><i class="icon-check icon-size--large"></i><label for="">Quick Bid</label></button>
-								<button class="o-icon-label-button_large" rv-on-click="talController.dragMaxBid"><i class="icon-check icon-size--large"></i><label for="">Max Bid</label></button>
-								<button class="o-icon-label-button_large h-float-right" rv-on-click="talController.dragGroupBid"><i class="icon-group-bid icon-size--large"></i><label for="">Group Bid</label></button>
-								<button class="o-icon-label-button_large h-float-right" rv-on-click="talController.dragWatchLot"><i class="icon-eye icon-size--large"></i><label for="">Watch</label></button>
+							<div class="o-lot--action-controls" rv-class-s-confirming="lot.swipeQuickBidding">
+								<div rv-unless="lot.swipeQuickBidding">
+									<button class="o-icon-label-button_large" rv-on-click="talController.dragQuickBid"><i class="icon-check icon-size--large"></i><label for="">Quick Bid</label></button>
+									<button class="o-icon-label-button_large" rv-on-click="talController.revealMoreActionsMobile" rv-unless="lot.moreActionsVisible"><i class="icon-more_horiz icon-size--large"></i><label for="">More</label></button>
+									<span rv-if="lot.moreActionsVisible">
+										<button class="o-icon-label-button_large" rv-on-click="talController.dragMaxBid"><i class="icon-check icon-size--large"></i><label for="">Max Bid</label></button>
+										<button class="o-icon-label-button_large" rv-on-click="talController.dragGroupBid"><i class="icon-group-bid icon-size--large"></i><label for="">Group Bid</label></button>
+										<button class="o-icon-label-button_large" rv-on-click="talController.dragWatchLot" rv-class-s-active="lot.watching | indexof talObject.bidder"><i class="icon-eye icon-size--large"></i><label for="">Watch</label></button>
+									</span>
+								</div>
+								<div class="h-ta-center" rv-if="lot.swipeQuickBidding">
+									<div class="h-mb-100">Are you sure you want to bid <strong class="CCY" rv-html="lot.bids.0.bid | nextIncrement"></strong> on <strong>Lot { lot.lotNumber }</strong>?</div>
+									<button class="o-button h-d-inline-block h-w-auto" rv-on-click="talController.dragConfirmQuickBid"> Yes - Place Bid </button>
+								</div>
+							
 							</div>
 							
-							<div class="o-lot" rv-bidstatusclass="lot.bids | highbidder talObject.bidder" rv-class-s-group-select="talObject.isGroupChoosing" rv-class-s-sold="lot.status | compare 'sold'" rv-class-s-in-group="lot.group | lengthand talObject.isGroupChoosing" rv-on-touchstart="talController.startDrag" rv-on-touchmove="talController.doDrag" rv-on-touchend="talController.endDrag" rv-on-touchcancel="talController.cancelDrag">
+							<div class="o-lot" rv-bidstatusclass="lot.bids | highbidder talObject.bidder" rv-class-s-group-select="talObject.isGroupChoosing" rv-class-s-sold="lot.status | compare 'sold'" rv-class-s-in-group="lot.group | lengthand talObject.isGroupChoosing" rv-class-s-all-actions="lot.moreActionsVisible | or lot.swipeQuickBidding" rv-on-touchstart="talController.startDrag" rv-on-touchmove="talController.doDrag" rv-on-touchend="talController.endDrag" rv-on-touchcancel="talController.cancelDrag">
 							
 								<!-- <input type="checkbox" rv-show="talObject.isGroupChoosing" class="o-lot--group-selector" rv-on-click="talController.addToGroup" rv-ischecked="lot.group | indexof talObject.tempGroup.uid"> -->
 							
@@ -444,14 +464,24 @@
 					<div class="l-width--1200">
 						<ul class="c-lot-list" rv-if="talObject.watchingLots | lengthToBool">
 							<li rv-each-lot="talObject.watchingLots">
-								<div class="o-lot--action-controls">
-									<button class="o-icon-label-button_large" rv-on-click="talController.dragQuickBid"><i class="icon-check icon-size--large"></i><label for="">Quick Bid</label></button>
-									<button class="o-icon-label-button_large" rv-on-click="talController.dragMaxBid"><i class="icon-check icon-size--large"></i><label for="">Max Bid</label></button>
-									<button class="o-icon-label-button_large h-float-right" rv-on-click="talController.dragGroupBid"><i class="icon-group-bid icon-size--large"></i><label for="">Group Bid</label></button>
-									<button class="o-icon-label-button_large h-float-right" rv-on-click="talController.dragWatchLot"><i class="icon-eye icon-size--large"></i><label for="">Watch</label></button>
+								<div class="o-lot--action-controls" rv-class-s-confirming="lot.swipeQuickBidding">
+									<div rv-unless="lot.swipeQuickBidding">
+										<button class="o-icon-label-button_large" rv-on-click="talController.dragQuickBid"><i class="icon-check icon-size--large"></i><label for="">Quick Bid</label></button>
+										<button class="o-icon-label-button_large" rv-on-click="talController.revealMoreActionsMobile" rv-unless="lot.moreActionsVisible"><i class="icon-more_horiz icon-size--large"></i><label for="">More</label></button>
+										<span rv-if="lot.moreActionsVisible">
+											<button class="o-icon-label-button_large" rv-on-click="talController.dragMaxBid"><i class="icon-check icon-size--large"></i><label for="">Max Bid</label></button>
+											<button class="o-icon-label-button_large" rv-on-click="talController.dragGroupBid"><i class="icon-group-bid icon-size--large"></i><label for="">Group Bid</label></button>
+											<button class="o-icon-label-button_large" rv-on-click="talController.dragWatchLot" rv-class-s-active="lot.watching | indexof talObject.bidder"><i class="icon-eye icon-size--large"></i><label for="">Watch</label></button>
+										</span>
+									</div>
+									<div class="h-ta-center" rv-if="lot.swipeQuickBidding">
+										<div class="h-mb-100">Are you sure you want to bid <strong class="CCY" rv-html="lot.bids.0.bid | nextIncrement"></strong> on <strong>Lot { lot.lotNumber }</strong>?</div>
+										<button class="o-button h-d-inline-block h-w-auto" rv-on-click="talController.dragConfirmQuickBid"> Yes - Place Bid </button>
+									</div>
+								
 								</div>
 								
-								<div class="o-lot" rv-bidstatusclass="lot.bids | highbidder talObject.bidder" rv-class-s-group-select="talObject.isGroupChoosing" rv-class-s-sold="lot.status | compare 'sold'" rv-class-s-in-group="lot.group | lengthand talObject.isGroupChoosing" rv-on-touchstart="talController.startDrag" rv-on-touchmove="talController.doDrag" rv-on-touchend="talController.endDrag" rv-on-touchcancel="talController.cancelDrag">
+								<div class="o-lot" rv-bidstatusclass="lot.bids | highbidder talObject.bidder" rv-class-s-group-select="talObject.isGroupChoosing" rv-class-s-sold="lot.status | compare 'sold'" rv-class-s-in-group="lot.group | lengthand talObject.isGroupChoosing" rv-class-s-all-actions="lot.moreActionsVisible | or lot.swipeQuickBidding" rv-on-touchstart="talController.startDrag" rv-on-touchmove="talController.doDrag" rv-on-touchend="talController.endDrag" rv-on-touchcancel="talController.cancelDrag">
 								
 									<!-- <input type="checkbox" rv-show="talObject.isGroupChoosing" class="o-lot--group-selector" rv-on-click="talController.addToGroup" rv-ischecked="lot.group | indexof talObject.tempGroup.uid"> -->
 								
@@ -619,14 +649,24 @@
 								<ul class="c-lot-list" rv-if="talObject.biddingLots | lengthToBool">
 									<li class="h-overflow-hidden" rv-each-lot="talObject.biddingLots">
 										<div rv-unless="lot.type | compare 'group'">
-											<div class="o-lot--action-controls">
-												<button class="o-icon-label-button_large" rv-on-click="talController.dragQuickBid"><i class="icon-check icon-size--large"></i><label for="">Quick Bid</label></button>
-												<button class="o-icon-label-button_large" rv-on-click="talController.dragMaxBid"><i class="icon-check icon-size--large"></i><label for="">Max Bid</label></button>
-												<button class="o-icon-label-button_large h-float-right" rv-on-click="talController.dragGroupBid"><i class="icon-group-bid icon-size--large"></i><label for="">Group Bid</label></button>
-												<button class="o-icon-label-button_large h-float-right" rv-on-click="talController.dragWatchLot"><i class="icon-eye icon-size--large"></i><label for="">Watch</label></button>
+											<div class="o-lot--action-controls" rv-class-s-confirming="lot.swipeQuickBidding">
+												<div rv-unless="lot.swipeQuickBidding">
+													<button class="o-icon-label-button_large" rv-on-click="talController.dragQuickBid"><i class="icon-check icon-size--large"></i><label for="">Quick Bid</label></button>
+													<button class="o-icon-label-button_large" rv-on-click="talController.revealMoreActionsMobile" rv-unless="lot.moreActionsVisible"><i class="icon-more_horiz icon-size--large"></i><label for="">More</label></button>
+													<span rv-if="lot.moreActionsVisible">
+														<button class="o-icon-label-button_large" rv-on-click="talController.dragMaxBid"><i class="icon-check icon-size--large"></i><label for="">Max Bid</label></button>
+														<button class="o-icon-label-button_large" rv-on-click="talController.dragGroupBid"><i class="icon-group-bid icon-size--large"></i><label for="">Group Bid</label></button>
+														<button class="o-icon-label-button_large" rv-on-click="talController.dragWatchLot" rv-class-s-active="lot.watching | indexof talObject.bidder"><i class="icon-eye icon-size--large"></i><label for="">Watch</label></button>
+													</span>
+												</div>
+												<div class="h-ta-center" rv-if="lot.swipeQuickBidding">
+													<div class="h-mb-100">Are you sure you want to bid <strong class="CCY" rv-html="lot.bids.0.bid | nextIncrement"></strong> on <strong>Lot { lot.lotNumber }</strong>?</div>
+													<button class="o-button h-d-inline-block h-w-auto" rv-on-click="talController.dragConfirmQuickBid"> Yes - Place Bid </button>
+												</div>
+											
 											</div>
 											
-											<div class="o-lot" rv-bidstatusclass="lot.bids | highbidder talObject.bidder" rv-class-s-group-select="talObject.isGroupChoosing" rv-class-s-sold="lot.status | compare 'sold'" rv-class-s-in-group="lot.group | lengthand talObject.isGroupChoosing" rv-on-touchstart="talController.startDrag" rv-on-touchmove="talController.doDrag" rv-on-touchend="talController.endDrag" rv-on-touchcancel="talController.cancelDrag">
+											<div class="o-lot" rv-bidstatusclass="lot.bids | highbidder talObject.bidder" rv-class-s-group-select="talObject.isGroupChoosing" rv-class-s-sold="lot.status | compare 'sold'" rv-class-s-in-group="lot.group | lengthand talObject.isGroupChoosing" rv-class-s-all-actions="lot.moreActionsVisible | or lot.swipeQuickBidding" rv-on-touchstart="talController.startDrag" rv-on-touchmove="talController.doDrag" rv-on-touchend="talController.endDrag" rv-on-touchcancel="talController.cancelDrag">
 											
 												<!-- <input type="checkbox" rv-show="talObject.isGroupChoosing" class="o-lot--group-selector" rv-on-click="talController.addToGroup" rv-ischecked="lot.group | indexof talObject.tempGroup.uid"> -->
 											
@@ -838,14 +878,24 @@
 									<div class="l-width--1200">
 										<ul class="c-lot-list" rv-if="talObject.purchasedLots | lengthToBool">
 											<li rv-each-lot="talObject.purchasedLots">
-												<div class="o-lot--action-controls">
-													<button class="o-icon-label-button_large" rv-on-click="talController.dragQuickBid"><i class="icon-check icon-size--large"></i><label for="">Quick Bid</label></button>
-													<button class="o-icon-label-button_large" rv-on-click="talController.dragMaxBid"><i class="icon-check icon-size--large"></i><label for="">Max Bid</label></button>
-													<button class="o-icon-label-button_large h-float-right" rv-on-click="talController.dragGroupBid"><i class="icon-group-bid icon-size--large"></i><label for="">Group Bid</label></button>
-													<button class="o-icon-label-button_large h-float-right" rv-on-click="talController.dragWatchLot"><i class="icon-eye icon-size--large"></i><label for="">Watch</label></button>
+												<div class="o-lot--action-controls" rv-class-s-confirming="lot.swipeQuickBidding">
+													<div rv-unless="lot.swipeQuickBidding">
+														<button class="o-icon-label-button_large" rv-on-click="talController.dragQuickBid"><i class="icon-check icon-size--large"></i><label for="">Quick Bid</label></button>
+														<button class="o-icon-label-button_large" rv-on-click="talController.revealMoreActionsMobile" rv-unless="lot.moreActionsVisible"><i class="icon-more_horiz icon-size--large"></i><label for="">More</label></button>
+														<span rv-if="lot.moreActionsVisible">
+															<button class="o-icon-label-button_large" rv-on-click="talController.dragMaxBid"><i class="icon-check icon-size--large"></i><label for="">Max Bid</label></button>
+															<button class="o-icon-label-button_large" rv-on-click="talController.dragGroupBid"><i class="icon-group-bid icon-size--large"></i><label for="">Group Bid</label></button>
+															<button class="o-icon-label-button_large" rv-on-click="talController.dragWatchLot" rv-class-s-active="lot.watching | indexof talObject.bidder"><i class="icon-eye icon-size--large"></i><label for="">Watch</label></button>
+														</span>
+													</div>
+													<div class="h-ta-center" rv-if="lot.swipeQuickBidding">
+														<div class="h-mb-100">Are you sure you want to bid <strong class="CCY" rv-html="lot.bids.0.bid | nextIncrement"></strong> on <strong>Lot { lot.lotNumber }</strong>?</div>
+														<button class="o-button h-d-inline-block h-w-auto" rv-on-click="talController.dragConfirmQuickBid"> Yes - Place Bid </button>
+													</div>
+												
 												</div>
 												
-												<div class="o-lot" rv-bidstatusclass="lot.bids | highbidder talObject.bidder" rv-class-s-group-select="talObject.isGroupChoosing" rv-class-s-sold="lot.status | compare 'sold'" rv-class-s-in-group="lot.group | lengthand talObject.isGroupChoosing" rv-on-touchstart="talController.startDrag" rv-on-touchmove="talController.doDrag" rv-on-touchend="talController.endDrag" rv-on-touchcancel="talController.cancelDrag">
+												<div class="o-lot" rv-bidstatusclass="lot.bids | highbidder talObject.bidder" rv-class-s-group-select="talObject.isGroupChoosing" rv-class-s-sold="lot.status | compare 'sold'" rv-class-s-in-group="lot.group | lengthand talObject.isGroupChoosing" rv-class-s-all-actions="lot.moreActionsVisible | or lot.swipeQuickBidding" rv-on-touchstart="talController.startDrag" rv-on-touchmove="talController.doDrag" rv-on-touchend="talController.endDrag" rv-on-touchcancel="talController.cancelDrag">
 												
 													<!-- <input type="checkbox" rv-show="talObject.isGroupChoosing" class="o-lot--group-selector" rv-on-click="talController.addToGroup" rv-ischecked="lot.group | indexof talObject.tempGroup.uid"> -->
 												
@@ -1019,11 +1069,11 @@
 												<h3 class="h4">Bidder: {talObject.bidder}</h3>
 												<div class="o-setting-section-separator">Credit Information</div>
 												<div class="o-setting-list-item">
-													<label for="" class="t-smalllabel">Credit Remaining</label>
+													<label for="" class="t-smalllabel">Available Funds</label>
 													<span class="o-setting-list-item--value">{talObject.userprofile.credit}</span>
 												</div>
 												<div class="o-setting-list-item">
-													<label for="" class="t-smalllabel">Credit Spent</label>
+													<label for="" class="t-smalllabel">Spent</label>
 													<span class="o-setting-list-item--value CCY" rv-html="talObject.userprofile.spent | price"></span>
 													<div rv-if="talObject.purchasedLots | lengthToBool"><a class="h-float-right h-color-brand" rv-on-click="talController.loadTab" data-tab="purchases">View Purchases</a></div>
 												</div>
@@ -1097,7 +1147,7 @@
 			<div class="c-modal--header">
 				<button class="o-text-button_black m-header-left-button h-hide-desktop" rv-on-click="talController.toggleLotDetails">Back</button>
 				<h3 class="h3 h-d-inline-block">Lot {talObject.focusedLot.lotNumber}</h3>
-				<h5 class="h6 h-hide-desktop">Bidder: {talObject.bidder} | Credit Remaining: <span class="CCY" rv-html="talObject.userprofile.credit | price"></span></h5>
+				<h5 class="h6 h-hide-desktop">Bidder: {talObject.bidder} | Available Funds: <span class="CCY" rv-html="talObject.userprofile.credit | price"></span></h5>
 				<button class="o-icon-button--medium h-hide-mobile c-modal--close" rv-on-click="talController.toggleLotDetails">X</button>
 			</div>
 	
@@ -1214,7 +1264,7 @@
 				<div class="c-modal--header">
 					<button class="o-text-button_black m-header-left-button h-hide-desktop" rv-on-click="talController.toggleGroupBidModalVisible">Back</button>
 					<h3 class="h3 h-d-inline-block">Group Bid</h3>
-					<h5 class="h6 h-hide-desktop">Bidder: {talObject.bidder} | Credit Remaining: <span class="CCY" rv-html="talObject.userprofile.credit | price"></span></h5>
+					<h5 class="h6 h-hide-desktop">Bidder: {talObject.bidder} | Available Funds: <span class="CCY" rv-html="talObject.userprofile.credit | price"></span></h5>
 					<button class="o-icon-button--medium h-hide-mobile c-modal--close" rv-on-click="talController.toggleGroupBidModalVisible">X</button>
 				</div>
 				<div class="c-modal--body">
@@ -1272,7 +1322,7 @@
 					<div class="c-modal--header">
 						<button class="o-text-button_black m-header-left-button h-hide-desktop" rv-on-click="talController.dismissGroupViewModal">Back</button>
 						<h3 class="h3 h-d-inline-block">Group Bid</h3>
-						<h5 class="h6 h-hide-desktop">Bidder: {talObject.bidder} | Credit Remaining: <span class="CCY" rv-html="talObject.userprofile.credit | price"></span></h5>
+						<h5 class="h6 h-hide-desktop">Bidder: {talObject.bidder} | Available Funds: <span class="CCY" rv-html="talObject.userprofile.credit | price"></span></h5>
 						<button class="o-icon-button--medium h-hide-mobile c-modal--close" rv-on-click="talController.dismissGroupViewModal">X</button>
 					</div>
 					
@@ -1413,7 +1463,7 @@
 							<div class="c-modal--header">
 								<button class="o-text-button_black m-header-left-button h-hide-desktop" rv-on-click="talController.toggleMaximumBidVisible">Back</button>
 								<h3 class="h3 h-d-inline-block">Maximum Bid | Lot {talObject.focusedLot.lotNumber}</h3>
-								<h5 class="h6 h-hide-desktop">Bidder: {talObject.bidder} | Credit Remaining: <span class="CCY" rv-html="talObject.userprofile.credit | price"></span></h5>
+								<h5 class="h6 h-hide-desktop">Bidder: {talObject.bidder} | Available Funds: <span class="CCY" rv-html="talObject.userprofile.credit | price"></span></h5>
 								<button class="o-icon-button--medium h-hide-mobile c-modal--close" rv-on-click="talController.toggleMaximumBidVisible">X</button>
 							</div>
 							<div class="c-modal--body">

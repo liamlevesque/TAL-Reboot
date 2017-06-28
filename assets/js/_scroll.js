@@ -16,6 +16,11 @@ $(function(){
 
 var scrollArea;
 var scrollTarget = null;
+var scrollDetails = {
+	start: null,
+	delta:null,
+	direction: null,
+};
 
 function createOptiscroll() {
 	if($('.js--optiscroll-content').length > 0){
@@ -27,6 +32,9 @@ function createOptiscroll() {
 
 		let nextLot = talObject.auction.startLot + talObject.auction.closingNext;
 		$('.optiscroll-content').scrollTop($('#' + nextLot).offset().top);
+		setTimeout(function(){
+			$('.js--tal').removeClass('s-header-hidden');
+		},500);
 
 		$('.js--lot-scroll-hover-area').on('mouseenter',function(e){
 			$('.optiscroll').addClass('s-scrolling');
@@ -45,8 +53,21 @@ function createOptiscroll() {
 			goToLot(scrollTarget);
 		});
 
-		$('.optiscroll').on('scroll',function(e){
+		$('.optiscroll').on('scrollstart',function(e){
 			$('.optiscroll').addClass('s-scrolling');
+			scrollDetails.start = e.detail.scrollTop;
+			updateProgressIndicator(e.detail.scrollTop/e.detail.scrollHeight);
+		}).on('scroll',function(e){
+			scrollDetails.direction = (e.detail.scrollTop > scrollDetails.start)? 'down' : 'up' ;
+			scrollDetails.delta = Math.abs(e.detail.scrollTop - scrollDetails.start);
+			if(scrollDetails.direction === 'up' && scrollDetails.delta > 5){
+				$('.js--tal').removeClass('s-header-hidden');
+				scrollDetails.start = e.detail.scrollTop;
+			}
+			else if(scrollDetails.direction === 'down' && scrollDetails.delta > 5){
+				$('.js--tal').addClass('s-header-hidden');
+				scrollDetails.start = e.detail.scrollTop;
+			}
 			updateProgressIndicator(e.detail.scrollTop/e.detail.scrollHeight);
 		}).on('scrollstop',function(e){
 			$('.optiscroll').removeClass('s-scrolling');

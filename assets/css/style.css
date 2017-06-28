@@ -3023,6 +3023,9 @@ a {
 .h-width-100 {
   width: 100%; }
 
+.h-w-auto {
+  width: auto; }
+
 .h-d-table {
   display: table;
   width: 100%;
@@ -3721,9 +3724,12 @@ a {
     .optiscroll.s-scrolling ~ .auction-progress-meter {
       pointer-events: initial; }
       .optiscroll.s-scrolling ~ .auction-progress-meter:before {
-        width: 20px; }
+        transform: scaleX(2); }
       .optiscroll.s-scrolling ~ .auction-progress-meter .auction-lot-intervals {
         opacity: 1; } }
+  @media (min-width: 80em) {
+    .auction-progress-meter {
+      pointer-events: initial; } }
   .auction-progress-meter:before {
     content: "";
     position: absolute;
@@ -3777,7 +3783,7 @@ a {
   width: 10px; }
   @media (max-width: 64em) {
     .optiscroll.s-scrolling ~ .auction-progress-meter .c-progress--bar {
-      width: 20px; } }
+      transform: scaleX(2); } }
 
 .c-progress--bids {
   position: absolute;
@@ -3849,7 +3855,11 @@ a {
 
 .l-header {
   box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.5);
-  z-index: 100; }
+  z-index: 100;
+  transition: max-height 0.5s cubic-bezier(0.63, 0.005, 0.365, 1); }
+  @media (max-width: 64em) {
+    .s-header-hidden .l-header {
+      display: none; } }
 
 .logo {
   display: inline-block;
@@ -3902,6 +3912,8 @@ a {
     transform: translateX(200px) !important; }
   .o-lot.s-swiped-left, .o-group-bid-item.s-swiped-left {
     transform: translateX(-200px) !important; }
+  .o-lot.s-all-actions, .o-group-bid-item.s-all-actions {
+    transform: translateX(90%) !important; }
 
 .o-lot--action-controls {
   position: absolute;
@@ -3909,7 +3921,12 @@ a {
   right: 0;
   top: 0;
   bottom: 0;
-  background-color: #E9E9E9; }
+  background-color: #E9E9E9;
+  padding: 15px 10px;
+  padding-right: calc(100% - 90% + 15px); }
+  .o-lot--action-controls.s-confirming {
+    background-color: #585858;
+    color: white; }
 
 .o-lot--content, .o-group-bid-item {
   padding: 10px; }
@@ -4202,9 +4219,9 @@ a {
 .o-notification {
   position: absolute;
   top: 5px;
+  left: 50%;
   width: 90%;
   max-width: 600px;
-  margin: 0 auto;
   z-index: 6;
   padding: 5px 15px;
   text-align: center;
@@ -4213,7 +4230,7 @@ a {
   font-size: 1.2rem;
   border-radius: 5px;
   box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.5);
-  transform: translateY(-200%);
+  transform: translate(-50%, -200%);
   transition: transform 0.2s cubic-bezier(0.63, 0.005, 0.365, 1); }
   .o-notification.s-visible {
-    transform: translateY(0); }
+    transform: translate(-50%, 0); }

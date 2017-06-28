@@ -1,9 +1,12 @@
 .l-header{
 		box-shadow: $ritchie-shadow;
 		z-index: 100;
+		transition: max-height 0.5s $transition-function;
 	
 		@include breakpoint(medmax){
-			//height: $mobile-header-height;
+			.s-header-hidden &{
+				display: none;
+			}
 		}
 	}
 

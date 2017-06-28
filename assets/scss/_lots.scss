@@ -4,6 +4,8 @@
 	}
 }
 
+$full-swipe-offset: 90%;
+
 .o-lot, .o-group-bid-item{
 	border-bottom: $default-border;	
 	overflow: hidden;
@@ -44,6 +46,10 @@
 		transform: translateX(-200px) !important;
 	}
 
+	&.s-all-actions{
+		transform: translateX($full-swipe-offset) !important;
+	}
+
 	
 
 }
@@ -55,6 +61,13 @@
 		top: 0;
 		bottom: 0;
 		background-color: palette(grey,light);
+		padding: spacing(small) spacing(x-small);
+		padding-right: calc(100% - #{$full-swipe-offset} + #{spacing(small)});
+
+		&.s-confirming{
+			background-color: palette(grey,dark);
+			color: white;
+		}
 	}
 
 	.o-lot--content,.o-group-bid-item{

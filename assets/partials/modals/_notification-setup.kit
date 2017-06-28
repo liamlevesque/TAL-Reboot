@@ -3,7 +3,7 @@
 		<div class="c-modal--header">
 			<button class="o-text-button_black m-header-left-button h-hide-desktop" rv-on-click="talController.toggleNotificationSetupVisible">Back</button>
 			<h3 class="h3 h-d-inline-block">Maximum Bid | Lot {talObject.focusedLot.lotNumber}</h3>
-			<h5 class="h6 h-hide-desktop">Bidder: {talObject.bidder} | Credit Remaining: <span class="CCY" rv-html="talObject.userprofile.credit | price"></span></h5>
+			<h5 class="h6 h-hide-desktop">Bidder: {talObject.bidder} | Available Funds: <span class="CCY" rv-html="talObject.userprofile.credit | price"></span></h5>
 			<button class="o-icon-button--medium h-hide-mobile c-modal--close" rv-on-click="talController.toggleNotificationSetupVisible">X</button>
 		</div>
 		<div class="c-modal--body">
