@@ -3,6 +3,16 @@ const talController = {
 			e.stopPropagation();
 		},
 
+		showNextLesson: function(e){
+			talObject.activeLesson = ($(e.currentTarget).data('index') >= talObject.lessons.length)? 0 : talObject.activeLesson + 1;
+			talObject.isLearningLesson = true;
+			window.clearTimeout(loadingTimer);
+		},
+
+		clearLessonsArea: function(e){
+			talObject.doneLoading = true;
+		},
+
 		loadTab: function(e){
 			
 			let target = $(e.currentTarget).data('tab');

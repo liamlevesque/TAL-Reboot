@@ -414,112 +414,8 @@ rivets.binders.bidstatusclass = function(el,value){
 	}
 };
 
-
-
-
-
-$(function(){
-
-	createOptiscroll();
-	
-	setTimeout(function(){
-		talObject.doneLoading = true;
-		
-		setTimeout(function(){
-			talObject.scrollUpNoticeVisible = false;
-		},5000);
-	},1000);
-});
-
-
-
-
-var scrollArea;
-var scrollTarget = null;
-var scrollDetails = {
-	start: null,
-	delta:null,
-	direction: null,
-};
-
-function createOptiscroll() {
-	if($('.js--optiscroll-content').length > 0){
-		let scroller = $('.optiscroll')[0];
-		scrollArea = new Optiscroll(scroller,{
-			forceScrollbars: true,
-			//wrapContent: false,
-		});
-
-		let nextLot = talObject.auction.startLot + talObject.auction.closingNext;
-		$('.optiscroll-content').scrollTop($('#' + nextLot).offset().top);
-		setTimeout(function(){
-			$('.js--tal').removeClass('s-header-hidden');
-		},500);
-
-		$('.js--lot-scroll-hover-area').on('mouseenter',function(e){
-			$('.optiscroll').addClass('s-scrolling');
-			e.currentTarget.addEventListener('mousemove',function(e){
-				let progress = getProgress(e);
-				updateProgressIndicator(progress);
-			});
-
-		}).on('mouseleave',function(e){
-			$('.optiscroll').removeClass('s-scrolling');
-			e.currentTarget.removeEventListener('mousemove',function(e){
-				let progress = getProgress(e);
-				updateProgressIndicator(progress);
-			});
-		}).on('mousedown',function(e){
-			goToLot(scrollTarget);
-		});
-
-		$('.optiscroll').on('scrollstart',function(e){
-			$('.optiscroll').addClass('s-scrolling');
-			scrollDetails.start = e.detail.scrollTop;
-			updateProgressIndicator(e.detail.scrollTop/e.detail.scrollHeight);
-		}).on('scroll',function(e){
-			scrollDetails.direction = (e.detail.scrollTop > scrollDetails.start)? 'down' : 'up' ;
-			scrollDetails.delta = Math.abs(e.detail.scrollTop - scrollDetails.start);
-			if(scrollDetails.direction === 'up' && scrollDetails.delta > 5){
-				$('.js--tal').removeClass('s-header-hidden');
-				scrollDetails.start = e.detail.scrollTop;
-			}
-			else if(scrollDetails.direction === 'down' && scrollDetails.delta > 5){
-				$('.js--tal').addClass('s-header-hidden');
-				scrollDetails.start = e.detail.scrollTop;
-			}
-			updateProgressIndicator(e.detail.scrollTop/e.detail.scrollHeight);
-		}).on('scrollstop',function(e){
-			$('.optiscroll').removeClass('s-scrolling');
-			//CHECK IF MOUSEOVER FIRST
-		}); 
-
-		$('.optiscroll-v').on('mouseenter',function(e){
-			$('.optiscroll').addClass('s-scrolling');
-		});
-
-	}
-}
-
-function goToLot(targetLot) {
-	var el = $('#'+targetLot)[0];
-	scrollArea.scrollIntoView(el,100,{top: 30});
-}
-
-function getProgress(e){
-	let thisBounds = e.currentTarget.getBoundingClientRect();
-	let yDiff = e.clientY - thisBounds.top;
-	let height = thisBounds.bottom - thisBounds.top;
-	return yDiff/height;
-}
-
-function updateProgressIndicator(percentProgress){
-	scrollTarget = talObject.auction.startLot + Math.floor((talObject.auction.endLot - talObject.auction.startLot) * percentProgress);
-	
-	if(percentProgress > 0.95) percentProgress = 0.95;
-	else if(percentProgress < 0.05) percentProgress = 0.05;
-	
-	$('.js--lot-scroll-indicator').css('top', percentProgress * 100 + "%").text('Lot ' + scrollTarget);
+rivets.binders.carouselposition = function(el,value){
+	$(el).css('transform','translateX('+ (value * -100) +'%)')
 }
 
 
@@ -4747,6 +4643,112 @@ const categories = [
 
 $(function(){
 
+	createOptiscroll();
+	
+	loadingTimer = window.setTimeout(function(){
+		//talObject.doneLoading = true;
+		
+		setTimeout(function(){
+			talObject.scrollUpNoticeVisible = false;
+		},5000);
+	},2000);
+}); 
+
+
+
+var loadingTimer;
+var scrollArea;
+var scrollTarget = null;
+var scrollDetails = {
+	start: null,
+	delta:null,
+	direction: null,
+};
+
+function createOptiscroll() {
+	if($('.js--optiscroll-content').length > 0){
+		let scroller = $('.optiscroll')[0];
+		scrollArea = new Optiscroll(scroller,{
+			forceScrollbars: true,
+			//wrapContent: false,
+		});
+
+		let nextLot = talObject.auction.startLot + talObject.auction.closingNext;
+		$('.optiscroll-content').scrollTop($('#' + nextLot).offset().top);
+		setTimeout(function(){
+			$('.js--tal').removeClass('s-header-hidden');
+		},500);
+
+		$('.js--lot-scroll-hover-area').on('mouseenter',function(e){
+			$('.optiscroll').addClass('s-scrolling');
+			e.currentTarget.addEventListener('mousemove',function(e){
+				let progress = getProgress(e);
+				updateProgressIndicator(progress);
+			});
+
+		}).on('mouseleave',function(e){
+			$('.optiscroll').removeClass('s-scrolling');
+			e.currentTarget.removeEventListener('mousemove',function(e){
+				let progress = getProgress(e);
+				updateProgressIndicator(progress);
+			});
+		}).on('mousedown',function(e){
+			goToLot(scrollTarget);
+		});
+
+		$('.optiscroll').on('scrollstart',function(e){
+			$('.optiscroll').addClass('s-scrolling');
+			scrollDetails.start = e.detail.scrollTop;
+			updateProgressIndicator(e.detail.scrollTop/e.detail.scrollHeight);
+		}).on('scroll',function(e){
+			scrollDetails.direction = (e.detail.scrollTop > scrollDetails.start)? 'down' : 'up' ;
+			scrollDetails.delta = Math.abs(e.detail.scrollTop - scrollDetails.start);
+			if(scrollDetails.direction === 'up' && scrollDetails.delta > 5){
+				$('.js--tal').removeClass('s-header-hidden');
+				scrollDetails.start = e.detail.scrollTop;
+			}
+			else if(scrollDetails.direction === 'down' && scrollDetails.delta > 5){
+				$('.js--tal').addClass('s-header-hidden');
+				scrollDetails.start = e.detail.scrollTop;
+			}
+			updateProgressIndicator(e.detail.scrollTop/e.detail.scrollHeight);
+		}).on('scrollstop',function(e){
+			$('.optiscroll').removeClass('s-scrolling');
+			//CHECK IF MOUSEOVER FIRST
+		}); 
+
+		$('.optiscroll-v').on('mouseenter',function(e){
+			$('.optiscroll').addClass('s-scrolling');
+		});
+
+	}
+}
+
+function goToLot(targetLot) {
+	var el = $('#'+targetLot)[0];
+	scrollArea.scrollIntoView(el,100,{top: 30});
+}
+
+function getProgress(e){
+	let thisBounds = e.currentTarget.getBoundingClientRect();
+	let yDiff = e.clientY - thisBounds.top;
+	let height = thisBounds.bottom - thisBounds.top;
+	return yDiff/height;
+}
+
+function updateProgressIndicator(percentProgress){
+	scrollTarget = talObject.auction.startLot + Math.floor((talObject.auction.endLot - talObject.auction.startLot) * percentProgress);
+	
+	if(percentProgress > 0.95) percentProgress = 0.95;
+	else if(percentProgress < 0.05) percentProgress = 0.05;
+	
+	$('.js--lot-scroll-indicator').css('top', percentProgress * 100 + "%").text('Lot ' + scrollTarget);
+}
+
+
+
+$(function(){
+
 	for(let i = 0; i < talObject.lots.length; i++){
 		talObject.lots[i].closes = moment().add((i - talObject.preSoldOffset) * talObject.closeInterval,'seconds');
 	};
@@ -4800,6 +4802,26 @@ function handleVisibilityChange(){
 
 const talObject = {
 		doneLoading: false,
+		
+		activeLesson: 0,
+		isLearningLesson: false,
+		lessons: [
+			{
+				stepnumber: 1,
+				graphic: 'assets/img/asset-listing-illustration.png',
+				copy: 'Drag lots to the right to quickly place a bid!',
+			},
+			{
+				stepnumber: 2,
+				graphic: 'assets/img/asset1-1.jpg',
+				copy: 'Bid on multiple lots together with group bids',
+			},
+			{
+				stepnumber: 3,
+				graphic: 'assets/img/asset1-1.jpg',
+				copy: 'We\'ll notify you when you win or lose a lot',
+			}
+		],
 
 		closeInterval: 30,
 		startTime: null,
@@ -4934,6 +4956,16 @@ const talController = {
 			e.stopPropagation();
 		},
 
+		showNextLesson: function(e){
+			talObject.activeLesson = ($(e.currentTarget).data('index') >= talObject.lessons.length)? 0 : talObject.activeLesson + 1;
+			talObject.isLearningLesson = true;
+			window.clearTimeout(loadingTimer);
+		},
+
+		clearLessonsArea: function(e){
+			talObject.doneLoading = true;
+		},
+
 		loadTab: function(e){
 			
 			let target = $(e.currentTarget).data('tab');
@@ -4996,120 +5028,6 @@ const talController = {
 			}
 			return false;
 		},
-
-        /******************************************
-			SEARCH
-		******************************************/	
-			toggleSearchVisible: function(e){
-				talObject.mobileSearchVisible = !talObject.mobileSearchVisible;
-				talObject.categoriesVisible = false;
-				pushHistory('search','modal');
-
-				$('.js--search-input').focus();
-			},
-
-			updateSearch: function(e) {
-				if(talObject.filteredResults.input.length === 0) talController.clearSearch();
-
-				let value = $(e.currentTarget).val();
-				if(value.length === 0){	//IF NO SEARCH STRING ENTERED
-					talObject.filteredResults.searching = false;
-					return;
-				} 
-				else talObject.filteredResults.searching = true;
-
-				// if(!isNaN(parseInt(value[0])) && (parseInt(value) >= talObject.lots[0].lotNumber && parseInt(value) <= talObject.lots[talObject.lots.length - 1].lotNumber)) {  //IF THIS IS A NUMBER
-				// 	talObject.filteredResults.lotMatch = value;
-				// } 
-				talObject.filteredResults.noLotMatch = false;
-
-				if(!isNaN(parseInt(value[0]))) {  //IF THIS IS A NUMBER
-					talObject.filteredResults.lotMatch = value;
-					if(!(parseInt(value) >= talObject.lots[0].lotNumber && parseInt(value) <= talObject.lots[talObject.lots.length - 1].lotNumber)){
-						talObject.filteredResults.noLotMatch = true;
-					}
-				} 
-				else{
-					talObject.filteredResults.lotMatch = null;
-					talObject.filteredResults.input = value.toLowerCase();
-					talObject.filteredResults.categories = [];
-					talObject.filteredResults.matches = talObject.lots.filter((lot) => {
-						if (lot.description.toLowerCase().indexOf(talObject.filteredResults.input) >= 0){
-							if(talObject.filteredResults.categories.indexOf(lot.category) === -1) talObject.filteredResults.categories.push(lot.category);
-							return true;
-						}
-					})
-				}
-				
-			},
-
-			doCategorySearch: function(e){
-				let value = $(e.currentTarget).data('value');
-				talObject.activeCategory = value;
-				talObject.categoryLots = talObject.lots.filter((lot) => {
-					return (lot.category === talObject.activeCategory && lot.description.toLowerCase().indexOf(talObject.filteredResults.input) >= 0);
-				});
-				talObject.mobileSearchVisible = false;
-			},
-
-			doSearch: function(e) {
-				if(talObject.filteredResults.lotMatch != null){
-					goToLot(talObject.filteredResults.lotMatch);
-					talObject.mobileSearchVisible = false;
-				}else{
-					goToLot($(e.currentTarget).data('value'));
-					talObject.mobileSearchVisible = false;
-				}
-			},
-
-			clearSearch: function() {
-				talObject.filteredResults = {
-					input: null,
-					searching: false,
-					lotMatch: null,
-					noLotMatch: true,
-					topMatch: null,
-					categories: [],
-					matches: [],
-				};
-				talController.clearCategory();
-			},
-
-
-		/******************************************
-			CATEGORIES
-		******************************************/	
-
-			toggleCategoriesVisible: function(){
-				talObject.categoriesVisible = !talObject.categoriesVisible;
-			},
-
-			goToCategory: function(e){
-				talObject.activeCategory = $(e.currentTarget).data('value');
-				talObject.categoryLots = talObject.lots.filter((lot) => {return lot.category === talObject.activeCategory});
-				talObject.categoriesVisible = false;
-				talObject.mobileSearchVisible = false;
-			},
-
-			clearCategory: function(e){
-				talObject.activeCategory = null;
-				talObject.categoryLots = [];
-				scrollArea.destroy();
-				createOptiscroll();
-			},
-
-			toggleFiltersVisible: function(){
-				talObject.filtersVisible = !talObject.filtersVisible;
-			},
-
-			updateSort: function(e){
-				talObject.sortName = $(e.currentTarget).data('value');
-				talObject.sortOptionsVisible = false;
-			},
-
-			toggleSortOptionsVisible: function(e){
-				talObject.sortOptionsVisible = !talObject.sortOptionsVisible;
-			},
 
         /******************************************
 			WATCH LOTS
@@ -5488,6 +5406,120 @@ const talController = {
 
 			revealMoreActionsMobile: function(e,context){
 				context.lot.moreActionsVisible = true;
+			},
+
+        /******************************************
+			SEARCH
+		******************************************/	
+			toggleSearchVisible: function(e){
+				talObject.mobileSearchVisible = !talObject.mobileSearchVisible;
+				talObject.categoriesVisible = false;
+				pushHistory('search','modal');
+
+				$('.js--search-input').focus();
+			},
+
+			updateSearch: function(e) {
+				if(talObject.filteredResults.input.length === 0) talController.clearSearch();
+
+				let value = $(e.currentTarget).val();
+				if(value.length === 0){	//IF NO SEARCH STRING ENTERED
+					talObject.filteredResults.searching = false;
+					return;
+				} 
+				else talObject.filteredResults.searching = true;
+
+				// if(!isNaN(parseInt(value[0])) && (parseInt(value) >= talObject.lots[0].lotNumber && parseInt(value) <= talObject.lots[talObject.lots.length - 1].lotNumber)) {  //IF THIS IS A NUMBER
+				// 	talObject.filteredResults.lotMatch = value;
+				// } 
+				talObject.filteredResults.noLotMatch = false;
+
+				if(!isNaN(parseInt(value[0]))) {  //IF THIS IS A NUMBER
+					talObject.filteredResults.lotMatch = value;
+					if(!(parseInt(value) >= talObject.lots[0].lotNumber && parseInt(value) <= talObject.lots[talObject.lots.length - 1].lotNumber)){
+						talObject.filteredResults.noLotMatch = true;
+					}
+				} 
+				else{
+					talObject.filteredResults.lotMatch = null;
+					talObject.filteredResults.input = value.toLowerCase();
+					talObject.filteredResults.categories = [];
+					talObject.filteredResults.matches = talObject.lots.filter((lot) => {
+						if (lot.description.toLowerCase().indexOf(talObject.filteredResults.input) >= 0){
+							if(talObject.filteredResults.categories.indexOf(lot.category) === -1) talObject.filteredResults.categories.push(lot.category);
+							return true;
+						}
+					})
+				}
+				
+			},
+
+			doCategorySearch: function(e){
+				let value = $(e.currentTarget).data('value');
+				talObject.activeCategory = value;
+				talObject.categoryLots = talObject.lots.filter((lot) => {
+					return (lot.category === talObject.activeCategory && lot.description.toLowerCase().indexOf(talObject.filteredResults.input) >= 0);
+				});
+				talObject.mobileSearchVisible = false;
+			},
+
+			doSearch: function(e) {
+				if(talObject.filteredResults.lotMatch != null){
+					goToLot(talObject.filteredResults.lotMatch);
+					talObject.mobileSearchVisible = false;
+				}else{
+					goToLot($(e.currentTarget).data('value'));
+					talObject.mobileSearchVisible = false;
+				}
+			},
+
+			clearSearch: function() {
+				talObject.filteredResults = {
+					input: null,
+					searching: false,
+					lotMatch: null,
+					noLotMatch: true,
+					topMatch: null,
+					categories: [],
+					matches: [],
+				};
+				talController.clearCategory();
+			},
+
+
+		/******************************************
+			CATEGORIES
+		******************************************/	
+
+			toggleCategoriesVisible: function(){
+				talObject.categoriesVisible = !talObject.categoriesVisible;
+			},
+
+			goToCategory: function(e){
+				talObject.activeCategory = $(e.currentTarget).data('value');
+				talObject.categoryLots = talObject.lots.filter((lot) => {return lot.category === talObject.activeCategory});
+				talObject.categoriesVisible = false;
+				talObject.mobileSearchVisible = false;
+			},
+
+			clearCategory: function(e){
+				talObject.activeCategory = null;
+				talObject.categoryLots = [];
+				scrollArea.destroy();
+				createOptiscroll();
+			},
+
+			toggleFiltersVisible: function(){
+				talObject.filtersVisible = !talObject.filtersVisible;
+			},
+
+			updateSort: function(e){
+				talObject.sortName = $(e.currentTarget).data('value');
+				talObject.sortOptionsVisible = false;
+			},
+
+			toggleSortOptionsVisible: function(e){
+				talObject.sortOptionsVisible = !talObject.sortOptionsVisible;
 			},
 
 	};

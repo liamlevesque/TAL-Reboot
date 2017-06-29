@@ -19,15 +19,15 @@ $transition: $transition-time_1 $transition-function;
 }
 
 
-@mixin loading($color){
+@mixin loading($color,$height:4px,$bottom:0){
     &:after{
         display: block;
         position: absolute;
         content: " ";
         left: 0;
         right: 100%;
-        height: 4px;
-        bottom: 0;
+        height: $height;
+        bottom: $bottom;
         background-color: $color;
 
         animation-name: waitingslide;
@@ -37,6 +37,8 @@ $transition: $transition-time_1 $transition-function;
         animation-timing-function: linear;
     }
 }
+
+
 
     @keyframes waitingslide{
         0%{

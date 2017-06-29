@@ -72,7 +72,7 @@
 			</div>
 			<button class="o-button h-hide-mobile l-grid-quarter l-grid-last-item">Search</button>
 			
-			<button class="o-button--outline h-hide-desktop l-grid-quarter_mobile" rv-on-click="talController.toggleFiltersVisible">Sort/Filter</button>
+			<button class="o-button--outline h-hide-desktop l-grid-two-fifths_mobile" rv-on-click="talController.toggleFiltersVisible">Sort/Filter</button>
 		</div>
 		<div class="c-subhead" rv-if="talObject.activeTab | compare 'auction'">
 			<div class="l-width--1200">
@@ -1651,11 +1651,11 @@
 							<div class="c-modal--content" rv-on-click="talController.stopProp">
 								<div class="c-modal--header">
 									<div class="h-ta-left h-mr-100">
-										<button class="o-text-button_black l-grid-fifth_mobile" rv-on-click="talController.toggleSearchVisible">Cancel</button>
 										<div class="l-grid-four-fifths_mobile h-pos-relative">
 											<input type="text" class="o-input--text js--search-input" placeholder="find by lot # or keyword" rv-value="talObject.filteredResults.input" rv-on-keyup="talController.updateSearch">
 											<button class="o-icon-button--medium l-input--toggle" rv-if="talObject.filteredResults.input | lengthToBool" rv-on-click="talController.clearSearch"><i class="icon-error"></i></button>
 										</div>
+										<button class="o-text-button_black l-grid-fifth_mobile" rv-on-click="talController.toggleSearchVisible">Cancel</button>
 									</div>
 								</div>
 								<div class="c-modal--body">
@@ -1694,8 +1694,49 @@
 						
 						 
 	
-	<div class="c-loading-overlay" rv-class-s-hidden="talObject.doneLoading" >
-	    <h1>Loading the Timed Auction</h1>
+	<div class="c-loading-overlay l-flex_column_stack-from-bottom" rv-class-s-hidden="talObject.doneLoading" >
+	    
+	    <div class="l-column--footer c-loading-lessons">
+	        <div class="c-loading-lessons--container" rv-carouselposition="talObject.activeLesson">
+	            <div class="c-loading-lesson-step" rv-class-s-visible="0 | compare talObject.activeLesson">
+	                <div class="o-lesson--graphic"><img src="assets/img/asset-listing-illustration.png"></div>
+	                <div class="o-lesson--copy">Drag lots to the right to quickly place bids and more!</div>
+	                <div class="o-lesson--button h-mt-200">
+	                    <button class="o-text-button--large h-float-right" rv-on-click="talController.showNextLesson" data-index="0">Teach me more<i class="icon-arrow-right h-ml-50"></i></button>
+	                </div>
+	            </div>
+	            <div class="c-loading-lesson-step" rv-each-lesson="talObject.lessons" rv-class-s-visible="lesson.stepnumber | compare talObject.activeLesson">
+	                <div class="o-lesson--graphic"><img rv-src="lesson.graphic"></div>
+	                <div class="o-lesson--copy">{lesson.copy}</div>
+	                <div class="o-lesson--button h-mt-200">
+	                    <button class="o-text-button--large h-float-right" rv-on-click="talController.showNextLesson" rv-data-index="lesson.stepnumber">Teach me more<i class="icon-arrow-right h-ml-50"></i></button>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	
+	
+	    <div class="c-lesson-footer h-ta-center">
+	        <div class="h-p-100" rv-if="talObject.isLearningLesson">
+	            <button class="o-button h-float-right" rv-on-click="talController.clearLessonsArea">
+	                Join the auction <i class="icon-arrow-right h-ml-100"></i>
+	            </button>
+	        </div>
+	        <div rv-unless="talObject.isLearningLesson">
+	            <div class="rb-logo">
+	                <svg version="1.1" id="rba-header-logo-svg" class="s-active" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" height="80" width="80" enable-background="new 0 0 40.25 40.25" viewbox="0 0 40.25 40.25" xml:space="preserve">
+	                    <g>
+	                        <g>
+	                            <path fill="#E87511" d="M21.9,10.9c4.9,0,8.9,4,8.9,8.9c0,4.9-4,8.9-8.9,8.9c-4.9,0-8.9-4-8.9-8.9c0-2.3,0-19.8,0-19.8l4.6,0 l0,19.7c0,2.5,2,4.5,4.5,4.5c2.5,0,4.5-2,4.5-4.5c0-2.5-2-4.5-4.5-4.5h-2.3l0-4.4L21.9,10.9z"></path>
+	                            <path fill="#E87511" d="M4.5,15.6c0-0.2,0.2-0.3,0.3-0.3l6.1,0l0-4.3c0,0-7.3,0-7.5,0c-1.9,0-3.4,1.5-3.4,3.4c0,0.1,0,14.1,0,14.1 h4.5L4.5,15.6z"></path>
+	                        </g>
+	                    </g>
+	                </svg>
+	            </div>
+	            <p>please wait while we setup the auction</p>
+	            <div class="o-loading-progress"></div>
+	        </div>
+	    </div>
 	</div> 
     <script type="text/javascript" src="assets/js/min/scripts-min.js"></script>
 

@@ -1,6 +1,6 @@
 {
   "name": "optiscroll",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "homepage": "https://github.com/albertogasparin/Optiscroll",
   "authors": [
     "Alberto Gasparin <albertogasparin@gmail.com>"
@@ -30,11 +30,11 @@
     "Gruntfile.js",
     "demo"
   ],
-  "_release": "3.0.0",
+  "_release": "3.1.0",
   "_resolution": {
     "type": "version",
-    "tag": "v3.0.0",
-    "commit": "1595799a8ce02d21ab3137ec21e11269901f42a2"
+    "tag": "v3.1.0",
+    "commit": "c98656a3c1f36667925cceb41b8949dd2bd0755f"
   },
   "_source": "https://github.com/wilsonfletcher/optiscroll.git",
   "_target": "^3.0.0",

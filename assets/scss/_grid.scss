@@ -112,6 +112,9 @@
 	.l-grid-fifth_mobile{
 		@include g-cell_mobile(19%,0);	
 	}
+	.l-grid-two-fifths_mobile{
+		@include g-cell_mobile(39%,0);	
+	}
 	.l-grid-three-fifths_mobile{
 		@include g-cell_mobile(59%,0);	
 	}

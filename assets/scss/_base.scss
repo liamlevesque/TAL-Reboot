@@ -28,29 +28,7 @@
 	}
 
 
-	.l-width--800{
-		margin: 0 auto;
-		max-width: 800px;
-	}
-
-	.l-width--1200{
-		margin: 0 auto;
-		max-width: 1200px;
-		padding: 0;
-		overflow-x: hidden;
-
-		@include breakpoint(medium){
-			padding: 0 spacing(medium);
-		}
-
-		@include breakpoint(medmax){
-			padding-right: 100px;
-		}
-
-		@include breakpoint(smallmax){
-			padding-right: 20px;
-		}
-	}
+	
 
 
 

@@ -41,7 +41,7 @@
 		"oA": 0,
 		"oAP": "\/assets\/css\/style-min.css",
 		"oF": 0,
-		"oS": 0
+		"oS": 3
 		},
 	"\/assets\/fonts\/ritchie-icons.eot": {
 		"ft": 8192,
@@ -70,6 +70,17 @@
 		"oA": 2,
 		"oAP": "\/assets\/fonts\/ritchie-icons.woff",
 		"oF": 0
+		},
+	"\/assets\/img\/asset-listing-illustration.png": {
+		"ft": 32768,
+		"iS": 6900,
+		"oA": 0,
+		"oAP": "\/assets\/img\/asset-listing-illustration.png",
+		"oF": 0,
+		"oIPL": 1,
+		"opt": 1,
+		"oT": 1,
+		"q": 100
 		},
 	"\/assets\/img\/asset1-1.jpg": {
 		"ft": 16384,
@@ -1125,6 +1136,19 @@
 		"oS": 0,
 		"uL": 1
 		},
+	"\/assets\/scss\/_layout.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/assets\/css\/_layout.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
 	"\/assets\/scss\/_links.scss": {
 		"aP": 0,
 		"bl": 0,
@@ -1443,6 +1467,364 @@
 		"ft": 4096,
 		"oA": 2,
 		"oAP": "\/bower_components\/clusterize\/README.md",
+		"oF": 0,
+		"oFM": 0,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
+		},
+	"\/bower_components\/drumjs-master\/.gitignore": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/bower_components\/drumjs-master\/.gitignore",
+		"oF": 0
+		},
+	"\/bower_components\/drumjs-master\/AUTHORS": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/bower_components\/drumjs-master\/AUTHORS",
+		"oF": 0
+		},
+	"\/bower_components\/drumjs-master\/contrib\/hammerjs\/hammer.fakemultitouch.js": {
+		"ft": 64,
+		"mi": 1,
+		"oA": 2,
+		"oAP": "\/bower_components\/drumjs-master\/contrib\/hammerjs\/hammer.fakemultitouch.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
+	"\/bower_components\/drumjs-master\/contrib\/hammerjs\/hammer.min.js": {
+		"ft": 64,
+		"mi": 1,
+		"oA": 2,
+		"oAP": "\/bower_components\/drumjs-master\/contrib\/hammerjs\/hammer.min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
+	"\/bower_components\/drumjs-master\/contrib\/hammerjs\/hammer.min.map": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/bower_components\/drumjs-master\/contrib\/hammerjs\/hammer.min.map",
+		"oF": 0
+		},
+	"\/bower_components\/drumjs-master\/contrib\/hammerjs\/LICENSE": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/bower_components\/drumjs-master\/contrib\/hammerjs\/LICENSE",
+		"oF": 0
+		},
+	"\/bower_components\/drumjs-master\/contrib\/jquery-1.9.1.js": {
+		"ft": 64,
+		"mi": 1,
+		"oA": 2,
+		"oAP": "\/bower_components\/drumjs-master\/contrib\/jquery-1.9.1.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
+	"\/bower_components\/drumjs-master\/docs\/layout-options.png": {
+		"ft": 32768,
+		"iS": 16568,
+		"oA": 2,
+		"oAP": "\/bower_components\/drumjs-master\/docs\/layout-options.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/bower_components\/drumjs-master\/docs\/simple-hover-outside.png": {
+		"ft": 32768,
+		"iS": 7126,
+		"oA": 2,
+		"oAP": "\/bower_components\/drumjs-master\/docs\/simple-hover-outside.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/bower_components\/drumjs-master\/docs\/simple-hover.png": {
+		"ft": 32768,
+		"iS": 7119,
+		"oA": 2,
+		"oAP": "\/bower_components\/drumjs-master\/docs\/simple-hover.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/bower_components\/drumjs-master\/docs\/simple.png": {
+		"ft": 32768,
+		"iS": 7094,
+		"oA": 2,
+		"oAP": "\/bower_components\/drumjs-master\/docs\/simple.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/bower_components\/drumjs-master\/drumjs.jquery.json": {
+		"ft": 524288,
+		"oA": 2,
+		"oAP": "\/bower_components\/drumjs-master\/drumjs.jquery.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/bower_components\/drumjs-master\/examples\/clock.html": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/bower_components\/drumjs-master\/examples\/clock.html",
+		"oF": 0
+		},
+	"\/bower_components\/drumjs-master\/examples\/countries.html": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/bower_components\/drumjs-master\/examples\/countries.html",
+		"oF": 0
+		},
+	"\/bower_components\/drumjs-master\/examples\/datetime.html": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/bower_components\/drumjs-master\/examples\/datetime.html",
+		"oF": 0
+		},
+	"\/bower_components\/drumjs-master\/examples\/datetime_range.html": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/bower_components\/drumjs-master\/examples\/datetime_range.html",
+		"oF": 0
+		},
+	"\/bower_components\/drumjs-master\/examples\/inside_outside.html": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/bower_components\/drumjs-master\/examples\/inside_outside.html",
+		"oF": 0
+		},
+	"\/bower_components\/drumjs-master\/examples\/layout_options.html": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/bower_components\/drumjs-master\/examples\/layout_options.html",
+		"oF": 0
+		},
+	"\/bower_components\/drumjs-master\/examples\/simple.html": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/bower_components\/drumjs-master\/examples\/simple.html",
+		"oF": 0
+		},
+	"\/bower_components\/drumjs-master\/issues": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/bower_components\/drumjs-master\/issues",
+		"oF": 0
+		},
+	"\/bower_components\/drumjs-master\/lib\/drum.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 2,
+		"oAP": "\/bower_components\/drumjs-master\/lib\/drum.css",
+		"oF": 0,
+		"oS": 3
+		},
+	"\/bower_components\/drumjs-master\/lib\/drum.js": {
+		"ft": 64,
+		"mi": 1,
+		"oA": 2,
+		"oAP": "\/bower_components\/drumjs-master\/lib\/drum.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
+	"\/bower_components\/drumjs-master\/lib\/drum.min.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 2,
+		"oAP": "\/bower_components\/drumjs-master\/lib\/drum.min.css",
+		"oF": 0,
+		"oS": 3
+		},
+	"\/bower_components\/drumjs-master\/lib\/drum.min.js": {
+		"ft": 64,
+		"mi": 1,
+		"oA": 1,
+		"oAP": "\/bower_components\/drumjs-master\/lib\/drum.min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
+	"\/bower_components\/drumjs-master\/LICENSE": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/bower_components\/drumjs-master\/LICENSE",
+		"oF": 0
+		},
+	"\/bower_components\/drumjs-master\/README.md": {
+		"cS": 0,
+		"eF": 1,
+		"eL": 1,
+		"eLB": 0,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"oA": 2,
+		"oAP": "\/bower_components\/drumjs-master\/README.md",
+		"oF": 0,
+		"oFM": 0,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
+		},
+	"\/bower_components\/drumjs-master\/todo.md": {
+		"cS": 0,
+		"eF": 1,
+		"eL": 1,
+		"eLB": 0,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"oA": 2,
+		"oAP": "\/bower_components\/drumjs-master\/todo.md",
+		"oF": 0,
+		"oFM": 0,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
+		},
+	"\/bower_components\/hammerjs\/.bower.json": {
+		"ft": 524288,
+		"oA": 2,
+		"oAP": "\/bower_components\/hammerjs\/.bower.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/bower_components\/hammerjs\/bower.json": {
+		"ft": 524288,
+		"oA": 2,
+		"oAP": "\/bower_components\/hammerjs\/bower.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/bower_components\/hammerjs\/changelog.js": {
+		"ft": 64,
+		"mi": 1,
+		"oA": 2,
+		"oAP": "\/bower_components\/hammerjs\/changelog.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
+	"\/bower_components\/hammerjs\/CHANGELOG.md": {
+		"cS": 0,
+		"eF": 1,
+		"eL": 1,
+		"eLB": 0,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"oA": 2,
+		"oAP": "\/bower_components\/hammerjs\/CHANGELOG.md",
+		"oF": 0,
+		"oFM": 0,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
+		},
+	"\/bower_components\/hammerjs\/CONTRIBUTING.md": {
+		"cS": 0,
+		"eF": 1,
+		"eL": 1,
+		"eLB": 0,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"oA": 2,
+		"oAP": "\/bower_components\/hammerjs\/CONTRIBUTING.md",
+		"oF": 0,
+		"oFM": 0,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
+		},
+	"\/bower_components\/hammerjs\/hammer.js": {
+		"ft": 64,
+		"mi": 1,
+		"oA": 2,
+		"oAP": "\/bower_components\/hammerjs\/hammer.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
+	"\/bower_components\/hammerjs\/hammer.min.js": {
+		"ft": 64,
+		"mi": 1,
+		"oA": 1,
+		"oAP": "\/bower_components\/hammerjs\/hammer.min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
+	"\/bower_components\/hammerjs\/hammer.min.js.map": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/bower_components\/hammerjs\/hammer.min.js.map",
+		"oF": 0
+		},
+	"\/bower_components\/hammerjs\/hammer.min.map": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/bower_components\/hammerjs\/hammer.min.map",
+		"oF": 0
+		},
+	"\/bower_components\/hammerjs\/LICENSE.md": {
+		"cS": 0,
+		"eF": 1,
+		"eL": 1,
+		"eLB": 0,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"oA": 2,
+		"oAP": "\/bower_components\/hammerjs\/LICENSE.md",
+		"oF": 0,
+		"oFM": 0,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
+		},
+	"\/bower_components\/hammerjs\/README.md": {
+		"cS": 0,
+		"eF": 1,
+		"eL": 1,
+		"eLB": 0,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"oA": 2,
+		"oAP": "\/bower_components\/hammerjs\/README.md",
 		"oF": 0,
 		"oFM": 0,
 		"oS": 0,
@@ -8321,99 +8703,111 @@
 			"type": 0
 			},
 		{
+			"followForSyntaxChecking": 0,
+			"linkedFileAbbreviatedPath": "\/bower_components\/hammerjs\/hammer.min.js",
+			"position": 6,
+			"type": 0
+			},
+		{
+			"followForSyntaxChecking": 0,
+			"linkedFileAbbreviatedPath": "\/bower_components\/drumjs-master\/lib\/drum.min.js",
+			"position": 7,
+			"type": 0
+			},
+		{
 			"followForSyntaxChecking": 1,
 			"linkedFileAbbreviatedPath": "\/assets\/js\/_formatters.js",
-			"position": 6,
-			"type": 1
-			},
-		{
-			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/_scroll.js",
-			"position": 7,
-			"type": 1
-			},
-		{
-			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/_history.js",
 			"position": 8,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/_notifications.js",
+			"linkedFileAbbreviatedPath": "\/assets\/js\/_history.js",
 			"position": 9,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/_lotlist.js",
+			"linkedFileAbbreviatedPath": "\/assets\/js\/_notifications.js",
 			"position": 10,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/_categories.js",
+			"linkedFileAbbreviatedPath": "\/assets\/js\/_lotlist.js",
 			"position": 11,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/_timing.js",
+			"linkedFileAbbreviatedPath": "\/assets\/js\/_categories.js",
 			"position": 12,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/_tal.js",
+			"linkedFileAbbreviatedPath": "\/assets\/js\/_scroll.js",
 			"position": 13,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/_tal-start.js",
+			"linkedFileAbbreviatedPath": "\/assets\/js\/_timing.js",
 			"position": 14,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/_search.js",
+			"linkedFileAbbreviatedPath": "\/assets\/js\/_tal.js",
 			"position": 15,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/_watching.js",
+			"linkedFileAbbreviatedPath": "\/assets\/js\/_tal-start.js",
 			"position": 16,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/_quickbid.js",
+			"linkedFileAbbreviatedPath": "\/assets\/js\/_watching.js",
 			"position": 17,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/_maxbid.js",
+			"linkedFileAbbreviatedPath": "\/assets\/js\/_quickbid.js",
 			"position": 18,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/_groupbid.js",
+			"linkedFileAbbreviatedPath": "\/assets\/js\/_maxbid.js",
 			"position": 19,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/_dragging.js",
+			"linkedFileAbbreviatedPath": "\/assets\/js\/_groupbid.js",
 			"position": 20,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/_tal-end.js",
+			"linkedFileAbbreviatedPath": "\/assets\/js\/_dragging.js",
 			"position": 21,
+			"type": 1
+			},
+		{
+			"followForSyntaxChecking": 1,
+			"linkedFileAbbreviatedPath": "\/assets\/js\/_search.js",
+			"position": 22,
+			"type": 1
+			},
+		{
+			"followForSyntaxChecking": 1,
+			"linkedFileAbbreviatedPath": "\/assets\/js\/_tal-end.js",
+			"position": 23,
 			"type": 1
 			}
 		]

@@ -2,18 +2,18 @@ $(function(){
 
 	createOptiscroll();
 	
-	setTimeout(function(){
-		talObject.doneLoading = true;
+	loadingTimer = window.setTimeout(function(){
+		//talObject.doneLoading = true;
 		
 		setTimeout(function(){
 			talObject.scrollUpNoticeVisible = false;
 		},5000);
-	},1000);
-});
+	},2000);
+}); 
 
 
 
-
+var loadingTimer;
 var scrollArea;
 var scrollTarget = null;
 var scrollDetails = {

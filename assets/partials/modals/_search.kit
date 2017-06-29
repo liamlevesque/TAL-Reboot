@@ -2,11 +2,11 @@
 	<div class="c-modal--content" rv-on-click="talController.stopProp">
 		<div class="c-modal--header">
 			<div class="h-ta-left h-mr-100">
-				<button class="o-text-button_black l-grid-fifth_mobile" rv-on-click="talController.toggleSearchVisible">Cancel</button>
 				<div class="l-grid-four-fifths_mobile h-pos-relative">
 					<input type="text" class="o-input--text js--search-input" placeholder="find by lot # or keyword" rv-value="talObject.filteredResults.input" rv-on-keyup="talController.updateSearch">
 					<button class="o-icon-button--medium l-input--toggle" rv-if="talObject.filteredResults.input | lengthToBool" rv-on-click="talController.clearSearch"><i class="icon-error"></i></button>
 				</div>
+				<button class="o-text-button_black l-grid-fifth_mobile" rv-on-click="talController.toggleSearchVisible">Cancel</button>
 			</div>
 		</div>
 		<div class="c-modal--body">

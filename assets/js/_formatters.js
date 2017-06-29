@@ -359,5 +359,7 @@ rivets.binders.bidstatusclass = function(el,value){
 	}
 };
 
-
+rivets.binders.carouselposition = function(el,value){
+	$(el).css('transform','translateX('+ (value * -100) +'%)')
+}
 

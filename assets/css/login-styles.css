@@ -308,17 +308,6 @@ a {
 .icon-pause:before {
   content: "\e927"; }
 
-@keyframes waitingslide {
-  0% {
-    left: 0;
-    right: 100%; }
-  50% {
-    left: 0;
-    right: 0; }
-  100% {
-    left: 100%;
-    right: 0; } }
-
 .o-icon-button--sort {
   font-weight: 700;
   outline: none;
@@ -2028,6 +2017,20 @@ a {
       width: 19%;
       margin-right: 0; }
       .l-grid-fifth_mobile:last-child {
+        float: right;
+        margin-right: 0; } }
+
+.l-grid-two-fifths_mobile {
+  box-sizing: border-box;
+  position: relative;
+  vertical-align: top; }
+  @media (max-width: 64em) {
+    .l-grid-two-fifths_mobile {
+      display: inline-block;
+      vertical-align: top;
+      width: 39%;
+      margin-right: 0; }
+      .l-grid-two-fifths_mobile:last-child {
         float: right;
         margin-right: 0; } }
 

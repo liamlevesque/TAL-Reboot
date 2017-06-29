@@ -1,5 +1,25 @@
 const talObject = {
 		doneLoading: false,
+		
+		activeLesson: 0,
+		isLearningLesson: false,
+		lessons: [
+			{
+				stepnumber: 1,
+				graphic: 'assets/img/asset-listing-illustration.png',
+				copy: 'Drag lots to the right to quickly place a bid!',
+			},
+			{
+				stepnumber: 2,
+				graphic: 'assets/img/asset1-1.jpg',
+				copy: 'Bid on multiple lots together with group bids',
+			},
+			{
+				stepnumber: 3,
+				graphic: 'assets/img/asset1-1.jpg',
+				copy: 'We\'ll notify you when you win or lose a lot',
+			}
+		],
 
 		closeInterval: 30,
 		startTime: null,

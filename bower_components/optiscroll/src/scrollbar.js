@@ -11,7 +11,8 @@ var Scrollbar = function (which, instance) {
       clientSize = 'client' + sizeProp,
       scrollSize = 'scroll' + sizeProp,
       scrollProp = isVertical ? 'scrollTop' : 'scrollLeft',
-      evNames = isVertical ? ['top','bottom'] : ['left','right'],
+      evSuffixes = isVertical ? ['top','bottom'] : ['left','right'],
+      evTypesMatcher = /^(mouse|touch|pointer)/,
 
       rtlMode = G.scrollbarSpec.rtl,
       enabled = false,
@@ -22,38 +23,41 @@ var Scrollbar = function (which, instance) {
     dragData: null,
 
     dragStart: function (ev) {
+      ev.preventDefault();
       var evData = ev.touches ? ev.touches[0] : ev;
       events.dragData = { x: evData.pageX, y: evData.pageY, scroll: scrollEl[scrollProp] };
-      events.bind(true);
+      events.bind(true, ev.type.match(evTypesMatcher)[1]);
     },
 
     dragMove: function (ev) {
       var evData = ev.touches ? ev.touches[0] : ev,
           dragMode = settings.rtl && rtlMode === 1 && !isVertical ? -1 : 1,
           delta, deltaRatio;
-      
+
       ev.preventDefault();
       delta = isVertical ? evData.pageY - events.dragData.y : evData.pageX - events.dragData.x;
       deltaRatio = delta / cache[clientSize];
-      
+
       scrollEl[scrollProp] = events.dragData.scroll + deltaRatio * cache[scrollSize] * dragMode;
     },
 
-    dragEnd: function () {
+    dragEnd: function (ev) {
       events.dragData = null;
-      events.bind(false);
+      events.bind(false, ev.type.match(evTypesMatcher)[1]);
     },
 
-    bind: function (on) {
+    bind: function (on, type) {
       var method = (on ? 'add' : 'remove') + 'EventListener',
-          type = G.isTouch ? ['touchmove', 'touchend'] : ['mousemove', 'mouseup'];
+          moveEv = type + 'move',
+          upEv = type + (type === 'touch' ? 'end' : 'up');
 
-      document[method](type[0], events.dragMove);
-      document[method](type[1], events.dragEnd);
+      document[method](moveEv, events.dragMove);
+      document[method](upEv, events.dragEnd);
+      document[method](type + 'cancel', events.dragEnd);
     },
 
   };
-  
+
   return {
 
 
@@ -70,7 +74,6 @@ var Scrollbar = function (which, instance) {
 
 
     create: function () {
-      var evType = G.isTouch ? 'touchstart' : 'mousedown';
       scrollbarEl = document.createElement('div');
       trackEl = document.createElement('b');
 
@@ -80,7 +83,10 @@ var Scrollbar = function (which, instance) {
       parentEl.appendChild(scrollbarEl);
 
       if(settings.draggableTracks) {
-        trackEl.addEventListener(evType, events.dragStart);
+        var evTypes = window.PointerEvent ? ['pointerdown'] : ['touchstart', 'mousedown'];
+        evTypes.forEach(function (evType) {
+          trackEl.addEventListener(evType, events.dragStart);
+        });
       }
     },
 
@@ -118,7 +124,7 @@ var Scrollbar = function (which, instance) {
       if(enabled) {
         this.fireEdgeEv();
       }
-      
+
     },
 
 
@@ -129,20 +135,20 @@ var Scrollbar = function (which, instance) {
           trackEl.style.marginRight = (1 - newSize) * 100 + '%';
         }
       }
-      trackEl.style[G.cssTransform] = 'translate(' + 
-        (isVertical ? '0%,' + newRelPos + '%' : newRelPos + '%' + ',0%') 
+      trackEl.style[G.cssTransform] = 'translate(' +
+        (isVertical ? '0%,' + newRelPos + '%' : newRelPos + '%' + ',0%')
         + ')';
     },
 
 
     calc: function () {
       var position = scrollEl[scrollProp],
-          viewS = cache[clientSize], 
-          scrollS = cache[scrollSize], 
+          viewS = cache[clientSize],
+          scrollS = cache[scrollSize],
           sizeRatio = viewS / scrollS,
           sizeDiff = scrollS - viewS,
           positionRatio, percent;
-      
+
       if(sizeRatio >= 1 || !scrollS) { // no scrollbars needed
         return { position: 0, size: 1, percent: 0 };
       }
@@ -152,12 +158,12 @@ var Scrollbar = function (which, instance) {
 
       percent = 100 * position / sizeDiff;
 
-      // prevent overscroll effetcs (negative percent) 
+      // prevent overscroll effetcs (negative percent)
       // and keep 1px tolerance near the edges
       if(position <= 1) { percent = 0; }
       if(position >= sizeDiff - 1) { percent = 100; }
-      
-      // Capped size based on min/max track percentage 
+
+      // Capped size based on min/max track percentage
       sizeRatio = Math.max(sizeRatio, settings.minTrackSize / 100);
       sizeRatio = Math.min(sizeRatio, settings.maxTrackSize / 100);
 
@@ -172,7 +178,7 @@ var Scrollbar = function (which, instance) {
 
       if(scrollbarCache.was !== percent && percent % 100 === 0) {
         instance.fireCustomEvent('scrollreachedge');
-        instance.fireCustomEvent('scrollreach' + evNames[percent / 100]);
+        instance.fireCustomEvent('scrollreach' + evSuffixes[percent / 100]);
       }
 
       scrollbarCache.was = percent;

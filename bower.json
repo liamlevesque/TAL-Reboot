@@ -39,6 +39,7 @@
     "swiper": "^3.4.2",
     "clusterize": "^0.17.6",
     "optiscroll": "^3.0.0",
-    "tooltipster": "^4.2.5"
+    "tooltipster": "^4.2.5",
+    "hammerjs": "hammer.js#^2.0.8"
   }
 }
