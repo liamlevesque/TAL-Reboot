@@ -21,6 +21,8 @@ const talObject = {
 			}
 		],
 
+		increments: increments,
+
 		closeInterval: 30,
 		startTime: null,
 		crudeInterval: 0,
@@ -98,52 +100,5 @@ const talObject = {
 				y: 0,
 			},
 	};
-
-const incrementTable = [
-	{
-		upto: 99,
-		increment: 5
-	},
-	{
-		upto: 249,
-		increment: 10
-	},
-	{
-		upto: 499,
-		increment: 25
-	},
-	{
-		upto: 999,
-		increment: 50
-	},
-	{
-		upto: 2499,
-		increment: 100
-	},
-	{
-		upto: 9999,
-		increment: 250
-	},
-	{
-		upto: 24999,
-		increment: 500
-	},
-	{
-		upto: 149999,
-		increment: 1000
-	},
-	{
-		upto: 299999,
-		increment: 2500
-	},
-	{
-		upto: 999999,
-		increment: 5000
-	},
-	{
-		upto: 9999999,
-		increment: 10000
-	},
-]
 
 

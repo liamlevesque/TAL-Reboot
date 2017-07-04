@@ -43,10 +43,13 @@
 				<div class="h-mt-100 h-p-100">
 					<p>Each time you are outbid on lots in this group we will bid for you up to and including your chosen maximum bid.</p>
 					<a href="#" class="h-float-right">Learn More</a>
-					<div class="">
+					<div class="price-picker">
 						<span>Bid Up To</span>
-						<input type="number" class="o-input--text js--group-max-input" placeholder="maximum bid" rv-value="talObject.tempGroup.maxbid">
-						<!-- <p class="h-mt-100 h-ta-center">Current High Bid is <span class="CCY" rv-html="talObject.focusedLot.bid | price"></span></p> -->
+						<select class="js--group-max-input">
+							<option rv-each-increment="talObject.increments" rv-value="increment">{increment | simplePrice}</option>
+						</select>
+						<span><strong>CAD</strong> per lot</span>
+						<!--<input type="number" class="o-input--text js--maxbid-focus" placeholder="maximum bid" rv-value="talObject.tempMaxBid">-->
 					</div>
 				</div>
 			</div>

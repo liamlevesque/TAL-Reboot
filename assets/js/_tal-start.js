@@ -11,6 +11,9 @@ const talController = {
 
 		clearLessonsArea: function(e){
 			talObject.doneLoading = true;
+			setTimeout(function(){
+				talObject.scrollUpNoticeVisible = false;
+			},5000);
 		},
 
 		loadTab: function(e){

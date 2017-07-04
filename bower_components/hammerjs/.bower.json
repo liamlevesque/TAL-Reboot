@@ -23,6 +23,5 @@
   },
   "_source": "https://github.com/hammerjs/hammer.js.git",
   "_target": "^2.0.8",
-  "_originalSource": "hammer.js",
-  "_direct": true
+  "_originalSource": "hammer.js"
 }

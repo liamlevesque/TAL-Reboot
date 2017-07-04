@@ -16,6 +16,10 @@ rivets.formatters.price = function(value){
 	return formatprice(value);
 };
 
+rivets.formatters.simplePrice = function(value){
+	return '$' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','); 
+};
+
 rivets.formatters.nextIncrement = function(value){
 	if(typeof value == "undefined") value = 0;
 	return formatprice(talController.increment(value));
@@ -327,7 +331,6 @@ rivets.formatters.highbidormaxbid = function(bids,bidder,match){
 
 		case 'MAXBID':
 			if(bids[0].bidder === bidder && bids[0].type === 'max'){
-				console.log('maxbid yes!');
 				return true;
 			} 
 			break;

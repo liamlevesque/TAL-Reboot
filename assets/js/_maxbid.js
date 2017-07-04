@@ -6,6 +6,13 @@
 				talObject.maximumBidVisible = !talObject.maximumBidVisible;
 				if(typeof context.lot != 'undefined' && talObject.maximumBidVisible) talObject.focusedLot = context.lot;
 				$('.js--maxbid-focus').focus();
+				$('.js--max-bid-chooser').drum({
+					panelCount: talObject.increments.length,
+					dial_w: 40,
+					onChange: function(e){
+						talObject.tempMaxBid = $(e).val();
+					},
+				});
 			},
 
 			setMaximumBid: function(){

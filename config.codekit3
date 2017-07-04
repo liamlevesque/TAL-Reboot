@@ -648,6 +648,15 @@
 		"sC": 1,
 		"tS": 0
 		},
+	"\/assets\/js\/_increments.js": {
+		"ft": 64,
+		"mi": 1,
+		"oA": 1,
+		"oAP": "\/assets\/js\/min\/_increments-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
 	"\/assets\/js\/_lotlist.js": {
 		"ft": 64,
 		"mi": 1,
@@ -1253,6 +1262,19 @@
 		"oS": 0,
 		"uL": 1
 		},
+	"\/assets\/scss\/_picker.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/assets\/css\/_picker.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
 	"\/assets\/scss\/_progress.scss": {
 		"aP": 0,
 		"bl": 0,
@@ -1706,6 +1728,15 @@
 		"rFN": 0,
 		"uCM": 0
 		},
+	"\/bower_components\/hammer.min.js": {
+		"ft": 64,
+		"mi": 1,
+		"oA": 1,
+		"oAP": "\/bower_components\/hammer.min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
 	"\/bower_components\/hammerjs\/.bower.json": {
 		"ft": 524288,
 		"oA": 2,
@@ -1779,7 +1810,7 @@
 	"\/bower_components\/hammerjs\/hammer.min.js": {
 		"ft": 64,
 		"mi": 1,
-		"oA": 1,
+		"oA": 2,
 		"oAP": "\/bower_components\/hammerjs\/hammer.min.js",
 		"oF": 0,
 		"sC": 1,
@@ -8621,6 +8652,61 @@
 		"rFN": 0,
 		"uCM": 0
 		},
+	"\/bower_components\/TouchEmulator\/.bower.json": {
+		"ft": 524288,
+		"oA": 2,
+		"oAP": "\/bower_components\/TouchEmulator\/.bower.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/bower_components\/TouchEmulator\/bower.json": {
+		"ft": 524288,
+		"oA": 2,
+		"oAP": "\/bower_components\/TouchEmulator\/bower.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/bower_components\/TouchEmulator\/LICENSE": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/bower_components\/TouchEmulator\/LICENSE",
+		"oF": 0
+		},
+	"\/bower_components\/TouchEmulator\/Makefile": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/bower_components\/TouchEmulator\/Makefile",
+		"oF": 0
+		},
+	"\/bower_components\/TouchEmulator\/README.md": {
+		"cS": 0,
+		"eF": 1,
+		"eL": 1,
+		"eLB": 0,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"oA": 2,
+		"oAP": "\/bower_components\/TouchEmulator\/README.md",
+		"oF": 0,
+		"oFM": 0,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
+		},
+	"\/bower_components\/TouchEmulator\/touch-emulator.js": {
+		"ft": 64,
+		"mi": 1,
+		"oA": 2,
+		"oAP": "\/bower_components\/TouchEmulator\/touch-emulator.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
 	"\/index.html": {
 		"ft": 8192,
 		"oA": 2,
@@ -8704,7 +8790,7 @@
 			},
 		{
 			"followForSyntaxChecking": 0,
-			"linkedFileAbbreviatedPath": "\/bower_components\/hammerjs\/hammer.min.js",
+			"linkedFileAbbreviatedPath": "\/bower_components\/hammer.min.js",
 			"position": 6,
 			"type": 0
 			},
@@ -8740,74 +8826,80 @@
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/_categories.js",
+			"linkedFileAbbreviatedPath": "\/assets\/js\/_increments.js",
 			"position": 12,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/_scroll.js",
+			"linkedFileAbbreviatedPath": "\/assets\/js\/_categories.js",
 			"position": 13,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/_timing.js",
+			"linkedFileAbbreviatedPath": "\/assets\/js\/_scroll.js",
 			"position": 14,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/_tal.js",
+			"linkedFileAbbreviatedPath": "\/assets\/js\/_timing.js",
 			"position": 15,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/_tal-start.js",
+			"linkedFileAbbreviatedPath": "\/assets\/js\/_tal.js",
 			"position": 16,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/_watching.js",
+			"linkedFileAbbreviatedPath": "\/assets\/js\/_tal-start.js",
 			"position": 17,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/_quickbid.js",
+			"linkedFileAbbreviatedPath": "\/assets\/js\/_watching.js",
 			"position": 18,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/_maxbid.js",
+			"linkedFileAbbreviatedPath": "\/assets\/js\/_quickbid.js",
 			"position": 19,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/_groupbid.js",
+			"linkedFileAbbreviatedPath": "\/assets\/js\/_maxbid.js",
 			"position": 20,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/_dragging.js",
+			"linkedFileAbbreviatedPath": "\/assets\/js\/_groupbid.js",
 			"position": 21,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/_search.js",
+			"linkedFileAbbreviatedPath": "\/assets\/js\/_dragging.js",
 			"position": 22,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/_tal-end.js",
+			"linkedFileAbbreviatedPath": "\/assets\/js\/_search.js",
 			"position": 23,
+			"type": 1
+			},
+		{
+			"followForSyntaxChecking": 1,
+			"linkedFileAbbreviatedPath": "\/assets\/js\/_tal-end.js",
+			"position": 24,
 			"type": 1
 			}
 		]

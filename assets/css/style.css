@@ -3667,6 +3667,73 @@ a {
   right: auto;
   left: 4px; }
 
+.price-picker {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  clear: both;
+  position: relative; }
+  .price-picker:before, .price-picker:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    border-top: 1px solid #E9E9E9;
+    transform: translateY(-20px); }
+  .price-picker:after {
+    transform: translateY(20px); }
+  .price-picker span {
+    display: inline-block; }
+  .price-picker .drum-wrapper {
+    width: 120px;
+    height: 200px;
+    display: inline-block;
+    margin-right: 15px; }
+    .price-picker .drum-wrapper .inner {
+      height: 200px; }
+    .price-picker .drum-wrapper .container {
+      top: 83px;
+      height: 35px;
+      line-height: 35px; }
+    .price-picker .drum-wrapper figure {
+      height: 35px;
+      text-align: right;
+      font-size: 1.2em;
+      line-height: 35px; }
+    .price-picker .drum-wrapper .dial {
+      height: 82.5px; }
+      .price-picker .drum-wrapper .dial div {
+        width: 120px;
+        text-align: center; }
+
+#drum_number {
+  width: 50px;
+  height: 240px; }
+
+#drum_number .inner {
+  top: 15px;
+  height: 215px; }
+
+#drum_number .container, #drum_number figure {
+  height: 35px; }
+
+#drum_number .container {
+  top: 90px; }
+
+#drum_number figure {
+  text-align: center;
+  font-size: 1.4em;
+  line-height: 1.4em; }
+
+#drum_number .dial {
+  height: 100px; }
+
+#drum_number .dial div {
+  width: 35px; }
+
 .c-empty-state {
   text-align: center; }
 
@@ -3949,6 +4016,7 @@ a {
   left: 0;
   height: 100%;
   width: 100%;
+  overflow: hidden;
   margin: 0; }
 
 .l-main-container {

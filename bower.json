@@ -40,6 +40,7 @@
     "clusterize": "^0.17.6",
     "optiscroll": "^3.0.0",
     "tooltipster": "^4.2.5",
-    "hammerjs": "hammer.js#^2.0.8"
+    "hammerjs": "hammer.js#^2.0.8",
+    "TouchEmulator": "hammer-touchemulator#^0.0.2"
   }
 }

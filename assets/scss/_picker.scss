@@ -1,0 +1,92 @@
+$pickerheight: 200px;
+$pickerWidth: 120px;
+$pickerFigureHeight: 35px;
+
+.price-picker{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    clear:both;
+    position: relative;
+
+    &:before, &:after{
+        content: '';
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        border-top: 1px solid palette(grey,light);
+        transform: translateY(-20px);
+    }
+
+    &:after{
+        transform: translateY(20px);
+    }
+
+    span{
+        display: inline-block;
+    }
+
+    .drum-wrapper{
+        width: $pickerWidth;
+        height: $pickerheight;
+        display: inline-block;
+        margin-right: spacing(small);
+
+        .inner{
+            height: $pickerheight;
+        }
+
+        .container{
+            top: 83px;
+            height: $pickerFigureHeight;
+            line-height: $pickerFigureHeight;
+        }
+
+        figure{
+            height: $pickerFigureHeight;
+            text-align: right;
+            font-size: 1.2em;
+            line-height: $pickerFigureHeight;
+        }
+
+        .dial{
+            height: $pickerheight/2 - $pickerFigureHeight/2;
+            div{
+                width: $pickerWidth;
+                text-align: center;
+            }
+        }
+    }
+
+}
+
+
+
+#drum_number {
+    width: 50px;
+    height: 240px;
+}
+#drum_number .inner {
+    top: 15px;
+    height: 215px;
+}
+#drum_number .container, #drum_number figure {
+    height: 35px;
+}
+#drum_number .container {
+    top: 90px;
+}
+#drum_number figure {
+    text-align: center;
+    font-size: 1.4em;
+    line-height: 1.4em;
+}
+#drum_number .dial {
+    height: 100px;
+}
+#drum_number .dial div {
+    width: 35px;
+}

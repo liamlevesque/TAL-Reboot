@@ -62,7 +62,6 @@
 			},
 
 			buildBid: function(bidder,amt,type) {
-				console.log(type);
 				let bid = {
 					bidder: bidder,
 					bid: amt,

@@ -1,10 +1,11 @@
 $(function(){
 
 	createOptiscroll();
+	Hammer.plugins.fakeMultitouch();
 	
 	loadingTimer = window.setTimeout(function(){
 		//talObject.doneLoading = true;
-		
+
 		setTimeout(function(){
 			talObject.scrollUpNoticeVisible = false;
 		},5000);

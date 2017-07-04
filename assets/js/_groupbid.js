@@ -69,7 +69,16 @@
 
 			groupBiddingStep: function(e){
 				talObject.tempGroup.step = $(e.currentTarget).data('targetstep');
-				if(talObject.tempGroup.step === 2) $('.js--group-max-input').focus();
+				if(talObject.tempGroup.step === 2){
+					$('.js--group-max-input').drum({
+						panelCount: talObject.increments.length,
+						dial_w: 40,
+						onChange: function(e){
+							talObject.tempGroup.maxbid = $(e).val();
+						},
+					});
+
+				}
 			},
 
 			completeGroupBid: function(e){
