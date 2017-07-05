@@ -13,7 +13,7 @@ $(function(){
 }); 
 
 
-
+var scrollTimer;
 var loadingTimer;
 var scrollArea;
 var scrollTarget = null;
@@ -58,6 +58,7 @@ function createOptiscroll() {
 			$('.optiscroll').addClass('s-scrolling');
 			scrollDetails.start = e.detail.scrollTop;
 			updateProgressIndicator(e.detail.scrollTop/e.detail.scrollHeight);
+			window.clearTimeout(scrollTimer);
 		}).on('scroll',function(e){
 			scrollDetails.direction = (e.detail.scrollTop > scrollDetails.start)? 'down' : 'up' ;
 			scrollDetails.delta = Math.abs(e.detail.scrollTop - scrollDetails.start);
@@ -71,7 +72,10 @@ function createOptiscroll() {
 			}
 			updateProgressIndicator(e.detail.scrollTop/e.detail.scrollHeight);
 		}).on('scrollstop',function(e){
-			$('.optiscroll').removeClass('s-scrolling');
+			console.log('done');
+			scrollTimer = window.setTimeout(function(){
+				$('.optiscroll').removeClass('s-scrolling');
+			},1000);
 			//CHECK IF MOUSEOVER FIRST
 		}); 
 
