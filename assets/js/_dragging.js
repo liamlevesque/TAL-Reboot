@@ -47,6 +47,11 @@
 				context.lot.swipeQuickBidding = true;
 			},
 
+			cancelDragQuickBid: function(e,context){
+				context.lot.swipeQuickBidding = false;
+				talController.resetDrag(context.lot);
+			},
+
 			dragConfirmQuickBid: function(e,context){
 				talController.placeQuickBid(context.lot);
 				talController.resetDrag(context.lot);

@@ -1,7 +1,7 @@
 $(function(){
 
 	createOptiscroll();
-	//Hammer.plugins.fakeMultitouch();
+	Hammer.plugins.fakeMultitouch();
 	
 	loadingTimer = window.setTimeout(function(){
 		talObject.doneLoading = true;
@@ -77,7 +77,7 @@ function createOptiscroll() {
 				$('.optiscroll').removeClass('s-scrolling');
 			},1000);
 			//CHECK IF MOUSEOVER FIRST
-		}); 
+		});
 
 		$('.optiscroll-v').on('mouseenter',function(e){
 			$('.optiscroll').addClass('s-scrolling');
