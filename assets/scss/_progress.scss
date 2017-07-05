@@ -84,7 +84,7 @@ $progress-indicator-height: 50px;
 	width: 100px;
 	z-index: 90;
 	transition: width $transition;
-	pointer-events: none;
+	//pointer-events: none;
 	
 	.optiscroll.is-enabled ~ &{
 		display: block;

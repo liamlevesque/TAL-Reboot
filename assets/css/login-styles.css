@@ -1866,6 +1866,16 @@ a {
   .o-button--combo-item:hover {
     background-color: rgba(32, 87, 158, 0.1); }
 
+.count-indicator {
+  display: inline-block;
+  background-color: #E87722;
+  color: white;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  text-align: center; }
+
 .l-grid-quarter {
   box-sizing: border-box;
   position: relative;

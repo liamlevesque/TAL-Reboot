@@ -2188,6 +2188,16 @@ a {
   .o-button--combo-item:hover {
     background-color: rgba(32, 87, 158, 0.1); }
 
+.count-indicator {
+  display: inline-block;
+  background-color: #E87722;
+  color: white;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  text-align: center; }
+
 .o-input--container {
   position: relative;
   display: block; }
@@ -3912,8 +3922,7 @@ a {
   bottom: 0;
   width: 100px;
   z-index: 90;
-  transition: width 0.2s cubic-bezier(0.63, 0.005, 0.365, 1);
-  pointer-events: none; }
+  transition: width 0.2s cubic-bezier(0.63, 0.005, 0.365, 1); }
   .optiscroll.is-enabled ~ .auction-progress-meter {
     display: block; }
   @media (max-width: 64em) {

@@ -8,17 +8,24 @@
 	</div>
 	<button class="o-button h-hide-mobile l-grid-quarter l-grid-last-item">Search</button>
 	
-	<button class="o-button--outline h-hide-desktop l-grid-two-fifths_mobile" rv-on-click="talController.toggleFiltersVisible">Sort/Filter</button>
+	<button class="o-button--outline h-hide-desktop l-grid-two-fifths_mobile" rv-on-click="talController.toggleFiltersVisible">Sort/Filter <span rv-if="talObject.activeCategory" class="count-indicator">1</span></button>
 </div>
 <div class="c-subhead" rv-if="talObject.activeTab | compare 'auction'">
 	<div class="l-width--1200">
 		<div class="h-d-inline-block">
-			<span rv-unless="talObject.activeCategory">Showing All {talObject.auction.totalLots} Lots</span>
-			<div rv-if="talObject.activeCategory">
-				<label class="t-smalllabel h-hide-mobile">Category: </label>
-				<div class="o-category-tag">
-					{talObject.activeCategory} <i class="icon-error h-ml-50" rv-on-click="talController.clearCategory"></i>
+			<span rv-unless="talObject.activeCategory | or talObject.keywordSearch">Showing All {talObject.auction.totalLots} Lots</span>
+			<div rv-if="talObject.activeCategory  | or talObject.keywordSearch">
+				<div>
+					<button class="o-text-button" rv-on-click="talController.clearSearch"><- Back to to all lots</button>
 				</div>
+				Showing 
+				<span rv-unless="talObject.keywordSearch">All {talObject.categoryLots | length} Lots</span>
+				<span rv-if="talObject.keywordSearch">{talObject.categoryLots | length} results for <strong>"{talObject.filteredResults.input}"</strong></span>
+				<span rv-if="talObject.activeCategory">  in 
+					<div class="o-category-tag">
+						{talObject.activeCategory} <i class="icon-error h-ml-50" rv-on-click="talController.clearCategory"></i>
+					</div>
+				</span>
 			</div>
 		</div>
 		<div class="c-sort-toggle h-float-right h-hide-mobile" rv-class-s-expanded="talObject.sortOptionsVisible" rv-on-click="talController.toggleSortOptionsVisible">

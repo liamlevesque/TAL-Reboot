@@ -44,6 +44,14 @@
 				
 			},
 
+			doPlainSearch: function(){
+				talObject.categoryLots = talObject.lots.filter((lot) => {
+					return (lot.description.toLowerCase().indexOf(talObject.filteredResults.input) >= 0);
+				});
+				talObject.mobileSearchVisible = false;
+				talObject.keywordSearch = true;
+			},
+
 			doCategorySearch: function(e){
 				let value = $(e.currentTarget).data('value');
 				talObject.activeCategory = value;
@@ -51,6 +59,7 @@
 					return (lot.category === talObject.activeCategory && lot.description.toLowerCase().indexOf(talObject.filteredResults.input) >= 0);
 				});
 				talObject.mobileSearchVisible = false;
+				talObject.keywordSearch = true;
 			},
 
 			doSearch: function(e) {
@@ -73,6 +82,7 @@
 					categories: [],
 					matches: [],
 				};
+				talObject.keywordSearch = false;
 				talController.clearCategory();
 			},
 
@@ -90,9 +100,17 @@
 				talObject.categoryLots = talObject.lots.filter((lot) => {return lot.category === talObject.activeCategory});
 				talObject.categoriesVisible = false;
 				talObject.mobileSearchVisible = false;
+				talObject.filtersVisible = false;
 			},
 
-			clearCategory: function(e){
+			clearCategory: function(){
+				if(talObject.keywordSearch){
+					console.log('test');
+					talObject.activeCategory = null;
+					talObject.categoryLots = [];
+					talController.doPlainSearch();
+					return;
+				}
 				talObject.activeCategory = null;
 				talObject.categoryLots = [];
 				scrollArea.destroy();

@@ -68,6 +68,7 @@ const talObject = {
 		},
 		groupViewModalVisible: false,
 
+		keywordSearch: false,
 		mobileSearchVisible: false,
 		pastSearches: ['Cat 350','40 foot container','Gen Set'],
 		categories: categories,

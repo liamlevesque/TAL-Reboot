@@ -72,17 +72,24 @@
 			</div>
 			<button class="o-button h-hide-mobile l-grid-quarter l-grid-last-item">Search</button>
 			
-			<button class="o-button--outline h-hide-desktop l-grid-two-fifths_mobile" rv-on-click="talController.toggleFiltersVisible">Sort/Filter</button>
+			<button class="o-button--outline h-hide-desktop l-grid-two-fifths_mobile" rv-on-click="talController.toggleFiltersVisible">Sort/Filter <span rv-if="talObject.activeCategory" class="count-indicator">1</span></button>
 		</div>
 		<div class="c-subhead" rv-if="talObject.activeTab | compare 'auction'">
 			<div class="l-width--1200">
 				<div class="h-d-inline-block">
-					<span rv-unless="talObject.activeCategory">Showing All {talObject.auction.totalLots} Lots</span>
-					<div rv-if="talObject.activeCategory">
-						<label class="t-smalllabel h-hide-mobile">Category: </label>
-						<div class="o-category-tag">
-							{talObject.activeCategory} <i class="icon-error h-ml-50" rv-on-click="talController.clearCategory"></i>
+					<span rv-unless="talObject.activeCategory | or talObject.keywordSearch">Showing All {talObject.auction.totalLots} Lots</span>
+					<div rv-if="talObject.activeCategory  | or talObject.keywordSearch">
+						<div>
+							<button class="o-text-button" rv-on-click="talController.clearSearch"><- Back to to all lots</button>
 						</div>
+						Showing 
+						<span rv-unless="talObject.keywordSearch">All {talObject.categoryLots | length} Lots</span>
+						<span rv-if="talObject.keywordSearch">{talObject.categoryLots | length} results for <strong>"{talObject.filteredResults.input}"</strong></span>
+						<span rv-if="talObject.activeCategory">  in 
+							<div class="o-category-tag">
+								{talObject.activeCategory} <i class="icon-error h-ml-50" rv-on-click="talController.clearCategory"></i>
+							</div>
+						</span>
 					</div>
 				</div>
 				<div class="c-sort-toggle h-float-right h-hide-mobile" rv-class-s-expanded="talObject.sortOptionsVisible" rv-on-click="talController.toggleSortOptionsVisible">
@@ -114,7 +121,7 @@
 				<div class="o-setting-section-separator">Equipment Categories</div>
 				<div class="o-sidebar--section s-collapsed">
 					<ul>
-						<li class="o-setting-list-item o-setting--selectable" rv-each-category="talObject.categories" rv-on-click="talController.goToCategory" rv-data-value="category.name">{ category.name } <span class="t-smalllabel">({ category.quantity })</span></li>
+						<li class="o-setting-list-item o-setting-list-item_picker" rv-each-category="talObject.categories" rv-on-click="talController.goToCategory" rv-data-value="category.name" rv-class-s-selected="category.name | compare talObject.activeCategory">{ category.name } <span class="t-smalllabel">({ category.quantity })</span></li>
 					</ul>
 				</div>
 			</div>
@@ -122,7 +129,7 @@
 		
 		<div class="c-category-list" rv-if="talObject.categoriesVisible" rv-on-focusOut="talController.toggleCategoriesVisible">
 			<ul>
-				<li class="o-setting-list-item o-setting--selectable" rv-each-category="talObject.categories" rv-on-click="talController.goToCategory" rv-data-value="category.name">{ category.name } <span class="t-smalllabel">({ category.quantity })</span></li>
+				<li class="o-setting-list-item o-setting-list-item_picker" rv-each-category="talObject.categories" rv-on-click="talController.goToCategory" rv-data-value="category.name" rv-class-s-selected="category.name | compare talObject.activeCategory">{ category.name } <span class="t-smalllabel">({ category.quantity })</span></li>
 			</ul>
 		</div>
 		
@@ -135,7 +142,7 @@
 	
 	<div class="l-main-container"> 
 		<div rv-if="talObject.activeTab | compare 'auction'">
-			<div class="optiscroll" rv-unless="talObject.activeCategory">
+			<div class="optiscroll" rv-unless="talObject.activeCategory | or talObject.keywordSearch">
 		
 				<div class="l-width--1200">
 					<ul class="c-lot-list js--optiscroll-content">
@@ -333,7 +340,7 @@
 		
 			</div>
 			
-			<div rv-if="talObject.activeCategory">
+			<div rv-if="talObject.activeCategory | or talObject.keywordSearch">
 				<div class="l-width--1200">
 					<ul class="c-lot-list">
 						<li rv-each-lot="talObject.categoryLots" rv-id="lot.lotNumber">
@@ -1674,7 +1681,7 @@
 										</ul>
 										<div class="o-setting-section-separator">Categories</div>
 										<ul>
-											<li class="o-setting-list-item o-setting--selectable" rv-each-category="talObject.categories" rv-on-click="talController.goToCategory" rv-data-value="category.name">{ category.name } <span class="t-smalllabel">({ category.quantity })</span></li>
+											<li class="o-setting-list-item o-setting-list-item_picker" rv-each-category="talObject.categories" rv-on-click="talController.goToCategory" rv-data-value="category.name" rv-class-s-selected="category.name | compare talObject.activeCategory">{ category.name } <span class="t-smalllabel">({ category.quantity })</span></li>
 										</ul>
 									</div>
 									<div rv-if="talObject.filteredResults.searching">
@@ -1686,7 +1693,7 @@
 										<div class="o-setting-section-separator">Search Within Categories</div>
 										<ul>
 											<li class="o-setting-list-item" rv-on-click="talController.doSearch">{ talObject.filteredResults.input }</li>
-											<li class="o-setting-list-item h-color-grey h-ml-100" rv-each-category="talObject.filteredResults.categories" rv-on-click="talController.doCategorySearch" rv-data-value="category">in { category }</li>
+											<li class="o-setting-list-item t-italic h-ml-100" rv-each-category="talObject.filteredResults.categories" rv-on-click="talController.doCategorySearch" rv-data-value="category">in { category }</li>
 										</ul>
 										<div class="o-setting-section-separator">Suggested Searches</div>
 										<ul>

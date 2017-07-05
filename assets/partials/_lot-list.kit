@@ -1,5 +1,5 @@
 <div rv-if="talObject.activeTab | compare 'auction'">
-	<div class="optiscroll" rv-unless="talObject.activeCategory">
+	<div class="optiscroll" rv-unless="talObject.activeCategory | or talObject.keywordSearch">
 
 		<div class="l-width--1200">
 			<ul class="c-lot-list js--optiscroll-content">
@@ -11,7 +11,7 @@
 
 	</div>
 	
-	<div rv-if="talObject.activeCategory">
+	<div rv-if="talObject.activeCategory | or talObject.keywordSearch">
 		<div class="l-width--1200">
 			<ul class="c-lot-list">
 				<li rv-each-lot="talObject.categoryLots" rv-id="lot.lotNumber">
