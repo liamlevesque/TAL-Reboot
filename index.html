@@ -180,8 +180,9 @@
 								</div>
 								
 								<div class="h-ta-center" rv-if="lot.swipeQuickBidding">
-									<div class="h-mb-100">Are you sure you want to bid <strong class="CCY" rv-html="lot.bids.0.bid | nextIncrement"></strong> on <strong>Lot { lot.lotNumber }</strong>?</div>
+									<div class="h-mb-100">Are you sure you want to bid <strong class="CCY" rv-html="lot.bids.0.bid | nextIncrement"></strong> on <strong class="h-ws-nowrap">Lot { lot.lotNumber }</strong>?</div>
 									<button class="o-button h-d-inline-block h-w-auto" rv-on-click="talController.dragConfirmQuickBid"> Yes - Place Bid </button>
+									<button class="o-text-button" rv-on-click="talController.cancelDragQuickBid">Cancel</button>
 								</div>
 							
 							</div>
@@ -213,15 +214,15 @@
 									<i class="icon-eye h-color-active"></i> You are watching this lot.
 								</div>
 							
-								<div class="o-lot--content" rv-on-click="talController.toggleLotDetails">
+								<div class="o-lot--content">
 							
-									<div class="l-grid-third l-grid-quarter_mobile l-grid-third_tablet">
+									<div class="l-grid-third l-grid-quarter_mobile l-grid-third_tablet h-c-pointer" rv-on-click="talController.toggleLotDetails">
 										<img rv-src="lot.photo" class="o-lot--photo">
 										<div class="o-lot--photo-sold-flag" rv-if="lot.status | compare 'sold'"><i class="icon-sold h-mr-100 h-color-brand"></i>Sold</div>
 										<h3 class="o-lot--lot-number">Lot {lot.lotNumber}</h3>
 									</div>
 							
-									<div class="l-grid-two-thirds l-grid-three-quarters_mobile l-grid-two-thirds_tablet">
+									<div class="l-grid-two-thirds l-grid-three-quarters_mobile l-grid-two-thirds_tablet" rv-on-click="talController.toggleLotDetailsMobile">
 							
 										<div class="l-grid-half">
 											<div class="h-mb-100">
@@ -233,6 +234,7 @@
 													<div class="meta--field" rv-if="lot.equipid"><label class="t-smalllabel">Serial: </label><span>{lot.equipid}</span></div>
 													<div class="meta--field h-hide-mobile" rv-if="lot.comeswith"><label class="t-smalllabel">Comes With: </label><span>{lot.comeswith}</span></div>
 													<div class="meta--field h-hide-mobile" rv-if="lot.notes"><label class="t-smalllabel">Notes: </label><span>{lot.notes}</span></div>
+													<button class="o-text-button--large h-hide-mobile" rv-on-click="talController.toggleLotDetails">Show Details</button>
 							
 													<div class="h-ta-right h-hide-desktop" rv-unless="lot.status | compare 'sold'">
 														<div class="h-mb-50"><label class="t-smalllabel">Closes in </label>{talObject.time | countdownTimer lot.closes}</div>
@@ -377,8 +379,9 @@
 								</div>
 								
 								<div class="h-ta-center" rv-if="lot.swipeQuickBidding">
-									<div class="h-mb-100">Are you sure you want to bid <strong class="CCY" rv-html="lot.bids.0.bid | nextIncrement"></strong> on <strong>Lot { lot.lotNumber }</strong>?</div>
+									<div class="h-mb-100">Are you sure you want to bid <strong class="CCY" rv-html="lot.bids.0.bid | nextIncrement"></strong> on <strong class="h-ws-nowrap">Lot { lot.lotNumber }</strong>?</div>
 									<button class="o-button h-d-inline-block h-w-auto" rv-on-click="talController.dragConfirmQuickBid"> Yes - Place Bid </button>
+									<button class="o-text-button" rv-on-click="talController.cancelDragQuickBid">Cancel</button>
 								</div>
 							
 							</div>
@@ -410,15 +413,15 @@
 									<i class="icon-eye h-color-active"></i> You are watching this lot.
 								</div>
 							
-								<div class="o-lot--content" rv-on-click="talController.toggleLotDetails">
+								<div class="o-lot--content">
 							
-									<div class="l-grid-third l-grid-quarter_mobile l-grid-third_tablet">
+									<div class="l-grid-third l-grid-quarter_mobile l-grid-third_tablet h-c-pointer" rv-on-click="talController.toggleLotDetails">
 										<img rv-src="lot.photo" class="o-lot--photo">
 										<div class="o-lot--photo-sold-flag" rv-if="lot.status | compare 'sold'"><i class="icon-sold h-mr-100 h-color-brand"></i>Sold</div>
 										<h3 class="o-lot--lot-number">Lot {lot.lotNumber}</h3>
 									</div>
 							
-									<div class="l-grid-two-thirds l-grid-three-quarters_mobile l-grid-two-thirds_tablet">
+									<div class="l-grid-two-thirds l-grid-three-quarters_mobile l-grid-two-thirds_tablet" rv-on-click="talController.toggleLotDetailsMobile">
 							
 										<div class="l-grid-half">
 											<div class="h-mb-100">
@@ -430,6 +433,7 @@
 													<div class="meta--field" rv-if="lot.equipid"><label class="t-smalllabel">Serial: </label><span>{lot.equipid}</span></div>
 													<div class="meta--field h-hide-mobile" rv-if="lot.comeswith"><label class="t-smalllabel">Comes With: </label><span>{lot.comeswith}</span></div>
 													<div class="meta--field h-hide-mobile" rv-if="lot.notes"><label class="t-smalllabel">Notes: </label><span>{lot.notes}</span></div>
+													<button class="o-text-button--large h-hide-mobile" rv-on-click="talController.toggleLotDetails">Show Details</button>
 							
 													<div class="h-ta-right h-hide-desktop" rv-unless="lot.status | compare 'sold'">
 														<div class="h-mb-50"><label class="t-smalllabel">Closes in </label>{talObject.time | countdownTimer lot.closes}</div>
@@ -589,8 +593,9 @@
 									</div>
 									
 									<div class="h-ta-center" rv-if="lot.swipeQuickBidding">
-										<div class="h-mb-100">Are you sure you want to bid <strong class="CCY" rv-html="lot.bids.0.bid | nextIncrement"></strong> on <strong>Lot { lot.lotNumber }</strong>?</div>
+										<div class="h-mb-100">Are you sure you want to bid <strong class="CCY" rv-html="lot.bids.0.bid | nextIncrement"></strong> on <strong class="h-ws-nowrap">Lot { lot.lotNumber }</strong>?</div>
 										<button class="o-button h-d-inline-block h-w-auto" rv-on-click="talController.dragConfirmQuickBid"> Yes - Place Bid </button>
+										<button class="o-text-button" rv-on-click="talController.cancelDragQuickBid">Cancel</button>
 									</div>
 								
 								</div>
@@ -622,15 +627,15 @@
 										<i class="icon-eye h-color-active"></i> You are watching this lot.
 									</div>
 								
-									<div class="o-lot--content" rv-on-click="talController.toggleLotDetails">
+									<div class="o-lot--content">
 								
-										<div class="l-grid-third l-grid-quarter_mobile l-grid-third_tablet">
+										<div class="l-grid-third l-grid-quarter_mobile l-grid-third_tablet h-c-pointer" rv-on-click="talController.toggleLotDetails">
 											<img rv-src="lot.photo" class="o-lot--photo">
 											<div class="o-lot--photo-sold-flag" rv-if="lot.status | compare 'sold'"><i class="icon-sold h-mr-100 h-color-brand"></i>Sold</div>
 											<h3 class="o-lot--lot-number">Lot {lot.lotNumber}</h3>
 										</div>
 								
-										<div class="l-grid-two-thirds l-grid-three-quarters_mobile l-grid-two-thirds_tablet">
+										<div class="l-grid-two-thirds l-grid-three-quarters_mobile l-grid-two-thirds_tablet" rv-on-click="talController.toggleLotDetailsMobile">
 								
 											<div class="l-grid-half">
 												<div class="h-mb-100">
@@ -642,6 +647,7 @@
 														<div class="meta--field" rv-if="lot.equipid"><label class="t-smalllabel">Serial: </label><span>{lot.equipid}</span></div>
 														<div class="meta--field h-hide-mobile" rv-if="lot.comeswith"><label class="t-smalllabel">Comes With: </label><span>{lot.comeswith}</span></div>
 														<div class="meta--field h-hide-mobile" rv-if="lot.notes"><label class="t-smalllabel">Notes: </label><span>{lot.notes}</span></div>
+														<button class="o-text-button--large h-hide-mobile" rv-on-click="talController.toggleLotDetails">Show Details</button>
 								
 														<div class="h-ta-right h-hide-desktop" rv-unless="lot.status | compare 'sold'">
 															<div class="h-mb-50"><label class="t-smalllabel">Closes in </label>{talObject.time | countdownTimer lot.closes}</div>
@@ -800,8 +806,9 @@
 												</div>
 												
 												<div class="h-ta-center" rv-if="lot.swipeQuickBidding">
-													<div class="h-mb-100">Are you sure you want to bid <strong class="CCY" rv-html="lot.bids.0.bid | nextIncrement"></strong> on <strong>Lot { lot.lotNumber }</strong>?</div>
+													<div class="h-mb-100">Are you sure you want to bid <strong class="CCY" rv-html="lot.bids.0.bid | nextIncrement"></strong> on <strong class="h-ws-nowrap">Lot { lot.lotNumber }</strong>?</div>
 													<button class="o-button h-d-inline-block h-w-auto" rv-on-click="talController.dragConfirmQuickBid"> Yes - Place Bid </button>
+													<button class="o-text-button" rv-on-click="talController.cancelDragQuickBid">Cancel</button>
 												</div>
 											
 											</div>
@@ -833,15 +840,15 @@
 													<i class="icon-eye h-color-active"></i> You are watching this lot.
 												</div>
 											
-												<div class="o-lot--content" rv-on-click="talController.toggleLotDetails">
+												<div class="o-lot--content">
 											
-													<div class="l-grid-third l-grid-quarter_mobile l-grid-third_tablet">
+													<div class="l-grid-third l-grid-quarter_mobile l-grid-third_tablet h-c-pointer" rv-on-click="talController.toggleLotDetails">
 														<img rv-src="lot.photo" class="o-lot--photo">
 														<div class="o-lot--photo-sold-flag" rv-if="lot.status | compare 'sold'"><i class="icon-sold h-mr-100 h-color-brand"></i>Sold</div>
 														<h3 class="o-lot--lot-number">Lot {lot.lotNumber}</h3>
 													</div>
 											
-													<div class="l-grid-two-thirds l-grid-three-quarters_mobile l-grid-two-thirds_tablet">
+													<div class="l-grid-two-thirds l-grid-three-quarters_mobile l-grid-two-thirds_tablet" rv-on-click="talController.toggleLotDetailsMobile">
 											
 														<div class="l-grid-half">
 															<div class="h-mb-100">
@@ -853,6 +860,7 @@
 																	<div class="meta--field" rv-if="lot.equipid"><label class="t-smalllabel">Serial: </label><span>{lot.equipid}</span></div>
 																	<div class="meta--field h-hide-mobile" rv-if="lot.comeswith"><label class="t-smalllabel">Comes With: </label><span>{lot.comeswith}</span></div>
 																	<div class="meta--field h-hide-mobile" rv-if="lot.notes"><label class="t-smalllabel">Notes: </label><span>{lot.notes}</span></div>
+																	<button class="o-text-button--large h-hide-mobile" rv-on-click="talController.toggleLotDetails">Show Details</button>
 											
 																	<div class="h-ta-right h-hide-desktop" rv-unless="lot.status | compare 'sold'">
 																		<div class="h-mb-50"><label class="t-smalllabel">Closes in </label>{talObject.time | countdownTimer lot.closes}</div>
@@ -1055,8 +1063,9 @@
 													</div>
 													
 													<div class="h-ta-center" rv-if="lot.swipeQuickBidding">
-														<div class="h-mb-100">Are you sure you want to bid <strong class="CCY" rv-html="lot.bids.0.bid | nextIncrement"></strong> on <strong>Lot { lot.lotNumber }</strong>?</div>
+														<div class="h-mb-100">Are you sure you want to bid <strong class="CCY" rv-html="lot.bids.0.bid | nextIncrement"></strong> on <strong class="h-ws-nowrap">Lot { lot.lotNumber }</strong>?</div>
 														<button class="o-button h-d-inline-block h-w-auto" rv-on-click="talController.dragConfirmQuickBid"> Yes - Place Bid </button>
+														<button class="o-text-button" rv-on-click="talController.cancelDragQuickBid">Cancel</button>
 													</div>
 												
 												</div>
@@ -1088,15 +1097,15 @@
 														<i class="icon-eye h-color-active"></i> You are watching this lot.
 													</div>
 												
-													<div class="o-lot--content" rv-on-click="talController.toggleLotDetails">
+													<div class="o-lot--content">
 												
-														<div class="l-grid-third l-grid-quarter_mobile l-grid-third_tablet">
+														<div class="l-grid-third l-grid-quarter_mobile l-grid-third_tablet h-c-pointer" rv-on-click="talController.toggleLotDetails">
 															<img rv-src="lot.photo" class="o-lot--photo">
 															<div class="o-lot--photo-sold-flag" rv-if="lot.status | compare 'sold'"><i class="icon-sold h-mr-100 h-color-brand"></i>Sold</div>
 															<h3 class="o-lot--lot-number">Lot {lot.lotNumber}</h3>
 														</div>
 												
-														<div class="l-grid-two-thirds l-grid-three-quarters_mobile l-grid-two-thirds_tablet">
+														<div class="l-grid-two-thirds l-grid-three-quarters_mobile l-grid-two-thirds_tablet" rv-on-click="talController.toggleLotDetailsMobile">
 												
 															<div class="l-grid-half">
 																<div class="h-mb-100">
@@ -1108,6 +1117,7 @@
 																		<div class="meta--field" rv-if="lot.equipid"><label class="t-smalllabel">Serial: </label><span>{lot.equipid}</span></div>
 																		<div class="meta--field h-hide-mobile" rv-if="lot.comeswith"><label class="t-smalllabel">Comes With: </label><span>{lot.comeswith}</span></div>
 																		<div class="meta--field h-hide-mobile" rv-if="lot.notes"><label class="t-smalllabel">Notes: </label><span>{lot.notes}</span></div>
+																		<button class="o-text-button--large h-hide-mobile" rv-on-click="talController.toggleLotDetails">Show Details</button>
 												
 																		<div class="h-ta-right h-hide-desktop" rv-unless="lot.status | compare 'sold'">
 																			<div class="h-mb-50"><label class="t-smalllabel">Closes in </label>{talObject.time | countdownTimer lot.closes}</div>

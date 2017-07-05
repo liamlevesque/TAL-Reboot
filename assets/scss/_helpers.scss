@@ -208,6 +208,10 @@
 		box-shadow: $ritchie-shadow;
 	}
 
+	.h-c-pointer{
+		cursor: pointer;
+	}
+
 	.h-viewer-hidden{
 		.s-viewer-mode &{
 			display: none;

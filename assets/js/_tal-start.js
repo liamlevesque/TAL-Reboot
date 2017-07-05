@@ -31,6 +31,11 @@ const talController = {
 			$('.js--tal').removeClass('s-header-hidden');
 		},
 
+		toggleLotDetailsMobile: function(e,context){
+			if(window.innerWidth > 768) return false;
+			talController.toggleLotDetails(e,context);
+		},
+
 		toggleLotDetails: function(e,context){
 			talObject.lotDetailsVisible = !talObject.lotDetailsVisible;
 			if(talObject.lotDetailsVisible){

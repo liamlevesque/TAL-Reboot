@@ -3080,6 +3080,9 @@ input[type="email"].s-error {
 .h-shadow {
   box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.5); }
 
+.h-c-pointer {
+  cursor: pointer; }
+
 .s-viewer-mode .h-viewer-hidden {
   display: none; }
 

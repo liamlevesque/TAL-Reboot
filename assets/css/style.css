@@ -3136,6 +3136,9 @@ a {
 .h-shadow {
   box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.5); }
 
+.h-c-pointer {
+  cursor: pointer; }
+
 .s-viewer-mode .h-viewer-hidden {
   display: none; }
 
@@ -3922,7 +3925,8 @@ a {
   bottom: 0;
   width: 100px;
   z-index: 90;
-  transition: width 0.2s cubic-bezier(0.63, 0.005, 0.365, 1); }
+  transition: width 0.2s cubic-bezier(0.63, 0.005, 0.365, 1);
+  pointer-events: none; }
   .optiscroll.is-enabled ~ .auction-progress-meter {
     display: block; }
   @media (max-width: 64em) {
