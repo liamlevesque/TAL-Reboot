@@ -91,10 +91,10 @@
 				talObject.focusedLot = context.lot;
 				
 				$(e.currentTarget).tooltipster({
-					content: $('.js--bid-history-content').detach(),
+					content: $('.js--bid-history-content'),
 					theme: 'ritchie-tooltips_full',
 					interactive: true,
-					multiple: true,
+					multiple: false,
 					trigger: "click",
 					side: 'bottom',
 					contentCloning: true,

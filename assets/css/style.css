@@ -2684,6 +2684,20 @@ a {
     margin-top: -12px;
     box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.5); }
 
+.o-data-table--header {
+  padding: 5px 15px;
+  color: #585858;
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.5); }
+
+.o-data-table--row {
+  padding: 10px 15px; }
+  .o-data-table--row:nth-child(odd) {
+    background-color: rgba(191, 192, 190, 0.2); }
+  .o-data-table--row.s-highlighted {
+    background-color: rgba(232, 119, 34, 0.2); }
+  .o-data-table--row.s-winning {
+    background-color: rgba(54, 174, 79, 0.2); }
+
 .l-grid-quarter {
   box-sizing: border-box;
   position: relative;
@@ -3180,6 +3194,9 @@ a {
 
 .h-color-grey {
   color: #bfc0be !important; }
+
+.h-color-darkgrey {
+  color: #585858 !important; }
 
 .h-color-black {
   color: black !important; }
@@ -3868,13 +3885,17 @@ a {
   text-align: center; }
 
 .tooltipster-sidetip.ritchie-tooltips_full {
-  width: 500px !important;
+  width: 400px !important;
   height: auto !important; }
   .tooltipster-sidetip.ritchie-tooltips_full .tooltipster-arrow:before {
     border-color: transparent; }
+  .tooltipster-sidetip.ritchie-tooltips_full .tooltip--header {
+    padding: 15px;
+    margin-bottom: 0; }
   .tooltipster-sidetip.ritchie-tooltips_full .tooltipster-box {
     border: 0;
-    position: relative; }
+    position: relative;
+    border-radius: 5px; }
   .tooltipster-sidetip.ritchie-tooltips_full .tooltip--close {
     top: 0;
     right: 0; }
@@ -3882,8 +3903,10 @@ a {
     padding: 0;
     overflow: hidden; }
   .tooltipster-sidetip.ritchie-tooltips_full .tooltip--body {
-    font-size: 1rem;
-    padding: 5px; }
+    font-size: 1rem; }
+  .tooltipster-sidetip.ritchie-tooltips_full .tooltip--overflow {
+    max-height: 300px;
+    overflow-y: auto; }
   .tooltipster-sidetip.ritchie-tooltips_full .tooltip--input {
     font-size: 1rem;
     padding: 0 10px 10px; }

@@ -118,8 +118,7 @@
 						<label class="t-smalllabel">Sold</label>
 						<span class="CCY h-float-right" rv-html="lot.bids.0.bid | price"></span>
 						<div class="bid-details--caveat">
-							High Bidder <span class="h-float-right" rv-if="lot.bids.0.bidder | compare talObject.bidder">You!</span>
-							<span class="h-float-right" rv-unless="lot.bids.0.bidder | compare talObject.bidder">{lot.bids.0.bidder}</span>
+							High Bidder <span class="h-float-right">{ lot.bids.0.bidder | bidderOrYou talObject.bidder }</span>
 							<i class="icon-more_horiz h-ml-100 h-float-right" rv-on-click="talController.showBidHistory"></i>
 						</div>
 					</div>
@@ -160,8 +159,7 @@
 						</label>
 						<span class="CCY h-float-right" rv-html="lot.bids.0.bid | price"></span>
 						<div class="bid-details--caveat" rv-if="lot.bids.0.bid | greaterthan 0">
-							High Bidder <span class="h-float-right" rv-if="lot.bids.0.bidder | compare talObject.bidder">You!</span>
-							<span class="h-float-right" rv-unless="lot.bids.0.bidder | compare talObject.bidder">{lot.bids.0.bidder}</span>
+							High Bidder <span class="h-float-right">{ lot.bids.0.bidder | bidderOrYou talObject.bidder }</span>
 							<i class="icon-more_horiz h-ml-100 h-float-right" rv-on-click="talController.showBidHistory"></i>
 						</div>
 						<div rv-if="lot.maxBid.bidder | compare talObject.bidder" class="bid-details--caveat h-ta-right">

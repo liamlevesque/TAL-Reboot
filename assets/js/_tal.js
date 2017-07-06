@@ -21,6 +21,8 @@ const talObject = {
 			}
 		],
 
+		auctionIsPaused: false,
+
 		increments: increments,
 
 		toastVisibilityDuration: 5000,

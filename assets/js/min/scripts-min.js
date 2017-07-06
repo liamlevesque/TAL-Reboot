@@ -420,6 +420,11 @@ rivets.formatters.rangevalues = function(value){
 	return content;
 }
 
+rivets.formatters.checkundefined = function(value){
+	if(typeof value === 'undefined') return false;
+	return true;
+}
+
 rivets.formatters.lotintervals = function(lots, first, last){
 	if(typeof lots === 'undefined') return [];
 	let list = [];
@@ -4986,6 +4991,8 @@ const talObject = {
 			}
 		],
 
+		auctionIsPaused: false,
+
 		increments: increments,
 
 		toastVisibilityDuration: 5000,
@@ -5289,10 +5296,10 @@ const talController = {
 				talObject.focusedLot = context.lot;
 				
 				$(e.currentTarget).tooltipster({
-					content: $('.js--bid-history-content').detach(),
+					content: $('.js--bid-history-content'),
 					theme: 'ritchie-tooltips_full',
 					interactive: true,
-					multiple: true,
+					multiple: false,
 					trigger: "click",
 					side: 'bottom',
 					contentCloning: true,

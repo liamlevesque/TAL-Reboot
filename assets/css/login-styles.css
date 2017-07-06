@@ -3124,5 +3124,8 @@ input[type="email"].s-error {
 .h-color-grey {
   color: #bfc0be !important; }
 
+.h-color-darkgrey {
+  color: #585858 !important; }
+
 .h-color-black {
   color: black !important; }

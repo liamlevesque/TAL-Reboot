@@ -1,0 +1,21 @@
+<div class="o-data-table--header">
+    <div class="l-grid-third l-grid-third_mobile"><label class="t-smalllabel">Bid Type</label></div>
+    <div class="l-grid-third l-grid-third_mobile"><label class="t-smalllabel">Bidder</label></div>
+    <div class="l-grid-third l-grid-third_mobile h-ta-center"><label class="t-smalllabel">Bid</label></div>
+</div>
+<ul class="o-data-table tooltip--overflow">
+    <li class="o-data-table--row" rv-each-bid="talObject.focusedLot.bids" rv-show="bid | checkundefined" rv-class-s-winning="index | compare 0">
+        <div class="h-overflow-hidden">
+            <div class="l-grid-third l-grid-third_mobile t-smalllabel">
+                <span class="h-color-brand s" rv-if="bid.type | compare 'max'">Maximum Bid</span>
+                <span rv-unless="bid.type | compare 'max'">Quick Bid</span>
+            </div>
+            <div class="l-grid-third l-grid-third_mobile t-smalllabel" rv-class-h-color-affirmative="bid.bidder | compare talObject.bidder">{ bid.bidder | bidderOrYou talObject.bidder }</div>
+            <div class="l-grid-third l-grid-third_mobile h-ta-right"><span class="CCY t-smalllabel">{ bid.bid | price }</span> </div>
+        </div>
+        <div class="t-f-small h-color-darkgrey">
+            { bid.time | relativeTime }
+            <span class="h-float-right">({ bid.time | calendarTime })</span>
+        </div>
+    </li>
+</ul>

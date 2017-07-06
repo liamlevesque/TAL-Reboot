@@ -214,16 +214,22 @@ $tooltip-arrow-size: 10px;
 }
 
 .tooltipster-sidetip.ritchie-tooltips_full{
-	width: 500px !important;
+	width: 400px !important;
 	height: auto !important;
 
 	.tooltipster-arrow:before{
 		border-color: transparent;
 	}
 
+    .tooltip--header{
+        padding: spacing(small);
+        margin-bottom: 0;
+    }
+
 	.tooltipster-box {
 		border: 0;
 		position: relative;
+        border-radius: $default-border-radius;
 	}
 	
 	.tooltip--close{
@@ -238,8 +244,12 @@ $tooltip-arrow-size: 10px;
 
 	.tooltip--body{
 		font-size: fontsize(100);
-		padding: 5px;
 	}
+    //for tooltips with long data tables ( bid history is a good example)
+    .tooltip--overflow{
+        max-height: 300px;
+        overflow-y: auto;
+    }
 
 	.tooltip--input{
 		font-size: fontsize(100);

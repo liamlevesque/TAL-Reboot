@@ -1,19 +1,11 @@
-<div class="js--bid-history-content">
-    <div class="tooltip--close" rv-on-click="talController.hideBidHistory"><i class="icon-close"></i></div>
-    <div class="tooltip--body">
-        <h4 class="h4">Bid History</h4>
-        <hr/>
-        <ul class="data-table">
-            <li class="data-table--header">
-                <div class="l-grid-quarter"><label class="t-smalllabel">Bidder</label></div>
-                <div class="l-grid-half"><label class="t-smalllabel">Bid</label></div>
-                <div class="l-grid-quarter"><label class="t-smalllabel">Placed</label></div>
-            </li>
-            <li class="data-table--row" rv-each-bid="talObject.focusedLot.bids">
-                <div class="l-grid-quarter">{ bid.bidder | bidderOrYou talObject.bidder }</div>
-                <div class="l-grid-half"><span class="CCY">{ bid.bid | price }</span> <span rv-if="bid.type | compare 'max'">(Max Bid)</span></div>
-                <div class="l-grid-quarter">{ bid.time | relativeTime }</div>
-            </li>
-        </ul>
+<div class="tooltips--content-placeholder">
+    <div class="js--bid-history-content">
+        <div class="tooltip--header">
+            <h4 class="h4">Bid History</h4>
+            <div class="tooltip--close" rv-on-click="talController.hideBidHistory"><i class="icon-close"></i></div>
+        </div>
+        <div class="tooltip--body">
+            <!-- @include '/assets/partials/bidHistory' --> 
+        </div>
     </div>
 </div>
