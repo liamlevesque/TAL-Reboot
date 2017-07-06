@@ -1,0 +1,405 @@
+
+//THIS HOLDS THE CONTENT IN THE HTML MARKUP SO IT CAN BE LOADED BY THE JAVASCRIPT
+.tooltips--content-placeholder{
+	display: none;
+}
+
+[class*='tooltip_']{
+	position: absolute;
+	width: $tooltip-icon-size;
+	height: $tooltip-icon-size;
+
+	img{
+		width: 100%;
+		max-width: 100%;
+	}
+}
+
+.tooltip{
+	&_ne{
+		top: -$tooltip-icon-size/2;
+		right: -$tooltip-icon-size/2;
+	}
+
+	&_se{
+		bottom: 15px;
+		right: 5px;
+	}
+
+	&_e{
+		right: -$tooltip-icon-size - 3;
+	    top: 50%;
+	    transform: translateY(-50%);
+	}
+}
+
+
+$tooltip-arrow-size: 10px;
+
+
+.tooltipster-sidetip.ritchie-tooltips_small, .tooltipster-sidetip.ritchie-tooltips_full{
+	.tooltipster-box {
+		background: white;
+		border: $default-border;
+		border-radius: 0;
+		box-shadow: $ritchie-shadow;
+		max-width: 600px;
+	}
+
+	.tooltipster-content {
+		font-size: 1rem;
+		padding: spacing(small) spacing(small);
+		overflow: visible;
+		color: black;
+
+		p{
+			margin: 0;
+		}
+
+		p + p{
+			margin-top: spacing(small);
+		}
+
+		ul{
+			
+		}
+
+		li{
+			
+		}
+
+		
+	}
+
+	a{
+		color: palette(active);
+	}
+}
+
+.tooltipster-sidetip.ritchie-tooltips_error{
+	.tooltipster-box {
+		background-color: palette(error);
+		border: none;
+		box-shadow: $ritchie-shadow;
+		max-width: 400px;
+	}
+
+	.tooltipster-content{
+		padding: 0;
+
+		p{
+			margin: 0;
+		}
+
+		p + p{
+			margin-top: spacing(small);
+		}
+	}
+
+	.tooltipster-arrow:before{
+		background-color: palette(error);
+		border-color: transparent;
+	}
+}
+
+.tooltipster-arrow{
+	.tooltipster-bottom &{
+		top: -1px !important;
+	}
+
+	.tooltipster-right &{
+		left: -1px !important;
+
+	}
+
+	.tooltipster-left &{
+		right: -1px !important;
+
+		&:before{
+			left: auto;
+			right: $tooltip-arrow-size/2;
+		}
+	}
+
+	.tooltipster-top &{
+		bottom: -1px !important;
+
+		&:before{
+			top: auto;
+			bottom: $tooltip-arrow-size/2;
+		}
+	}
+
+	&:before{
+		content: "";
+		display: block;
+		position: absolute;
+		top: $tooltip-arrow-size/2;
+		left: $tooltip-arrow-size/2;
+		width: $tooltip-arrow-size;
+		height: $tooltip-arrow-size;
+		background-color: white;
+		border: 1px solid black;
+		transform: rotate(45deg);
+	}
+	.tooltipster-arrow-border, .tooltipster-arrow-background{
+		display: none;
+	}
+}
+
+
+
+
+// .ritchie-tooltips, .ritchie-tooltips-footed, .ritchie-tooltips_full, .ritchie-tooltips_small{
+// 	border-radius: 0; 
+// 	border: 1px solid $black;
+// 	box-shadow: $ritchie-shadow;
+// 	background: $white;
+// 	color: $black;
+// 	max-width: 400px;
+// }
+
+// /* Use this next selector to style things like font-size and line-height: */
+// .ritchie-tooltips, .ritchie-tooltips_full, .ritchie-tooltips_small{
+// 	.tooltipster-content{
+// 	 	font-size: 1rem;
+// 		padding: spacing(small)/2 spacing(small);
+// 		overflow: visible;
+// 		min-width: 350px;
+
+// 		p{
+// 			margin: 0;
+// 		}
+
+// 		p + p{
+// 			margin-top: spacing(small);
+// 		}
+
+// 		ul{
+			
+// 		}
+
+// 		li{
+			
+// 		}
+
+// 		a{
+// 			color: palette(active);
+// 		}
+// 	}
+// }
+
+	.tooltip--close{
+		position: absolute;
+		top: 5px;
+		right: 5px;
+		font-size: 15px;
+		cursor: pointer;
+		padding: 10px;
+	}
+
+	.tooltip--header{
+		border-bottom: $default-border;
+		padding-bottom: 5px;
+		margin-bottom: 10px;
+
+		.lot--name{
+			font-size: 1rem;
+		}
+	}
+
+.ritchie-tooltips_small .tooltipster-content{
+	min-width: auto;
+	text-align: center;
+}
+
+.tooltipster-sidetip.ritchie-tooltips_full{
+	width: 500px !important;
+	height: auto !important;
+
+	.tooltipster-arrow:before{
+		border-color: transparent;
+	}
+
+	.tooltipster-box {
+		border: 0;
+		position: relative;
+	}
+	
+	.tooltip--close{
+		top: 0;
+		right: 0;
+	}
+
+	.tooltipster-content{
+		padding: 0;
+		overflow: hidden;
+	} 
+
+	.tooltip--body{
+		font-size: fontsize(100);
+		padding: 5px;
+	}
+
+	.tooltip--input{
+		font-size: fontsize(100);
+		padding: 0 10px 10px;
+	}
+
+	.tooltip--footer{
+		padding: 5px;
+	}
+
+	.tooltip--photo{
+		max-width: 100%;
+		display: block;
+	}
+
+	.tooltip--info{
+		margin-bottom: 10px;
+		display: inline-block;
+		text-decoration: underline;
+	}
+
+	.tooltip--lot-details{
+		display: flex;
+		flex-wrap: wrap;
+		flex: 4;
+		padding: 0 10px
+	}
+
+	.tooltip--error, .tooltip--warning, .tooltip--success{				
+		padding: 15px;
+		line-height: 1;
+
+		h3, h4, h5, label{
+			color: white;
+		}
+	}
+
+	.tooltip--error, .tooltip--warning{
+		background-color: palette(error);
+		color: white;
+
+		.error--values{
+			background-color: white;
+			color: palette(error);
+			padding: 5px 0;
+	
+			h3, h4, h5, label{
+				color: palette(error);
+			}
+
+			&>*{
+				vertical-align: middle;
+			}
+		}
+
+		.error--greater-than{
+			font-size: 40px;
+			padding: 0 10px;
+		}
+	}
+
+	.tooltip--warning{
+		background-color: palette(warning);
+		color: black;
+
+		h3, h4, h5, label{
+			color: black;
+		}
+
+		.error--values{
+			color: black;
+
+			h3, h4, h5, label{
+				color: black;
+			}
+		}
+	}
+
+	.tooltip--success{
+		//display: none;
+		overflow: hidden;
+		padding: 0;
+		max-height: 0;
+    	opacity: 0;
+    	transition: $transition;
+
+		.tooltip--body{
+			background: palette(grey,light);
+			color: black;
+			padding: 10px 15px 0;
+			overflow: hidden;
+		}
+
+		&.s-visible{
+			max-height: 400px;
+	    	opacity: 1;
+		}
+
+		.max-bid--success{
+			position: relative;
+			padding-left: 60px;
+			text-align: left;
+			margin-bottom: spacing(small);
+		}
+
+		.tooltip--check-success{
+			width: 50px;
+			position: absolute;
+			left: 0;
+			top: 0;
+
+		}
+
+	}
+}
+	
+
+
+
+.ritchie-tooltips-footed{ 
+
+	max-width: 800px;
+
+	.tooltipster-content{
+		padding: 0;
+		
+		.tooltip-content{
+			padding: spacing(small) spacing(small);
+			font-size: 0.9rem;
+		    line-height: 1.4rem;
+		    overflow: hidden;
+		}
+	}
+
+	.bordered-area{
+		padding: spacing(small) spacing(small) 0;
+		overflow: hidden;
+		background: palette(grey,light);
+		border-radius: 10px;
+	}
+}
+
+	.tooltip--left{
+		width: 40%;
+		display: inline-block;
+		vertical-align: top;
+	}
+
+	.tooltip--right{
+		width: 58%;
+		display: inline-block;
+		float: right;
+		vertical-align: top;
+	}
+
+	.tooltip--footer{
+		padding: spacing(small) spacing(small) 0;
+		overflow: hidden;
+		background: palette(grey,light);
+		width: 100%;
+	    font-size: 0.9rem;
+	    line-height: 1.4rem;
+	}

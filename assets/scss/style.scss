@@ -22,6 +22,9 @@
 @import 'picker';
 @import "empty-state";
 
+@import '../../bower_components/tooltipster/dist/css/tooltipster.bundle.min.css'; 
+@import "tooltips";
+
 @import 'loading';
 @import 'search';
 @import 'progress';

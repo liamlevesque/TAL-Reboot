@@ -32,8 +32,8 @@
 	
 	<div class="h-ta-center" rv-if="lot.swipeQuickBidding">
 		<div class="h-mb-100">Are you sure you want to bid <strong class="CCY" rv-html="lot.bids.0.bid | nextIncrement"></strong> on <strong class="h-ws-nowrap">Lot { lot.lotNumber }</strong>?</div>
-		<button class="o-button h-d-inline-block h-w-auto" rv-on-click="talController.dragConfirmQuickBid"> Yes - Place Bid </button>
 		<button class="o-text-button" rv-on-click="talController.cancelDragQuickBid">Cancel</button>
+		<button class="o-button h-d-inline-block h-w-auto" rv-on-click="talController.dragConfirmQuickBid"> Yes - Place Bid </button>
 	</div>
 
 </div>
@@ -71,13 +71,14 @@
 			<img rv-src="lot.photo" class="o-lot--photo">
 			<div class="o-lot--photo-sold-flag" rv-if="lot.status | compare 'sold'"><i class="icon-sold h-mr-100 h-color-brand"></i>Sold</div>
 			<h3 class="o-lot--lot-number">Lot {lot.lotNumber}</h3>
+			<div class="o-lot--unused-indicator" rv-if="lot.unused">Unused</div>
 		</div>
 
 		<div class="l-grid-two-thirds l-grid-three-quarters_mobile l-grid-two-thirds_tablet" rv-on-click="talController.toggleLotDetailsMobile">
 
 			<div class="l-grid-half">
 				<div class="h-mb-100">
-					<h3 class="h3">{lot.description}</h3>
+					<h3 class="h3 h-c-pointer" rv-on-click="talController.toggleLotDetails">{lot.description}</h3>
 				</div>
 				<div>
 					<div class="o-lot--meta">
@@ -117,7 +118,9 @@
 						<label class="t-smalllabel">Sold</label>
 						<span class="CCY h-float-right" rv-html="lot.bids.0.bid | price"></span>
 						<div class="bid-details--caveat">
-							High Bidder <span class="h-float-right">{lot.bids.0.bidder}</span>
+							High Bidder <span class="h-float-right" rv-if="lot.bids.0.bidder | compare talObject.bidder">You!</span>
+							<span class="h-float-right" rv-unless="lot.bids.0.bidder | compare talObject.bidder">{lot.bids.0.bidder}</span>
+							<i class="icon-more_horiz h-ml-100 h-float-right" rv-on-click="talController.showBidHistory"></i>
 						</div>
 					</div>
 					<div rv-unless="lot.bids.0.bid | greaterthan 0" class="t-empty h-ta-center">
@@ -156,6 +159,11 @@
 							<span rv-if="lot.bids.0.bidder | compare talObject.bidder">High Bid</span>
 						</label>
 						<span class="CCY h-float-right" rv-html="lot.bids.0.bid | price"></span>
+						<div class="bid-details--caveat" rv-if="lot.bids.0.bid | greaterthan 0">
+							High Bidder <span class="h-float-right" rv-if="lot.bids.0.bidder | compare talObject.bidder">You!</span>
+							<span class="h-float-right" rv-unless="lot.bids.0.bidder | compare talObject.bidder">{lot.bids.0.bidder}</span>
+							<i class="icon-more_horiz h-ml-100 h-float-right" rv-on-click="talController.showBidHistory"></i>
+						</div>
 						<div rv-if="lot.maxBid.bidder | compare talObject.bidder" class="bid-details--caveat h-ta-right">
 							(Bidding for you up to <span class="CCY" rv-html="lot.maxBid.bid"></span>)
 						</div>

@@ -97,8 +97,10 @@
 
 				talObject.biddingLots.push(newGroup);
 
-				talController.goToTab('bids');
-				pushHistory('bids', 'page');//PUSH STATE
+				talObject.groupBidConfirmationToastVisible = true;
+				setTimeout(function(){
+					talObject.groupBidConfirmationToastVisible = false;
+				},talObject.toastVisibilityDuration);
 			},
 
 			bidOnGroupLots: function(group){

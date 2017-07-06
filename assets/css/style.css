@@ -1,6 +1,7 @@
 @charset "UTF-8";
 @import url(../../bower_components/swiper/dist/css/swiper.css);
 @import url(../../bower_components/drumjs-master/lib/drum.min.css);
+@import url(../../bower_components/tooltipster/dist/css/tooltipster.bundle.min.css);
 * {
   box-sizing: border-box; }
 
@@ -3415,13 +3416,13 @@ a {
   overflow: hidden;
   z-index: 9999;
   background-color: rgba(0, 0, 0, 0.8);
-  transition: 0.2s cubic-bezier(0.63, 0.005, 0.365, 1);
+  transition: top 0.2s cubic-bezier(0.63, 0.005, 0.365, 1);
   overflow-y: auto; }
-  @media (min-width: 64em) {
-    .c-modal {
-      padding: 20px 0; } }
   .c-modal.s-visible {
     top: 0; }
+    @media (min-width: 64em) {
+      .c-modal.s-visible {
+        padding: 20px 0; } }
 
 .c-modal--content, [class^="c-modal--content_"] {
   width: 100%;
@@ -3752,6 +3753,240 @@ a {
 
 .empty-state--icon {
   font-size: 150px; }
+
+.tooltips--content-placeholder {
+  display: none; }
+
+[class*='tooltip_'] {
+  position: absolute;
+  width: 24px;
+  height: 24px; }
+  [class*='tooltip_'] img {
+    width: 100%;
+    max-width: 100%; }
+
+.tooltip_ne {
+  top: -12px;
+  right: -12px; }
+
+.tooltip_se {
+  bottom: 15px;
+  right: 5px; }
+
+.tooltip_e {
+  right: -27px;
+  top: 50%;
+  transform: translateY(-50%); }
+
+.tooltipster-sidetip.ritchie-tooltips_small .tooltipster-box, .tooltipster-sidetip.ritchie-tooltips_full .tooltipster-box {
+  background: white;
+  border: 1px solid #bfc0be;
+  border-radius: 0;
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.5);
+  max-width: 600px; }
+
+.tooltipster-sidetip.ritchie-tooltips_small .tooltipster-content, .tooltipster-sidetip.ritchie-tooltips_full .tooltipster-content {
+  font-size: 1rem;
+  padding: 15px 15px;
+  overflow: visible;
+  color: black; }
+  .tooltipster-sidetip.ritchie-tooltips_small .tooltipster-content p, .tooltipster-sidetip.ritchie-tooltips_full .tooltipster-content p {
+    margin: 0; }
+  .tooltipster-sidetip.ritchie-tooltips_small .tooltipster-content p + p, .tooltipster-sidetip.ritchie-tooltips_full .tooltipster-content p + p {
+    margin-top: 15px; }
+
+.tooltipster-sidetip.ritchie-tooltips_small a, .tooltipster-sidetip.ritchie-tooltips_full a {
+  color: #20579E; }
+
+.tooltipster-sidetip.ritchie-tooltips_error .tooltipster-box {
+  background-color: #c4483a;
+  border: none;
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.5);
+  max-width: 400px; }
+
+.tooltipster-sidetip.ritchie-tooltips_error .tooltipster-content {
+  padding: 0; }
+  .tooltipster-sidetip.ritchie-tooltips_error .tooltipster-content p {
+    margin: 0; }
+  .tooltipster-sidetip.ritchie-tooltips_error .tooltipster-content p + p {
+    margin-top: 15px; }
+
+.tooltipster-sidetip.ritchie-tooltips_error .tooltipster-arrow:before {
+  background-color: #c4483a;
+  border-color: transparent; }
+
+.tooltipster-bottom .tooltipster-arrow {
+  top: -1px !important; }
+
+.tooltipster-right .tooltipster-arrow {
+  left: -1px !important; }
+
+.tooltipster-left .tooltipster-arrow {
+  right: -1px !important; }
+  .tooltipster-left .tooltipster-arrow:before {
+    left: auto;
+    right: 5px; }
+
+.tooltipster-top .tooltipster-arrow {
+  bottom: -1px !important; }
+  .tooltipster-top .tooltipster-arrow:before {
+    top: auto;
+    bottom: 5px; }
+
+.tooltipster-arrow:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  border: 1px solid black;
+  transform: rotate(45deg); }
+
+.tooltipster-arrow .tooltipster-arrow-border, .tooltipster-arrow .tooltipster-arrow-background {
+  display: none; }
+
+.tooltip--close {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 15px;
+  cursor: pointer;
+  padding: 10px; }
+
+.tooltip--header {
+  border-bottom: 1px solid #bfc0be;
+  padding-bottom: 5px;
+  margin-bottom: 10px; }
+  .tooltip--header .lot--name {
+    font-size: 1rem; }
+
+.ritchie-tooltips_small .tooltipster-content {
+  min-width: auto;
+  text-align: center; }
+
+.tooltipster-sidetip.ritchie-tooltips_full {
+  width: 500px !important;
+  height: auto !important; }
+  .tooltipster-sidetip.ritchie-tooltips_full .tooltipster-arrow:before {
+    border-color: transparent; }
+  .tooltipster-sidetip.ritchie-tooltips_full .tooltipster-box {
+    border: 0;
+    position: relative; }
+  .tooltipster-sidetip.ritchie-tooltips_full .tooltip--close {
+    top: 0;
+    right: 0; }
+  .tooltipster-sidetip.ritchie-tooltips_full .tooltipster-content {
+    padding: 0;
+    overflow: hidden; }
+  .tooltipster-sidetip.ritchie-tooltips_full .tooltip--body {
+    font-size: 1rem;
+    padding: 5px; }
+  .tooltipster-sidetip.ritchie-tooltips_full .tooltip--input {
+    font-size: 1rem;
+    padding: 0 10px 10px; }
+  .tooltipster-sidetip.ritchie-tooltips_full .tooltip--footer {
+    padding: 5px; }
+  .tooltipster-sidetip.ritchie-tooltips_full .tooltip--photo {
+    max-width: 100%;
+    display: block; }
+  .tooltipster-sidetip.ritchie-tooltips_full .tooltip--info {
+    margin-bottom: 10px;
+    display: inline-block;
+    text-decoration: underline; }
+  .tooltipster-sidetip.ritchie-tooltips_full .tooltip--lot-details {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 4;
+    padding: 0 10px; }
+  .tooltipster-sidetip.ritchie-tooltips_full .tooltip--error, .tooltipster-sidetip.ritchie-tooltips_full .tooltip--warning, .tooltipster-sidetip.ritchie-tooltips_full .tooltip--success {
+    padding: 15px;
+    line-height: 1; }
+    .tooltipster-sidetip.ritchie-tooltips_full .tooltip--error h3, .tooltipster-sidetip.ritchie-tooltips_full .tooltip--error h4, .tooltipster-sidetip.ritchie-tooltips_full .tooltip--error h5, .tooltipster-sidetip.ritchie-tooltips_full .tooltip--error label, .tooltipster-sidetip.ritchie-tooltips_full .tooltip--warning h3, .tooltipster-sidetip.ritchie-tooltips_full .tooltip--warning h4, .tooltipster-sidetip.ritchie-tooltips_full .tooltip--warning h5, .tooltipster-sidetip.ritchie-tooltips_full .tooltip--warning label, .tooltipster-sidetip.ritchie-tooltips_full .tooltip--success h3, .tooltipster-sidetip.ritchie-tooltips_full .tooltip--success h4, .tooltipster-sidetip.ritchie-tooltips_full .tooltip--success h5, .tooltipster-sidetip.ritchie-tooltips_full .tooltip--success label {
+      color: white; }
+  .tooltipster-sidetip.ritchie-tooltips_full .tooltip--error, .tooltipster-sidetip.ritchie-tooltips_full .tooltip--warning {
+    background-color: #c4483a;
+    color: white; }
+    .tooltipster-sidetip.ritchie-tooltips_full .tooltip--error .error--values, .tooltipster-sidetip.ritchie-tooltips_full .tooltip--warning .error--values {
+      background-color: white;
+      color: #c4483a;
+      padding: 5px 0; }
+      .tooltipster-sidetip.ritchie-tooltips_full .tooltip--error .error--values h3, .tooltipster-sidetip.ritchie-tooltips_full .tooltip--error .error--values h4, .tooltipster-sidetip.ritchie-tooltips_full .tooltip--error .error--values h5, .tooltipster-sidetip.ritchie-tooltips_full .tooltip--error .error--values label, .tooltipster-sidetip.ritchie-tooltips_full .tooltip--warning .error--values h3, .tooltipster-sidetip.ritchie-tooltips_full .tooltip--warning .error--values h4, .tooltipster-sidetip.ritchie-tooltips_full .tooltip--warning .error--values h5, .tooltipster-sidetip.ritchie-tooltips_full .tooltip--warning .error--values label {
+        color: #c4483a; }
+      .tooltipster-sidetip.ritchie-tooltips_full .tooltip--error .error--values > *, .tooltipster-sidetip.ritchie-tooltips_full .tooltip--warning .error--values > * {
+        vertical-align: middle; }
+    .tooltipster-sidetip.ritchie-tooltips_full .tooltip--error .error--greater-than, .tooltipster-sidetip.ritchie-tooltips_full .tooltip--warning .error--greater-than {
+      font-size: 40px;
+      padding: 0 10px; }
+  .tooltipster-sidetip.ritchie-tooltips_full .tooltip--warning {
+    background-color: #FCD748;
+    color: black; }
+    .tooltipster-sidetip.ritchie-tooltips_full .tooltip--warning h3, .tooltipster-sidetip.ritchie-tooltips_full .tooltip--warning h4, .tooltipster-sidetip.ritchie-tooltips_full .tooltip--warning h5, .tooltipster-sidetip.ritchie-tooltips_full .tooltip--warning label {
+      color: black; }
+    .tooltipster-sidetip.ritchie-tooltips_full .tooltip--warning .error--values {
+      color: black; }
+      .tooltipster-sidetip.ritchie-tooltips_full .tooltip--warning .error--values h3, .tooltipster-sidetip.ritchie-tooltips_full .tooltip--warning .error--values h4, .tooltipster-sidetip.ritchie-tooltips_full .tooltip--warning .error--values h5, .tooltipster-sidetip.ritchie-tooltips_full .tooltip--warning .error--values label {
+        color: black; }
+  .tooltipster-sidetip.ritchie-tooltips_full .tooltip--success {
+    overflow: hidden;
+    padding: 0;
+    max-height: 0;
+    opacity: 0;
+    transition: 0.2s cubic-bezier(0.63, 0.005, 0.365, 1); }
+    .tooltipster-sidetip.ritchie-tooltips_full .tooltip--success .tooltip--body {
+      background: #E9E9E9;
+      color: black;
+      padding: 10px 15px 0;
+      overflow: hidden; }
+    .tooltipster-sidetip.ritchie-tooltips_full .tooltip--success.s-visible {
+      max-height: 400px;
+      opacity: 1; }
+    .tooltipster-sidetip.ritchie-tooltips_full .tooltip--success .max-bid--success {
+      position: relative;
+      padding-left: 60px;
+      text-align: left;
+      margin-bottom: 15px; }
+    .tooltipster-sidetip.ritchie-tooltips_full .tooltip--success .tooltip--check-success {
+      width: 50px;
+      position: absolute;
+      left: 0;
+      top: 0; }
+
+.ritchie-tooltips-footed {
+  max-width: 800px; }
+  .ritchie-tooltips-footed .tooltipster-content {
+    padding: 0; }
+    .ritchie-tooltips-footed .tooltipster-content .tooltip-content {
+      padding: 15px 15px;
+      font-size: 0.9rem;
+      line-height: 1.4rem;
+      overflow: hidden; }
+  .ritchie-tooltips-footed .bordered-area {
+    padding: 15px 15px 0;
+    overflow: hidden;
+    background: #E9E9E9;
+    border-radius: 10px; }
+
+.tooltip--left {
+  width: 40%;
+  display: inline-block;
+  vertical-align: top; }
+
+.tooltip--right {
+  width: 58%;
+  display: inline-block;
+  float: right;
+  vertical-align: top; }
+
+.tooltip--footer {
+  padding: 15px 15px 0;
+  overflow: hidden;
+  background: #E9E9E9;
+  width: 100%;
+  font-size: 0.9rem;
+  line-height: 1.4rem; }
 
 .c-loading-overlay {
   position: absolute;
@@ -4191,7 +4426,8 @@ a {
 
 .o-lot--photo {
   width: 100%;
-  max-width: 100%; }
+  max-width: 100%;
+  display: block; }
 
 .o-lot--photo-sold-flag {
   position: absolute;
@@ -4203,7 +4439,8 @@ a {
   text-align: center;
   color: white;
   font-size: 1.4rem;
-  padding-top: 35%; }
+  padding-top: 35%;
+  z-index: 2; }
 
 @media (min-width: 30.0625em) {
   .o-lot--lot-number {
@@ -4213,7 +4450,23 @@ a {
     border-radius: 0 0 5px 5px;
     padding: 5px 15px;
     background-color: rgba(0, 0, 0, 0.6);
-    color: white; } }
+    color: white;
+    z-index: 3; } }
+
+.o-lot--unused-indicator {
+  color: #36AE4F;
+  font-weight: 700;
+  text-transform: uppercase; }
+  @media (min-width: 30.0625em) {
+    .o-lot--unused-indicator {
+      position: absolute;
+      bottom: 0;
+      left: 10px;
+      border-radius: 5px 5px 0 0;
+      padding: 5px 15px;
+      background-color: #36AE4F;
+      color: white;
+      z-index: 1; } }
 
 .o-lot--photos {
   background-color: #585858; }

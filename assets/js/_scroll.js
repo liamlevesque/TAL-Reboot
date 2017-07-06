@@ -8,7 +8,7 @@ $(function(){
 
 		setTimeout(function(){
 			talObject.scrollUpNoticeVisible = false;
-		},5000);
+		},talObject.toastVisibilityDuration);
 	},2000);
 }); 
 

@@ -23,6 +23,7 @@ const talObject = {
 
 		increments: increments,
 
+		toastVisibilityDuration: 5000,
 		closeInterval: 30,
 		startTime: null,
 		crudeInterval: 0,
@@ -100,6 +101,8 @@ const talObject = {
 				x: 0,
 				y: 0,
 			},
+
+		tooltipInstance: null,
 	};
 
 

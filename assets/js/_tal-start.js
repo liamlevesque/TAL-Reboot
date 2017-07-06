@@ -13,7 +13,7 @@ const talController = {
 			talObject.doneLoading = true;
 			setTimeout(function(){
 				talObject.scrollUpNoticeVisible = false;
-			},5000);
+			},talObject.toastVisibilityDuration);
 		},
 
 		loadTab: function(e){

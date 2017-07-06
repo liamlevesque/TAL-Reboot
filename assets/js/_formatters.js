@@ -25,6 +25,12 @@ rivets.formatters.nextIncrement = function(value){
 	return formatprice(talController.increment(value));
 };
 
+rivets.formatters.bidderOrYou = function(value,bidder){
+	if(typeof value == "undefined" || typeof bidder == "undefined") return false;
+	if(value === bidder) return "You!";
+	else return value;
+}
+
 rivets.formatters.compare = function(value, comparisons){
 	if(typeof value == "undefined" || typeof comparisons == "undefined") return false;
 	
@@ -215,6 +221,11 @@ rivets.formatters.compareTime = function(now,closes) {
 	var span = moment.duration(end - now);
 	if(span._milliseconds > 0) return false;
 	return true; 
+}
+
+rivets.formatters.relativeTime = function(value){
+	if(typeof value == 'undefined') return '';
+	return moment(value).fromNow();
 }
 
 rivets.formatters.calendarTime = function(value){

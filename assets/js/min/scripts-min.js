@@ -173,6 +173,12 @@ rivets.formatters.nextIncrement = function(value){
 	return formatprice(talController.increment(value));
 };
 
+rivets.formatters.bidderOrYou = function(value,bidder){
+	if(typeof value == "undefined" || typeof bidder == "undefined") return false;
+	if(value === bidder) return "You!";
+	else return value;
+}
+
 rivets.formatters.compare = function(value, comparisons){
 	if(typeof value == "undefined" || typeof comparisons == "undefined") return false;
 	
@@ -363,6 +369,11 @@ rivets.formatters.compareTime = function(now,closes) {
 	var span = moment.duration(end - now);
 	if(span._milliseconds > 0) return false;
 	return true; 
+}
+
+rivets.formatters.relativeTime = function(value){
+	if(typeof value == 'undefined') return '';
+	return moment(value).fromNow();
 }
 
 rivets.formatters.calendarTime = function(value){
@@ -1349,7 +1360,7 @@ const lotlist = [
 			"notes":'',
 			"group": [],
 			"video":false,
-			"status" : null,
+			"status" : "notinyard",
 			"description" : "Caterpillar Q/C 48 In. Forks",
 			"photo" : "assets/img/asset12-1.jpg",
 			"photos": [
@@ -1360,7 +1371,7 @@ const lotlist = [
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
-			"unused" : false,
+			"unused" : true,
 			"closes" : "Mon May 22 2017 12:14:04 GMT-0700 (PDT)",
 			"timeleft": '',
 			"active":false
@@ -4798,7 +4809,7 @@ $(function(){
 
 		setTimeout(function(){
 			talObject.scrollUpNoticeVisible = false;
-		},5000);
+		},talObject.toastVisibilityDuration);
 	},2000);
 }); 
 
@@ -4977,6 +4988,7 @@ const talObject = {
 
 		increments: increments,
 
+		toastVisibilityDuration: 5000,
 		closeInterval: 30,
 		startTime: null,
 		crudeInterval: 0,
@@ -5054,6 +5066,8 @@ const talObject = {
 				x: 0,
 				y: 0,
 			},
+
+		tooltipInstance: null,
 	};
 
 
@@ -5074,7 +5088,7 @@ const talController = {
 			talObject.doneLoading = true;
 			setTimeout(function(){
 				talObject.scrollUpNoticeVisible = false;
-			},5000);
+			},talObject.toastVisibilityDuration);
 		},
 
 		loadTab: function(e){
@@ -5271,6 +5285,29 @@ const talController = {
 				//spawnNotification('You were Outbid','Another Bidder has outbid you.');
 			},
 
+			showBidHistory: function(e,context){
+				talObject.focusedLot = context.lot;
+				
+				$(e.currentTarget).tooltipster({
+					content: $('.js--bid-history-content').detach(),
+					theme: 'ritchie-tooltips_full',
+					interactive: true,
+					multiple: true,
+					trigger: "click",
+					side: 'bottom',
+					contentCloning: true,
+					functionBefore: function(instance){
+						talObject.tooltipInstance = instance;
+					}
+					
+				});
+			},
+
+			hideBidHistory: function(e,context){
+				talObject.tooltipInstance.close();
+				talObject.tooltipInstance = null;
+			},
+
         /******************************************
 			MAX BIDS
 		******************************************/
@@ -5422,8 +5459,10 @@ const talController = {
 
 				talObject.biddingLots.push(newGroup);
 
-				talController.goToTab('bids');
-				pushHistory('bids', 'page');//PUSH STATE
+				talObject.groupBidConfirmationToastVisible = true;
+				setTimeout(function(){
+					talObject.groupBidConfirmationToastVisible = false;
+				},talObject.toastVisibilityDuration);
 			},
 
 			bidOnGroupLots: function(group){

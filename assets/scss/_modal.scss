@@ -9,16 +9,17 @@
 
 	background-color: rgba(black,0.8);
 
-	transition: $transition;
+	transition: top $transition;
 
 	overflow-y: auto;
 
-	@include breakpoint(medium){
-		padding: 20px 0;
-	}
-
 	&.s-visible{
 		top: 0;
+
+		@include breakpoint(medium){
+			padding: 20px 0;
+		}
+
 	}
 
 }

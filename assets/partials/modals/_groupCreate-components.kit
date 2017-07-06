@@ -6,6 +6,13 @@
 	</div>
 </div>
 
+<div class="o-toast--confirm-save-changes" rv-class-s-visible="talObject.groupBidConfirmationToastVisible">
+	<div class="o-width-wrapper">
+		<button class="o-button_affirmative h-float-right" rv-on-click="talController.loadTab" data-tab="bids">Show me!</button>
+		<span class="h-float-right h-color-white h-mr-100">Your group was created successfully!</span>
+	</div>
+</div> 
+
 
 <div class="c-modal" rv-class-s-visible="talObject.groupBidModalVisible" rv-on-click="talController.toggleGroupBidModalVisible">
 	<div class="c-modal--content" rv-on-click="talController.stopProp">

@@ -764,7 +764,7 @@ const lotlist = [
 			"notes":'',
 			"group": [],
 			"video":false,
-			"status" : null,
+			"status" : "notinyard",
 			"description" : "Caterpillar Q/C 48 In. Forks",
 			"photo" : "assets/img/asset12-1.jpg",
 			"photos": [
@@ -775,7 +775,7 @@ const lotlist = [
 			],
 			"usage" : "4756 hrs",
 			"comeswith" : "Cummins B3.9-C, 40 m boom, pwr to platform, hyd rotation, extendable axles, hyd leveling, EPA",
-			"unused" : false,
+			"unused" : true,
 			"closes" : "Mon May 22 2017 12:14:04 GMT-0700 (PDT)",
 			"timeleft": '',
 			"active":false

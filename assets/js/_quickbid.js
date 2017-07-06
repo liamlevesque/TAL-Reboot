@@ -86,3 +86,26 @@
 				talController.incrementBid(lot,'max',lot.maxBid.bidder);
 				//spawnNotification('You were Outbid','Another Bidder has outbid you.');
 			},
+
+			showBidHistory: function(e,context){
+				talObject.focusedLot = context.lot;
+				
+				$(e.currentTarget).tooltipster({
+					content: $('.js--bid-history-content').detach(),
+					theme: 'ritchie-tooltips_full',
+					interactive: true,
+					multiple: true,
+					trigger: "click",
+					side: 'bottom',
+					contentCloning: true,
+					functionBefore: function(instance){
+						talObject.tooltipInstance = instance;
+					}
+					
+				});
+			},
+
+			hideBidHistory: function(e,context){
+				talObject.tooltipInstance.close();
+				talObject.tooltipInstance = null;
+			},
