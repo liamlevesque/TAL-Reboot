@@ -1,0 +1,8 @@
+<div class="c-notification-container" rv-class-s-visible="talObject.notifications | length">
+    <div class="o-notification" rv-each-notification="talObject.notifications" rv-data-index="index" rv-class-s-error="notification.type | compare 'error'">
+        <h3 class="h3">{ notification.title }</h3>
+        <p>{ notification.body }</p>
+        <button class="o-button" rv-if="notification.action" rv-data-action="notification.action" rv-on-click="talController.handleNotificationAction">{notification.actionText}</button>
+        <button class="o-icon-button--medium o-notifications--dismiss" rv-if="notification.dismissable" rv-on-click="talController.dismissNotification"><i class="icon-close"></i></button>
+    </div>
+</div>

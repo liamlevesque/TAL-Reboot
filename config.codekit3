@@ -23,6 +23,18 @@
 		"oAP": "\/_wires\/20160412_TAL-wires.sketch",
 		"oF": 0
 		},
+	"\/_wires\/TAL-P1-Mockups.sketch": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/_wires\/TAL-P1-Mockups.sketch",
+		"oF": 0
+		},
+	"\/_wires\/TAL-P1-Wireframes.sketch": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/_wires\/TAL-P1-Wireframes.sketch",
+		"oF": 0
+		},
 	"\/assets\/css\/login-styles.css": {
 		"aP": 1,
 		"bl": 0,
@@ -867,6 +879,12 @@
 		"oAP": "\/assets\/partials\/_mobile-footer.html",
 		"oF": 0
 		},
+	"\/assets\/partials\/_notifications.kit": {
+		"ft": 2048,
+		"oA": 1,
+		"oAP": "\/assets\/partials\/_notifications.html",
+		"oF": 0
+		},
 	"\/assets\/partials\/_profile.kit": {
 		"ft": 2048,
 		"oA": 1,
@@ -895,6 +913,12 @@
 		"ft": 2048,
 		"oA": 1,
 		"oAP": "\/assets\/partials\/_watching.html",
+		"oF": 0
+		},
+	"\/assets\/partials\/messages\/_auctionPaused.kit": {
+		"ft": 2048,
+		"oA": 1,
+		"oAP": "\/assets\/partials\/messages\/_auctionPaused.html",
 		"oF": 0
 		},
 	"\/assets\/partials\/modals\/_group-view.kit": {

@@ -11,11 +11,16 @@
 			<!-- @include '/assets/partials/modals/lot-detail-content' -->
 		</div>
 		<div class="c-modal--footer h-ta-center" rv-unless="talObject.focusedLot.status | compare 'sold'">
-			<button class="o-button--outline h-mb-50" rv-class-l-grid-half="talObject.focusedLot.maxBid.bidder | inversecompare talObject.bidder" rv-on-click="talController.toggleMaximumBidVisible">
-				<span rv-unless="talObject.focusedLot.maxBid.bidder | compare talObject.bidder">Set Maximum Bid</span>
-				<span rv-if="talObject.focusedLot.maxBid.bidder | compare talObject.bidder">Change Maximum Bid of <span class="CCY" rv-html="talObject.focusedLot.maxBid.bid | price">}</span></span>
-			</button>
-			<button class="o-button l-grid-half" rv-hide="talObject.focusedLot.maxBid.bidder | compare talObject.bidder" rv-disabled="talObject.focusedLot.bids.0.bidder | compare talObject.bidder" rv-on-click="talController.focusedQuickBid">Bid <span class="CCY" rv-html="talObject.focusedLot.bids.0.bid | nextIncrement"></span></button>
+			<div rv-if="talObject.auctionIsPaused">
+				<!-- @include '/assets/partials/messages/auctionPaused' -->
+			</div>
+			<div rv-unless="talObject.auctionIsPaused">
+				<button class="o-button--outline h-mb-50" rv-class-l-grid-half="talObject.focusedLot.maxBid.bidder | inversecompare talObject.bidder" rv-on-click="talController.toggleMaximumBidVisible">
+					<span rv-unless="talObject.focusedLot.maxBid.bidder | compare talObject.bidder">Set Maximum Bid</span>
+					<span rv-if="talObject.focusedLot.maxBid.bidder | compare talObject.bidder">Change Maximum Bid of <span class="CCY" rv-html="talObject.focusedLot.maxBid.bid | price">}</span></span>
+				</button>
+				<button class="o-button l-grid-half" rv-hide="talObject.focusedLot.maxBid.bidder | compare talObject.bidder" rv-disabled="talObject.focusedLot.bids.0.bidder | compare talObject.bidder" rv-on-click="talController.focusedQuickBid">Bid <span class="CCY" rv-html="talObject.focusedLot.bids.0.bid | nextIncrement"></span></button>
+			</div>
 		</div>
 	</div>
 </div>

@@ -10,7 +10,7 @@
     <meta charset="utf-8"> 
 </head>
 
-<body class="body js--tal CAD">
+<body class="body js--tal CAD" rv-on-keyup="talController.handleKeyboard">
 	
 	<div class="l-header">
 		<!-- @include '/assets/partials/header' -->	
@@ -23,7 +23,8 @@
 		<!-- @include '/assets/partials/bids' -->
 		<!-- @include '/assets/partials/purchases' -->
 		<!-- @include '/assets/partials/profile' -->
-		<div class="o-notification" rv-class-s-visible="talObject.scrollUpNoticeVisible">*Pssst* Sold lots are up here <i class="icon-keyboard_arrow_up icon-size--large h-ml-100"></i></div>
+		<!-- @include '/assets/partials/notifications' -->
+		<div class="o-notification_one-off" rv-class-s-visible="talObject.scrollUpNoticeVisible">*Pssst* Sold lots are up here <i class="icon-keyboard_arrow_up icon-size--large h-ml-100"></i></div>
 	</div> 
 	
 	<div class="l-nav--mobile-footer">

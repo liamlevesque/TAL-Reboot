@@ -21,6 +21,7 @@ const talObject = {
 			}
 		],
 
+		notifications: [],
 		auctionIsPaused: false,
 
 		increments: increments,

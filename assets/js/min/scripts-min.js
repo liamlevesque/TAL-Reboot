@@ -4991,6 +4991,7 @@ const talObject = {
 			}
 		],
 
+		notifications: [],
 		auctionIsPaused: false,
 
 		increments: increments,
@@ -5164,6 +5165,57 @@ const talController = {
 				if(bids[i].bidder === talObject.bidder) return true;
 			}
 			return false;
+		},
+
+		handleKeyboard: function(e){
+			if(e.which === 78) talController.sendInYardNotification();
+			if(e.which === 80) talController.sendPausedNotification();
+		},
+
+		sendInYardNotification: function(){
+			talController.createNotification('message','Lot 5122 Now in Yard','This lot is now available for bidding',true,'jumpToLot','Show Me')
+		},
+		
+		sendPausedNotification: function(){
+			talObject.auctionIsPaused = !talObject.auctionIsPaused;
+			if(talObject.auctionIsPaused) talController.createNotification('error','Auction Paused','Bidding will resume shortly',false,'','')
+			else talController.removeObjectByKeyValue(talObject.notifications,'type','error');
+		},
+
+		removeObjectByKeyValue: function(array,key,value){
+			for(var i = 0; i < array.length; i++) {
+				if(array[i][key] === value) {
+					array.splice(i, 1);
+					break;
+				}
+			}
+		},
+
+		handleNotificationAction: function(e,context){
+			let action = $(e.currentTarget).data('action');
+			talController[action](e,context);
+		},
+
+		jumpToLot: function(e,context){
+			$('.optiscroll-content').scrollTop($('#5122').offset().top);
+			talObject.notifications.splice(context.index,1);
+		},
+
+		createNotification: function(type, title, body, dismissable, action, actionText){
+			let notification = {
+				type: type,
+				title: title,
+				body: body,
+				dismissable: dismissable,
+				action: action,
+				actionText: actionText
+			};
+
+			talObject.notifications.push(notification);
+		},
+
+		dismissNotification: function(e,context){
+			talObject.notifications.splice(context.index,1);
 		},
 
         /******************************************

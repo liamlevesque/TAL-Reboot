@@ -10,7 +10,7 @@
     <meta charset="utf-8"> 
 </head>
 
-<body class="body js--tal CAD">
+<body class="body js--tal CAD" rv-on-keyup="talController.handleKeyboard">
 	
 	<div class="l-header">
 		<header class="h-overflow-hidden"> 
@@ -149,18 +149,24 @@
 						<li rv-each-lot="talObject.lots" rv-id="lot.lotNumber">
 							<div class="o-lot--action-controls" rv-class-s-confirming="lot.swipeQuickBidding">
 								<div rv-unless="lot.swipeQuickBidding">
-									
-									<button class="o-icon-label-button_large l-grid-quarter_mobile" rv-on-click="talController.dragQuickBid" rv-hide="lot.bids | highbidormaxbid talObject.bidder 'BIDDING'">
-										<i class="icon-check icon-size--large"></i><label for="">Quick Bid</label>
-									</button>
+									<div rv-if="talObject.auctionIsPaused">
+										<button class="o-icon-label-button_large l-grid-quarter_mobile l-grid-no-float" rv-on-click="talController.dragWatchLot" rv-class-s-active="lot.watching | indexof talObject.bidder">
+											<i class="icon-eye icon-size--large"></i><label for="">Watch</label>
+										</button>
+									</div>
+									<div rv-unless="talObject.auctionIsPaused">
+										<button class="o-icon-label-button_large l-grid-quarter_mobile" rv-on-click="talController.dragQuickBid" rv-hide="lot.bids | highbidormaxbid talObject.bidder 'BIDDING'">
+											<i class="icon-check icon-size--large"></i><label for="">Quick Bid</label>
+										</button>
 							
-									<button class="o-icon-label-button_large l-grid-quarter_mobile" rv-on-click="talController.dragMaxBid" rv-show="lot.bids | highbidormaxbid talObject.bidder 'BIDDING'">
-											<i class="icon-check icon-size--large"></i><label for=""><span rv-show="lot.bids | highbidormaxbid talObject.bidder 'MAXBID'">Change </span>Maximum Bid</label>
-									</button>
-									
-									<button class="o-icon-label-button_large l-grid-quarter_mobile l-grid-no-float" rv-on-click="talController.revealMoreActionsMobile" rv-unless="lot.moreActionsVisible">
-											<i class="icon-more_horiz icon-size--large"></i><label for="">More</label>
-									</button>
+										<button class="o-icon-label-button_large l-grid-quarter_mobile" rv-on-click="talController.dragMaxBid" rv-show="lot.bids | highbidormaxbid talObject.bidder 'BIDDING'">
+												<i class="icon-check icon-size--large"></i><label for=""><span rv-show="lot.bids | highbidormaxbid talObject.bidder 'MAXBID'">Change </span>Maximum Bid</label>
+										</button>
+										
+										<button class="o-icon-label-button_large l-grid-quarter_mobile l-grid-no-float" rv-on-click="talController.revealMoreActionsMobile" rv-unless="lot.moreActionsVisible">
+												<i class="icon-more_horiz icon-size--large"></i><label for="">More</label>
+										</button>
+									</div>
 									
 									<span rv-if="lot.moreActionsVisible">
 										
@@ -261,6 +267,8 @@
 												</div>
 											</div>
 										</div>
+							
+												
 										<div class="o-lot--bid-details l-grid-half h-hide-mobile" rv-if="lot.status | compare 'sold'">
 											<div class="bid-details--section bid-details--bid">
 												<div rv-if="lot.bids.0.bid | greaterthan 0">
@@ -282,22 +290,24 @@
 										</div>
 							
 										<div class="o-lot--bid-details l-grid-half h-hide-mobile" rv-on-click="talController.stopProp" rv-unless="lot.status | compare 'sold'">
-							
+										
 											<div>
-												<button class="l-grid-half o-icon-label-button" rv-on-click="talController.watchLot" rv-class-s-active="lot.watching | indexof talObject.bidder">
+												<button class="l-grid-half o-icon-label-button l-grid-no-float" rv-on-click="talController.watchLot" rv-class-s-active="lot.watching | indexof talObject.bidder">
 													<i class="icon-eye"></i><label for="">Watch<span rv-if="lot.watching | indexof talObject.bidder">ing</span></label>
 												</button>
+												
+												<span rv-unless="talObject.auctionIsPaused">
+													<button class="l-grid-half o-icon-label-button" rv-if="lot.group | lengthand talObject.isGroupChoosing" rv-on-click="talController.showGroupViewModalFromLot">View Group</button>
 							
-												<button class="l-grid-half o-icon-label-button" rv-if="lot.group | lengthand talObject.isGroupChoosing" rv-on-click="talController.showGroupViewModalFromLot">View Group</button>
-							
-												<button class="l-grid-half o-icon-label-button" rv-unless="lot.group | lengthand talObject.isGroupChoosing" rv-on-click="talController.createGroupBid" rv-class-s-active="lot.group | indexof talObject.tempGroup.uid">
-													<i class="icon-group-bid"></i>
-													<label rv-unless="talObject.isGroupChoosing">Group Bid</label>
-													<span rv-if="talObject.isGroupChoosing">
-														<label rv-unless="lot.group | indexof talObject.tempGroup.uid">Add To Group</label>
-														<label rv-if="lot.group | indexof talObject.tempGroup.uid">Remove from Group</label>
-													</span>
-												</button>
+													<button class="l-grid-half o-icon-label-button" rv-unless="lot.group | lengthand talObject.isGroupChoosing" rv-on-click="talController.createGroupBid" rv-class-s-active="lot.group | indexof talObject.tempGroup.uid">
+														<i class="icon-group-bid"></i>
+														<label rv-unless="talObject.isGroupChoosing">Group Bid</label>
+														<span rv-if="talObject.isGroupChoosing">
+															<label rv-unless="lot.group | indexof talObject.tempGroup.uid">Add To Group</label>
+															<label rv-if="lot.group | indexof talObject.tempGroup.uid">Remove from Group</label>
+														</span>
+													</button>
+												</span>
 											</div>
 							
 											<div class="bid-details--section bid-details--bid">
@@ -325,18 +335,22 @@
 												{talObject.time | countdownTimer lot.closes}
 												<div class="bid-details--caveat h-hide-mobile">{lot.closes | calendarTime}</div>
 											</div>
-							
-											<div class="bid-details--section" rv-unless="lot.group | lengthand talObject.isGroupChoosing">
-												<button class="o-button--outline h-mb-50 h-width-100" rv-on-click="talController.toggleMaximumBidVisible">
-													<span rv-unless="lot.maxBid.bidder | compare talObject.bidder">Set Maximum Bid</span>
-													<span rv-if="lot.maxBid.bidder | compare talObject.bidder">Change Maximum Bid of <span class="CCY" rv-html="lot.maxBid.bid | price">}</span></span>
-												</button>
-												<button class="o-button h-width-100" rv-hide="lot.maxBid.bidder | compare talObject.bidder" rv-disabled="lot.bids.0.bidder | compare talObject.bidder" rv-on-click="talController.quickBid">Bid <span class="CCY" rv-html="lot.bids.0.bid| nextIncrement"></span></button>
+											<div class="bid-details--section" rv-if="talObject.auctionIsPaused">
+												<span class="h-color-error"> The Auction is paused.<br/>You will be able to place bids again when it resumes. </span>
 											</div>
-											<div class="bid-details--section" rv-if="lot.group | lengthand talObject.isGroupChoosing">
-												<button class="o-button--outline h-mb-50 h-width-100" rv-on-click="talController.showGroupViewModalFromLot">
-													View or Edit This Group
-												</button>
+											<div class="bid-details--section" rv-unless="talObject.auctionIsPaused">
+												<div rv-unless="lot.group | lengthand talObject.isGroupChoosing">
+													<button class="o-button--outline h-mb-50 h-width-100" rv-on-click="talController.toggleMaximumBidVisible">
+														<span rv-unless="lot.maxBid.bidder | compare talObject.bidder">Set Maximum Bid</span>
+														<span rv-if="lot.maxBid.bidder | compare talObject.bidder">Change Maximum Bid of <span class="CCY" rv-html="lot.maxBid.bid | price">}</span></span>
+													</button>
+													<button class="o-button h-width-100" rv-hide="lot.maxBid.bidder | compare talObject.bidder" rv-disabled="lot.bids.0.bidder | compare talObject.bidder" rv-on-click="talController.quickBid">Bid <span class="CCY" rv-html="lot.bids.0.bid| nextIncrement"></span></button>
+												</div>
+												<div class="bid-details--section" rv-if="lot.group | lengthand talObject.isGroupChoosing">
+													<button class="o-button--outline h-mb-50 h-width-100" rv-on-click="talController.showGroupViewModalFromLot">
+														View or Edit This Group
+													</button>
+												</div>
 											</div>
 										</div>
 									</div>
@@ -354,18 +368,24 @@
 						<li rv-each-lot="talObject.categoryLots" rv-id="lot.lotNumber">
 							<div class="o-lot--action-controls" rv-class-s-confirming="lot.swipeQuickBidding">
 								<div rv-unless="lot.swipeQuickBidding">
-									
-									<button class="o-icon-label-button_large l-grid-quarter_mobile" rv-on-click="talController.dragQuickBid" rv-hide="lot.bids | highbidormaxbid talObject.bidder 'BIDDING'">
-										<i class="icon-check icon-size--large"></i><label for="">Quick Bid</label>
-									</button>
+									<div rv-if="talObject.auctionIsPaused">
+										<button class="o-icon-label-button_large l-grid-quarter_mobile l-grid-no-float" rv-on-click="talController.dragWatchLot" rv-class-s-active="lot.watching | indexof talObject.bidder">
+											<i class="icon-eye icon-size--large"></i><label for="">Watch</label>
+										</button>
+									</div>
+									<div rv-unless="talObject.auctionIsPaused">
+										<button class="o-icon-label-button_large l-grid-quarter_mobile" rv-on-click="talController.dragQuickBid" rv-hide="lot.bids | highbidormaxbid talObject.bidder 'BIDDING'">
+											<i class="icon-check icon-size--large"></i><label for="">Quick Bid</label>
+										</button>
 							
-									<button class="o-icon-label-button_large l-grid-quarter_mobile" rv-on-click="talController.dragMaxBid" rv-show="lot.bids | highbidormaxbid talObject.bidder 'BIDDING'">
-											<i class="icon-check icon-size--large"></i><label for=""><span rv-show="lot.bids | highbidormaxbid talObject.bidder 'MAXBID'">Change </span>Maximum Bid</label>
-									</button>
-									
-									<button class="o-icon-label-button_large l-grid-quarter_mobile l-grid-no-float" rv-on-click="talController.revealMoreActionsMobile" rv-unless="lot.moreActionsVisible">
-											<i class="icon-more_horiz icon-size--large"></i><label for="">More</label>
-									</button>
+										<button class="o-icon-label-button_large l-grid-quarter_mobile" rv-on-click="talController.dragMaxBid" rv-show="lot.bids | highbidormaxbid talObject.bidder 'BIDDING'">
+												<i class="icon-check icon-size--large"></i><label for=""><span rv-show="lot.bids | highbidormaxbid talObject.bidder 'MAXBID'">Change </span>Maximum Bid</label>
+										</button>
+										
+										<button class="o-icon-label-button_large l-grid-quarter_mobile l-grid-no-float" rv-on-click="talController.revealMoreActionsMobile" rv-unless="lot.moreActionsVisible">
+												<i class="icon-more_horiz icon-size--large"></i><label for="">More</label>
+										</button>
+									</div>
 									
 									<span rv-if="lot.moreActionsVisible">
 										
@@ -466,6 +486,8 @@
 												</div>
 											</div>
 										</div>
+							
+												
 										<div class="o-lot--bid-details l-grid-half h-hide-mobile" rv-if="lot.status | compare 'sold'">
 											<div class="bid-details--section bid-details--bid">
 												<div rv-if="lot.bids.0.bid | greaterthan 0">
@@ -487,22 +509,24 @@
 										</div>
 							
 										<div class="o-lot--bid-details l-grid-half h-hide-mobile" rv-on-click="talController.stopProp" rv-unless="lot.status | compare 'sold'">
-							
+										
 											<div>
-												<button class="l-grid-half o-icon-label-button" rv-on-click="talController.watchLot" rv-class-s-active="lot.watching | indexof talObject.bidder">
+												<button class="l-grid-half o-icon-label-button l-grid-no-float" rv-on-click="talController.watchLot" rv-class-s-active="lot.watching | indexof talObject.bidder">
 													<i class="icon-eye"></i><label for="">Watch<span rv-if="lot.watching | indexof talObject.bidder">ing</span></label>
 												</button>
+												
+												<span rv-unless="talObject.auctionIsPaused">
+													<button class="l-grid-half o-icon-label-button" rv-if="lot.group | lengthand talObject.isGroupChoosing" rv-on-click="talController.showGroupViewModalFromLot">View Group</button>
 							
-												<button class="l-grid-half o-icon-label-button" rv-if="lot.group | lengthand talObject.isGroupChoosing" rv-on-click="talController.showGroupViewModalFromLot">View Group</button>
-							
-												<button class="l-grid-half o-icon-label-button" rv-unless="lot.group | lengthand talObject.isGroupChoosing" rv-on-click="talController.createGroupBid" rv-class-s-active="lot.group | indexof talObject.tempGroup.uid">
-													<i class="icon-group-bid"></i>
-													<label rv-unless="talObject.isGroupChoosing">Group Bid</label>
-													<span rv-if="talObject.isGroupChoosing">
-														<label rv-unless="lot.group | indexof talObject.tempGroup.uid">Add To Group</label>
-														<label rv-if="lot.group | indexof talObject.tempGroup.uid">Remove from Group</label>
-													</span>
-												</button>
+													<button class="l-grid-half o-icon-label-button" rv-unless="lot.group | lengthand talObject.isGroupChoosing" rv-on-click="talController.createGroupBid" rv-class-s-active="lot.group | indexof talObject.tempGroup.uid">
+														<i class="icon-group-bid"></i>
+														<label rv-unless="talObject.isGroupChoosing">Group Bid</label>
+														<span rv-if="talObject.isGroupChoosing">
+															<label rv-unless="lot.group | indexof talObject.tempGroup.uid">Add To Group</label>
+															<label rv-if="lot.group | indexof talObject.tempGroup.uid">Remove from Group</label>
+														</span>
+													</button>
+												</span>
 											</div>
 							
 											<div class="bid-details--section bid-details--bid">
@@ -530,18 +554,22 @@
 												{talObject.time | countdownTimer lot.closes}
 												<div class="bid-details--caveat h-hide-mobile">{lot.closes | calendarTime}</div>
 											</div>
-							
-											<div class="bid-details--section" rv-unless="lot.group | lengthand talObject.isGroupChoosing">
-												<button class="o-button--outline h-mb-50 h-width-100" rv-on-click="talController.toggleMaximumBidVisible">
-													<span rv-unless="lot.maxBid.bidder | compare talObject.bidder">Set Maximum Bid</span>
-													<span rv-if="lot.maxBid.bidder | compare talObject.bidder">Change Maximum Bid of <span class="CCY" rv-html="lot.maxBid.bid | price">}</span></span>
-												</button>
-												<button class="o-button h-width-100" rv-hide="lot.maxBid.bidder | compare talObject.bidder" rv-disabled="lot.bids.0.bidder | compare talObject.bidder" rv-on-click="talController.quickBid">Bid <span class="CCY" rv-html="lot.bids.0.bid| nextIncrement"></span></button>
+											<div class="bid-details--section" rv-if="talObject.auctionIsPaused">
+												<span class="h-color-error"> The Auction is paused.<br/>You will be able to place bids again when it resumes. </span>
 											</div>
-											<div class="bid-details--section" rv-if="lot.group | lengthand talObject.isGroupChoosing">
-												<button class="o-button--outline h-mb-50 h-width-100" rv-on-click="talController.showGroupViewModalFromLot">
-													View or Edit This Group
-												</button>
+											<div class="bid-details--section" rv-unless="talObject.auctionIsPaused">
+												<div rv-unless="lot.group | lengthand talObject.isGroupChoosing">
+													<button class="o-button--outline h-mb-50 h-width-100" rv-on-click="talController.toggleMaximumBidVisible">
+														<span rv-unless="lot.maxBid.bidder | compare talObject.bidder">Set Maximum Bid</span>
+														<span rv-if="lot.maxBid.bidder | compare talObject.bidder">Change Maximum Bid of <span class="CCY" rv-html="lot.maxBid.bid | price">}</span></span>
+													</button>
+													<button class="o-button h-width-100" rv-hide="lot.maxBid.bidder | compare talObject.bidder" rv-disabled="lot.bids.0.bidder | compare talObject.bidder" rv-on-click="talController.quickBid">Bid <span class="CCY" rv-html="lot.bids.0.bid| nextIncrement"></span></button>
+												</div>
+												<div class="bid-details--section" rv-if="lot.group | lengthand talObject.isGroupChoosing">
+													<button class="o-button--outline h-mb-50 h-width-100" rv-on-click="talController.showGroupViewModalFromLot">
+														View or Edit This Group
+													</button>
+												</div>
 											</div>
 										</div>
 									</div>
@@ -574,18 +602,24 @@
 							<li rv-each-lot="talObject.watchingLots">
 								<div class="o-lot--action-controls" rv-class-s-confirming="lot.swipeQuickBidding">
 									<div rv-unless="lot.swipeQuickBidding">
-										
-										<button class="o-icon-label-button_large l-grid-quarter_mobile" rv-on-click="talController.dragQuickBid" rv-hide="lot.bids | highbidormaxbid talObject.bidder 'BIDDING'">
-											<i class="icon-check icon-size--large"></i><label for="">Quick Bid</label>
-										</button>
+										<div rv-if="talObject.auctionIsPaused">
+											<button class="o-icon-label-button_large l-grid-quarter_mobile l-grid-no-float" rv-on-click="talController.dragWatchLot" rv-class-s-active="lot.watching | indexof talObject.bidder">
+												<i class="icon-eye icon-size--large"></i><label for="">Watch</label>
+											</button>
+										</div>
+										<div rv-unless="talObject.auctionIsPaused">
+											<button class="o-icon-label-button_large l-grid-quarter_mobile" rv-on-click="talController.dragQuickBid" rv-hide="lot.bids | highbidormaxbid talObject.bidder 'BIDDING'">
+												<i class="icon-check icon-size--large"></i><label for="">Quick Bid</label>
+											</button>
 								
-										<button class="o-icon-label-button_large l-grid-quarter_mobile" rv-on-click="talController.dragMaxBid" rv-show="lot.bids | highbidormaxbid talObject.bidder 'BIDDING'">
-												<i class="icon-check icon-size--large"></i><label for=""><span rv-show="lot.bids | highbidormaxbid talObject.bidder 'MAXBID'">Change </span>Maximum Bid</label>
-										</button>
-										
-										<button class="o-icon-label-button_large l-grid-quarter_mobile l-grid-no-float" rv-on-click="talController.revealMoreActionsMobile" rv-unless="lot.moreActionsVisible">
-												<i class="icon-more_horiz icon-size--large"></i><label for="">More</label>
-										</button>
+											<button class="o-icon-label-button_large l-grid-quarter_mobile" rv-on-click="talController.dragMaxBid" rv-show="lot.bids | highbidormaxbid talObject.bidder 'BIDDING'">
+													<i class="icon-check icon-size--large"></i><label for=""><span rv-show="lot.bids | highbidormaxbid talObject.bidder 'MAXBID'">Change </span>Maximum Bid</label>
+											</button>
+											
+											<button class="o-icon-label-button_large l-grid-quarter_mobile l-grid-no-float" rv-on-click="talController.revealMoreActionsMobile" rv-unless="lot.moreActionsVisible">
+													<i class="icon-more_horiz icon-size--large"></i><label for="">More</label>
+											</button>
+										</div>
 										
 										<span rv-if="lot.moreActionsVisible">
 											
@@ -686,6 +720,8 @@
 													</div>
 												</div>
 											</div>
+								
+													
 											<div class="o-lot--bid-details l-grid-half h-hide-mobile" rv-if="lot.status | compare 'sold'">
 												<div class="bid-details--section bid-details--bid">
 													<div rv-if="lot.bids.0.bid | greaterthan 0">
@@ -707,22 +743,24 @@
 											</div>
 								
 											<div class="o-lot--bid-details l-grid-half h-hide-mobile" rv-on-click="talController.stopProp" rv-unless="lot.status | compare 'sold'">
-								
+											
 												<div>
-													<button class="l-grid-half o-icon-label-button" rv-on-click="talController.watchLot" rv-class-s-active="lot.watching | indexof talObject.bidder">
+													<button class="l-grid-half o-icon-label-button l-grid-no-float" rv-on-click="talController.watchLot" rv-class-s-active="lot.watching | indexof talObject.bidder">
 														<i class="icon-eye"></i><label for="">Watch<span rv-if="lot.watching | indexof talObject.bidder">ing</span></label>
 													</button>
+													
+													<span rv-unless="talObject.auctionIsPaused">
+														<button class="l-grid-half o-icon-label-button" rv-if="lot.group | lengthand talObject.isGroupChoosing" rv-on-click="talController.showGroupViewModalFromLot">View Group</button>
 								
-													<button class="l-grid-half o-icon-label-button" rv-if="lot.group | lengthand talObject.isGroupChoosing" rv-on-click="talController.showGroupViewModalFromLot">View Group</button>
-								
-													<button class="l-grid-half o-icon-label-button" rv-unless="lot.group | lengthand talObject.isGroupChoosing" rv-on-click="talController.createGroupBid" rv-class-s-active="lot.group | indexof talObject.tempGroup.uid">
-														<i class="icon-group-bid"></i>
-														<label rv-unless="talObject.isGroupChoosing">Group Bid</label>
-														<span rv-if="talObject.isGroupChoosing">
-															<label rv-unless="lot.group | indexof talObject.tempGroup.uid">Add To Group</label>
-															<label rv-if="lot.group | indexof talObject.tempGroup.uid">Remove from Group</label>
-														</span>
-													</button>
+														<button class="l-grid-half o-icon-label-button" rv-unless="lot.group | lengthand talObject.isGroupChoosing" rv-on-click="talController.createGroupBid" rv-class-s-active="lot.group | indexof talObject.tempGroup.uid">
+															<i class="icon-group-bid"></i>
+															<label rv-unless="talObject.isGroupChoosing">Group Bid</label>
+															<span rv-if="talObject.isGroupChoosing">
+																<label rv-unless="lot.group | indexof talObject.tempGroup.uid">Add To Group</label>
+																<label rv-if="lot.group | indexof talObject.tempGroup.uid">Remove from Group</label>
+															</span>
+														</button>
+													</span>
 												</div>
 								
 												<div class="bid-details--section bid-details--bid">
@@ -750,18 +788,22 @@
 													{talObject.time | countdownTimer lot.closes}
 													<div class="bid-details--caveat h-hide-mobile">{lot.closes | calendarTime}</div>
 												</div>
-								
-												<div class="bid-details--section" rv-unless="lot.group | lengthand talObject.isGroupChoosing">
-													<button class="o-button--outline h-mb-50 h-width-100" rv-on-click="talController.toggleMaximumBidVisible">
-														<span rv-unless="lot.maxBid.bidder | compare talObject.bidder">Set Maximum Bid</span>
-														<span rv-if="lot.maxBid.bidder | compare talObject.bidder">Change Maximum Bid of <span class="CCY" rv-html="lot.maxBid.bid | price">}</span></span>
-													</button>
-													<button class="o-button h-width-100" rv-hide="lot.maxBid.bidder | compare talObject.bidder" rv-disabled="lot.bids.0.bidder | compare talObject.bidder" rv-on-click="talController.quickBid">Bid <span class="CCY" rv-html="lot.bids.0.bid| nextIncrement"></span></button>
+												<div class="bid-details--section" rv-if="talObject.auctionIsPaused">
+													<span class="h-color-error"> The Auction is paused.<br/>You will be able to place bids again when it resumes. </span>
 												</div>
-												<div class="bid-details--section" rv-if="lot.group | lengthand talObject.isGroupChoosing">
-													<button class="o-button--outline h-mb-50 h-width-100" rv-on-click="talController.showGroupViewModalFromLot">
-														View or Edit This Group
-													</button>
+												<div class="bid-details--section" rv-unless="talObject.auctionIsPaused">
+													<div rv-unless="lot.group | lengthand talObject.isGroupChoosing">
+														<button class="o-button--outline h-mb-50 h-width-100" rv-on-click="talController.toggleMaximumBidVisible">
+															<span rv-unless="lot.maxBid.bidder | compare talObject.bidder">Set Maximum Bid</span>
+															<span rv-if="lot.maxBid.bidder | compare talObject.bidder">Change Maximum Bid of <span class="CCY" rv-html="lot.maxBid.bid | price">}</span></span>
+														</button>
+														<button class="o-button h-width-100" rv-hide="lot.maxBid.bidder | compare talObject.bidder" rv-disabled="lot.bids.0.bidder | compare talObject.bidder" rv-on-click="talController.quickBid">Bid <span class="CCY" rv-html="lot.bids.0.bid| nextIncrement"></span></button>
+													</div>
+													<div class="bid-details--section" rv-if="lot.group | lengthand talObject.isGroupChoosing">
+														<button class="o-button--outline h-mb-50 h-width-100" rv-on-click="talController.showGroupViewModalFromLot">
+															View or Edit This Group
+														</button>
+													</div>
 												</div>
 											</div>
 										</div>
@@ -793,18 +835,24 @@
 										<div rv-unless="lot.type | compare 'group'">
 											<div class="o-lot--action-controls" rv-class-s-confirming="lot.swipeQuickBidding">
 												<div rv-unless="lot.swipeQuickBidding">
-													
-													<button class="o-icon-label-button_large l-grid-quarter_mobile" rv-on-click="talController.dragQuickBid" rv-hide="lot.bids | highbidormaxbid talObject.bidder 'BIDDING'">
-														<i class="icon-check icon-size--large"></i><label for="">Quick Bid</label>
-													</button>
+													<div rv-if="talObject.auctionIsPaused">
+														<button class="o-icon-label-button_large l-grid-quarter_mobile l-grid-no-float" rv-on-click="talController.dragWatchLot" rv-class-s-active="lot.watching | indexof talObject.bidder">
+															<i class="icon-eye icon-size--large"></i><label for="">Watch</label>
+														</button>
+													</div>
+													<div rv-unless="talObject.auctionIsPaused">
+														<button class="o-icon-label-button_large l-grid-quarter_mobile" rv-on-click="talController.dragQuickBid" rv-hide="lot.bids | highbidormaxbid talObject.bidder 'BIDDING'">
+															<i class="icon-check icon-size--large"></i><label for="">Quick Bid</label>
+														</button>
 											
-													<button class="o-icon-label-button_large l-grid-quarter_mobile" rv-on-click="talController.dragMaxBid" rv-show="lot.bids | highbidormaxbid talObject.bidder 'BIDDING'">
-															<i class="icon-check icon-size--large"></i><label for=""><span rv-show="lot.bids | highbidormaxbid talObject.bidder 'MAXBID'">Change </span>Maximum Bid</label>
-													</button>
-													
-													<button class="o-icon-label-button_large l-grid-quarter_mobile l-grid-no-float" rv-on-click="talController.revealMoreActionsMobile" rv-unless="lot.moreActionsVisible">
-															<i class="icon-more_horiz icon-size--large"></i><label for="">More</label>
-													</button>
+														<button class="o-icon-label-button_large l-grid-quarter_mobile" rv-on-click="talController.dragMaxBid" rv-show="lot.bids | highbidormaxbid talObject.bidder 'BIDDING'">
+																<i class="icon-check icon-size--large"></i><label for=""><span rv-show="lot.bids | highbidormaxbid talObject.bidder 'MAXBID'">Change </span>Maximum Bid</label>
+														</button>
+														
+														<button class="o-icon-label-button_large l-grid-quarter_mobile l-grid-no-float" rv-on-click="talController.revealMoreActionsMobile" rv-unless="lot.moreActionsVisible">
+																<i class="icon-more_horiz icon-size--large"></i><label for="">More</label>
+														</button>
+													</div>
 													
 													<span rv-if="lot.moreActionsVisible">
 														
@@ -905,6 +953,8 @@
 																</div>
 															</div>
 														</div>
+											
+																
 														<div class="o-lot--bid-details l-grid-half h-hide-mobile" rv-if="lot.status | compare 'sold'">
 															<div class="bid-details--section bid-details--bid">
 																<div rv-if="lot.bids.0.bid | greaterthan 0">
@@ -926,22 +976,24 @@
 														</div>
 											
 														<div class="o-lot--bid-details l-grid-half h-hide-mobile" rv-on-click="talController.stopProp" rv-unless="lot.status | compare 'sold'">
-											
+														
 															<div>
-																<button class="l-grid-half o-icon-label-button" rv-on-click="talController.watchLot" rv-class-s-active="lot.watching | indexof talObject.bidder">
+																<button class="l-grid-half o-icon-label-button l-grid-no-float" rv-on-click="talController.watchLot" rv-class-s-active="lot.watching | indexof talObject.bidder">
 																	<i class="icon-eye"></i><label for="">Watch<span rv-if="lot.watching | indexof talObject.bidder">ing</span></label>
 																</button>
+																
+																<span rv-unless="talObject.auctionIsPaused">
+																	<button class="l-grid-half o-icon-label-button" rv-if="lot.group | lengthand talObject.isGroupChoosing" rv-on-click="talController.showGroupViewModalFromLot">View Group</button>
 											
-																<button class="l-grid-half o-icon-label-button" rv-if="lot.group | lengthand talObject.isGroupChoosing" rv-on-click="talController.showGroupViewModalFromLot">View Group</button>
-											
-																<button class="l-grid-half o-icon-label-button" rv-unless="lot.group | lengthand talObject.isGroupChoosing" rv-on-click="talController.createGroupBid" rv-class-s-active="lot.group | indexof talObject.tempGroup.uid">
-																	<i class="icon-group-bid"></i>
-																	<label rv-unless="talObject.isGroupChoosing">Group Bid</label>
-																	<span rv-if="talObject.isGroupChoosing">
-																		<label rv-unless="lot.group | indexof talObject.tempGroup.uid">Add To Group</label>
-																		<label rv-if="lot.group | indexof talObject.tempGroup.uid">Remove from Group</label>
-																	</span>
-																</button>
+																	<button class="l-grid-half o-icon-label-button" rv-unless="lot.group | lengthand talObject.isGroupChoosing" rv-on-click="talController.createGroupBid" rv-class-s-active="lot.group | indexof talObject.tempGroup.uid">
+																		<i class="icon-group-bid"></i>
+																		<label rv-unless="talObject.isGroupChoosing">Group Bid</label>
+																		<span rv-if="talObject.isGroupChoosing">
+																			<label rv-unless="lot.group | indexof talObject.tempGroup.uid">Add To Group</label>
+																			<label rv-if="lot.group | indexof talObject.tempGroup.uid">Remove from Group</label>
+																		</span>
+																	</button>
+																</span>
 															</div>
 											
 															<div class="bid-details--section bid-details--bid">
@@ -969,18 +1021,22 @@
 																{talObject.time | countdownTimer lot.closes}
 																<div class="bid-details--caveat h-hide-mobile">{lot.closes | calendarTime}</div>
 															</div>
-											
-															<div class="bid-details--section" rv-unless="lot.group | lengthand talObject.isGroupChoosing">
-																<button class="o-button--outline h-mb-50 h-width-100" rv-on-click="talController.toggleMaximumBidVisible">
-																	<span rv-unless="lot.maxBid.bidder | compare talObject.bidder">Set Maximum Bid</span>
-																	<span rv-if="lot.maxBid.bidder | compare talObject.bidder">Change Maximum Bid of <span class="CCY" rv-html="lot.maxBid.bid | price">}</span></span>
-																</button>
-																<button class="o-button h-width-100" rv-hide="lot.maxBid.bidder | compare talObject.bidder" rv-disabled="lot.bids.0.bidder | compare talObject.bidder" rv-on-click="talController.quickBid">Bid <span class="CCY" rv-html="lot.bids.0.bid| nextIncrement"></span></button>
+															<div class="bid-details--section" rv-if="talObject.auctionIsPaused">
+																<span class="h-color-error"> The Auction is paused.<br/>You will be able to place bids again when it resumes. </span>
 															</div>
-															<div class="bid-details--section" rv-if="lot.group | lengthand talObject.isGroupChoosing">
-																<button class="o-button--outline h-mb-50 h-width-100" rv-on-click="talController.showGroupViewModalFromLot">
-																	View or Edit This Group
-																</button>
+															<div class="bid-details--section" rv-unless="talObject.auctionIsPaused">
+																<div rv-unless="lot.group | lengthand talObject.isGroupChoosing">
+																	<button class="o-button--outline h-mb-50 h-width-100" rv-on-click="talController.toggleMaximumBidVisible">
+																		<span rv-unless="lot.maxBid.bidder | compare talObject.bidder">Set Maximum Bid</span>
+																		<span rv-if="lot.maxBid.bidder | compare talObject.bidder">Change Maximum Bid of <span class="CCY" rv-html="lot.maxBid.bid | price">}</span></span>
+																	</button>
+																	<button class="o-button h-width-100" rv-hide="lot.maxBid.bidder | compare talObject.bidder" rv-disabled="lot.bids.0.bidder | compare talObject.bidder" rv-on-click="talController.quickBid">Bid <span class="CCY" rv-html="lot.bids.0.bid| nextIncrement"></span></button>
+																</div>
+																<div class="bid-details--section" rv-if="lot.group | lengthand talObject.isGroupChoosing">
+																	<button class="o-button--outline h-mb-50 h-width-100" rv-on-click="talController.showGroupViewModalFromLot">
+																		View or Edit This Group
+																	</button>
+																</div>
 															</div>
 														</div>
 													</div>
@@ -1056,18 +1112,24 @@
 											<li rv-each-lot="talObject.purchasedLots">
 												<div class="o-lot--action-controls" rv-class-s-confirming="lot.swipeQuickBidding">
 													<div rv-unless="lot.swipeQuickBidding">
-														
-														<button class="o-icon-label-button_large l-grid-quarter_mobile" rv-on-click="talController.dragQuickBid" rv-hide="lot.bids | highbidormaxbid talObject.bidder 'BIDDING'">
-															<i class="icon-check icon-size--large"></i><label for="">Quick Bid</label>
-														</button>
+														<div rv-if="talObject.auctionIsPaused">
+															<button class="o-icon-label-button_large l-grid-quarter_mobile l-grid-no-float" rv-on-click="talController.dragWatchLot" rv-class-s-active="lot.watching | indexof talObject.bidder">
+																<i class="icon-eye icon-size--large"></i><label for="">Watch</label>
+															</button>
+														</div>
+														<div rv-unless="talObject.auctionIsPaused">
+															<button class="o-icon-label-button_large l-grid-quarter_mobile" rv-on-click="talController.dragQuickBid" rv-hide="lot.bids | highbidormaxbid talObject.bidder 'BIDDING'">
+																<i class="icon-check icon-size--large"></i><label for="">Quick Bid</label>
+															</button>
 												
-														<button class="o-icon-label-button_large l-grid-quarter_mobile" rv-on-click="talController.dragMaxBid" rv-show="lot.bids | highbidormaxbid talObject.bidder 'BIDDING'">
-																<i class="icon-check icon-size--large"></i><label for=""><span rv-show="lot.bids | highbidormaxbid talObject.bidder 'MAXBID'">Change </span>Maximum Bid</label>
-														</button>
-														
-														<button class="o-icon-label-button_large l-grid-quarter_mobile l-grid-no-float" rv-on-click="talController.revealMoreActionsMobile" rv-unless="lot.moreActionsVisible">
-																<i class="icon-more_horiz icon-size--large"></i><label for="">More</label>
-														</button>
+															<button class="o-icon-label-button_large l-grid-quarter_mobile" rv-on-click="talController.dragMaxBid" rv-show="lot.bids | highbidormaxbid talObject.bidder 'BIDDING'">
+																	<i class="icon-check icon-size--large"></i><label for=""><span rv-show="lot.bids | highbidormaxbid talObject.bidder 'MAXBID'">Change </span>Maximum Bid</label>
+															</button>
+															
+															<button class="o-icon-label-button_large l-grid-quarter_mobile l-grid-no-float" rv-on-click="talController.revealMoreActionsMobile" rv-unless="lot.moreActionsVisible">
+																	<i class="icon-more_horiz icon-size--large"></i><label for="">More</label>
+															</button>
+														</div>
 														
 														<span rv-if="lot.moreActionsVisible">
 															
@@ -1168,6 +1230,8 @@
 																	</div>
 																</div>
 															</div>
+												
+																	
 															<div class="o-lot--bid-details l-grid-half h-hide-mobile" rv-if="lot.status | compare 'sold'">
 																<div class="bid-details--section bid-details--bid">
 																	<div rv-if="lot.bids.0.bid | greaterthan 0">
@@ -1189,22 +1253,24 @@
 															</div>
 												
 															<div class="o-lot--bid-details l-grid-half h-hide-mobile" rv-on-click="talController.stopProp" rv-unless="lot.status | compare 'sold'">
-												
+															
 																<div>
-																	<button class="l-grid-half o-icon-label-button" rv-on-click="talController.watchLot" rv-class-s-active="lot.watching | indexof talObject.bidder">
+																	<button class="l-grid-half o-icon-label-button l-grid-no-float" rv-on-click="talController.watchLot" rv-class-s-active="lot.watching | indexof talObject.bidder">
 																		<i class="icon-eye"></i><label for="">Watch<span rv-if="lot.watching | indexof talObject.bidder">ing</span></label>
 																	</button>
+																	
+																	<span rv-unless="talObject.auctionIsPaused">
+																		<button class="l-grid-half o-icon-label-button" rv-if="lot.group | lengthand talObject.isGroupChoosing" rv-on-click="talController.showGroupViewModalFromLot">View Group</button>
 												
-																	<button class="l-grid-half o-icon-label-button" rv-if="lot.group | lengthand talObject.isGroupChoosing" rv-on-click="talController.showGroupViewModalFromLot">View Group</button>
-												
-																	<button class="l-grid-half o-icon-label-button" rv-unless="lot.group | lengthand talObject.isGroupChoosing" rv-on-click="talController.createGroupBid" rv-class-s-active="lot.group | indexof talObject.tempGroup.uid">
-																		<i class="icon-group-bid"></i>
-																		<label rv-unless="talObject.isGroupChoosing">Group Bid</label>
-																		<span rv-if="talObject.isGroupChoosing">
-																			<label rv-unless="lot.group | indexof talObject.tempGroup.uid">Add To Group</label>
-																			<label rv-if="lot.group | indexof talObject.tempGroup.uid">Remove from Group</label>
-																		</span>
-																	</button>
+																		<button class="l-grid-half o-icon-label-button" rv-unless="lot.group | lengthand talObject.isGroupChoosing" rv-on-click="talController.createGroupBid" rv-class-s-active="lot.group | indexof talObject.tempGroup.uid">
+																			<i class="icon-group-bid"></i>
+																			<label rv-unless="talObject.isGroupChoosing">Group Bid</label>
+																			<span rv-if="talObject.isGroupChoosing">
+																				<label rv-unless="lot.group | indexof talObject.tempGroup.uid">Add To Group</label>
+																				<label rv-if="lot.group | indexof talObject.tempGroup.uid">Remove from Group</label>
+																			</span>
+																		</button>
+																	</span>
 																</div>
 												
 																<div class="bid-details--section bid-details--bid">
@@ -1232,18 +1298,22 @@
 																	{talObject.time | countdownTimer lot.closes}
 																	<div class="bid-details--caveat h-hide-mobile">{lot.closes | calendarTime}</div>
 																</div>
-												
-																<div class="bid-details--section" rv-unless="lot.group | lengthand talObject.isGroupChoosing">
-																	<button class="o-button--outline h-mb-50 h-width-100" rv-on-click="talController.toggleMaximumBidVisible">
-																		<span rv-unless="lot.maxBid.bidder | compare talObject.bidder">Set Maximum Bid</span>
-																		<span rv-if="lot.maxBid.bidder | compare talObject.bidder">Change Maximum Bid of <span class="CCY" rv-html="lot.maxBid.bid | price">}</span></span>
-																	</button>
-																	<button class="o-button h-width-100" rv-hide="lot.maxBid.bidder | compare talObject.bidder" rv-disabled="lot.bids.0.bidder | compare talObject.bidder" rv-on-click="talController.quickBid">Bid <span class="CCY" rv-html="lot.bids.0.bid| nextIncrement"></span></button>
+																<div class="bid-details--section" rv-if="talObject.auctionIsPaused">
+																	<span class="h-color-error"> The Auction is paused.<br/>You will be able to place bids again when it resumes. </span>
 																</div>
-																<div class="bid-details--section" rv-if="lot.group | lengthand talObject.isGroupChoosing">
-																	<button class="o-button--outline h-mb-50 h-width-100" rv-on-click="talController.showGroupViewModalFromLot">
-																		View or Edit This Group
-																	</button>
+																<div class="bid-details--section" rv-unless="talObject.auctionIsPaused">
+																	<div rv-unless="lot.group | lengthand talObject.isGroupChoosing">
+																		<button class="o-button--outline h-mb-50 h-width-100" rv-on-click="talController.toggleMaximumBidVisible">
+																			<span rv-unless="lot.maxBid.bidder | compare talObject.bidder">Set Maximum Bid</span>
+																			<span rv-if="lot.maxBid.bidder | compare talObject.bidder">Change Maximum Bid of <span class="CCY" rv-html="lot.maxBid.bid | price">}</span></span>
+																		</button>
+																		<button class="o-button h-width-100" rv-hide="lot.maxBid.bidder | compare talObject.bidder" rv-disabled="lot.bids.0.bidder | compare talObject.bidder" rv-on-click="talController.quickBid">Bid <span class="CCY" rv-html="lot.bids.0.bid| nextIncrement"></span></button>
+																	</div>
+																	<div class="bid-details--section" rv-if="lot.group | lengthand talObject.isGroupChoosing">
+																		<button class="o-button--outline h-mb-50 h-width-100" rv-on-click="talController.showGroupViewModalFromLot">
+																			View or Edit This Group
+																		</button>
+																	</div>
 																</div>
 															</div>
 														</div>
@@ -1323,7 +1393,15 @@
 											</div>
 										
 										</div>
-		<div class="o-notification" rv-class-s-visible="talObject.scrollUpNoticeVisible">*Pssst* Sold lots are up here <i class="icon-keyboard_arrow_up icon-size--large h-ml-100"></i></div>
+		<div class="c-notification-container" rv-class-s-visible="talObject.notifications | length">
+												    <div class="o-notification" rv-each-notification="talObject.notifications" rv-data-index="index" rv-class-s-error="notification.type | compare 'error'">
+												        <h3 class="h3">{ notification.title }</h3>
+												        <p>{ notification.body }</p>
+												        <button class="o-button" rv-if="notification.action" rv-data-action="notification.action" rv-on-click="talController.handleNotificationAction">{notification.actionText}</button>
+												        <button class="o-icon-button--medium o-notifications--dismiss" rv-if="notification.dismissable" rv-on-click="talController.dismissNotification"><i class="icon-close"></i></button>
+												    </div>
+												</div>
+		<div class="o-notification_one-off" rv-class-s-visible="talObject.scrollUpNoticeVisible">*Pssst* Sold lots are up here <i class="icon-keyboard_arrow_up icon-size--large h-ml-100"></i></div>
 	</div> 
 	
 	<div class="l-nav--mobile-footer">
@@ -1412,12 +1490,14 @@
 				
 								<div class="o-lot--bid-details h-mb-100" rv-unless="talObject.focusedLot.status | compare 'sold'">
 									<div class="h-overflow-hidden">
-										<button class="l-grid-half l-grid-half_mobile o-icon-label-button" rv-on-click="talController.watchFocusedLot" rv-class-s-active="talObject.focusedLot.watching | indexof talObject.bidder">
+										<button class="l-grid-half l-grid-half_mobile o-icon-label-button l-grid-no-float" rv-on-click="talController.watchFocusedLot" rv-class-s-active="talObject.focusedLot.watching | indexof talObject.bidder">
 											<i class="icon-eye"></i><label for="">Watch<span rv-if="talObject.focusedLot.watching | indexof talObject.bidder">ing</span></label>
 										</button>
-										<button class="l-grid-half l-grid-half_mobile o-icon-label-button" rv-on-click="talController.dismissAndGroupBid" rv-unless="talObject.focusedLot.group | lengthand talObject.isGroupChoosing">
-											<i class="icon-group-bid"></i><label for="">Group Bid</label>
-										</button>
+										<span rv-unless="talObject.auctionIsPaused">
+											<button class="l-grid-half l-grid-half_mobile o-icon-label-button l-grid-last" rv-on-click="talController.dismissAndGroupBid" rv-unless="talObject.focusedLot.group | lengthand talObject.isGroupChoosing">
+												<i class="icon-group-bid"></i><label for="">Group Bid</label>
+											</button>
+										</span>
 									</div>
 									
 									<div class="bid-details--section bid-details--bid">
@@ -1477,11 +1557,16 @@
 						</div>
 			</div>
 			<div class="c-modal--footer h-ta-center" rv-unless="talObject.focusedLot.status | compare 'sold'">
-				<button class="o-button--outline h-mb-50" rv-class-l-grid-half="talObject.focusedLot.maxBid.bidder | inversecompare talObject.bidder" rv-on-click="talController.toggleMaximumBidVisible">
-					<span rv-unless="talObject.focusedLot.maxBid.bidder | compare talObject.bidder">Set Maximum Bid</span>
-					<span rv-if="talObject.focusedLot.maxBid.bidder | compare talObject.bidder">Change Maximum Bid of <span class="CCY" rv-html="talObject.focusedLot.maxBid.bid | price">}</span></span>
-				</button>
-				<button class="o-button l-grid-half" rv-hide="talObject.focusedLot.maxBid.bidder | compare talObject.bidder" rv-disabled="talObject.focusedLot.bids.0.bidder | compare talObject.bidder" rv-on-click="talController.focusedQuickBid">Bid <span class="CCY" rv-html="talObject.focusedLot.bids.0.bid | nextIncrement"></span></button>
+				<div rv-if="talObject.auctionIsPaused">
+					<span class="h-color-error"> The Auction is paused.<br/>You will be able to place bids again when it resumes. </span>
+				</div>
+				<div rv-unless="talObject.auctionIsPaused">
+					<button class="o-button--outline h-mb-50" rv-class-l-grid-half="talObject.focusedLot.maxBid.bidder | inversecompare talObject.bidder" rv-on-click="talController.toggleMaximumBidVisible">
+						<span rv-unless="talObject.focusedLot.maxBid.bidder | compare talObject.bidder">Set Maximum Bid</span>
+						<span rv-if="talObject.focusedLot.maxBid.bidder | compare talObject.bidder">Change Maximum Bid of <span class="CCY" rv-html="talObject.focusedLot.maxBid.bid | price">}</span></span>
+					</button>
+					<button class="o-button l-grid-half" rv-hide="talObject.focusedLot.maxBid.bidder | compare talObject.bidder" rv-disabled="talObject.focusedLot.bids.0.bidder | compare talObject.bidder" rv-on-click="talController.focusedQuickBid">Bid <span class="CCY" rv-html="talObject.focusedLot.bids.0.bid | nextIncrement"></span></button>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -1636,12 +1721,14 @@
 							
 											<div class="o-lot--bid-details h-mb-100" rv-unless="talObject.focusedLot.status | compare 'sold'">
 												<div class="h-overflow-hidden">
-													<button class="l-grid-half l-grid-half_mobile o-icon-label-button" rv-on-click="talController.watchFocusedLot" rv-class-s-active="talObject.focusedLot.watching | indexof talObject.bidder">
+													<button class="l-grid-half l-grid-half_mobile o-icon-label-button l-grid-no-float" rv-on-click="talController.watchFocusedLot" rv-class-s-active="talObject.focusedLot.watching | indexof talObject.bidder">
 														<i class="icon-eye"></i><label for="">Watch<span rv-if="talObject.focusedLot.watching | indexof talObject.bidder">ing</span></label>
 													</button>
-													<button class="l-grid-half l-grid-half_mobile o-icon-label-button" rv-on-click="talController.dismissAndGroupBid" rv-unless="talObject.focusedLot.group | lengthand talObject.isGroupChoosing">
-														<i class="icon-group-bid"></i><label for="">Group Bid</label>
-													</button>
+													<span rv-unless="talObject.auctionIsPaused">
+														<button class="l-grid-half l-grid-half_mobile o-icon-label-button l-grid-last" rv-on-click="talController.dismissAndGroupBid" rv-unless="talObject.focusedLot.group | lengthand talObject.isGroupChoosing">
+															<i class="icon-group-bid"></i><label for="">Group Bid</label>
+														</button>
+													</span>
 												</div>
 												
 												<div class="bid-details--section bid-details--bid">
